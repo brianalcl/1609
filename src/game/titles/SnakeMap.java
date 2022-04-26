@@ -5,8 +5,10 @@ import game.Map;
 
 public class SnakeMap extends Map{
 
-	public SnakeMap(Game game) {
-		super(game);
+	public SnakeMap(SnakeGame snakeGame) {
+		super(snakeGame);
 	}
-
+	
+	
+	
 }

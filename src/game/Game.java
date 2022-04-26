@@ -1,6 +1,7 @@
 package game;
 
 import gui.GeneralGamePanel;
+import imageFactory.ImageFactory;
 import threads.Watch;
 
 public abstract class Game {
@@ -13,12 +14,12 @@ public abstract class Game {
 	protected int points;
 	protected boolean gameOver;
 	
-	public Game() {
+	public Game(GeneralGamePanel panel) {
 		this.seconds = 0;
 		this.level = 1;
 		this.points = 0;
 		this.gameOver = false;
-		this.panel = null;
+		this.panel = panel;
 		this.map = null;
 		
 	}
@@ -28,11 +29,11 @@ public abstract class Game {
 		this.panel.setTime("");
 		this.panel.setLevel(level+"");
 		this.watch = new Watch(this, 1000);
-		start();
+		//start(); TODO
 	}
 	
 	public void changeCell(Cell cell) {
-		//TODO hacer despues
+		panel.changeCell(cell.getGraphicCell(), cell.getRow(), cell.getColumn());
 	}
 	
 	public void addPoints(int points) {
@@ -66,12 +67,23 @@ public abstract class Game {
 				.append(" : ")
 				.append(String.format("%02d", sec))
 				.toString();
-		panel.setTime(res); System.out.println(res);
+		panel.setTime(res); System.out.println(res); //TODO eliminar
 	}
 	
 	public boolean isGameOver() {
 		return gameOver;
 	}
 	
-
+	public ImageFactory getImageFactory() {
+		return panel.getImageFactory();
+	}
+	
+	public void moveUp() {
+	}
+	public void moveDown() {
+	}
+	public void moveRight() {
+	}
+	public void moveLeft() {
+	}
 }

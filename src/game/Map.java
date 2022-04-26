@@ -1,16 +1,19 @@
 package game;
 
+import java.awt.Color;
+
 import imageFactory.ImageFactory;
 
 public abstract class Map {
-	protected final int ROW = 9;
-	protected final int COLUMN = 16;
+	public static final int ROW = 9;
+	public static final int COLUMN = 16;
 	protected Cell[][] matrix;
 	protected Game game;
 	protected GraphicCell freeCell;
 	
 	public Map(Game game) {
 		this.game = game;
+		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getEmptyColor());
 		matrix = new Cell[ROW][COLUMN];
 		for(int r = 0; r < ROW; r++) {
 			for(int c = 0; c < COLUMN; c++) {
@@ -31,4 +34,5 @@ public abstract class Map {
 	public void changeCell(Cell cell) {
 		game.changeCell(cell);
 	}
+	
 }

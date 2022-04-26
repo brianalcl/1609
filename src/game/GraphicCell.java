@@ -16,7 +16,7 @@ public class GraphicCell extends JLabel{
 		this.color = color;
 		setImagen(this.icon, this.color);
 	}
-	
+
 	public void setImagen(Icon icon, Color color) {
 		setIcon(icon);
 		setBackground(color);

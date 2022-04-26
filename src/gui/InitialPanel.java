@@ -19,6 +19,6 @@ public class InitialPanel extends GeneralPanel{
 		btnNewButton.addActionListener(e -> startSnake());
 	}
 	private void startSnake() {
-		gui.setPanel(new SnakePanel(gui));
+		gui.setPanel(new SnakePanel(this.gui));
 	}
 }

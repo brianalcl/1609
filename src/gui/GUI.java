@@ -8,12 +8,13 @@ import imageFactory.ImageFactory;
 public class GUI extends JFrame {
 	
 	protected ImageFactory factory;
+	protected JPanel panel;
 	
 	public GUI(ImageFactory factory) {
 		this.factory = factory;
+		panel = new JPanel();
 		initialize();
 		setVisible(true);
-		
 	}
 
 	private void initialize() {
@@ -22,16 +23,20 @@ public class GUI extends JFrame {
 		setResizable(false);
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().add(panel);
 		setPanel(new InitialPanel(this));
 	}
 	
 	public void setPanel(JPanel p) {
-		getContentPane().removeAll();
-		getContentPane().add(p);
+		getContentPane().remove(panel);
+		panel = p;
+		getContentPane().add(panel);
+		validate();
 		repaint();
 	}
 	
 	public ImageFactory getImageFactory() {
 		return factory;
 	}
+	
 }

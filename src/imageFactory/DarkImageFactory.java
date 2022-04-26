@@ -1,5 +1,7 @@
 package imageFactory;
 
+import java.awt.Color;
+
 import javax.swing.Icon;
 
 public class DarkImageFactory extends ImageFactory{
@@ -13,5 +15,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getSquircle() {
 		return getIcon("/res/img/darkSquircle.png");
+	}
+	
+	public Icon getEmpty() {
+		return getIcon("/res/img/darkEmpty.png");
+	}
+
+	public Color getEmptyColor() {
+		return new Color(0,0,25);
 	}
 }
