@@ -15,12 +15,14 @@ public abstract class Map {
 		this.game = game;
 		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getEmptyColor());
 		matrix = new Cell[ROW][COLUMN];
+		
 		for(int r = 0; r < ROW; r++) {
 			for(int c = 0; c < COLUMN; c++) {
 				matrix[r][c] = new Cell(r, c, this);
-				matrix[r][c].pop();
+				matrix[r][c].clear();
 			}
 		}
+		
 	}
 	
 	public Cell getCell(int r, int c) {

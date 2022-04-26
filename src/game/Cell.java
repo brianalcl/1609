@@ -18,13 +18,13 @@ public class Cell {
 		return gc;
 	}
 	
-	public void push(GraphicCell gc) {
+	public void put(GraphicCell gc) {
 		free = false;
 		this.gc = gc;
 		map.changeCell(this);
 	}
 	
-	public void pop() {
+	public void clear() {
 		free = true;
 		this.gc = map.getFreeCell();
 		map.changeCell(this);

@@ -50,7 +50,7 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		panel.setBackground(gui.getImageFactory().getEmptyColor());
 		add(panel);
 		
-		for(int r = 0; r < Map.ROW; r++) 
+		for(int r = Map.ROW-1; r >= 0; r--) 
 			for(int c = 0; c < Map.COLUMN; c++) {
 				matrix[r][c] = new JLabel();
 				matrix[r][c].setOpaque(true);
