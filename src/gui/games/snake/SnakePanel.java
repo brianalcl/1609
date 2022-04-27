@@ -11,15 +11,17 @@ import javax.swing.KeyStroke;
 
 import gui.GUI;
 import gui.GeneralGamePanel;
-
+import game.Game;
 import game.titles.SnakeGame;
 
 
 public class SnakePanel extends GeneralGamePanel{
 	
+	protected SnakeGame game;
+	
 	public SnakePanel(GUI gui) {
 		super(gui);
-		this.game = new SnakeGame(this);
+		game = new SnakeGame(this);
 		setBackground(new Color(0, 100, 100));
 		addControls();
 	}
@@ -85,18 +87,18 @@ public class SnakePanel extends GeneralGamePanel{
 	}
 	
 	private void moveUp() {
-		game.moveUp(); 
+		game.setDirection(Game.MOVE_UP);
 	}
 
 	private void moveRight() {
-		game.moveRight();
+		game.setDirection(Game.MOVE_RIGHT);
 	}
 
 	private void moveDown() {
-		game.moveDown();
+		game.setDirection(Game.MOVE_DOWN);
 	}
 
 	private void moveLeft() {
-		game.moveLeft();
+		game.setDirection(Game.MOVE_LEFT);
 	}
 }

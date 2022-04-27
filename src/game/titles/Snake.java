@@ -15,6 +15,7 @@ public class Snake {
 	protected SnakeMap map;
 	protected GraphicCell representation;
 	protected int direction;
+	protected boolean isSetDirection;
 	
 	public Snake(SnakeMap map, ImageFactory imageFactory) {
 		this.snake = new LinkedList<>();
@@ -22,6 +23,7 @@ public class Snake {
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(imageFactory.getSquircle(), imageFactory.getColor1());
 		this.direction = Game.MOVE_LEFT;
+		this.isSetDirection = false;
 		
 		snake.addFirst(this.map.getCell(4, 15));
 		snake.element().put(representation);
@@ -58,16 +60,21 @@ public class Snake {
 		return res;
 	}
 	
+	public synchronized void setDirection(int direction) {
+		if(!isSetDirection) {
+			isPosibleDirection(direction);
+			isSetDirection = true;
+		}
+	}
+	
 	public int getDirection() {
 		return direction;
 	}
 	
 	protected boolean move(int r1, int c1) {
 		boolean crash = false;
-		Cell first = snake.getFirst();
-		Cell last = snake.getLast();
-		int r = first.getRow() + r1;
-		int c = first.getColumn() + c1;
+		int r = snake.getFirst().getRow() + r1;
+		int c = snake.getFirst().getColumn() + c1;
 		Cell newCell = null;
 		
 		if( r < 0 || r >= Map.ROW || c < 0 || c >= Map.COLUMN) 
@@ -77,14 +84,13 @@ public class Snake {
 		
 		if(!crash && (newCell.isFree() || map.isFood(newCell))) {
 			if(map.isFood(newCell)) {
+				newCell.put(representation);
 				snake.addFirst(newCell);
-				snake.getFirst().put(representation);
 				map.putFood();
 			}
 			else{
-				last.clear();
+				newCell.put(representation);
 				snake.addFirst(newCell);
-				snake.getFirst().put(representation);
 				snake.removeLast().clear();
 			}
 		}
@@ -92,35 +98,28 @@ public class Snake {
 			crash = true;
 		}
 		
+		if(!crash) {
+			isSetDirection = false;
+		}
+		
 		return !crash;
 	}
 	
 	public boolean moveUp() {
-		if(isPosibleDirection(Game.MOVE_UP)) 
-			return move(1,0);
-		else
-			return true;
+		return move(1,0);
 	}
 	
 	public boolean moveDown() {
-		if(isPosibleDirection(Game.MOVE_DOWN)) 
-			return move(-1, 0);
-		else
-			return true;
+		return move(-1, 0);
+
 	}
 	
 	public boolean moveLeft() {
-		if(isPosibleDirection(Game.MOVE_LEFT)) 
-			return move(0, -1);
-		else
-			return true;
+		return move(0, -1);
 	}
 	
 	public boolean moveRight() {
-		if(isPosibleDirection(Game.MOVE_RIGHT)) 
-			return move(0, 1);
-		else
-			return true;
+		return move(0, 1);
 	}
 	
 }

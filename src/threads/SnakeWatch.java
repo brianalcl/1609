@@ -14,26 +14,13 @@ public class SnakeWatch extends Thread{
 		this.active = true;
 	}
 	
-	public void setStep(int step) {
-		this.step=step;
-	}
-	
-	public void sleep(int step) {
-		try {
-			Thread.sleep(step);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	@Override
 	public void run() {
 		while(this.active) { 
 			try {
-				Thread.sleep(step);
 				game.run();
+				Thread.sleep(step);
 				this.active = true;
-				
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				e.printStackTrace();

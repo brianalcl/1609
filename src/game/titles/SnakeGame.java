@@ -11,8 +11,7 @@ public class SnakeGame extends Game{
 	public SnakeGame(SnakePanel snakePanel) {
 		super(snakePanel);
 		this.snake = new Snake(new SnakeMap(this), snakePanel.getImageFactory());
-		this.snakeWatch = new SnakeWatch(this, 1000);
-		snakeWatch = new SnakeWatch(this, 300);
+		this.snakeWatch = new SnakeWatch(this, 200);
 		snakeWatch.start();
 	}
 	
@@ -32,6 +31,10 @@ public class SnakeGame extends Game{
 			moveLeft();
 			break;
 		}
+	}
+	
+	public void setDirection(int direction) {
+		snake.setDirection(direction);
 	}
 	
 	public void moveUp() {

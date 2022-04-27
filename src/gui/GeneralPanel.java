@@ -7,7 +7,7 @@ public abstract class GeneralPanel extends JPanel{
 	public GeneralPanel(GUI gui) {
 		this.gui = gui;
 		//setSize(gui.getImageFactory().getScreenResolution()); TODO
-		setSize(1280, 720);
+		setSize(1920, 1080);
 		setLocation(0, 0);
 		setLayout(null);
 	}

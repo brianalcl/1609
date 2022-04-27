@@ -13,7 +13,6 @@ import java.awt.GridLayout;
 
 public abstract class GeneralGamePanel extends GeneralPanel{
 	
-	protected Game game;
 	private JLabel[][] matrix;
 	private JPanel panel;
 	protected JLabel lbl;
@@ -27,7 +26,7 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		lbl.setSize(gui.getImageFactory().getScreenResolution());
 		lbl.setIcon(gui.getImageFactory().getMap());		
 		//TODO SACAR ENTRE LINEAS INI
-		ImageFactory f = new DarkImageFactory(1280, 720);
+		ImageFactory f = new DarkImageFactory(1920, 1080);
 		lbl = new JLabel("");
 		lbl.setSize(f.getScreenResolution());
 		lbl.setIcon(f.getMap());	
