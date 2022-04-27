@@ -4,6 +4,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 import game.Cell;
+import game.Game;
 import game.GraphicCell;
 import game.Map;
 import imageFactory.ImageFactory;
@@ -11,102 +12,115 @@ import imageFactory.ImageFactory;
 public class Snake {
 	protected Deque<Cell> snake;
 	protected ImageFactory imageFactory;
-	protected Map map;
+	protected SnakeMap map;
 	protected GraphicCell representation;
+	protected int direction;
 	
-	public Snake(Map map, ImageFactory imageFactory) {
+	public Snake(SnakeMap map, ImageFactory imageFactory) {
 		this.snake = new LinkedList<>();
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(imageFactory.getSquircle(), new java.awt.Color(100,0,100));
+		this.representation = new GraphicCell(imageFactory.getSquircle(), imageFactory.getColor1());
+		this.direction = Game.MOVE_LEFT;
 		
-		snake.addFirst(this.map.getCell(2, 0));
+		snake.addFirst(this.map.getCell(4, 15));
 		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(1, 0));
+		snake.addFirst(this.map.getCell(4, 14));
 		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 0));
+		snake.addFirst(this.map.getCell(4, 13));
 		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 1));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 2));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 3));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 4));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 5));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 6));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 7));
-		snake.element().put(representation);
-		snake.addFirst(this.map.getCell(0, 8));
-		snake.element().put(representation);
+		
+		this.map.putFood();
 	}
 	
-	public void move(Cell cell, int r, int c) {
-			cell.clear();
-			snake.addFirst(map.getCell(r, c));
-			snake.element().put(representation);
-			snake.removeLast().clear();
-	}
-	
-	public void moveUp() {
-		boolean crash = false;
+	protected boolean isPosibleDirection(int direction) {
+		boolean res = true;
 		
-		Cell first = snake.getFirst();
-		Cell last = snake.getLast();
-		int r = first.getRow() + 1;
-		int c = first.getColumn();
-		
-		if((r >= Map.ROW) || (!map.getCell(r, c).isFree()))
-			crash = true;
-		else {
-			move(last, r,c);
+		switch (direction) {
+		case Game.MOVE_UP:
+			res = this.direction != Game.MOVE_DOWN;
+			break;
+		case Game.MOVE_DOWN:
+			res = this.direction != Game.MOVE_UP;
+			break;
+		case Game.MOVE_RIGHT:
+			res = this.direction != Game.MOVE_LEFT;
+			break;
+		case Game.MOVE_LEFT:
+			res = this.direction != Game.MOVE_RIGHT;
+			break;
 		}
 		
+		if(res) {
+			this.direction = direction;
+		}
+		
+		return res;
 	}
 	
-	public void moveDown() {
+	public int getDirection() {
+		return direction;
+	}
+	
+	protected boolean move(int r1, int c1) {
 		boolean crash = false;
 		Cell first = snake.getFirst();
 		Cell last = snake.getLast();
-		int r = first.getRow() - 1;
-		int c = first.getColumn();
+		int r = first.getRow() + r1;
+		int c = first.getColumn() + c1;
+		Cell newCell = null;
 		
-		if((r < 0) || (!map.getCell(r, c).isFree()))
+		if( r < 0 || r >= Map.ROW || c < 0 || c >= Map.COLUMN) 
 			crash = true;
-		else {
-			move(last, r,c);
+		else
+			newCell = map.getCell(r, c);
+		
+		if(!crash && (newCell.isFree() || map.isFood(newCell))) {
+			if(map.isFood(newCell)) {
+				snake.addFirst(newCell);
+				snake.getFirst().put(representation);
+				map.putFood();
+			}
+			else{
+				last.clear();
+				snake.addFirst(newCell);
+				snake.getFirst().put(representation);
+				snake.removeLast().clear();
+			}
 		}
+		else {
+			crash = true;
+		}
+		
+		return !crash;
 	}
 	
-	public void moveLeft() {
-		boolean crash = false;
-		Cell first = snake.getFirst();
-		Cell last = snake.getLast();
-		int r = first.getRow();
-		int c = first.getColumn() - 1;
-		
-		if((c < 0) || (!map.getCell(r, c).isFree()))
-			crash = true;
-		else {
-			move(last, r,c);
-		}
+	public boolean moveUp() {
+		if(isPosibleDirection(Game.MOVE_UP)) 
+			return move(1,0);
+		else
+			return true;
 	}
 	
-	public void moveRight() {
-		boolean crash = false;
-		Cell first = snake.getFirst();
-		Cell last = snake.getLast();
-		int r = first.getRow();
-		int c = first.getColumn() + 1;
-		
-		if((c >= Map.COLUMN) || (!map.getCell(r, c).isFree()))
-			crash = true;
-		else {
-			move(last, r,c);
-		}
+	public boolean moveDown() {
+		if(isPosibleDirection(Game.MOVE_DOWN)) 
+			return move(-1, 0);
+		else
+			return true;
+	}
+	
+	public boolean moveLeft() {
+		if(isPosibleDirection(Game.MOVE_LEFT)) 
+			return move(0, -1);
+		else
+			return true;
+	}
+	
+	public boolean moveRight() {
+		if(isPosibleDirection(Game.MOVE_RIGHT)) 
+			return move(0, 1);
+		else
+			return true;
 	}
 	
 }

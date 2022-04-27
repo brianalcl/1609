@@ -5,8 +5,11 @@ import imageFactory.ImageFactory;
 import threads.Watch;
 
 public abstract class Game {
+	public static final int MOVE_UP = 8;
+	public static final int MOVE_DOWN = 2;
+	public static final int MOVE_LEFT = 4;
+	public static final int MOVE_RIGHT = 6;
 	
-	protected Map map;
 	protected GeneralGamePanel panel;
 	protected Watch watch;
 	protected int seconds;
@@ -20,7 +23,6 @@ public abstract class Game {
 		this.points = 0;
 		this.gameOver = false;
 		this.panel = panel;
-		this.map = null;
 		
 	}
 	
@@ -29,7 +31,7 @@ public abstract class Game {
 		this.panel.setTime("");
 		this.panel.setLevel(level+"");
 		this.watch = new Watch(this, 1000);
-		//start(); TODO
+		start();
 	}
 	
 	public void changeCell(Cell cell) {
@@ -77,6 +79,8 @@ public abstract class Game {
 	public ImageFactory getImageFactory() {
 		return panel.getImageFactory();
 	}
+	
+	public void win() {}
 	
 	public void moveUp() {
 	}
