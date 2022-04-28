@@ -44,4 +44,11 @@ public class SnakeMap extends Map{
 			game.win();
 	}
 	
+	public void crash() {
+		if (totalOccupiedCells == ROW*COLUMN)
+			game.win();
+		else
+			game.lose();
+	}
+	
 }

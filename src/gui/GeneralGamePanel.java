@@ -1,5 +1,6 @@
 package gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import game.Game;
@@ -8,7 +9,10 @@ import imageFactory.DarkImageFactory;
 import imageFactory.ImageFactory;
 import javax.swing.JPanel;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.SystemColor;
 
 
 public abstract class GeneralGamePanel extends GeneralPanel{
@@ -16,6 +20,9 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	private JLabel[][] matrix;
 	private JPanel panel;
 	protected JLabel lbl;
+	private JLabel lblTime;
+	private JLabel lblLevel;
+	private JLabel lblScore;
 	
 	public GeneralGamePanel(GUI gui) {
 		super(gui);
@@ -26,22 +33,69 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		lbl.setSize(gui.getImageFactory().getScreenResolution());
 		lbl.setIcon(gui.getImageFactory().getMap());		
 		//TODO SACAR ENTRE LINEAS INI
-		ImageFactory f = new DarkImageFactory(1920, 1080);
+		ImageFactory f = new DarkImageFactory(1280, 720);
 		lbl = new JLabel("");
 		lbl.setSize(f.getScreenResolution());
-		lbl.setIcon(f.getMap());	
+		lbl.setIcon(f.getMap());
+		setBackground(new Color(0,80,80));
 		//TODO SACAR ENTRE LINEAS FIN
 		add(lbl);
+		createLabels();
+		
 		
 	}
 	
+	private void createLabels() {
+		Font fontLabels;
+		
+		lblTime = new JLabel("Time: 00:00");
+		lblLevel = new JLabel("Level:");
+		lblScore = new JLabel("Score: 00000");		
+		
+		
+		if(gui.getImageFactory().getScreenResolution().getWidth() == ImageFactory.DEFAULT_WIDTH) {
+			lblTime.setBounds(160, 30, 500, 100);
+			lblLevel.setBounds(710, 30, 500, 100);
+			lblScore.setBounds(1260, 30, 500, 100);
+			fontLabels = font.deriveFont(81f);
+		}
+		else {
+			lblTime.setBounds(107, 20, 333, 66);
+			lblLevel.setBounds(474, 20, 333, 66);
+			lblScore.setBounds(841, 20, 333, 66);
+			fontLabels = font.deriveFont(54f);
+		}
+		
+		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblTime.setFont(fontLabels);
+		lblLevel.setFont(fontLabels);
+		lblScore.setFont(fontLabels);
+		lblTime.setForeground(gui.getImageFactory().getForegroundColor());
+		lblLevel.setForeground(gui.getImageFactory().getForegroundColor());
+		lblScore.setForeground(gui.getImageFactory().getForegroundColor());
+		add(lblTime);
+		add(lblLevel);
+		add(lblScore);
+	}
 	
 	private void createCentralPanel() {
-		repaint();
+		//repaint();
+//		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
+//		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
+//		int panelWidth = (int) width * 800 / ImageFactory.DEFAULT_WIDTH;
+//		int panelHeight = (int) height * 450 / ImageFactory.DEFAULT_HEIGHT;
+		
 		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
 		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
-		int panelWidth = (int) width * 800 / ImageFactory.DEFAULT_WIDTH;
-		int panelHeight = (int) height * 450 / ImageFactory.DEFAULT_HEIGHT;
+		//TODO
+		width = 1280;
+		height = 720;
+		//TODO
+		int panelWidth = (int) 800;
+		int panelHeight = (int) 450;
+		
 		
 		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
 		panel.setSize(panelWidth, panelHeight);
@@ -57,19 +111,16 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 			}
 	}
 
-	public void setPoints(String string) {
-		// TODO Auto-generated method stub
-		
+	public void setPoints(String score) {
+		lblScore.setText("Score: " + score);	
 	}
 
-	public void setTime(String res) {
-		// TODO Auto-generated method stub
-		
+	public void setTime(String time) {
+		lblTime.setText("Time: " + time);
 	}
 
-	public void setLevel(String string) {
-		// TODO Auto-generated method stub
-		
+	public void setLevel(String level) {
+		lblLevel.setText("Level: " + level);
 	}
 
 	public void changeCell(JLabel graphicCell, int row, int column) {

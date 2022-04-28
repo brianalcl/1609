@@ -2,7 +2,11 @@ package imageFactory;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Image;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 import javax.swing.Icon;
@@ -25,22 +29,37 @@ public abstract class ImageFactory {
 		return new Dimension(screenWidth, screenHeight);
 	}
 	
-	protected ImageIcon getIcon(String path) {
+	protected ImageIcon getIcon(String path, int screenWidth, int screenHeight) {
 		ImageIcon icon = new ImageIcon(ImageFactory.class.getResource(path));
-		return scale(icon);
+		return scale(icon, screenWidth, screenHeight);
 	}	
 	
-	protected ImageIcon scale(ImageIcon imageIcon) {
+	protected ImageIcon scale(ImageIcon imageIcon, int screenWidth, int screenHeight) {
 		int width = screenWidth * imageIcon.getIconWidth() / DEFAULT_WIDTH;
 		int height = screenHeight * imageIcon.getIconHeight() / DEFAULT_HEIGHT;
 		return new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
 	}
+	
+	public Font getFont() {
+		Font font = null;
+		try {
+			InputStream is =  getClass().getResourceAsStream("/res/font/futurespore.ttf");
+			font = Font.createFont(Font.TRUETYPE_FONT, is);
+		} catch (IOException | FontFormatException ex) {
+			System.out.println("ERROR: FONT NOT FOUND");
+		}
+		
+		return font;
+	}
+	
 	
 	public abstract Color getColorRandom();
 	
 	public abstract Color getColor1();	
 	
 	public abstract Color getColor2();
+	
+	public abstract Color getForegroundColor();
 	
 	public abstract Icon getMap();
 	
@@ -50,5 +69,5 @@ public abstract class ImageFactory {
 	
 	public abstract Color getEmptyColor();
 	
-
+	
 }

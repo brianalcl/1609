@@ -19,19 +19,12 @@ public abstract class Game {
 	
 	public Game(GeneralGamePanel panel) {
 		this.seconds = 0;
-		this.level = 1;
+		this.level = 0;
 		this.points = 0;
 		this.gameOver = false;
 		this.panel = panel;
-		
-	}
-	
-	protected void initialize() {
-		this.panel.setPoints(points+"");
-		this.panel.setTime("");
-		this.panel.setLevel(level+"");
-		this.watch = new Watch(this, 1000);
-		start();
+		this.watch = new Watch(this);
+		this.watch.start();
 	}
 	
 	public void changeCell(Cell cell) {
@@ -40,7 +33,7 @@ public abstract class Game {
 	
 	public void addPoints(int points) {
 		this.points += points;
-		panel.setPoints(this.points+"");
+		panel.setPoints(String.format("%05d", this.points));
 	}
 	
 	public int getPoints() {
@@ -56,20 +49,16 @@ public abstract class Game {
 		return level;
 	}
 	
-	public void start() {
-		watch.start();
-	}
-	
 	public void addSecond() {
 		seconds++;
 		int sec = seconds;
 		int min = sec / 60;
 		sec = sec % 60;
 		String res = new StringBuilder(String.format("%02d", min))
-				.append(" : ")
+				.append(":")
 				.append(String.format("%02d", sec))
 				.toString();
-		panel.setTime(res); System.out.println(res); //TODO eliminar
+		panel.setTime(res);
 	}
 	
 	public boolean isGameOver() {
@@ -80,14 +69,16 @@ public abstract class Game {
 		return panel.getImageFactory();
 	}
 	
-	public void win() {}
-	
-	public void moveUp() {
+	public void win() {
+		gameOver = true;
+		System.out.println("WIN");
 	}
-	public void moveDown() {
+	public void lose() {
+		gameOver = true;
+		System.out.println("LOSE");
 	}
-	public void moveRight() {
-	}
-	public void moveLeft() {
-	}
+	public void moveUp() {}
+	public void moveDown() {}
+	public void moveRight() {}
+	public void moveLeft() {}
 }

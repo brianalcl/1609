@@ -10,15 +10,14 @@ public class DarkImageFactory extends ImageFactory{
 	}
 	
 	public Icon getMap() {
-		return getIcon("/res/img/darkMap.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getIcon("/res/img/darkMap.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		else
+			return getIcon("/res/img/darkMap720.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 	
 	public Icon getSquircle() {
-		return getIcon("/res/img/darkSquircle.png");
-	}
-	
-	public Icon getEmpty() {
-		return getIcon("/res/img/darkEmpty.png");
+		return getIcon("/res/img/darkSquircle.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 
 	public Color getEmptyColor() {
@@ -44,5 +43,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Color getColor2() {
 		return new Color(150,150,0);
+	}
+	
+	public Color getForegroundColor() {
+		return new Color(200, 200, 200);
+	}
+	
+	public Icon getEmpty() {
+		return null;
 	}
 }

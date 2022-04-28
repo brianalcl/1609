@@ -37,4 +37,15 @@ public abstract class Map {
 		game.changeCell(cell);
 	}
 	
+	public void addPoints(int points) {
+		game.addPoints(points);
+	}
+	
+	public void win() {
+		game.win();
+	}
+	
+	public void lose() {
+		game.lose();
+	}
 }

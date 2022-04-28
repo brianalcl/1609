@@ -87,11 +87,12 @@ public class Snake {
 				newCell.put(representation);
 				snake.addFirst(newCell);
 				map.putFood();
+				map.addPoints(100);
 			}
 			else{
 				newCell.put(representation);
 				snake.addFirst(newCell);
-				snake.removeLast().clear();
+				snake.removeLast().clear();  
 			}
 		}
 		else {
@@ -105,21 +106,24 @@ public class Snake {
 		return !crash;
 	}
 	
-	public boolean moveUp() {
-		return move(1,0);
+	public void moveUp() {
+		if(!move(1,0))
+			map.crash();
 	}
 	
-	public boolean moveDown() {
-		return move(-1, 0);
-
+	public void moveDown() {
+		if(!move(-1, 0))
+			map.crash();
 	}
 	
-	public boolean moveLeft() {
-		return move(0, -1);
+	public void moveLeft() {
+		if(!move(0, -1))
+			map.crash();
 	}
 	
-	public boolean moveRight() {
-		return move(0, 1);
+	public void moveRight() {
+		if(!move(0, 1))
+			map.crash();
 	}
 	
 }

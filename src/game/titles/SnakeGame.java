@@ -12,7 +12,7 @@ public class SnakeGame extends Game{
 		super(snakePanel);
 		this.snake = new Snake(new SnakeMap(this), snakePanel.getImageFactory());
 		this.snakeWatch = new SnakeWatch(this, 200);
-		snakeWatch.start();
+		this.snakeWatch.start();
 	}
 	
 	public synchronized void run() {
@@ -38,27 +38,16 @@ public class SnakeGame extends Game{
 	}
 	
 	public void moveUp() {
-		boolean res = snake.moveUp();
-		if(!res)
-			System.out.println("CHOQUE_UP");
+		snake.moveUp();
 	}
 	public void moveDown() {
-		boolean res = snake.moveDown();
-		if(!res)
-			System.out.println("CHOQUE_DOWN");
+		snake.moveDown();
 	}
 	public void moveRight() {
-		boolean res = snake.moveRight();
-		if(!res)
-			System.out.println("CHOQUE_RIGHT");
+		snake.moveRight();
 	}
 	public void moveLeft() {
-		boolean res = snake.moveLeft();
-		if(!res)
-			System.out.println("CHOQUE_LEFT");
+		snake.moveLeft();
 	}
 	
-	public void win() {
-		System.out.println("WIN");
-	}
 }

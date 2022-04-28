@@ -22,7 +22,7 @@ public class SnakePanel extends GeneralGamePanel{
 	public SnakePanel(GUI gui) {
 		super(gui);
 		game = new SnakeGame(this);
-		setBackground(new Color(0, 100, 100));
+		setBackground(new Color(0, 80, 80));
 		addControls();
 	}
 	
