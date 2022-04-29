@@ -1,4 +1,4 @@
-package game;
+package general.logic;
 
 public abstract class Map {
 	public static final int ROW = 9;

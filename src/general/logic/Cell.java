@@ -1,4 +1,4 @@
-package game;
+package general.logic;
 
 public class Cell {
 	protected int row;

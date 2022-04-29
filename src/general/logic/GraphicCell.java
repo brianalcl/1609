@@ -1,4 +1,4 @@
-package game;
+package general.logic;
 
 import java.awt.Color;
 

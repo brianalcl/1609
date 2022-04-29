@@ -1,6 +1,6 @@
-package threads;
+package general.threads;
 
-import game.Game;
+import general.logic.Game;
 
 public class Watch extends Thread{
 	protected Game game;

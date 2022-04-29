@@ -1,6 +1,6 @@
 package main;
 
-import gui.GUI;
+import general.gui.GUI;
 import imageFactory.DarkImageFactory;
 
 public class Launcher {

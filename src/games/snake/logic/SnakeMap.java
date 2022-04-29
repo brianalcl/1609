@@ -2,9 +2,9 @@ package games.snake.logic;
 
 import java.util.Random;
 
-import game.Cell;
-import game.GraphicCell;
-import game.Map;
+import general.logic.Cell;
+import general.logic.GraphicCell;
+import general.logic.Map;
 
 public class SnakeMap extends Map{
 

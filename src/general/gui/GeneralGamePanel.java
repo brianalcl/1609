@@ -1,11 +1,13 @@
-package gui;
+package general.gui;
 
 import javax.swing.JLabel;
 
-import game.Map;
 import imageFactory.DarkImageFactory;
 import imageFactory.ImageFactory;
+
 import javax.swing.JPanel;
+
+import general.logic.Map;
 
 import java.awt.Color;
 import java.awt.Font;

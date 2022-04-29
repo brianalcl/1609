@@ -9,10 +9,10 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
-import gui.GUI;
-import gui.GeneralGamePanel;
-import game.Game;
 import games.snake.logic.SnakeGame;
+import general.gui.GUI;
+import general.gui.GeneralGamePanel;
+import general.logic.Game;
 
 
 public class SnakePanel extends GeneralGamePanel{

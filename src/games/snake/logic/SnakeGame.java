@@ -1,9 +1,9 @@
 package games.snake.logic;
 
 
-import game.Game;
 import games.snake.gui.SnakePanel;
 import games.snake.threads.SnakeWatch;
+import general.logic.Game;
 
 public class SnakeGame extends Game{
 	protected Snake snake;

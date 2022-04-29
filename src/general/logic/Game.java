@@ -1,8 +1,8 @@
-package game;
+package general.logic;
 
-import gui.GeneralGamePanel;
+import general.gui.GeneralGamePanel;
+import general.threads.Watch;
 import imageFactory.ImageFactory;
-import threads.Watch;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;

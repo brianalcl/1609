@@ -3,10 +3,10 @@ package games.snake.logic;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import game.Cell;
-import game.Game;
-import game.GraphicCell;
-import game.Map;
+import general.logic.Cell;
+import general.logic.Game;
+import general.logic.GraphicCell;
+import general.logic.Map;
 import imageFactory.ImageFactory;
 
 public class Snake {
