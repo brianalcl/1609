@@ -1,9 +1,8 @@
-package game.titles;
+package games.snake.logic;
 
 import java.util.Random;
 
 import game.Cell;
-import game.Game;
 import game.GraphicCell;
 import game.Map;
 
@@ -30,25 +29,20 @@ public class SnakeMap extends Map{
 		int c = 0;
 		boolean stop = false;
 		
-		while(!stop) { 
-			r = Math.abs(rndRow.nextInt()) % 9;
-			c = Math.abs(rndColumn.nextInt()) % 16;
-			if(matrix[r][c].isFree()) {
-				food = matrix[r][c];
-				food.put(new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorRandom()));
-				stop = true;
-				totalOccupiedCells++;
-			}
-		}
 		if(totalOccupiedCells == ROW * COLUMN)
 			game.win();
-	}
-	
-	public void crash() {
-		if (totalOccupiedCells == ROW*COLUMN)
-			game.win();
-		else
-			game.lose();
+		else {
+			while(!stop) { 
+				r = Math.abs(rndRow.nextInt()) % 9;
+				c = Math.abs(rndColumn.nextInt()) % 16;
+				if(matrix[r][c].isFree()) {
+					food = matrix[r][c];
+					food.put(new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorRandom()));
+					stop = true;
+					totalOccupiedCells++;
+				}
+			}
+		}
 	}
 	
 }

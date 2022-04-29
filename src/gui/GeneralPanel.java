@@ -20,7 +20,7 @@ public abstract class GeneralPanel extends JPanel{
 		//font = gui.getImageFactory().getFont();
 		
 		try {
-			InputStream is =  getClass().getResourceAsStream("/res/font/futurespore.ttf");
+			InputStream is =  getClass().getResourceAsStream("/assets/font/futurespore.ttf");
 			font = Font.createFont(Font.TRUETYPE_FONT, is);
 		} catch (IOException | FontFormatException ex) {
 			System.out.println("ERROR: FONT NOT FOUND");

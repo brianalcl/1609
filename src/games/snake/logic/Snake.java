@@ -1,4 +1,4 @@
-package game.titles;
+package games.snake.logic;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -108,22 +108,22 @@ public class Snake {
 	
 	public void moveUp() {
 		if(!move(1,0))
-			map.crash();
+			map.lose();
 	}
 	
 	public void moveDown() {
 		if(!move(-1, 0))
-			map.crash();
+			map.lose();
 	}
 	
 	public void moveLeft() {
 		if(!move(0, -1))
-			map.crash();
+			map.lose();
 	}
 	
 	public void moveRight() {
 		if(!move(0, 1))
-			map.crash();
+			map.lose();
 	}
 	
 }

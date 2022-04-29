@@ -1,9 +1,5 @@
 package game;
 
-import java.awt.Color;
-
-import imageFactory.ImageFactory;
-
 public abstract class Map {
 	public static final int ROW = 9;
 	public static final int COLUMN = 16;

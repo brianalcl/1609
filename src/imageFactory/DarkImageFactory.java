@@ -11,13 +11,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getMap() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getIcon("/res/img/darkMap.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+			return getIcon("/assets/img/darkMap.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		else
-			return getIcon("/res/img/darkMap720.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+			return getIcon("/assets/img/darkMap720.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 	
 	public Icon getSquircle() {
-		return getIcon("/res/img/darkSquircle.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		return getIcon("/assets/img/darkSquircle.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 
 	public Color getEmptyColor() {

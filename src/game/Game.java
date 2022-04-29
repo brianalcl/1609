@@ -6,9 +6,10 @@ import threads.Watch;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;
+	public static final int MOVE_RIGHT = 6;
 	public static final int MOVE_DOWN = 2;
 	public static final int MOVE_LEFT = 4;
-	public static final int MOVE_RIGHT = 6;
+	public static final int SPACE = 5;
 	
 	protected GeneralGamePanel panel;
 	protected Watch watch;
@@ -36,17 +37,9 @@ public abstract class Game {
 		panel.setPoints(String.format("%05d", this.points));
 	}
 	
-	public int getPoints() {
-		return points;
-	}
-	
 	public void addLevel() {
 		level++;
-		panel.setLevel(level+"");
-	}
-	
-	public int getLevel() {
-		return level;
+		panel.setLevel(String.format("%02d", this.level));
 	}
 	
 	public void addSecond() {
@@ -71,14 +64,15 @@ public abstract class Game {
 	
 	public void win() {
 		gameOver = true;
-		System.out.println("WIN");
 	}
+	
 	public void lose() {
 		gameOver = true;
-		System.out.println("LOSE");
 	}
+	
 	public void moveUp() {}
 	public void moveDown() {}
 	public void moveRight() {}
 	public void moveLeft() {}
+	public void moveSpace() {}
 }

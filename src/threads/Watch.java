@@ -10,18 +10,16 @@ public class Watch extends Thread{
 	public Watch(Game game) {
 		this.game = game;
 		this.step = 1000;
-		active = !game.isGameOver();
+		this.active = !game.isGameOver();
 	}
 	
 	@Override
 	public void run() {
-		while(this.active) { 
+		while(active) { 
 			try {
-				
 				Thread.sleep(step);
 				game.addSecond();
-				this.active = !game.isGameOver();
-				
+				active = !game.isGameOver();
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				e.printStackTrace();
@@ -29,9 +27,6 @@ public class Watch extends Thread{
 		}
 	}
 	
-	/**
-	 * Detiene el reloj.
-	 */
 	public void stopWatch() {
 		this.active = false;
 	}

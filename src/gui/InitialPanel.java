@@ -2,7 +2,7 @@ package gui;
 import java.awt.Color;
 import javax.swing.JPanel;
 
-import gui.games.snake.SnakePanel;
+import games.snake.gui.SnakePanel;
 
 import javax.swing.JButton;
 import javax.swing.AbstractAction;

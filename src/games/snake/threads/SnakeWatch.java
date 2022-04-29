@@ -1,7 +1,6 @@
-package threads;
+package games.snake.threads;
 
-import game.titles.Snake;
-import game.titles.SnakeGame;
+import games.snake.logic.SnakeGame;
 
 public class SnakeWatch extends Thread{
 	protected SnakeGame game;
@@ -11,16 +10,16 @@ public class SnakeWatch extends Thread{
 	public SnakeWatch(SnakeGame game, int step) {
 		this.game = game;
 		this.step = step;
-		this.active = true;
+		this.active = !game.isGameOver();
 	}
 	
 	@Override
 	public void run() {
-		while(this.active) { 
-			try {
-				game.run();
+		while(active) { 
+			try {	
 				Thread.sleep(step);
-				this.active = true;
+				game.run();
+				active = !game.isGameOver();
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				e.printStackTrace();
@@ -28,9 +27,6 @@ public class SnakeWatch extends Thread{
 		}
 	}
 	
-	/**
-	 * Detiene el reloj.
-	 */
 	public void stopWatch() {
 		this.active = false;
 	}

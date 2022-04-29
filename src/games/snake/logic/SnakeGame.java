@@ -1,9 +1,9 @@
-package game.titles;
+package games.snake.logic;
 
 
 import game.Game;
-import gui.games.snake.SnakePanel;
-import threads.SnakeWatch;
+import games.snake.gui.SnakePanel;
+import games.snake.threads.SnakeWatch;
 
 public class SnakeGame extends Game{
 	protected Snake snake;
@@ -50,4 +50,14 @@ public class SnakeGame extends Game{
 		snake.moveLeft();
 	}
 	
+	public void win() {
+		super.win();
+		System.out.println("WIN");
+	}
+	
+	public void lose() {
+		super.win();
+		System.out.println("LOSE");
+	}
+
 }

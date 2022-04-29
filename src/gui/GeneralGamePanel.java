@@ -1,9 +1,7 @@
 package gui;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import game.Game;
 import game.Map;
 import imageFactory.DarkImageFactory;
 import imageFactory.ImageFactory;
@@ -12,7 +10,6 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.SystemColor;
 
 
 public abstract class GeneralGamePanel extends GeneralPanel{
@@ -37,7 +34,6 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		lbl = new JLabel("");
 		lbl.setSize(f.getScreenResolution());
 		lbl.setIcon(f.getMap());
-		setBackground(new Color(0,80,80));
 		//TODO SACAR ENTRE LINEAS FIN
 		add(lbl);
 		createLabels();
@@ -49,7 +45,7 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		Font fontLabels;
 		
 		lblTime = new JLabel("Time: 00:00");
-		lblLevel = new JLabel("Level:");
+		lblLevel = new JLabel("Level: 00");
 		lblScore = new JLabel("Score: 00000");		
 		
 		

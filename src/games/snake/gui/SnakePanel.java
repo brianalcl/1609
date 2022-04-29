@@ -1,4 +1,4 @@
-package gui.games.snake;
+package games.snake.gui;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import javax.swing.KeyStroke;
 import gui.GUI;
 import gui.GeneralGamePanel;
 import game.Game;
-import game.titles.SnakeGame;
+import games.snake.logic.SnakeGame;
 
 
 public class SnakePanel extends GeneralGamePanel{
