@@ -13,18 +13,10 @@ public abstract class GeneralPanel extends JPanel{
 	
 	public GeneralPanel(GUI gui) {
 		this.gui = gui;
-		//setSize(gui.getImageFactory().getScreenResolution());
-		setSize(1280, 720);
+		setSize(gui.getImageFactory().getScreenResolution());
 		setLocation(0, 0);
 		setLayout(null);
-		//font = gui.getImageFactory().getFont();
-		
-		try {
-			InputStream is =  getClass().getResourceAsStream("/assets/font/futurespore.ttf");
-			font = Font.createFont(Font.TRUETYPE_FONT, is);
-		} catch (IOException | FontFormatException ex) {
-			System.out.println("ERROR: FONT NOT FOUND");
-		}
+		font = gui.getImageFactory().getFont();
 		
 	}
 }

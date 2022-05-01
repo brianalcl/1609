@@ -55,7 +55,7 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorRandom();
 	
-	public abstract Color getColor1();	
+	public abstract Color getColorCyan();	
 	
 	public abstract Color getColor2();
 	
@@ -69,5 +69,7 @@ public abstract class ImageFactory {
 	
 	public abstract Color getEmptyColor();
 	
+	public abstract Icon getEmptyIcon();
 	
+	public abstract Icon getIcon(String name);
 }

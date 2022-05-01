@@ -37,8 +37,8 @@ public class DarkImageFactory extends ImageFactory{
 		return new Color(r,g,b);
 	}
 
-	public Color getColor1() {
-		return new Color(150,0,150);
+	public Color getColorCyan() {
+		return new Color(0,80,80);
 	}
 	
 	public Color getColor2() {
@@ -51,5 +51,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getEmpty() {
 		return null;
+	}
+
+	public Icon getEmptyIcon() {
+		return getIcon("/assets/img/icons/emptyIcon.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+	
+	public Icon getIcon(String name) {
+		return getIcon("/assets/img/icons/"+name+".png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 }

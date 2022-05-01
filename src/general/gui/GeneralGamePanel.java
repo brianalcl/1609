@@ -18,38 +18,30 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	
 	private JLabel[][] matrix;
 	private JPanel panel;
-	protected JLabel lbl;
+	protected JLabel lblBg;
 	private JLabel lblTime;
 	private JLabel lblLevel;
 	private JLabel lblScore;
+	private Font fontLabels;
 	
 	public GeneralGamePanel(GUI gui) {
 		super(gui);
 		matrix = new JLabel[Map.ROW][Map.COLUMN];
-		panel = new JPanel();
-		createCentralPanel();
-		lbl = new JLabel("");
-		lbl.setSize(gui.getImageFactory().getScreenResolution());
-		lbl.setIcon(gui.getImageFactory().getMap());		
-		//TODO SACAR ENTRE LINEAS INI
-		ImageFactory f = new DarkImageFactory(1280, 720);
-		lbl = new JLabel("");
-		lbl.setSize(f.getScreenResolution());
-		lbl.setIcon(f.getMap());
-		//TODO SACAR ENTRE LINEAS FIN
-		add(lbl);
-		createLabels();
-		
-		
-	}
-	
-	private void createLabels() {
-		Font fontLabels;
+		panel = new JPanel();		
 		
 		lblTime = new JLabel("Time: 00:00");
 		lblLevel = new JLabel("Level: 00");
-		lblScore = new JLabel("Score: 00000");		
-		
+		lblScore = new JLabel("Score: 00000");	
+		lblBg = new JLabel("");
+		createCentralPanel();
+		createLabels();
+	}
+	
+	private void createLabels() {
+		lblBg.setSize(gui.getImageFactory().getScreenResolution());
+		lblBg.setLocation(0, 0);
+		lblBg.setIcon(gui.getImageFactory().getMap());
+		add(lblBg);
 		
 		if(gui.getImageFactory().getScreenResolution().getWidth() == ImageFactory.DEFAULT_WIDTH) {
 			lblTime.setBounds(160, 30, 500, 100);
@@ -79,21 +71,11 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	}
 	
 	private void createCentralPanel() {
-		//repaint();
-//		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
-//		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
-//		int panelWidth = (int) width * 800 / ImageFactory.DEFAULT_WIDTH;
-//		int panelHeight = (int) height * 450 / ImageFactory.DEFAULT_HEIGHT;
 		
 		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
 		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
-		//TODO
-		width = 1280;
-		height = 720;
-		//TODO
 		int panelWidth = (int) 800;
 		int panelHeight = (int) 450;
-		
 		
 		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
 		panel.setSize(panelWidth, panelHeight);
