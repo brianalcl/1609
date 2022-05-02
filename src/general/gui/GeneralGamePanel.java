@@ -18,21 +18,26 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	
 	private JLabel[][] matrix;
 	private JPanel panel;
-	protected JLabel lblBg;
+	private JLabel lblBg;
 	private JLabel lblTime;
 	private JLabel lblLevel;
 	private JLabel lblScore;
 	private Font fontLabels;
+	protected JLabel lblKeyboard;
+	protected JLabel lblMouse;
 	
 	public GeneralGamePanel(GUI gui) {
 		super(gui);
 		matrix = new JLabel[Map.ROW][Map.COLUMN];
 		panel = new JPanel();		
-		
 		lblTime = new JLabel("Time: 00:00");
 		lblLevel = new JLabel("Level: 00");
-		lblScore = new JLabel("Score: 00000");	
+		lblScore = new JLabel("Score: 00000");
 		lblBg = new JLabel("");
+		lblKeyboard = new JLabel("");
+		lblMouse = new JLabel("");
+		
+		
 		createCentralPanel();
 		createLabels();
 	}
@@ -47,12 +52,16 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 			lblTime.setBounds(160, 30, 500, 100);
 			lblLevel.setBounds(710, 30, 500, 100);
 			lblScore.setBounds(1260, 30, 500, 100);
+			lblKeyboard.setBounds((1920-488)/2, 1080 - 180, 375, 150);
+			lblMouse.setBounds((1920-488)/2 + 375, 1080 - 180, 113, 150);
 			fontLabels = font.deriveFont(81f);
 		}
 		else {
 			lblTime.setBounds(107, 20, 333, 66);
 			lblLevel.setBounds(474, 20, 333, 66);
 			lblScore.setBounds(841, 20, 333, 66);
+			lblKeyboard.setBounds((1280-325)/2 -5, 720 - 105, 250, 100);
+			lblMouse.setBounds((1280-325)/2 + 250 +5, 720 - 105, 75, 100);
 			fontLabels = font.deriveFont(54f);
 		}
 		
@@ -68,6 +77,8 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		add(lblTime);
 		add(lblLevel);
 		add(lblScore);
+		add(lblKeyboard);
+		add(lblMouse);
 	}
 	
 	private void createCentralPanel() {

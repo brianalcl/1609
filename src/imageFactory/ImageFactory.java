@@ -29,10 +29,15 @@ public abstract class ImageFactory {
 		return new Dimension(screenWidth, screenHeight);
 	}
 	
-	protected ImageIcon getIcon(String path, int screenWidth, int screenHeight) {
+	protected ImageIcon getOriginalIcon(String path) {
+		ImageIcon icon = new ImageIcon(ImageFactory.class.getResource(path));
+		return scale(icon, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+	
+	protected ImageIcon getScaledIcon(String path) {
 		ImageIcon icon = new ImageIcon(ImageFactory.class.getResource(path));
 		return scale(icon, screenWidth, screenHeight);
-	}	
+	}
 	
 	protected ImageIcon scale(ImageIcon imageIcon, int screenWidth, int screenHeight) {
 		int width = screenWidth * imageIcon.getIconWidth() / DEFAULT_WIDTH;
@@ -72,4 +77,12 @@ public abstract class ImageFactory {
 	public abstract Icon getEmptyIcon();
 	
 	public abstract Icon getIcon(String name);
+
+	public abstract Icon getKeyboard0();
+	
+	public abstract Icon getKeyboard1();
+	
+	public abstract Icon getKeyboard2();
+
+	public abstract Icon getMouse();
 }

@@ -11,13 +11,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getMap() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getIcon("/assets/img/darkMap.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+			return getOriginalIcon("/assets/img/darkMap.png");
 		else
-			return getIcon("/assets/img/darkMap720.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+			return getOriginalIcon("/assets/img/darkMap720.png");
 	}
 	
 	public Icon getSquircle() {
-		return getIcon("/assets/img/darkSquircle.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		return getOriginalIcon("/assets/img/darkSquircle.png");
 	}
 
 	public Color getEmptyColor() {
@@ -54,10 +54,38 @@ public class DarkImageFactory extends ImageFactory{
 	}
 
 	public Icon getEmptyIcon() {
-		return getIcon("/assets/img/icons/emptyIcon.png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		return getOriginalIcon("/assets/img/icons/emptyIcon.png");
 	}
 	
 	public Icon getIcon(String name) {
-		return getIcon("/assets/img/icons/"+name+".png", DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		return getOriginalIcon("/assets/img/icons/"+name+".png");
+	}
+
+	public Icon getKeyboard0() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/keyboard0.png");
+		else
+			return getOriginalIcon("/assets/img/keyboard0720.png");
+	}
+	
+	public Icon getKeyboard1() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/keyboard1.png");
+		else
+			return getOriginalIcon("/assets/img/keyboard1720.png");
+	}
+	
+	public Icon getKeyboard2() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/keyboard2.png");
+		else
+			return getOriginalIcon("/assets/img/keyboard2720.png");
+	}
+	
+	public Icon getMouse() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/mouse.png");
+		else
+			return getOriginalIcon("/assets/img/mouse720.png");
 	}
 }

@@ -23,6 +23,7 @@ public class SnakePanel extends GeneralGamePanel{
 		super(gui);
 		game = new SnakeGame(this);
 		setBackground(new Color(0, 80, 80));
+		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 		addControls();
 	}
 	

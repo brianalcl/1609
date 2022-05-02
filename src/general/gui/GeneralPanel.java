@@ -7,6 +7,8 @@ import java.io.InputStream;
 
 import javax.swing.JPanel;
 
+import imageFactory.DarkImageFactory;
+
 public abstract class GeneralPanel extends JPanel{
 	protected GUI gui;
 	protected Font font;
