@@ -64,10 +64,12 @@ public abstract class Game {
 	
 	public void win() {
 		gameOver = true;
+		panel.win();
 	}
 	
 	public void lose() {
 		gameOver = true;
+		panel.lose();
 	}
 	
 	public void moveUp() {}

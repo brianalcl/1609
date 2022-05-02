@@ -66,6 +66,7 @@ public class InitialPanel extends GeneralPanel{
 			}
 		matrix[0][0].setIcon(gui.getImageFactory().getIcon("snake"));
 		matrix[0][0].addActionListener(e -> startSnake());
+		matrix[0][1].addActionListener(e -> gui.setPanel(new GameOverPanel(gui, null, "WIN", "SCORE: 00000", "TIME: 00:00")));
 	}
 	
 	private void startSnake() {

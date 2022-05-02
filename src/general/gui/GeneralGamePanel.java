@@ -19,9 +19,9 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	private JLabel[][] matrix;
 	private JPanel panel;
 	private JLabel lblBg;
-	private JLabel lblTime;
-	private JLabel lblLevel;
-	private JLabel lblScore;
+	protected JLabel lblTime;
+	protected JLabel lblLevel;
+	protected JLabel lblScore;
 	private Font fontLabels;
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
@@ -122,4 +122,10 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	public ImageFactory getImageFactory() {
 		return gui.getImageFactory();
 	}
+
+	public abstract void lose();
+	
+	public abstract void win();
+	
+	public abstract void restart();
 }

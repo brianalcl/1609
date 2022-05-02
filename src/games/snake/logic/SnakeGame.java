@@ -56,7 +56,7 @@ public class SnakeGame extends Game{
 	}
 	
 	public void lose() {
-		super.win();
+		super.lose();
 		System.out.println("LOSE");
 	}
 

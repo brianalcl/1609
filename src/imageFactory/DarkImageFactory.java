@@ -41,10 +41,6 @@ public class DarkImageFactory extends ImageFactory{
 		return new Color(0,80,80);
 	}
 	
-	public Color getColor2() {
-		return new Color(150,150,0);
-	}
-	
 	public Color getForegroundColor() {
 		return new Color(200, 200, 200);
 	}
@@ -87,5 +83,21 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/mouse.png");
 		else
 			return getOriginalIcon("/assets/img/mouse720.png");
+	}
+
+	public Icon getGuiGameOver() {
+		return getOriginalIcon("/assets/img/guiGameOver.png");
+	}
+
+	public Icon getRestart() {
+		return getOriginalIcon("/assets/img/restart.png");
+	}
+
+	public Icon getHome() {
+		return getOriginalIcon("/assets/img/home.png");
+	}
+
+	public Icon getExit() {
+		return getOriginalIcon("/assets/img/exit.png");
 	}
 }

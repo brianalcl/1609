@@ -11,6 +11,7 @@ import javax.swing.KeyStroke;
 
 import games.snake.logic.SnakeGame;
 import general.gui.GUI;
+import general.gui.GameOverPanel;
 import general.gui.GeneralGamePanel;
 import general.logic.Game;
 
@@ -101,5 +102,17 @@ public class SnakePanel extends GeneralGamePanel{
 
 	private void moveLeft() {
 		game.setDirection(Game.MOVE_LEFT);
+	}
+	
+	public void lose() {
+		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
+	}
+	
+	public void win() {
+		gui.setPanel(new GameOverPanel(gui, this,"WIN", lblScore.getText(), lblTime.getText()));
+	}
+	
+	public void restart() {
+		gui.setPanel(new SnakePanel(gui));
 	}
 }

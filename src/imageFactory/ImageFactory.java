@@ -62,17 +62,23 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorCyan();	
 	
-	public abstract Color getColor2();
+	public abstract Color getForegroundColor();	
 	
-	public abstract Color getForegroundColor();
+	public abstract Color getEmptyColor();
 	
 	public abstract Icon getMap();
+	
+	public abstract Icon getRestart();
+	
+	public abstract Icon getHome();
+	
+	public abstract Icon getExit();
+	
+	public abstract Icon getGuiGameOver();
 	
 	public abstract Icon getSquircle();
 	
 	public abstract Icon getEmpty();
-	
-	public abstract Color getEmptyColor();
 	
 	public abstract Icon getEmptyIcon();
 	
