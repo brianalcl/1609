@@ -8,17 +8,6 @@ public class DarkImageFactory extends ImageFactory{
 	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
 	}
-	
-	public Icon getMap() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/darkMap.png");
-		else
-			return getOriginalIcon("/assets/img/darkMap720.png");
-	}
-	
-	public Icon getSquircle() {
-		return getOriginalIcon("/assets/img/darkSquircle.png");
-	}
 
 	public Color getEmptyColor() {
 		return new Color(0,0,25);
@@ -50,54 +39,86 @@ public class DarkImageFactory extends ImageFactory{
 	}
 
 	public Icon getEmptyIcon() {
-		return getOriginalIcon("/assets/img/icons/emptyIcon.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameIcons/emptyIcon1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameIcons/emptyIcon720.png");
 	}
 	
 	public Icon getIcon(String name) {
-		return getOriginalIcon("/assets/img/icons/"+name+".png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+"Icon1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameIcons/"+name+"Icon720.png");
 	}
 
 	public Icon getKeyboard0() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/keyboard0.png");
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard0-1080.png");
 		else
-			return getOriginalIcon("/assets/img/keyboard0720.png");
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard0-720.png");
 	}
 	
 	public Icon getKeyboard1() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/keyboard1.png");
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard1-1080.png");
 		else
-			return getOriginalIcon("/assets/img/keyboard1720.png");
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard1-720.png");
 	}
 	
 	public Icon getKeyboard2() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/keyboard2.png");
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard2-1080.png");
 		else
-			return getOriginalIcon("/assets/img/keyboard2720.png");
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard2-720.png");
 	}
 	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/mouse.png");
+			return getOriginalIcon("/assets/img/mouse1080.png");
 		else
 			return getOriginalIcon("/assets/img/mouse720.png");
 	}
 
 	public Icon getGuiGameOver() {
-		return getOriginalIcon("/assets/img/guiGameOver.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/guiGameOver1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/guiGameOver720.png");
 	}
 
 	public Icon getRestart() {
-		return getOriginalIcon("/assets/img/restart.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/menuIcons/restart1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/menuIcons/restart720.png");
 	}
 
 	public Icon getHome() {
-		return getOriginalIcon("/assets/img/home.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/menuIcons/home1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/menuIcons/home720.png");
 	}
 
 	public Icon getExit() {
-		return getOriginalIcon("/assets/img/exit.png");
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/menuIcons/exit1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/menuIcons/exit720.png");
+	}
+	
+	public Icon getMap() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/map1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/map720.png");
+	}
+	
+	public Icon getSquircle() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/squircle1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
 	}
 }

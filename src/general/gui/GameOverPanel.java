@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import imageFactory.ImageFactory;
+
 public class GameOverPanel extends GeneralPanel{
 	protected JButton restart;
 	protected JButton exit;
@@ -24,35 +26,58 @@ public class GameOverPanel extends GeneralPanel{
 //		setBackground(panel.getBackground());
 		setBackground(new Color(0,80,80));
 		this.panel = panel;
-		restart = new JButton();
-		exit = new JButton();
-		home = new JButton();
+		
+		restart = new JButton(this.gui.getImageFactory().getRestart());
+		exit = new JButton(this.gui.getImageFactory().getExit());
+		home = new JButton(this.gui.getImageFactory().getHome());
 		lblRes = new JLabel(res);
 		lblScore = new JLabel(score);
 		lblTime = new JLabel(time);
-		lblBg = new JLabel();
+		lblBg = new JLabel(this.gui.getImageFactory().getGuiGameOver());
 		
-		lblFont = font.deriveFont(150f);
 		createButtons();
 		createLabels();
 	}
 	
 	private void createLabels() {
-		lblBg.setIcon(gui.getImageFactory().getGuiGameOver());
-		lblRes.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 +50, 500, 150);
-		lblScore.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 +250, 500, 100);
-		lblTime.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 +400, 500, 100);
-		lblBg.setBounds((getWidth()-600)/2, (getHeight()-720)/2, 600, 720);
 		
-		lblRes.setFont(lblFont);
+		int x = (int) Math.round(((1920-600)/2) * widthScaleFactor);
+		int y = (int) Math.round(((1080-720)/2) * heightScaleFactor);
+		int w = (int) Math.round(600 * widthScaleFactor);
+		int h = (int) Math.round(720 * heightScaleFactor);
+		lblBg.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 50) * heightScaleFactor);
+		w = (int) Math.round(500 * widthScaleFactor);
+		h = (int) Math.round(150 * heightScaleFactor);
+		lblRes.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 250) * heightScaleFactor);
+		w = (int) Math.round(500 * widthScaleFactor);
+		h = (int) Math.round(100 * heightScaleFactor);
+		lblScore.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 400) * heightScaleFactor);
+		w = (int) Math.round(500 * widthScaleFactor);
+		h = (int) Math.round(100 * heightScaleFactor);
+		lblTime.setBounds(x,y,w,h);
+
+		lblScore.setFont(font.deriveFont(Math.round(75*widthScaleFactor)*1.0f));
+		lblTime.setFont(font.deriveFont(Math.round(75*widthScaleFactor)*1.0f));
+		lblRes.setFont(font.deriveFont(Math.round(150*widthScaleFactor)*1.0f));
+		
+		
 		lblRes.setForeground(gui.getImageFactory().getForegroundColor());
 		lblRes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
-		lblScore.setFont(font.deriveFont(75f));
+		
 		lblScore.setForeground(gui.getImageFactory().getForegroundColor());
 		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
-		lblTime.setFont(font.deriveFont(75f));
+		
 		lblTime.setForeground(gui.getImageFactory().getForegroundColor());
 		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
@@ -64,27 +89,43 @@ public class GameOverPanel extends GeneralPanel{
 	}
 	
 	private void createButtons() {
+//		restart.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 + 525, 150, 150);
+//		exit.setBounds((getWidth()-600)/2 + 225, (getHeight()-720)/2 + 525, 150, 150);
+//		home.setBounds((getWidth()-600)/2 + 400, (getHeight()-720)/2 + 525, 150, 150);
+		
+		int x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
+		int y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
+		int w = (int) Math.round(150 * widthScaleFactor);
+		int h = (int) Math.round(150 * heightScaleFactor);
+		restart.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920-600)/2 + 225) * widthScaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
+		w = (int) Math.round(150 * widthScaleFactor);
+		h = (int) Math.round(150 * heightScaleFactor);
+		exit.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920-600)/2 + 400) * widthScaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
+		w = (int) Math.round(150 * widthScaleFactor);
+		h = (int) Math.round(150 * heightScaleFactor);
+		home.setBounds(x,y,w,h);		
+		
 		
 		restart.setBackground(new Color(0,80,80));
 		restart.setFocusable(false);
 		restart.setBorderPainted(false);
 		restart.addMouseListener(getMouseAdapter());
-		restart.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 + 525, 150, 150);
-		restart.setIcon(gui.getImageFactory().getRestart());
 		
 		exit.setBackground(new Color(0,80,80));
 		exit.setFocusable(false);
 		exit.setBorderPainted(false);
 		exit.addMouseListener(getMouseAdapter());
-		exit.setBounds((getWidth()-600)/2 + 225, (getHeight()-720)/2 + 525, 150, 150);
-		exit.setIcon(gui.getImageFactory().getExit());
 		
 		home.setBackground(new Color(0,80,80));
 		home.setFocusable(false);
 		home.setBorderPainted(false);
 		home.addMouseListener(getMouseAdapter());
-		home.setBounds((getWidth()-600)/2 + 400, (getHeight()-720)/2 + 525, 150, 150);
-		home.setIcon(gui.getImageFactory().getHome());
 		
 		restart.addActionListener(e -> panel.restart());
 		home.addActionListener(e -> gui.setPanel(new InitialPanel(gui)));

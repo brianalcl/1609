@@ -37,7 +37,6 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		lblKeyboard = new JLabel("");
 		lblMouse = new JLabel("");
 		
-		
 		createCentralPanel();
 		createLabels();
 	}
@@ -48,22 +47,37 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 		lblBg.setIcon(gui.getImageFactory().getMap());
 		add(lblBg);
 		
-		if(gui.getImageFactory().getScreenResolution().getWidth() == ImageFactory.DEFAULT_WIDTH) {
-			lblTime.setBounds(160, 30, 500, 100);
-			lblLevel.setBounds(710, 30, 500, 100);
-			lblScore.setBounds(1260, 30, 500, 100);
-			lblKeyboard.setBounds((1920-488)/2, 1080 - 180, 375, 150);
-			lblMouse.setBounds((1920-488)/2 + 375, 1080 - 180, 113, 150);
-			fontLabels = font.deriveFont(81f);
-		}
-		else {
-			lblTime.setBounds(107, 20, 333, 66);
-			lblLevel.setBounds(474, 20, 333, 66);
-			lblScore.setBounds(841, 20, 333, 66);
-			lblKeyboard.setBounds((1280-325)/2 -5, 720 - 105, 250, 100);
-			lblMouse.setBounds((1280-325)/2 + 250 +5, 720 - 105, 75, 100);
-			fontLabels = font.deriveFont(54f);
-		}
+		int x = (int) Math.round(160 * widthScaleFactor);
+		int y = (int) Math.round(30 * heightScaleFactor);
+		int w = (int) Math.round(500 * widthScaleFactor);
+		int h = (int) Math.round(100 * heightScaleFactor);
+		lblTime.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(710 * widthScaleFactor);
+		y = (int) Math.round(30 * heightScaleFactor);
+		w = (int) Math.round(500 * widthScaleFactor);
+		h = (int) Math.round(100 * heightScaleFactor);
+		lblLevel.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(1260 * widthScaleFactor);
+		y = (int) Math.round(30 * heightScaleFactor);
+		w = (int) Math.round(500 * widthScaleFactor);
+		h = (int) Math.round(100 * heightScaleFactor);
+		lblScore.setBounds(x,y,w,h);
+		
+		x = (int) Math.round((1920 - 477)/2 * widthScaleFactor);
+		y = (int) Math.round((1080 - 180) * heightScaleFactor);
+		w = (int) Math.round(375 * widthScaleFactor);
+		h = (int) Math.round(150 * heightScaleFactor);
+		lblKeyboard.setBounds(x,y,w,h);
+		
+		x = (int) Math.round(((1920 - 477)/2 + 375) * widthScaleFactor);
+		y = (int) Math.round((1080 - 180) * heightScaleFactor);
+		w = (int) Math.round(102 * widthScaleFactor);
+		h = (int) Math.round(150 * heightScaleFactor);
+		lblMouse.setBounds(x,y,w,h);
+		
+		fontLabels = font.deriveFont(Math.round(80*widthScaleFactor)*1.0f);
 		
 		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,15 +97,15 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	
 	private void createCentralPanel() {
 		
-		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
-		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
-		int panelWidth = (int) 800;
-		int panelHeight = (int) 450;
+		int x = (int) Math.round(((1920 - 800) / 2) * widthScaleFactor);
+		int y = (int) Math.round(((1080 - 450) / 2) * heightScaleFactor);
+		int w = (int) Math.round(800 * widthScaleFactor);
+		int h = (int) Math.round(450 * heightScaleFactor);
 		
 		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
-		panel.setSize(panelWidth, panelHeight);
-		panel.setLocation((int)(width-panelWidth)/2, (int) (height-panelHeight)/2);
+		panel.setBounds(x,y,w,h);
 		panel.setBackground(gui.getImageFactory().getEmptyColor());
+		
 		add(panel);
 		
 		for(int r = Map.ROW-1; r >= 0; r--) 

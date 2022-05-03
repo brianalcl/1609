@@ -42,14 +42,13 @@ public class InitialPanel extends GeneralPanel{
 	}
 	
 	private void createPanel() {
+		int x = (int) Math.round(((1920 - 600) / 2) * widthScaleFactor);
+		int y = (int) Math.round(((1080 - 600) / 2) * heightScaleFactor);
+		int w = (int) Math.round(600 * widthScaleFactor);
+		int h = (int) Math.round(600 * heightScaleFactor);
+		panel.setBounds(x,y,w,h);
 		
-		int width = (int) gui.getImageFactory().getScreenResolution().getWidth();
-		int height = (int) gui.getImageFactory().getScreenResolution().getHeight();
-		int panelWidth = (int) 600;
-		int panelHeight = (int) 600;
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
-		panel.setSize(600, 600);
-		panel.setLocation((int)(width-panelWidth)/2, (int) (height-panelHeight)/2);
 		panel.setBackground(gui.getImageFactory().getColorCyan());
 		add(panel);
 	}
