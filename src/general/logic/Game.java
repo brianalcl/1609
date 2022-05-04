@@ -1,6 +1,6 @@
 package general.logic;
 
-import general.gui.GeneralGamePanel;
+import general.gui.GamePanel;
 import general.threads.Watch;
 import imageFactory.ImageFactory;
 
@@ -11,14 +11,14 @@ public abstract class Game {
 	public static final int MOVE_LEFT = 4;
 	public static final int SPACE = 5;
 	
-	protected GeneralGamePanel panel;
+	protected GamePanel panel;
 	protected Watch watch;
 	protected int seconds;
 	protected int level;
 	protected int points;
 	protected boolean gameOver;
 	
-	public Game(GeneralGamePanel panel) {
+	public Game(GamePanel panel) {
 		this.seconds = 0;
 		this.level = 0;
 		this.points = 0;

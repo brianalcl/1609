@@ -18,10 +18,10 @@ public class GameOverPanel extends GeneralPanel{
 	protected JLabel lblRes;
 	protected JLabel lblScore;
 	protected JLabel lblTime;
-	protected GeneralGamePanel panel;
+	protected GamePanel panel;
 	protected Font lblFont;
 	
-	public GameOverPanel(GUI gui, GeneralGamePanel panel, String res, String score, String time) {
+	public GameOverPanel(GUI gui, GamePanel panel, String res, String score, String time) {
 		super(gui);
 //		setBackground(panel.getBackground());
 		setBackground(new Color(0,80,80));

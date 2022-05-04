@@ -12,11 +12,11 @@ import javax.swing.KeyStroke;
 import games.snake.logic.SnakeGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
-import general.gui.GeneralGamePanel;
+import general.gui.GamePanel;
 import general.logic.Game;
 
 
-public class SnakePanel extends GeneralGamePanel{
+public class SnakePanel extends GamePanel{
 	
 	protected SnakeGame game;
 	

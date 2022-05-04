@@ -14,7 +14,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 
-public abstract class GeneralGamePanel extends GeneralPanel{
+public abstract class GamePanel extends GeneralPanel{
 	
 	private JLabel[][] matrix;
 	private JPanel panel;
@@ -26,7 +26,7 @@ public abstract class GeneralGamePanel extends GeneralPanel{
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
 	
-	public GeneralGamePanel(GUI gui) {
+	public GamePanel(GUI gui) {
 		super(gui);
 		matrix = new JLabel[Map.ROW][Map.COLUMN];
 		panel = new JPanel();		
