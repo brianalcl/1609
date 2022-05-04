@@ -77,4 +77,5 @@ public abstract class Game {
 	public void moveRight() {}
 	public void moveLeft() {}
 	public void moveSpace() {}
+	public void setDirection(int direction) {}
 }

@@ -1,30 +1,26 @@
 package general.gui;
 
 import javax.swing.JLabel;
-
-import imageFactory.DarkImageFactory;
 import imageFactory.ImageFactory;
-
 import javax.swing.JPanel;
-
+import general.logic.Game;
 import general.logic.Map;
-
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
 
 public abstract class GamePanel extends GeneralPanel{
 	
-	private JLabel[][] matrix;
-	private JPanel panel;
-	private JLabel lblBg;
+	protected JLabel[][] matrix;
+	protected JPanel panel;
+	protected JLabel lblBg;
 	protected JLabel lblTime;
 	protected JLabel lblLevel;
 	protected JLabel lblScore;
-	private Font fontLabels;
+	protected Font fontLabels;
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
+	protected Game game;
 	
 	public GamePanel(GUI gui) {
 		super(gui);
@@ -77,14 +73,12 @@ public abstract class GamePanel extends GeneralPanel{
 		h = (int) Math.round(150 * heightScaleFactor);
 		lblMouse.setBounds(x,y,w,h);
 		
-		fontLabels = font.deriveFont(Math.round(80*widthScaleFactor)*1.0f);
-		
 		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblTime.setFont(fontLabels);
-		lblLevel.setFont(fontLabels);
-		lblScore.setFont(fontLabels);
+		lblTime.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+		lblLevel.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+		lblScore.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
 		lblTime.setForeground(gui.getImageFactory().getForegroundColor());
 		lblLevel.setForeground(gui.getImageFactory().getForegroundColor());
 		lblScore.setForeground(gui.getImageFactory().getForegroundColor());
@@ -97,10 +91,13 @@ public abstract class GamePanel extends GeneralPanel{
 	
 	private void createCentralPanel() {
 		
-		int x = (int) Math.round(((1920 - 800) / 2) * widthScaleFactor);
-		int y = (int) Math.round(((1080 - 450) / 2) * heightScaleFactor);
-		int w = (int) Math.round(800 * widthScaleFactor);
-		int h = (int) Math.round(450 * heightScaleFactor);
+		int cellWidth = gui.getImageFactory().getSquircle().getIconWidth();
+		int cellHeight = gui.getImageFactory().getSquircle().getIconHeight();
+		
+		int x = (int) Math.round(((getWidth() - Map.COLUMN*cellWidth) / 2));
+		int y = (int) Math.round(((getHeight() - Map.ROW*cellHeight) / 2));
+		int w = (int) Math.round(Map.COLUMN*cellWidth);
+		int h = (int) Math.round(Map.ROW*cellHeight);
 		
 		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
 		panel.setBounds(x,y,w,h);

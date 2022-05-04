@@ -1,14 +1,9 @@
 package general.gui;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
-import imageFactory.ImageFactory;
 
 public class GameOverPanel extends GeneralPanel{
 	protected JButton restart;
@@ -19,14 +14,11 @@ public class GameOverPanel extends GeneralPanel{
 	protected JLabel lblScore;
 	protected JLabel lblTime;
 	protected GamePanel panel;
-	protected Font lblFont;
 	
 	public GameOverPanel(GUI gui, GamePanel panel, String res, String score, String time) {
 		super(gui);
-//		setBackground(panel.getBackground());
-		setBackground(new Color(0,80,80));
 		this.panel = panel;
-		
+		setBackground(this.panel.getBackground());
 		restart = new JButton(this.gui.getImageFactory().getRestart());
 		exit = new JButton(this.gui.getImageFactory().getExit());
 		home = new JButton(this.gui.getImageFactory().getHome());
@@ -89,9 +81,6 @@ public class GameOverPanel extends GeneralPanel{
 	}
 	
 	private void createButtons() {
-//		restart.setBounds((getWidth()-600)/2 + 50, (getHeight()-720)/2 + 525, 150, 150);
-//		exit.setBounds((getWidth()-600)/2 + 225, (getHeight()-720)/2 + 525, 150, 150);
-//		home.setBounds((getWidth()-600)/2 + 400, (getHeight()-720)/2 + 525, 150, 150);
 		
 		int x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
 		int y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
@@ -112,17 +101,17 @@ public class GameOverPanel extends GeneralPanel{
 		home.setBounds(x,y,w,h);		
 		
 		
-		restart.setBackground(new Color(0,80,80));
+		restart.setBackground(panel.getBackground());
 		restart.setFocusable(false);
 		restart.setBorderPainted(false);
 		restart.addMouseListener(getMouseAdapter());
 		
-		exit.setBackground(new Color(0,80,80));
+		exit.setBackground(panel.getBackground());
 		exit.setFocusable(false);
 		exit.setBorderPainted(false);
 		exit.addMouseListener(getMouseAdapter());
 		
-		home.setBackground(new Color(0,80,80));
+		home.setBackground(panel.getBackground());
 		home.setFocusable(false);
 		home.setBorderPainted(false);
 		home.addMouseListener(getMouseAdapter());
@@ -140,11 +129,11 @@ public class GameOverPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(new Color(0,60,60));
+				e.getComponent().setBackground(panel.getBackground().darker());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(new Color(0,80,80));
+				e.getComponent().setBackground(panel.getBackground());
 			}
 
 		};

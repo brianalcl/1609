@@ -60,7 +60,9 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorRandom();
 	
-	public abstract Color getColorCyan();	
+	public abstract Color getColorDarkCyan();
+	
+	public abstract Color getColorRebeccaPurple();
 	
 	public abstract Color getForegroundColor();	
 	
@@ -91,4 +93,7 @@ public abstract class ImageFactory {
 	public abstract Icon getKeyboard2();
 
 	public abstract Icon getMouse();
+
+	
+
 }

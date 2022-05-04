@@ -1,6 +1,5 @@
 package games.snake.gui;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -18,12 +17,10 @@ import general.logic.Game;
 
 public class SnakePanel extends GamePanel{
 	
-	protected SnakeGame game;
-	
 	public SnakePanel(GUI gui) {
 		super(gui);
 		game = new SnakeGame(this);
-		setBackground(new Color(0, 80, 80));
+		setBackground(this.gui.getImageFactory().getColorDarkCyan());
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 		addControls();
 	}

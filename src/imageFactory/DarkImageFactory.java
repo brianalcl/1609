@@ -26,12 +26,16 @@ public class DarkImageFactory extends ImageFactory{
 		return new Color(r,g,b);
 	}
 
-	public Color getColorCyan() {
-		return new Color(0,80,80);
+	public Color getColorDarkCyan() {
+		return new Color(0,67,67);
 	}
 	
 	public Color getForegroundColor() {
 		return new Color(200, 200, 200);
+	}
+	
+	public Color getColorRebeccaPurple() {
+		return new Color(49, 24, 74);
 	}
 	
 	public Icon getEmpty() {
@@ -121,4 +125,5 @@ public class DarkImageFactory extends ImageFactory{
 		else
 			return getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
 	}
+
 }

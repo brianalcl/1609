@@ -8,9 +8,10 @@ import general.logic.Game;
 public class SnakeGame extends Game{
 	protected Snake snake;
 	protected SnakeWatch snakeWatch;
+	
 	public SnakeGame(SnakePanel snakePanel) {
 		super(snakePanel);
-		this.snake = new Snake(new SnakeMap(this), snakePanel.getImageFactory());
+		this.snake = new Snake(new SnakeMap(this), this.panel.getImageFactory());
 		this.snakeWatch = new SnakeWatch(this, 200);
 		this.snakeWatch.start();
 	}
