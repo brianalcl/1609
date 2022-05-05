@@ -79,9 +79,9 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/mouse1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameImages/mouse1080.png");
 		else
-			return getOriginalIcon("/assets/img/mouse720.png");
+			return getOriginalIcon("/assets/img/r720/gameImages/mouse720.png");
 	}
 
 	public Icon getGuiGameOver() {
