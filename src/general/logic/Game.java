@@ -72,6 +72,7 @@ public abstract class Game {
 		panel.lose();
 	}
 	
+	public void moveCenter() {}
 	public void moveUp() {}
 	public void moveDown() {}
 	public void moveRight() {}

@@ -31,6 +31,7 @@ public class GUI extends JFrame {
 		getContentPane().remove(panel);
 		panel = p;
 		getContentPane().add(panel);
+		panel.requestFocusInWindow();
 		validate();
 		repaint();
 	}

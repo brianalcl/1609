@@ -1,6 +1,9 @@
 package general.gui;
 import javax.swing.JPanel;
+
+import games.dodgeWall.gui.DodgeWallPanel;
 import games.snake.gui.SnakePanel;
+
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -42,11 +45,8 @@ public class InitialPanel extends GeneralPanel{
 				panel.add(matrix[r][c]);
 			}
 		matrix[0][0].setIcon(gui.getImageFactory().getIcon("snake"));
-		matrix[0][0].addActionListener(e -> startSnake());
-	}
-	
-	private void startSnake() {
-		gui.setPanel(new SnakePanel(this.gui));
+		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
+		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){
