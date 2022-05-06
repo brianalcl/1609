@@ -6,17 +6,20 @@ import general.logic.Game;
 
 public class DodgeWallGame extends Game{
 	protected Player player;
-	protected DodgeWallWatch snakeWatch;
+	protected Wall wall;
+	protected DodgeWallWatch DodgeWallWatch;
 	
 	public DodgeWallGame(DodgeWallPanel panel) {
 		super(panel);
-		this.player = new Player(new DodgeWallMap(this), this.panel.getImageFactory());
-		this.snakeWatch = new DodgeWallWatch(this, 200);
-		this.snakeWatch.start();
+		DodgeWallMap map = new DodgeWallMap(this);
+		this.player = new Player(map, this.panel.getImageFactory());
+		this.wall = new Wall(map, this.panel.getImageFactory());
+		this.DodgeWallWatch = new DodgeWallWatch(this, 100);
+		this.DodgeWallWatch.start();
 	}
 	
 	public synchronized void run() {
-
+		wall.put();
 	}
 	
 	public void moveUp() {
@@ -32,12 +35,10 @@ public class DodgeWallGame extends Game{
 	
 	public void win() {
 		super.win();
-		System.out.println("WIN");
 	}
 	
 	public void lose() {
 		super.lose();
-		System.out.println("LOSE");
 	}
 
 }

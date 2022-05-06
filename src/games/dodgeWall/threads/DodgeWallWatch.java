@@ -15,16 +15,16 @@ public class DodgeWallWatch extends Thread{
 	
 	@Override
 	public void run() {
-//		while(active) { 
-//			try {	
-//				Thread.sleep(step);
-//				game.run();
-//				active = !game.isGameOver();
-//			} catch (InterruptedException e) {
-//				Thread.currentThread().interrupt();
-//				e.printStackTrace();
-//			}
-//		}
+		while(active) { 
+			try {	
+				Thread.sleep(step);
+				game.run();
+				active = !game.isGameOver();
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void stopWatch() {
