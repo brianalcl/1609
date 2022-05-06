@@ -20,7 +20,6 @@ public abstract class GamePanel extends GeneralPanel{
 	protected Font fontLabels;
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
-	protected Game game;
 	
 	public GamePanel(GUI gui) {
 		super(gui);

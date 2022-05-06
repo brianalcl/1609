@@ -25,8 +25,9 @@ import general.logic.Game;
 
 public class DodgeWallPanel extends GamePanel{
 	
-	private boolean stopKey;
-
+	protected boolean stopKey;
+	protected DodgeWallGame game;
+	
 	public DodgeWallPanel(GUI gui) {
 		super(gui);
 		game = new DodgeWallGame(this);

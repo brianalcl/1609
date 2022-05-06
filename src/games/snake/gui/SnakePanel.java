@@ -17,6 +17,8 @@ import general.logic.Game;
 
 public class SnakePanel extends GamePanel{
 	
+	protected SnakeGame game;
+	
 	public SnakePanel(GUI gui) {
 		super(gui);
 		game = new SnakeGame(this);
