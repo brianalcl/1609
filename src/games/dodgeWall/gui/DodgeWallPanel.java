@@ -1,6 +1,5 @@
 package games.dodgeWall.gui;
 
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import games.dodgeWall.logic.DodgeWallGame;
@@ -18,7 +17,7 @@ public class DodgeWallPanel extends GamePanel{
 		super(gui);
 		game = new DodgeWallGame(this);
 		setBackground(this.gui.getImageFactory().getColorBrown());
-		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
 		stopKey = false;
 		addControls();
 	}
@@ -72,7 +71,7 @@ public class DodgeWallPanel extends GamePanel{
 	}
 	
 	public void win() {
-		gui.setPanel(new GameOverPanel(gui, this,"WIN", lblScore.getText(), lblTime.getText()));
+		//Never win
 	}
 	
 	public void restart() {

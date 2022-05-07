@@ -19,7 +19,7 @@ public class InitialPanel extends GeneralPanel{
 		panel = new JPanel();
 		createPanel();
 		putBottons();
-		setBackground(this.gui.getImageFactory().getColorRebeccaPurple());
+		setBackground(this.gui.getImageFactory().getColorBrown());
 	}
 	
 	private void createPanel() {
@@ -30,7 +30,7 @@ public class InitialPanel extends GeneralPanel{
 		panel.setBounds(x,y,w,h);
 		
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
-		panel.setBackground(gui.getImageFactory().getColorRebeccaPurple());
+		panel.setBackground(gui.getImageFactory().getColorBrown());
 		add(panel);
 	}
 	
@@ -38,7 +38,7 @@ public class InitialPanel extends GeneralPanel{
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton(gui.getImageFactory().getEmptyIcon());
-				matrix[r][c].setBackground(gui.getImageFactory().getColorRebeccaPurple());
+				matrix[r][c].setBackground(gui.getImageFactory().getColorBrown());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorderPainted(false);
 				matrix[r][c].addMouseListener(getMouseAdapter());
@@ -46,6 +46,7 @@ public class InitialPanel extends GeneralPanel{
 			}
 		matrix[0][0].setIcon(gui.getImageFactory().getIcon("snake"));
 		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
+		matrix[0][1].setIcon(gui.getImageFactory().getIcon("dodgeWall"));
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
 	}
 	
@@ -53,11 +54,11 @@ public class InitialPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorRebeccaPurple().darker());
+				e.getComponent().setBackground(gui.getImageFactory().getColorBrown().darker());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorRebeccaPurple());
+				e.getComponent().setBackground(gui.getImageFactory().getColorBrown());
 			}
 
 		};

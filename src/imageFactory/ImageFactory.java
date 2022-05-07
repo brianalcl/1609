@@ -95,6 +95,8 @@ public abstract class ImageFactory {
 	public abstract Icon getKeyboard1();
 	
 	public abstract Icon getKeyboard2();
+	
+	public abstract Icon getKeyboard3();
 
 	public abstract Icon getMouse();
 

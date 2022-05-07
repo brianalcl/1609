@@ -44,11 +44,6 @@ public class DodgeWallGame extends Game{
 	}
 	
 	@Override
-	public void win() {
-		super.win();
-	}
-	
-	@Override
 	public void lose() {
 		super.lose();
 	}

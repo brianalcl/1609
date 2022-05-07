@@ -12,11 +12,13 @@ public class SnakeMap extends Map{
 	protected Cell food;
 	protected Random rnd;
 	protected int totalOccupiedCells;
+	protected GraphicCell foodRep;
 	
 	public SnakeMap(SnakeGame snakeGame) {
 		super(snakeGame);
 		rnd = NRandom.getInstance();
 		totalOccupiedCells = 3;
+		foodRep = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorBrown().brighter());
 	}
 	
 	public boolean isFood(Cell cell) {
@@ -36,7 +38,7 @@ public class SnakeMap extends Map{
 				c = Math.abs(rnd.nextInt()) % 16;
 				if(matrix[r][c].isFree()) {
 					food = matrix[r][c];
-					food.put(new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorRandom()));
+					food.put(foodRep);
 					stop = true;
 					totalOccupiedCells++;
 				}

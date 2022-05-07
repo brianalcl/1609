@@ -53,12 +53,10 @@ public class SnakeGame extends Game{
 	
 	public void win() {
 		super.win();
-		System.out.println("WIN");
 	}
 	
 	public void lose() {
 		super.lose();
-		System.out.println("LOSE");
 	}
 
 }

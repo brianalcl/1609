@@ -14,6 +14,7 @@ public class GUI extends JFrame {
 		this.factory = factory;
 		panel = new JPanel();
 		initialize();
+		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 

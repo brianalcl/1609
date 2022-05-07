@@ -15,7 +15,7 @@ public class DarkImageFactory extends ImageFactory{
 		super(screenWidth, screenHeight);
 		colorRebeccaPurple = new Color(49, 24, 74);
 		colorDarkCyan = new Color(0,67,67);
-		colorEmptyColor = new Color(0,0,25);
+		colorEmptyColor = new Color(0,0,0);
 		colorBrown = new Color(115, 29, 29);
 		createSquircle();
 	}
@@ -143,6 +143,13 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getSquircle() {
 		return squircle;
+	}
+
+	public Icon getKeyboard3() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard3-1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard3-720.png");
 	}
 
 }
