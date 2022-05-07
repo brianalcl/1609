@@ -5,12 +5,26 @@ import java.awt.Color;
 import javax.swing.Icon;
 
 public class DarkImageFactory extends ImageFactory{
+	private Icon squircle;
+	private Color colorRebeccaPurple;
+	private Color colorDarkCyan;
+	private Color colorEmptyColor;
+	private Color colorBrown;
+	
 	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
+		colorRebeccaPurple = new Color(49, 24, 74);
+		colorDarkCyan = new Color(0,67,67);
+		colorEmptyColor = new Color(0,0,25);
+		colorBrown = new Color(115, 29, 29);
+		createSquircle();
 	}
 
-	public Color getEmptyColor() {
-		return new Color(0,0,25);
+	private void createSquircle() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			squircle = getOriginalIcon("/assets/img/r1080/gameImages/squircle1080.png");
+		else
+			squircle = getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
 	}
 
 	public Color getColorRandom() {
@@ -25,9 +39,13 @@ public class DarkImageFactory extends ImageFactory{
 			b += 100;
 		return new Color(r,g,b);
 	}
+	
+	public Color getEmptyColor() {
+		return colorEmptyColor;
+	}
 
 	public Color getColorDarkCyan() {
-		return new Color(0,67,67);
+		return colorDarkCyan;
 	}
 	
 	public Color getForegroundColor() {
@@ -35,7 +53,11 @@ public class DarkImageFactory extends ImageFactory{
 	}
 	
 	public Color getColorRebeccaPurple() {
-		return new Color(49, 24, 74);
+		return colorRebeccaPurple;
+	}
+	
+	public Color getColorBrown() {
+		return colorBrown; 
 	}
 	
 	public Icon getEmpty() {
@@ -120,10 +142,7 @@ public class DarkImageFactory extends ImageFactory{
 	}
 	
 	public Icon getSquircle() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/squircle1080.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
+		return squircle;
 	}
 
 }

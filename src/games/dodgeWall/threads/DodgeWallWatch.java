@@ -13,6 +13,14 @@ public class DodgeWallWatch extends Thread{
 		this.active = !game.isGameOver();
 	}
 	
+	public void setStep(int step) {
+		this.step = step;
+	}
+	
+	public int getStep() {
+		return step;
+	}
+	
 	@Override
 	public void run() {
 		while(active) { 

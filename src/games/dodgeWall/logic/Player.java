@@ -13,36 +13,36 @@ public class Player {
 	protected Cell[][] player;
 	protected ImageFactory imageFactory;
 	protected DodgeWallMap map;
-	protected GraphicCell representation;
-	protected int direction;
+	protected GraphicCell representation_1;
+	protected GraphicCell representation_2;
 	
 	public Player(DodgeWallMap map, ImageFactory imageFactory) {
 		this.player = new Cell[3][3];
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(imageFactory.getSquircle(), imageFactory.getColorDarkCyan());
-		this.direction = Game.MOVE_LEFT;
+		this.representation_1 = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorBrown());
+		this.representation_2 = new GraphicCell(this.imageFactory.getEmpty(), this.imageFactory.getEmptyColor());
 		
 		player[0][0] = this.map.getCell(3, 0);
-		player[0][0].put(representation);
+		player[0][0].put(representation_1);
 		player[0][1] = this.map.getCell(3, 1);
-		player[0][1].put(representation);
+		player[0][1].put(representation_1);
 		player[0][2] = this.map.getCell(3, 2);
-		//player[0][2].put(representation);
+		player[0][2].put(representation_2);
 		
 		player[1][0] = this.map.getCell(4, 0);
-		//player[1][0].put(representation);
+		player[1][0].put(representation_2);
 		player[1][1] = this.map.getCell(4, 1);
-		player[1][1].put(representation);
+		player[1][1].put(representation_1);
 		player[1][2] = this.map.getCell(4, 2);
-		player[1][2].put(representation);
+		player[1][2].put(representation_1);
 		
 		player[2][0] = this.map.getCell(5, 0);
-		player[2][0].put(representation);
+		player[2][0].put(representation_1);
 		player[2][1] = this.map.getCell(5, 1);
-		player[2][1].put(representation);
+		player[2][1].put(representation_1);
 		player[2][2] = this.map.getCell(5, 2);
-		//player[2][2].put(representation);
+		player[2][2].put(representation_2);
 	}
 	
 	public void moveUp() {
@@ -52,25 +52,25 @@ public class Player {
 					player[r][c].clear();
 			
 			player[0][0] = this.map.getCell(6, 0);
-			player[0][0].put(representation);
+			player[0][0].put(representation_1);
 			player[0][1] = this.map.getCell(6, 1);
-			player[0][1].put(representation);
+			player[0][1].put(representation_1);
 			player[0][2] = this.map.getCell(6, 2);
-			//player[0][2].put(representation);
+			player[0][2].put(representation_2);
 			
 			player[1][0] = this.map.getCell(7, 0);
-			//player[1][0].put(representation);
+			player[1][0].put(representation_2);
 			player[1][1] = this.map.getCell(7, 1);
-			player[1][1].put(representation);
+			player[1][1].put(representation_1);
 			player[1][2] = this.map.getCell(7, 2);
-			player[1][2].put(representation);
+			player[1][2].put(representation_1);
 			
 			player[2][0] = this.map.getCell(8, 0);
-			player[2][0].put(representation);
+			player[2][0].put(representation_1);
 			player[2][1] = this.map.getCell(8, 1);
-			player[2][1].put(representation);
+			player[2][1].put(representation_1);
 			player[2][2] = this.map.getCell(8, 2);
-			//player[2][2].put(representation);
+			player[2][2].put(representation_2);
 		}
 		else
 			map.lose();
@@ -84,25 +84,25 @@ public class Player {
 					player[r][c].clear();
 			
 			player[0][0] = this.map.getCell(0, 0);
-			player[0][0].put(representation);
+			player[0][0].put(representation_1);
 			player[0][1] = this.map.getCell(0, 1);
-			player[0][1].put(representation);
+			player[0][1].put(representation_1);
 			player[0][2] = this.map.getCell(0, 2);
-			//player[0][2].put(representation);
+			player[0][2].put(representation_2);
 			
 			player[1][0] = this.map.getCell(1, 0);
-			//player[1][0].put(representation);
+			player[1][0].put(representation_2);
 			player[1][1] = this.map.getCell(1, 1);
-			player[1][1].put(representation);
+			player[1][1].put(representation_1);
 			player[1][2] = this.map.getCell(1, 2);
-			player[1][2].put(representation);
+			player[1][2].put(representation_1);
 			
 			player[2][0] = this.map.getCell(2, 0);
-			player[2][0].put(representation);
+			player[2][0].put(representation_1);
 			player[2][1] = this.map.getCell(2, 1);
-			player[2][1].put(representation);
+			player[2][1].put(representation_1);
 			player[2][2] = this.map.getCell(2, 2);
-			//player[2][2].put(representation);
+			player[2][2].put(representation_2);
 		}
 		else
 			map.lose();
@@ -116,25 +116,25 @@ public class Player {
 					player[r][c].clear();
 			
 			player[0][0] = this.map.getCell(3, 0);
-			player[0][0].put(representation);
+			player[0][0].put(representation_1);
 			player[0][1] = this.map.getCell(3, 1);
-			player[0][1].put(representation);
+			player[0][1].put(representation_1);
 			player[0][2] = this.map.getCell(3, 2);
-			//player[0][2].put(representation);
+			player[0][2].put(representation_2);
 			
 			player[1][0] = this.map.getCell(4, 0);
-			//player[1][0].put(representation);
+			player[1][0].put(representation_2);
 			player[1][1] = this.map.getCell(4, 1);
-			player[1][1].put(representation);
+			player[1][1].put(representation_1);
 			player[1][2] = this.map.getCell(4, 2);
-			player[1][2].put(representation);
+			player[1][2].put(representation_1);
 			
 			player[2][0] = this.map.getCell(5, 0);
-			player[2][0].put(representation);
+			player[2][0].put(representation_1);
 			player[2][1] = this.map.getCell(5, 1);
-			player[2][1].put(representation);
+			player[2][1].put(representation_1);
 			player[2][2] = this.map.getCell(5, 2);
-			//player[2][2].put(representation);
+			player[2][2].put(representation_2);
 		}
 		else
 			map.lose();

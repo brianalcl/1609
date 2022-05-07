@@ -7,15 +7,15 @@ import general.logic.Game;
 public class DodgeWallGame extends Game{
 	protected Player player;
 	protected Wall wall;
-	protected DodgeWallWatch DodgeWallWatch;
+	protected DodgeWallWatch dodgeWallWatch;
 	
 	public DodgeWallGame(DodgeWallPanel panel) {
 		super(panel);
 		DodgeWallMap map = new DodgeWallMap(this);
 		this.player = new Player(map, this.panel.getImageFactory());
 		this.wall = new Wall(map, this.panel.getImageFactory());
-		this.DodgeWallWatch = new DodgeWallWatch(this, 100);
-		this.DodgeWallWatch.start();
+		this.dodgeWallWatch = new DodgeWallWatch(this, 200);
+		this.dodgeWallWatch.start();
 	}
 	
 	public synchronized void run() {
@@ -33,10 +33,22 @@ public class DodgeWallGame extends Game{
 		player.moveCenter();
 	}
 	
+	@Override
+	public void addPoints(int points) {
+		super.addPoints(points);
+		if(this.points % 1000 == 0) {
+			addLevel();
+			if(dodgeWallWatch.getStep() > 60)
+				dodgeWallWatch.setStep(dodgeWallWatch.getStep()-20);
+		}
+	}
+	
+	@Override
 	public void win() {
 		super.win();
 	}
 	
+	@Override
 	public void lose() {
 		super.lose();
 	}

@@ -12,6 +12,8 @@ import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import general.random.NRandom;
+
 public abstract class ImageFactory {
 	protected int screenWidth;
 	protected int screenHeight;
@@ -22,7 +24,7 @@ public abstract class ImageFactory {
 	public ImageFactory(int screenWidth, int screenHeight) {
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
-		rnd = new Random();
+		rnd = NRandom.getInstance();
 	}
 	
 	public Dimension getScreenResolution() {
@@ -67,6 +69,8 @@ public abstract class ImageFactory {
 	public abstract Color getForegroundColor();	
 	
 	public abstract Color getEmptyColor();
+	
+	public abstract Color getColorBrown();
 	
 	public abstract Icon getMap();
 	

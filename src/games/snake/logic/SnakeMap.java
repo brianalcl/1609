@@ -5,6 +5,7 @@ import java.util.Random;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.random.NRandom;
 
 public class SnakeMap extends Map{
 
@@ -14,7 +15,7 @@ public class SnakeMap extends Map{
 	
 	public SnakeMap(SnakeGame snakeGame) {
 		super(snakeGame);
-		rnd = new Random();
+		rnd = NRandom.getInstance();
 		totalOccupiedCells = 3;
 	}
 	
