@@ -132,6 +132,8 @@ public abstract class GamePanel extends GeneralPanel{
 	public ImageFactory getImageFactory() {
 		return gui.getImageFactory();
 	}
+	
+	protected abstract void addControls();
 
 	public abstract void lose();
 	

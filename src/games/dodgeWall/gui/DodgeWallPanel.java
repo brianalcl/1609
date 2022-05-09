@@ -22,7 +22,7 @@ public class DodgeWallPanel extends GamePanel{
 		addControls();
 	}
 	
-	private void addControls() {
+	protected void addControls() {
 		
 		addKeyListener(new KeyListener() {
 			

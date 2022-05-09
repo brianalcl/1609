@@ -1,4 +1,4 @@
-package games.snake.gui;
+package games.g2048.gui;
 
 import java.awt.event.ActionEvent;
 
@@ -8,25 +8,23 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
-import games.snake.logic.SnakeGame;
+import games.g2048.logic.G2048Game;
 import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
-import general.logic.Game;
 
-
-public class SnakePanel extends GamePanel{
+public class G2048Panel extends GamePanel{
 	
-	protected SnakeGame game;
+	protected G2048Game game;
 	
-	public SnakePanel(GUI gui) {
+	public G2048Panel(GUI gui) {
 		super(gui);
-		game = new SnakeGame(this);
+		game = new G2048Game(this);
 		setBackground(this.gui.getImageFactory().getColorBrown());
-		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
 		addControls();
 	}
-	
+
+	@Override
 	protected void addControls() {
 		Action moveUp = new AbstractAction() {
 			
@@ -88,30 +86,34 @@ public class SnakePanel extends GamePanel{
 	}
 	
 	private void moveUp() {
-		game.setDirection(Game.MOVE_UP);
+		game.moveUp();
 	}
-
-	private void moveRight() {
-		game.setDirection(Game.MOVE_RIGHT);
-	}
-
 	private void moveDown() {
-		game.setDirection(Game.MOVE_DOWN);
+		game.moveDown();
+	}
+	private void moveRight() {
+		game.moveRight();
+	}
+	private void moveLeft() {
+		game.moveLeft();
+	}	
+	
+	@Override
+	public void lose() {
+		// TODO Auto-generated method stub
+		
 	}
 
-	private void moveLeft() {
-		game.setDirection(Game.MOVE_LEFT);
-	}
-	
-	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
-	}
-	
+	@Override
 	public void win() {
-		gui.setPanel(new GameOverPanel(gui, this,"WIN", lblScore.getText(), lblTime.getText()));
+		// TODO Auto-generated method stub
+		
 	}
-	
+
+	@Override
 	public void restart() {
-		gui.setPanel(new SnakePanel(gui));
+		// TODO Auto-generated method stub
+		
 	}
+
 }

@@ -2,6 +2,7 @@ package general.gui;
 import javax.swing.JPanel;
 
 import games.dodgeWall.gui.DodgeWallPanel;
+import games.g2048.gui.G2048Panel;
 import games.snake.gui.SnakePanel;
 
 import javax.swing.JButton;
@@ -37,7 +38,7 @@ public class InitialPanel extends GeneralPanel{
 	private void putBottons() {
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
-				matrix[r][c] = new JButton(gui.getImageFactory().getEmptyIcon());
+				matrix[r][c] = new JButton(gui.getImageFactory().getIcon("empty"));
 				matrix[r][c].setBackground(gui.getImageFactory().getColorBrown());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorderPainted(false);
@@ -48,6 +49,7 @@ public class InitialPanel extends GeneralPanel{
 		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
 		matrix[0][1].setIcon(gui.getImageFactory().getIcon("dodgeWall"));
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
+		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){
