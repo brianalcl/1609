@@ -11,22 +11,20 @@ public class G2048Map extends Map{
 	
 	protected Random rnd;
 	protected GraphicCell unusable;
-	protected GraphicCell emptyNumber;
 	protected int totalOccupiedCells;
-	protected G2048Cell[][] matrix;
+	protected Piece[][] piece;
 	
 	public G2048Map(G2048Game game) {
 		super(game);
 		this.rnd = NRandom.getInstance();
 		this.unusable = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getEmptyColor());
-		this.emptyNumber = new GraphicCell(game.getImageFactory().getEmptyNumber(), game.getImageFactory().getColorBrown());
 		this.totalOccupiedCells = 0;
-		this.matrix = new G2048Cell[ROW][COLUMN];
 		
-		for(int r = 0; r < ROW; r++) {
-			for(int c = 0; c < COLUMN; c++) {
-				matrix[r][c] = new G2048Cell(r, c, this);
-				matrix[r][c].clear();
+		piece = new Piece[4][4];
+		for (int r = 0; r < 4; r++) {
+			for (int c = 0; c < 4; c++) {
+				piece[r][c] = new Piece(r, c, this, game.getImageFactory());
+				piece[r][c].clear();
 			}
 		}
 		
@@ -57,11 +55,10 @@ public class G2048Map extends Map{
 			act = 3;
 			next = 2;
 			for (int r = 3; r > 0; r--) {
-				if(matrix[(act)*2+2][c*3+3].isFree()) {
-					if(!matrix[(next)*2+2][c*3+3].isFree()) {
-						matrix[(act)*2+2][c*3+3].put(matrix[(next)*2+2][c*3+3].getGraphicCell());
-						matrix[(next)*2+2][c*3+3].clear();
-						paint(act*2+2, c*3+3);
+				if(piece[act][c].isFree()) {
+					if(!piece[next][c].isFree()) {
+						piece[act][c].put(piece[next][c].getGraphicCell(), piece[next][c].getNum());
+						piece[next][c].clear();
 						act--;
 					}
 				}
@@ -81,8 +78,8 @@ public class G2048Map extends Map{
 		boolean stop = false;
 		
 		while(!stop) { 
-			r = (Math.abs(rnd.nextInt()) % 4) * 2 + 2;
-			c = (Math.abs(rnd.nextInt()) % 4) * 3 + 3;
+			r = (Math.abs(rnd.nextInt()) % 4);
+			c = (Math.abs(rnd.nextInt()) % 4);
 			num = (Math.abs(rnd.nextInt()) % 10);
 			putCells(r, c, num);
 			stop = true;
@@ -92,22 +89,11 @@ public class G2048Map extends Map{
 
 	private void putCells(int r, int c, int i) {
 		if(i == 0) {
-			matrix[r][c].put(new GraphicCell(game.getImageFactory().get4(), game.getImageFactory().getColorBrown()));
-			matrix[r][c].setNum(4);
+			piece[r][c].put(4);
 		}
 		else {
-			matrix[r][c].put(new GraphicCell(game.getImageFactory().get2(), game.getImageFactory().getColorBrown()));
-			matrix[r][c].setNum(2);
+			piece[r][c].put(2);
 		}
-		paint(r,c);
-	}
-	
-	private void paint(int r, int c) {
-		matrix[r][c + 1].put(emptyNumber);
-		matrix[r][c - 1].put(emptyNumber);
-		matrix[r - 1][c].put(emptyNumber);
-		matrix[r - 1][c + 1].put(emptyNumber);
-		matrix[r - 1][c - 1].put(emptyNumber);
 	}
 	
 }
