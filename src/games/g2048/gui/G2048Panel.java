@@ -10,6 +10,7 @@ import javax.swing.KeyStroke;
 
 import games.g2048.logic.G2048Game;
 import general.gui.GUI;
+import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 
 public class G2048Panel extends GamePanel{
@@ -100,19 +101,19 @@ public class G2048Panel extends GamePanel{
 	
 	@Override
 	public void lose() {
-		// TODO Auto-generated method stub
+		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
 		
 	}
 
 	@Override
 	public void win() {
-		// TODO Auto-generated method stub
+		//never win
 		
 	}
 
 	@Override
 	public void restart() {
-		// TODO Auto-generated method stub
+		gui.setPanel(new G2048Panel(gui));
 		
 	}
 

@@ -18,18 +18,16 @@ public class Player {
 	}
 
 	public void moveDown() {
-		// TODO Auto-generated method stub
+		map.moveDown();
 		
 	}
 
 	public void moveRight() {
-		// TODO Auto-generated method stub
-		
+		map.moveRight();
 	}
 
 	public void moveLeft() {
-		// TODO Auto-generated method stub
-		
+		map.moveLeft();
 	}
 
 }

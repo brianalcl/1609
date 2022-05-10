@@ -53,14 +53,15 @@ public class Piece{
 	}
 
 	public void clear() {
+		this.num = 0;
 		for (int r = 0; r < 2; r++)
 			for(int c = 0; c < 3; c++) {
-				this.map.getCell(cells[r][c].getRow(), cells[r][c].getColumn()).clear();;
+				cells[r][c].clear();
 			}
 	}
 
 	public boolean isFree() {
-		return cells[0][1].isFree();
+		return cells[0][0].isFree();
 	}
 
 	public GraphicCell[][] getGraphicCell() {
@@ -73,24 +74,73 @@ public class Piece{
 	}
 	
 	public int getNum() {
-		return num;
+		return this.num;
 	}
 	
 	public void put(GraphicCell[][] graphicCell, int num) {
-		for (int r = 0; r < 2; r++)
-			for (int c = 0; c < 3; c++) {
-				cells[r][c].put(graphicCell[r][c]);
-			}
+		this.num = num;
+		if (this.num != 0)
+			for (int r = 0; r < 2; r++)
+				for (int c = 0; c < 3; c++) {
+					cells[r][c].put(graphicCell[r][c]);
+				}
+	}
+	
+	public boolean equals(Piece p) {
+		return p.num == this.num && this.num != 0;
 	}
 	
 	public void put(int num) {
+		
+		this.num = num;
+		
 		if(num > 0 && num < 10) {
 			cells[0][0].put(emptyNumber);	//top-left position
 			cells[0][1].put(jMap.get(num));		//top-central position
 			cells[0][2].put(emptyNumber);	//top-right position
-			
+
 			cells[1][0].put(emptyNumber);	//bottom-left position
 			cells[1][1].put(emptyNumber);		//bottom-central position
+			cells[1][2].put(emptyNumber);	//bottom-right position
+		}
+
+		if(num > 10 && num < 100) {
+			cells[0][0].put(jMap.get(num / 10));	//top-left position
+			cells[0][1].put(jMap.get(num % 10));		//top-central position
+			cells[0][2].put(emptyNumber);	//top-right position
+
+			cells[1][0].put(emptyNumber);	//bottom-left position
+			cells[1][1].put(emptyNumber);		//bottom-central position
+			cells[1][2].put(emptyNumber);	//bottom-right position
+		}
+		
+		if(num > 100 && num < 1000) {
+			cells[0][0].put(jMap.get(num / 100));	//top-left position
+			cells[0][1].put(jMap.get((num / 10) % 10));		//top-central position
+			cells[0][2].put(jMap.get(num % 10));	//top-right position
+
+			cells[1][0].put(emptyNumber);	//bottom-left position
+			cells[1][1].put(emptyNumber);		//bottom-central position
+			cells[1][2].put(emptyNumber);	//bottom-right position
+		}
+		
+		if(num > 1000 && num < 10000) {
+			cells[0][0].put(jMap.get(num / 1000));	//top-left position
+			cells[0][1].put(jMap.get((num / 100) % 10));		//top-central position
+			cells[0][2].put(jMap.get((num / 10) % 10));	//top-right position
+
+			cells[1][0].put(emptyNumber);	//bottom-left position
+			cells[1][1].put(jMap.get(num % 10));		//bottom-central position
+			cells[1][2].put(emptyNumber);	//bottom-right position
+		}
+		
+		if(num > 10000 && num < 100000) {
+			cells[0][0].put(jMap.get(num / 10000));	//top-left position
+			cells[0][1].put(jMap.get((num / 1000) % 10));		//top-central position
+			cells[0][2].put(jMap.get((num / 100) % 10));	//top-right position
+
+			cells[1][0].put(jMap.get((num / 10) % 10));	//bottom-left position
+			cells[1][1].put(jMap.get(num % 10));		//bottom-central position
 			cells[1][2].put(emptyNumber);	//bottom-right position
 		}
 	}

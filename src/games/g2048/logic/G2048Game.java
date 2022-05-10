@@ -29,4 +29,7 @@ public class G2048Game extends Game{
 		player.moveLeft();
 	}
 	
+	public void lose() {
+		super.lose();
+	}
 }
