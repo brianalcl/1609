@@ -31,7 +31,7 @@ public class SnakeMap extends Map{
 		boolean stop = false;
 		
 		if(totalOccupiedCells == ROW * COLUMN)
-			lose();
+			win();
 		else {
 			while(!stop) { 
 				r = Math.abs(rnd.nextInt()) % 9;
