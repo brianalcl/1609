@@ -21,7 +21,7 @@ public class DarkImageFactory extends ImageFactory{
 	private Color colorRebeccaPurple;
 	private Color colorDarkCyan;
 	private Color colorEmptyColor;
-	private Color colorBrown;
+	private Color colorDefault;
 	private Color colorAquamarine;
 	private Color colorAqua;
 	private Color colorChartreuse;
@@ -32,12 +32,13 @@ public class DarkImageFactory extends ImageFactory{
 	private Color colorGold;
 	private Color colorDarkBlue;
 	
-	public DarkImageFactory(int screenWidth, int screenHeight) {
+	public DarkImageFactory(int screenWidth, int screenHeight, Color defaultColor) {
 		super(screenWidth, screenHeight);
+		colorDefault = defaultColor;
+		
 		colorRebeccaPurple = new Color(49, 24, 74);
 		colorDarkCyan = new Color(0,67,67);
 		colorEmptyColor = new Color(0,0,0);
-		colorBrown = new Color(115, 29, 29);
 		colorBlueViolet = new Color(67, 21, 110);
 		colorAquamarine = new Color(61, 124, 103);
 		colorAqua = new Color(0, 124, 124);
@@ -112,8 +113,8 @@ public class DarkImageFactory extends ImageFactory{
 		return colorRebeccaPurple;
 	}
 	
-	public Color getColorBrown() {
-		return colorBrown; 
+	public Color getColorDefault() {
+		return colorDefault; 
 	}
 	
 	public Color getColorBlueViolet() {

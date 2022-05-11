@@ -13,7 +13,6 @@ public class Player {
 	}
 
 	public void moveUp() {
-		// TODO Auto-generated method stub
 		map.moveUp();
 	}
 

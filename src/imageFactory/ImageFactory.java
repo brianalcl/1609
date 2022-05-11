@@ -62,7 +62,7 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorRandom();
 	
-	public abstract Color getColorBrown();
+	public abstract Color getColorDefault();
 	
 	public abstract Color getColorBlueViolet();
 	

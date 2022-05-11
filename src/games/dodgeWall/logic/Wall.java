@@ -22,7 +22,7 @@ public class Wall {
 	public Wall(DodgeWallMap map, ImageFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorBrown());
+		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
 		this.num = 0;
 		this.rnd = NRandom.getInstance();
 		this.wall_1 = new LinkedList<Cell>();

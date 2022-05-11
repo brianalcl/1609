@@ -1,6 +1,5 @@
 package games.g2048.logic;
 
-import java.util.Iterator;
 import java.util.Random;
 
 import general.logic.GraphicCell;

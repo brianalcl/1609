@@ -15,7 +15,7 @@ public class Player {
 		this.player = new Cell[3][3];
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation_1 = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorBrown());
+		this.representation_1 = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
 		this.representation_2 = new GraphicCell(this.imageFactory.getEmpty(), this.imageFactory.getColorEmpty());
 		
 		player[0][0] = this.map.getCell(3, 0);

@@ -20,7 +20,7 @@ public class InitialPanel extends GeneralPanel{
 		panel = new JPanel();
 		createPanel();
 		putBottons();
-		setBackground(this.gui.getImageFactory().getColorBrown());
+		setBackground(this.gui.getImageFactory().getColorDefault());
 	}
 	
 	private void createPanel() {
@@ -31,7 +31,7 @@ public class InitialPanel extends GeneralPanel{
 		panel.setBounds(x,y,w,h);
 		
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
-		panel.setBackground(gui.getImageFactory().getColorBrown());
+		panel.setBackground(gui.getImageFactory().getColorDefault());
 		add(panel);
 	}
 	
@@ -39,7 +39,7 @@ public class InitialPanel extends GeneralPanel{
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton(gui.getImageFactory().getIcon("empty"));
-				matrix[r][c].setBackground(gui.getImageFactory().getColorBrown());
+				matrix[r][c].setBackground(gui.getImageFactory().getColorDefault());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorderPainted(false);
 				matrix[r][c].addMouseListener(getMouseAdapter());
@@ -57,11 +57,11 @@ public class InitialPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorBrown().darker());
+				e.getComponent().setBackground(gui.getImageFactory().getColorDefault().darker());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorBrown());
+				e.getComponent().setBackground(gui.getImageFactory().getColorDefault());
 			}
 
 		};
