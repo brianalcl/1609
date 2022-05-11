@@ -1,6 +1,7 @@
 package imageFactory;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.Icon;
 
@@ -21,35 +22,42 @@ public class DarkImageFactory extends ImageFactory{
 	private Color colorRebeccaPurple;
 	private Color colorDarkCyan;
 	private Color colorEmptyColor;
-	private Color colorDefault;
-	private Color colorAquamarine;
-	private Color colorAqua;
-	private Color colorChartreuse;
-	private Color colorCoral;
+	private Color colorDarkSalmon;
+	private Color colorDarkSlateBlue;
+	private Color colorMediumOrchid;
+	private Color colorDarkOliveGreen;
 	private Color colorCrimson;
-	private Color colorDarkOrange;
+	private Color colorChocolate;
 	private Color colorDarkGreen;
-	private Color colorGold;
-	private Color colorDarkBlue;
+	private Color colorDarkGoldenRod;
+	private Color colorDarkStateGray;
 	
-	public DarkImageFactory(int screenWidth, int screenHeight, Color defaultColor) {
+	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
-		colorDefault = defaultColor;
-		
-		colorRebeccaPurple = new Color(49, 24, 74);
-		colorDarkCyan = new Color(0,67,67);
 		colorEmptyColor = new Color(0,0,0);
-		colorBlueViolet = new Color(67, 21, 110);
-		colorAquamarine = new Color(61, 124, 103);
-		colorAqua = new Color(0, 124, 124);
-		colorChartreuse = new Color(61, 124, 0);
-		colorCrimson = new Color(107, 9, 29);
-		colorCoral = new Color(124, 61, 39);
-		colorDarkOrange = new Color(124, 68, 0);
-		colorDarkGreen = new Color(0, 49, 0);
-		colorGold = new Color(124, 105, 0);
-		colorDarkBlue = new Color(0, 0, 67);
 		
+		colorDarkStateGray = new Color(47, 79, 79);//
+		colorDarkCyan = new Color(0, 139, 139);//
+		colorDarkGreen = new Color(0, 100, 0);//
+		colorDarkSlateBlue = new Color(72, 61, 139);
+		colorDarkSalmon = new Color(233, 150, 122);		
+		colorDarkOliveGreen = new Color(85, 107, 47);//
+		colorDarkGoldenRod = new Color(184, 134, 11);//
+		colorMediumOrchid = new Color(186, 85, 211);//
+		colorChocolate = new Color(210, 105, 30);//
+		
+		colorRebeccaPurple = new Color(102, 51, 153);//
+		colorBlueViolet = new Color(138, 43, 226);
+		colorCrimson = new Color(220, 20, 60);//
+
+		
+		colorDefault = colorDarkStateGray;
+		createIcons();
+	}
+	
+	@Override
+	public void setScreenResolution(Dimension d) {
+		super.setScreenResolution(d);
 		createIcons();
 	}
 
@@ -121,40 +129,40 @@ public class DarkImageFactory extends ImageFactory{
 		return colorBlueViolet;
 	}
 	
-	public Color getColorAquamarine() {
-		return colorAquamarine;
+	public Color getColorDarkSalmon() {
+		return colorDarkSalmon;
 	}
 	
-	public Color getColorAqua() {
-		return colorAqua;
+	public Color getColorDarkSlateBlue() {
+		return colorDarkSlateBlue;
 	}
 	
-	public Color getColorChartreuse() {
-		return colorChartreuse;
+	public Color getColorMediumOrchid() {
+		return colorMediumOrchid;
 	}
 	
-	public Color getColorCoral() {
-		return colorCoral;
+	public Color getColorDarkOliveGreen() {
+		return colorDarkOliveGreen;
 	}
 	
 	public Color getColorCrimson() {
 		return colorCrimson;
 	}
 	
-	public Color getColorDarkOrange() {
-		return colorDarkOrange;
+	public Color getColorChocolate() {
+		return colorChocolate;
 	}
 	
 	public Color getColorDarkGreen() {
 		return colorDarkGreen;
 	}
 	
-	public Color getColorGold() {
-		return colorGold;
+	public Color getColorDarkGoldenRod() {
+		return colorDarkGoldenRod;
 	}
 	
-	public Color getColorDarkBlue() {
-		return colorDarkBlue;
+	public Color getColorDarkStateGray() {
+		return colorDarkStateGray;
 	}
 	
 	public Icon getEmpty() {

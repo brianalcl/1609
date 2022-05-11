@@ -1,13 +1,9 @@
 package games.g2048.logic;
 
 import java.awt.Color;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Set;
 
 import javax.swing.Icon;
-
-import java.util.Map.Entry;
 
 import general.logic.Cell;
 import general.logic.GraphicCell;
@@ -52,22 +48,22 @@ public class Piece{
 		mapIcon.put(8, this.imageFactory.get8());
 		mapIcon.put(9, this.imageFactory.get9());
 		
-		mapColor.put(2, this.imageFactory.getColorAqua());
-		mapColor.put(4, this.imageFactory.getColorAquamarine());
+		mapColor.put(2, this.imageFactory.getColorDarkSlateBlue());
+		mapColor.put(4, this.imageFactory.getColorDarkSalmon());
 		mapColor.put(8, this.imageFactory.getColorDarkCyan());
-		mapColor.put(16, this.imageFactory.getColorChartreuse());
-		mapColor.put(32, this.imageFactory.getColorCoral());
+		mapColor.put(16, this.imageFactory.getColorMediumOrchid());
+		mapColor.put(32, this.imageFactory.getColorDarkOliveGreen());
 		mapColor.put(64, this.imageFactory.getColorCrimson());
 		mapColor.put(128, this.imageFactory.getColorBlueViolet());
 		mapColor.put(256, this.imageFactory.getColorRebeccaPurple());
-		mapColor.put(512, this.imageFactory.getColorDarkBlue());
-		mapColor.put(1024, this.imageFactory.getColorDarkOrange());
+		mapColor.put(512, this.imageFactory.getColorDarkStateGray());
+		mapColor.put(1024, this.imageFactory.getColorChocolate());
 		mapColor.put(2048, this.imageFactory.getColorDarkGreen());
-		mapColor.put(4096, this.imageFactory.getColorGold());
-		mapColor.put(8192, this.imageFactory.getColorGold());
-		mapColor.put(16384, this.imageFactory.getColorGold());
-		mapColor.put(32768, this.imageFactory.getColorGold());
-		mapColor.put(65536, this.imageFactory.getColorGold());
+		mapColor.put(4096, this.imageFactory.getColorDarkGoldenRod());
+		mapColor.put(8192, this.imageFactory.getColorDarkGoldenRod());
+		mapColor.put(16384, this.imageFactory.getColorDarkGoldenRod());
+		mapColor.put(32768, this.imageFactory.getColorDarkGoldenRod());
+		mapColor.put(65536, this.imageFactory.getColorDarkGoldenRod());
 	}
 	
 	public void setNum(int num) {
@@ -144,7 +140,7 @@ public class Piece{
 			cells[0][2].put(new GraphicCell(mapIcon.get((num / 100) % 10), mapColor.get(num)));	//top-right position
 
 			cells[1][0].put(new GraphicCell(mapIcon.get((num / 10) % 10), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(num % 100), mapColor.get(num)));		//bottom-central position
+			cells[1][1].put(new GraphicCell(mapIcon.get(num % 10), mapColor.get(num)));		//bottom-central position
 			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
 		}
 	}

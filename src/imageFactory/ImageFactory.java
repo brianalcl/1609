@@ -20,11 +20,21 @@ public abstract class ImageFactory {
 	public static final int DEFAULT_WIDTH = 1920;
 	public static final int DEFAULT_HEIGHT = 1080;
 	protected Random rnd;
+	protected Color colorDefault;
 	
 	public ImageFactory(int screenWidth, int screenHeight) {
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
 		rnd = NRandom.getInstance();
+	}
+	
+	public void setColorDefault(Color colorDefault) {
+		this.colorDefault = colorDefault;
+	}
+	
+	public void setScreenResolution(Dimension d) {
+		screenWidth = (int) d.getWidth();
+		screenHeight = (int) d.getHeight();
 	}
 	
 	public Dimension getScreenResolution() {
@@ -74,23 +84,23 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorEmpty();
 	
-	public abstract Color getColorAquamarine();
+	public abstract Color getColorDarkSalmon();
 	
-	public abstract Color getColorAqua();
+	public abstract Color getColorDarkSlateBlue();
 	
-	public abstract Color getColorChartreuse();
+	public abstract Color getColorMediumOrchid();
 	
-	public abstract Color getColorCoral();
+	public abstract Color getColorDarkOliveGreen();
 	
 	public abstract Color getColorCrimson();
 	
-	public abstract Color getColorDarkOrange();
+	public abstract Color getColorChocolate();
 	
 	public abstract Color getColorDarkGreen();
 	
-	public abstract Color getColorDarkBlue();
+	public abstract Color getColorDarkStateGray();
 	
-	public abstract Color getColorGold();
+	public abstract Color getColorDarkGoldenRod();
 	
 	public abstract Icon getMap();
 	

@@ -51,6 +51,7 @@ public class InitialPanel extends GeneralPanel{
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
 		matrix[0][2].setIcon(gui.getImageFactory().getIcon("g2048"));
 		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
+		matrix[1][0].addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){
