@@ -49,6 +49,7 @@ public class InitialPanel extends GeneralPanel{
 		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
 		matrix[0][1].setIcon(gui.getImageFactory().getIcon("dodgeWall"));
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
+		matrix[0][2].setIcon(gui.getImageFactory().getIcon("g2048"));
 		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
 	}
 	

@@ -9,7 +9,7 @@ public abstract class Map {
 	
 	public Map(Game game) {
 		this.game = game;
-		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getEmptyColor());
+		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
 		matrix = new Cell[ROW][COLUMN];
 		
 		for(int r = 0; r < ROW; r++) {

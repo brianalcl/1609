@@ -18,7 +18,7 @@ public class G2048Map extends Map{
 	public G2048Map(G2048Game game) {
 		super(game);
 		this.rnd = NRandom.getInstance();
-		this.unusable = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getEmptyColor());
+		this.unusable = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorEmpty());
 		this.totalOccupiedCells = 0;
 		this.move = false;
 		

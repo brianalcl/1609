@@ -78,9 +78,9 @@ public abstract class GamePanel extends GeneralPanel{
 		lblTime.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
 		lblLevel.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
 		lblScore.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblTime.setForeground(gui.getImageFactory().getForegroundColor());
-		lblLevel.setForeground(gui.getImageFactory().getForegroundColor());
-		lblScore.setForeground(gui.getImageFactory().getForegroundColor());
+		lblTime.setForeground(gui.getImageFactory().getColorForeground());
+		lblLevel.setForeground(gui.getImageFactory().getColorForeground());
+		lblScore.setForeground(gui.getImageFactory().getColorForeground());
 		add(lblTime);
 		add(lblLevel);
 		add(lblScore);
@@ -100,7 +100,7 @@ public abstract class GamePanel extends GeneralPanel{
 		
 		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
 		panel.setBounds(x,y,w,h);
-		panel.setBackground(gui.getImageFactory().getEmptyColor());
+		panel.setBackground(gui.getImageFactory().getColorEmpty());
 		
 		add(panel);
 		

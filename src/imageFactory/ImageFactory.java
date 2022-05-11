@@ -62,15 +62,35 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorRandom();
 	
+	public abstract Color getColorBrown();
+	
+	public abstract Color getColorBlueViolet();
+	
 	public abstract Color getColorDarkCyan();
 	
 	public abstract Color getColorRebeccaPurple();
 	
-	public abstract Color getForegroundColor();	
+	public abstract Color getColorForeground();	
 	
-	public abstract Color getEmptyColor();
+	public abstract Color getColorEmpty();
 	
-	public abstract Color getColorBrown();
+	public abstract Color getColorAquamarine();
+	
+	public abstract Color getColorAqua();
+	
+	public abstract Color getColorChartreuse();
+	
+	public abstract Color getColorCoral();
+	
+	public abstract Color getColorCrimson();
+	
+	public abstract Color getColorDarkOrange();
+	
+	public abstract Color getColorDarkGreen();
+	
+	public abstract Color getColorDarkBlue();
+	
+	public abstract Color getColorGold();
 	
 	public abstract Icon getMap();
 	
@@ -85,7 +105,6 @@ public abstract class ImageFactory {
 	public abstract Icon getSquircle();
 	
 	public abstract Icon getEmpty();
-	
 	
 	public abstract Icon getIcon(String name);
 

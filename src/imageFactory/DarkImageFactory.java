@@ -6,6 +6,7 @@ import javax.swing.Icon;
 
 public class DarkImageFactory extends ImageFactory{
 	private Icon squircle;
+	private Icon emptyNumberIcon;
 	private Icon icon_0;
 	private Icon icon_1;
 	private Icon icon_2;
@@ -16,11 +17,20 @@ public class DarkImageFactory extends ImageFactory{
 	private Icon icon_7;
 	private Icon icon_8;
 	private Icon icon_9;
+	private Color colorBlueViolet;
 	private Color colorRebeccaPurple;
 	private Color colorDarkCyan;
 	private Color colorEmptyColor;
 	private Color colorBrown;
-	private Icon emptyNumberIcon;
+	private Color colorAquamarine;
+	private Color colorAqua;
+	private Color colorChartreuse;
+	private Color colorCoral;
+	private Color colorCrimson;
+	private Color colorDarkOrange;
+	private Color colorDarkGreen;
+	private Color colorGold;
+	private Color colorDarkBlue;
 	
 	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
@@ -28,6 +38,17 @@ public class DarkImageFactory extends ImageFactory{
 		colorDarkCyan = new Color(0,67,67);
 		colorEmptyColor = new Color(0,0,0);
 		colorBrown = new Color(115, 29, 29);
+		colorBlueViolet = new Color(67, 21, 110);
+		colorAquamarine = new Color(61, 124, 103);
+		colorAqua = new Color(0, 124, 124);
+		colorChartreuse = new Color(61, 124, 0);
+		colorCrimson = new Color(107, 9, 29);
+		colorCoral = new Color(124, 61, 39);
+		colorDarkOrange = new Color(124, 68, 0);
+		colorDarkGreen = new Color(0, 49, 0);
+		colorGold = new Color(124, 105, 0);
+		colorDarkBlue = new Color(0, 0, 67);
+		
 		createIcons();
 	}
 
@@ -75,7 +96,7 @@ public class DarkImageFactory extends ImageFactory{
 		return new Color(r,g,b);
 	}
 	
-	public Color getEmptyColor() {
+	public Color getColorEmpty() {
 		return colorEmptyColor;
 	}
 
@@ -83,7 +104,7 @@ public class DarkImageFactory extends ImageFactory{
 		return colorDarkCyan;
 	}
 	
-	public Color getForegroundColor() {
+	public Color getColorForeground() {
 		return new Color(200, 200, 200);
 	}
 	
@@ -93,6 +114,46 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Color getColorBrown() {
 		return colorBrown; 
+	}
+	
+	public Color getColorBlueViolet() {
+		return colorBlueViolet;
+	}
+	
+	public Color getColorAquamarine() {
+		return colorAquamarine;
+	}
+	
+	public Color getColorAqua() {
+		return colorAqua;
+	}
+	
+	public Color getColorChartreuse() {
+		return colorChartreuse;
+	}
+	
+	public Color getColorCoral() {
+		return colorCoral;
+	}
+	
+	public Color getColorCrimson() {
+		return colorCrimson;
+	}
+	
+	public Color getColorDarkOrange() {
+		return colorDarkOrange;
+	}
+	
+	public Color getColorDarkGreen() {
+		return colorDarkGreen;
+	}
+	
+	public Color getColorGold() {
+		return colorGold;
+	}
+	
+	public Color getColorDarkBlue() {
+		return colorDarkBlue;
 	}
 	
 	public Icon getEmpty() {

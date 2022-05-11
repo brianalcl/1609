@@ -62,15 +62,15 @@ public class GameOverPanel extends GeneralPanel{
 		lblRes.setFont(font.deriveFont(Math.round(150*widthScaleFactor)*1.0f));
 		
 		
-		lblRes.setForeground(gui.getImageFactory().getForegroundColor());
+		lblRes.setForeground(gui.getImageFactory().getColorForeground());
 		lblRes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
 		
-		lblScore.setForeground(gui.getImageFactory().getForegroundColor());
+		lblScore.setForeground(gui.getImageFactory().getColorForeground());
 		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
 		
-		lblTime.setForeground(gui.getImageFactory().getForegroundColor());
+		lblTime.setForeground(gui.getImageFactory().getColorForeground());
 		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		
 		add(lblRes);
