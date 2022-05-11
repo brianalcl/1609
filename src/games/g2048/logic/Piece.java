@@ -54,8 +54,8 @@ public class Piece{
 		
 		mapColor.put(2, this.imageFactory.getColorAqua());
 		mapColor.put(4, this.imageFactory.getColorAquamarine());
-		mapColor.put(8, this.imageFactory.getColorChartreuse());
-		mapColor.put(16, this.imageFactory.getColorDarkCyan());
+		mapColor.put(8, this.imageFactory.getColorDarkCyan());
+		mapColor.put(16, this.imageFactory.getColorChartreuse());
 		mapColor.put(32, this.imageFactory.getColorCoral());
 		mapColor.put(64, this.imageFactory.getColorCrimson());
 		mapColor.put(128, this.imageFactory.getColorBlueViolet());
