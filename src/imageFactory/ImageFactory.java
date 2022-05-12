@@ -103,7 +103,9 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorDarkGoldenRod();
 	
-	public abstract Icon getMap();
+	public abstract Icon getMapHorizontal();
+	
+	public abstract Icon getMapVertical();
 	
 	public abstract Icon getRestart();
 	

@@ -18,7 +18,7 @@ public class G2048Panel extends GamePanel{
 	protected G2048Game game;
 	
 	public G2048Panel(GUI gui) {
-		super(gui);
+		super(gui, true);
 		game = new G2048Game(this);
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());

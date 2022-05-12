@@ -44,7 +44,7 @@ public class G2048Map extends Map{
 		
 		for(int c = 0; c < 16; c++)
 			matrix[0][c].put(unusable);
-
+		
 	}
 	
 	public void moveUp() {

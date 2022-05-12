@@ -167,14 +167,6 @@ public class DarkImageFactory extends ImageFactory{
 		return colorDarkSlateGray;
 	}
 	
-	public Icon getEmpty() {
-		return null;
-	}
-
-	public Icon getEmptyNumber() {
-		return emptyNumberIcon;
-	}
-	
 	public Icon getIcon(String name) {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+"Icon1080.png");
@@ -201,7 +193,14 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard2-1080.png");
 		else
 			return getOriginalIcon("/assets/img/r720/gameImages/keyboard2-720.png");
-	}
+	}	
+	
+	public Icon getKeyboard3() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard3-1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard3-720.png");
+	}	
 	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
@@ -238,19 +237,27 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/r720/menuIcons/exit720.png");
 	}
 	
-	public Icon getMap() {
+	public Icon getMapHorizontal() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/map1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameImages/mapHorizontal1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/map720.png");
+			return getOriginalIcon("/assets/img/r720/gameImages/mapHorizontal720.png");
+	}
+	
+	public Icon getMapVertical() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/mapVertical1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/mapVertical720.png");
+	}	
+	
+	public Icon getEmpty() {
+		return null;
 	}
 
-	public Icon getKeyboard3() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard3-1080.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard3-720.png");
-	}	
+	public Icon getEmptyNumber() {
+		return emptyNumberIcon;
+	}
 	
 	@Override
 	public Icon getSquircle() {

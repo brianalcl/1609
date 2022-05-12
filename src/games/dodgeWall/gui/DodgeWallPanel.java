@@ -14,7 +14,7 @@ public class DodgeWallPanel extends GamePanel{
 	protected DodgeWallGame game;
 	
 	public DodgeWallPanel(GUI gui) {
-		super(gui);
+		super(gui, true);
 		game = new DodgeWallGame(this);
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
