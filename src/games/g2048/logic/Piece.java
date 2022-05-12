@@ -48,17 +48,17 @@ public class Piece{
 		mapIcon.put(8, this.imageFactory.get8());
 		mapIcon.put(9, this.imageFactory.get9());
 		
-		mapColor.put(2, this.imageFactory.getColorDarkSlateBlue());
-		mapColor.put(4, this.imageFactory.getColorDarkSalmon());
+		mapColor.put(2, this.imageFactory.getColorPeru());
+		mapColor.put(4, this.imageFactory.getColorSienna());
 		mapColor.put(8, this.imageFactory.getColorDarkCyan());
-		mapColor.put(16, this.imageFactory.getColorMediumOrchid());
-		mapColor.put(32, this.imageFactory.getColorDarkOliveGreen());
-		mapColor.put(64, this.imageFactory.getColorCrimson());
-		mapColor.put(128, this.imageFactory.getColorBlueViolet());
-		mapColor.put(256, this.imageFactory.getColorRebeccaPurple());
-		mapColor.put(512, this.imageFactory.getColorDarkStateGray());
-		mapColor.put(1024, this.imageFactory.getColorChocolate());
-		mapColor.put(2048, this.imageFactory.getColorDarkGreen());
+		mapColor.put(16, this.imageFactory.getColorDarkSlateGray());
+		mapColor.put(32, this.imageFactory.getColorMediumOrchid());
+		mapColor.put(64, this.imageFactory.getColorPurple());
+		mapColor.put(128, this.imageFactory.getColorDarkOliveGreen());
+		mapColor.put(256, this.imageFactory.getColorDarkGreen());
+		mapColor.put(512, this.imageFactory.getColorCrimson());
+		mapColor.put(1024, this.imageFactory.getColorDarkRed());
+		mapColor.put(2048, this.imageFactory.getColorRoyalBlue());
 		mapColor.put(4096, this.imageFactory.getColorDarkGoldenRod());
 		mapColor.put(8192, this.imageFactory.getColorDarkGoldenRod());
 		mapColor.put(16384, this.imageFactory.getColorDarkGoldenRod());

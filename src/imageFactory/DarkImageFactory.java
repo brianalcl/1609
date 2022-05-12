@@ -18,40 +18,42 @@ public class DarkImageFactory extends ImageFactory{
 	private Icon icon_7;
 	private Icon icon_8;
 	private Icon icon_9;
-	private Color colorBlueViolet;
-	private Color colorRebeccaPurple;
-	private Color colorDarkCyan;
 	private Color colorEmptyColor;
-	private Color colorDarkSalmon;
-	private Color colorDarkSlateBlue;
+	
+	
+	private Color colorPurple;
+	private Color colorSienna;
+	private Color colorDarkCyan;
+	private Color colorPeru;
+	private Color colorRoyalBlue;
 	private Color colorMediumOrchid;
 	private Color colorDarkOliveGreen;
 	private Color colorCrimson;
-	private Color colorChocolate;
+	private Color colorDarkRed;
 	private Color colorDarkGreen;
 	private Color colorDarkGoldenRod;
-	private Color colorDarkStateGray;
+	private Color colorDarkSlateGray;
 	
 	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
-		colorEmptyColor = new Color(0,0,0);
 		
-		colorDarkStateGray = new Color(47, 79, 79);//
-		colorDarkCyan = new Color(0, 139, 139);//
-		colorDarkGreen = new Color(0, 100, 0);//
-		colorDarkSlateBlue = new Color(72, 61, 139);
-		colorDarkSalmon = new Color(233, 150, 122);		
-		colorDarkOliveGreen = new Color(85, 107, 47);//
-		colorDarkGoldenRod = new Color(184, 134, 11);//
-		colorMediumOrchid = new Color(186, 85, 211);//
-		colorChocolate = new Color(210, 105, 30);//
 		
-		colorRebeccaPurple = new Color(102, 51, 153);//
-		colorBlueViolet = new Color(138, 43, 226);
-		colorCrimson = new Color(220, 20, 60);//
+		colorDarkSlateGray = new Color(47, 79, 79);
+		colorDarkCyan = new Color(0, 139, 139);
+		colorDarkGreen = new Color(0, 100, 0);
+		colorRoyalBlue = new Color(65, 105, 225);
+		colorPeru = new Color(205, 133, 63);		
+		colorDarkOliveGreen = new Color(85, 107, 47);
+		colorDarkGoldenRod = new Color(184, 134, 11);
+		colorMediumOrchid = new Color(186, 85, 211);
+		colorDarkRed = new Color(139, 0, 0);
+		colorSienna = new Color(160, 82, 45);
+		colorPurple = new Color(128, 0, 128);
+		colorCrimson = new Color(220, 20, 60);
 
-		
-		colorDefault = colorDarkStateGray;
+		colorEmptyColor = new Color(0,0,0);
+		colorForeground = new Color(255, 255, 255, 200);
+		colorDefault = colorDarkSlateGray;
 		createIcons();
 	}
 	
@@ -114,27 +116,27 @@ public class DarkImageFactory extends ImageFactory{
 	}
 	
 	public Color getColorForeground() {
-		return new Color(200, 200, 200);
+		return colorForeground;
 	}
 	
-	public Color getColorRebeccaPurple() {
-		return colorRebeccaPurple;
+	public Color getColorSienna() {
+		return colorSienna;
 	}
 	
 	public Color getColorDefault() {
 		return colorDefault; 
 	}
 	
-	public Color getColorBlueViolet() {
-		return colorBlueViolet;
+	public Color getColorPurple() {
+		return colorPurple;
 	}
 	
-	public Color getColorDarkSalmon() {
-		return colorDarkSalmon;
+	public Color getColorPeru() {
+		return colorPeru;
 	}
 	
-	public Color getColorDarkSlateBlue() {
-		return colorDarkSlateBlue;
+	public Color getColorRoyalBlue() {
+		return colorRoyalBlue;
 	}
 	
 	public Color getColorMediumOrchid() {
@@ -149,8 +151,8 @@ public class DarkImageFactory extends ImageFactory{
 		return colorCrimson;
 	}
 	
-	public Color getColorChocolate() {
-		return colorChocolate;
+	public Color getColorDarkRed() {
+		return colorDarkRed;
 	}
 	
 	public Color getColorDarkGreen() {
@@ -161,8 +163,8 @@ public class DarkImageFactory extends ImageFactory{
 		return colorDarkGoldenRod;
 	}
 	
-	public Color getColorDarkStateGray() {
-		return colorDarkStateGray;
+	public Color getColorDarkSlateGray() {
+		return colorDarkSlateGray;
 	}
 	
 	public Icon getEmpty() {

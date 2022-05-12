@@ -21,6 +21,7 @@ public abstract class ImageFactory {
 	public static final int DEFAULT_HEIGHT = 1080;
 	protected Random rnd;
 	protected Color colorDefault;
+	protected Color colorForeground;
 	
 	public ImageFactory(int screenWidth, int screenHeight) {
 		this.screenWidth = screenWidth;
@@ -74,19 +75,19 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorDefault();
 	
-	public abstract Color getColorBlueViolet();
+	public abstract Color getColorPurple();
 	
 	public abstract Color getColorDarkCyan();
 	
-	public abstract Color getColorRebeccaPurple();
+	public abstract Color getColorSienna();
 	
 	public abstract Color getColorForeground();	
 	
 	public abstract Color getColorEmpty();
 	
-	public abstract Color getColorDarkSalmon();
+	public abstract Color getColorPeru();
 	
-	public abstract Color getColorDarkSlateBlue();
+	public abstract Color getColorRoyalBlue();
 	
 	public abstract Color getColorMediumOrchid();
 	
@@ -94,11 +95,11 @@ public abstract class ImageFactory {
 	
 	public abstract Color getColorCrimson();
 	
-	public abstract Color getColorChocolate();
+	public abstract Color getColorDarkRed();
 	
 	public abstract Color getColorDarkGreen();
 	
-	public abstract Color getColorDarkStateGray();
+	public abstract Color getColorDarkSlateGray();
 	
 	public abstract Color getColorDarkGoldenRod();
 	

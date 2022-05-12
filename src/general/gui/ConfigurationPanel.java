@@ -66,11 +66,11 @@ public class ConfigurationPanel extends GeneralPanel{
 			}
 		});
 		
-		matrix[0][2].setBackground(gui.getImageFactory().getColorRebeccaPurple());
+		matrix[0][2].setBackground(gui.getImageFactory().getColorSienna());
 		matrix[0][2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorRebeccaPurple());
+				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorSienna());
 				gui.setPanel(new InitialPanel(gui));
 			}
 		});
@@ -84,11 +84,11 @@ public class ConfigurationPanel extends GeneralPanel{
 			}
 		});
 		
-		matrix[1][1].setBackground(gui.getImageFactory().getColorDarkStateGray());
+		matrix[1][1].setBackground(gui.getImageFactory().getColorDarkSlateGray());
 		matrix[1][1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkStateGray());
+				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkSlateGray());
 				gui.setPanel(new InitialPanel(gui));
 			}
 		});
@@ -120,11 +120,11 @@ public class ConfigurationPanel extends GeneralPanel{
 			}
 		});
 		
-		matrix[2][2].setBackground(gui.getImageFactory().getColorChocolate());
+		matrix[2][2].setBackground(gui.getImageFactory().getColorDarkRed());
 		matrix[2][2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorChocolate());
+				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkRed());
 				gui.setPanel(new InitialPanel(gui));
 			}
 		});
