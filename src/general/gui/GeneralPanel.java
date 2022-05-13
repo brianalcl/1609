@@ -1,13 +1,7 @@
 package general.gui;
 
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.IOException;
-import java.io.InputStream;
-
 import javax.swing.JPanel;
-
-import imageFactory.DarkImageFactory;
 import imageFactory.ImageFactory;
 
 public abstract class GeneralPanel extends JPanel{

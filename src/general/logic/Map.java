@@ -7,18 +7,33 @@ public abstract class Map {
 	protected Game game;
 	protected GraphicCell freeCell;
 	
-	public Map(Game game) {
+	public Map(Game game, boolean isHorizontal) {
 		this.game = game;
 		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
-		matrix = new Cell[ROW][COLUMN];
 		
-		for(int r = 0; r < ROW; r++) {
-			for(int c = 0; c < COLUMN; c++) {
+		if(isHorizontal)
+			createHorizontal();
+		else
+			createVertical();
+	}
+	
+	private void createHorizontal() {
+		matrix = new Cell[ROW][COLUMN];
+		for(int r = 0; r < matrix.length; r++) 
+			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new Cell(r, c, this);
 				matrix[r][c].clear();
 			}
-		}
 		
+	}
+	
+	private void createVertical() {
+		matrix = new Cell[COLUMN][ROW];
+		for(int r = 0; r < matrix.length; r++) 
+			for(int c = 0; c < matrix[0].length; c++) {
+				matrix[r][c] = new Cell(r, c, this);
+				matrix[r][c].clear();
+			}
 	}
 	
 	public Cell getCell(int r, int c) {
