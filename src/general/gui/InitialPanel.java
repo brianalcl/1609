@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 
 public class InitialPanel extends GeneralPanel{
 	protected JButton[][] matrix;
+	protected JButton btnConfiguration;
 	protected JPanel panel;
 	public InitialPanel(GUI gui) {
 		super(gui);
@@ -36,6 +37,16 @@ public class InitialPanel extends GeneralPanel{
 	}
 	
 	private void putBottons() {
+		btnConfiguration = new JButton(gui.getImageFactory().getConfiguration());
+		btnConfiguration.setBackground(gui.getImageFactory().getColorDefault());
+		btnConfiguration.setFocusable(false);
+		btnConfiguration.setBorderPainted(false);
+		btnConfiguration.addMouseListener(getMouseAdapter());
+		btnConfiguration.addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
+		btnConfiguration.setBounds(0, 0, (int) Math.round(200 * widthScaleFactor), (int) Math.round(200 * widthScaleFactor));
+		add(btnConfiguration);
+		
+		
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton(gui.getImageFactory().getIcon("empty"));
@@ -51,18 +62,18 @@ public class InitialPanel extends GeneralPanel{
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
 		matrix[0][2].setIcon(gui.getImageFactory().getIcon("g2048"));
 		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
-		matrix[1][0].addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
+		
 	}
 	
 	private MouseAdapter getMouseAdapter(){
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorDefault().darker());
+				e.getComponent().setBackground(e.getComponent().getBackground().darker());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getColorDefault());
+				e.getComponent().setBackground(e.getComponent().getBackground().brighter());
 			}
 
 		};

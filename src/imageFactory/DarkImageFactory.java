@@ -237,6 +237,13 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/r720/menuIcons/exit720.png");
 	}
 	
+	public Icon getConfiguration() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/menuIcons/Configuration1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/menuIcons/Configuration720.png");
+	}
+	
 	public Icon getMapHorizontal() {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameImages/mapHorizontal1080.png");

@@ -153,4 +153,6 @@ public abstract class ImageFactory {
 	
 	public abstract Icon get9();
 
+	public abstract Icon getConfiguration();
+
 }
