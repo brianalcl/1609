@@ -8,17 +8,17 @@ public class Player {
 	protected Cell player;
 	protected ImageFactory imageFactory;
 	protected ShotMap map;
-	protected GraphicCell representation_1;
+	protected GraphicCell representation;
 	protected Shot shot;
 	
 	public Player(ShotMap map, ImageFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation_1 = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
+		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
 		this.shot = new Shot(this.map, this.imageFactory);
 		
 		player = this.map.getCell(0, 4);
-		player.put(representation_1);
+		player.put(representation);
 	}
 	
 	public void moveLeft() {
@@ -26,7 +26,7 @@ public class Player {
 			if(checkLeft()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() - 1);
-				player.put(representation_1);
+				player.put(representation);
 			}
 			else
 				map.lose();
@@ -38,11 +38,15 @@ public class Player {
 			if(checkRight()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() + 1);
-				player.put(representation_1);
+				player.put(representation);
 			}
 			else
 				map.lose();
 		}
+	}
+	
+	public boolean isShot(int r, int c) {
+		return shot.isShot(r, c);
 	}
 	
 	public void shot() {

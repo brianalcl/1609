@@ -128,6 +128,8 @@ public abstract class ImageFactory {
 	public abstract Icon getKeyboard2();
 	
 	public abstract Icon getKeyboard3();
+	
+	public abstract Icon getKeyboard4();
 
 	public abstract Icon getMouse();
 	

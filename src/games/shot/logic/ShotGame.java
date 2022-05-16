@@ -8,6 +8,7 @@ public class ShotGame extends Game{
 	protected Player player;
 	protected Wall wall;
 	protected ShotWatch shotWatch;
+	protected int stepMoveWall;
 	
 	public ShotGame(ShotPanel panel) {
 		super(panel);
@@ -16,11 +17,21 @@ public class ShotGame extends Game{
 		this.wall = new Wall(map, this.panel.getImageFactory());
 		this.shotWatch = new ShotWatch(this, 200);
 		this.shotWatch.start();
+		this.stepMoveWall = 20;
 	}
 	
 	public synchronized void run() {
-		wall.put();
+		
+		if(stepMoveWall == 20) {
+			wall.put();
+			stepMoveWall = 0;
+		}
+		stepMoveWall++;
 		player.moveShot();
+	}
+	
+	public boolean isShot(int r, int c) {
+		return player.isShot(r,c);
 	}
 	
 	public void moveLeft() {
@@ -44,7 +55,7 @@ public class ShotGame extends Game{
 		super.addPoints(points);
 		if(this.points % 1000 == 0) {
 			addLevel();
-			if(shotWatch.getStep() > 60)
+			if(shotWatch.getStep() > 40)
 				shotWatch.setStep(shotWatch.getStep()-20);
 		}
 	}
@@ -53,5 +64,6 @@ public class ShotGame extends Game{
 	public void lose() {
 		super.lose();
 	}
+
 
 }

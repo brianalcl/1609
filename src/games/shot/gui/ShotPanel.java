@@ -17,7 +17,7 @@ public class ShotPanel extends GamePanel{
 		super(gui, false);
 		game = new ShotGame(this);
 		setBackground(this.gui.getImageFactory().getColorDefault());
-		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard2());
+		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
 		addControls();
 	}
 	
@@ -36,7 +36,7 @@ public class ShotPanel extends GamePanel{
 			}
 			
 			@Override
-			public void keyPressed(KeyEvent e) {System.out.println("pressed");
+			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
 					moveLeft();
 				}

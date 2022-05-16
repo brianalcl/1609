@@ -202,6 +202,13 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/r720/gameImages/keyboard3-720.png");
 	}	
 	
+	public Icon getKeyboard4() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard4-1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard4-720.png");
+	}	
+	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameImages/mouse1080.png");
