@@ -50,7 +50,7 @@ public class SudokuMap extends Map{
 				if(!set.contains(n)) {
 					set.add(n);
 					stop = true;
-					mapNumber.put(i, n); System.out.println(mapNumber);
+					mapNumber.put(i, n);
 				}
 			}
 		}
@@ -79,7 +79,103 @@ public class SudokuMap extends Map{
 		}
 		catch (IOException | NullPointerException | NumberFormatException e) {
 		}
+		move();
 	}
+	
+	private void move() { //swap rows and columns
+		int n = 0;
+		
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapRows(7,10);
+		if(n == 2)
+			swapRows(10,13);
+		if(n == 3)
+			swapRows(7,13);
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapRows(7,10);
+		if(n == 2)
+			swapRows(10,13);
+		if(n == 3)
+			swapRows(7,13);
+		
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapColumns(0,3);
+		if(n == 2)
+			swapColumns(3,6);
+		if(n == 3)
+			swapColumns(0,6);
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapColumns(0,3);
+		if(n == 2)
+			swapColumns(3,6);
+		if(n == 3)
+			swapColumns(0,6);
+		
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapRows(7,10);
+		if(n == 2)
+			swapRows(10,13);
+		if(n == 3)
+			swapRows(7,13);
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapRows(7,10);
+		if(n == 2)
+			swapRows(10,13);
+		if(n == 3)
+			swapRows(7,13);
+		
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapColumns(0,3);
+		if(n == 2)
+			swapColumns(3,6);
+		if(n == 3)
+			swapColumns(0,6);
+		n = Math.abs(rnd.nextInt() % 4);
+		if(n == 1)
+			swapColumns(0,3);
+		if(n == 2)
+			swapColumns(3,6);
+		if(n == 3)
+			swapColumns(0,6);
+		
+	}
+
+	private void swapColumns(int i, int j) {
+		int swap = 0;
+		for(int column = i; column < i+3; column++) { 
+			for(int row = 7; row < 16; row++) {
+				swap = matrix[row][column].getNumber();
+				matrix[row][column].setNumber(matrix[row][j].getNumber());
+				matrix[row][j].setNumber(swap);
+				matrix[row][column].put(createGraphicCell(matrix[row][column].getNumber()));
+				matrix[row][j].put(createGraphicCell(matrix[row][j].getNumber()));
+			}
+			j++;
+		}
+	}
+
+
+	private void swapRows(int i, int j) {
+		int swap = 0;
+		for(int row = i; row < i+3; row++) { 
+			for(int column = 0; column < 9; column++) {
+				swap = matrix[row][column].getNumber();
+				matrix[row][column].setNumber(matrix[j][column].getNumber());
+				matrix[j][column].setNumber(swap);
+				matrix[row][column].put(createGraphicCell(matrix[row][column].getNumber()));
+				matrix[j][column].put(createGraphicCell(matrix[j][column].getNumber()));
+			}
+			j++;
+		}
+	}
+
 
 	private GraphicCell createGraphicCell(int n) {
 		GraphicCell gc = null;
