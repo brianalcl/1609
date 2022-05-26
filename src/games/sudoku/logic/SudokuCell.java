@@ -1,22 +1,62 @@
 package games.sudoku.logic;
 
+
 import general.logic.Cell;
-import general.logic.Map;
 
 public class SudokuCell extends Cell{
-	
 	protected int number;
+	protected int userNumber;
+	protected boolean mark;
+	protected boolean editable;
 	
-	public SudokuCell(int row, int column, Map map) {
+	public SudokuCell(int row, int column, SudokuMap map) {
 		super(row, column, map);
 		this.number = 0;
+		this.userNumber = 0;
+		this.mark = false;
+		this.editable = false;
+	}
+
+	public void mark() {
+		if(!mark) {
+			mark = true;
+			gc.setBackground(gc.getBackground().brighter());
+			map.changeCell(this);
+		}
+	}
+	
+	public void unmark() {
+		if(mark) {
+			mark = false;
+			gc.setBackground(gc.getBackground().darker());
+			map.changeCell(this);
+		}
+	}
+	
+	public void setEditable() {
+		this.editable = true;
+	}
+	
+	public boolean isEditable() {
+		return editable;
 	}
 	
 	public int getNumber() {
 		return number;
 	}
 	
+	
 	public void setNumber(int number) {
 		this.number = number;
+		userNumber = number;
 	}
+	
+	public void setUserNumber(int userNumber) {
+		this.userNumber = userNumber;
+	}
+	
+	public boolean error() {
+		return userNumber != number;
+	}
+	
 }
