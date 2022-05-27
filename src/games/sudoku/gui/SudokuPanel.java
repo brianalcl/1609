@@ -64,6 +64,9 @@ public class SudokuPanel extends GamePanel{
 				case KeyEvent.VK_9:
 					game.put(9);
 					break;
+				case KeyEvent.VK_0:
+					game.put(0);
+					break;
 
 				default:
 					break;

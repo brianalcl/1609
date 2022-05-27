@@ -55,8 +55,15 @@ public class SudokuCell extends Cell{
 		this.userNumber = userNumber;
 	}
 	
+	public int getUserNumber() {
+		return userNumber;
+	}
+	
 	public boolean error() {
-		return userNumber != number;
+		if(userNumber != 0)
+			return userNumber != number;
+		else 
+			return false;
 	}
 	
 }

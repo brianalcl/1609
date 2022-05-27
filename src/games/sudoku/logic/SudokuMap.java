@@ -18,6 +18,7 @@ public class SudokuMap extends Map{
 	protected SudokuCell[][]matrix;
 	protected SudokuCell selected;
 	protected SudokuGame game;
+	protected int hide;
 	protected java.util.Map<Integer, Integer> mapNumber;
 	
 	public SudokuMap(SudokuGame game) {
@@ -89,7 +90,12 @@ public class SudokuMap extends Map{
 			r = Math.abs(rnd.nextInt() % 9) + 7;
 			c = Math.abs(rnd.nextInt() % 9);
 			matrix[r][c].put(createGraphicCell(0));
-			matrix[r][c].setEditable();
+			if(!matrix[r][c].isEditable()) {
+				hide++;
+				matrix[r][c].setUserNumber(0); //VER
+				matrix[r][c].setEditable();
+			}
+			
 			visible--;
 		}
 	}
@@ -200,6 +206,9 @@ public class SudokuMap extends Map{
 	private GraphicCell createGraphicCell(int n) {
 		GraphicCell gc = null;
 		switch (n) {
+		case 0:
+			gc = new GraphicCell(game.getImageFactory().getEmptyNumber(), game.getImageFactory().getColorDefault());
+			break;
 		case 1:
 			gc = new GraphicCell(game.getImageFactory().get1(), game.getImageFactory().getColorDefault());
 			break;
@@ -280,18 +289,30 @@ public class SudokuMap extends Map{
 
 	public void put(int n) {
 		if(selected != null && selected.isEditable()) {
+			if(n != 0) {
+				if(selected.getUserNumber() == 0)
+					hide--;
+			}
+			else {
+				if(selected.getUserNumber() != 0)
+					hide++;
+			}
 			selected.setUserNumber(n);
 			selected.put(createGraphicCell(n));
+			System.out.println(hide);
 		}
 		check(); //Despues se agregara un boton para el check TODO
 	}
 	
 	public void check() {
 		boolean error = false;
+		
 		for(int r = 7; r < 16 && !error; r++)
 			for(int c = 0; c < 9 && !error; c++) {
 				error = matrix[r][c].error();
 			}
-		System.out.println("coloco mal: "+error);
+		System.out.println(hide);
+		if(!error && hide == 0)
+			System.out.println("WIN");
 	}
 }
