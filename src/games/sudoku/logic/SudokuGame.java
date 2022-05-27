@@ -30,7 +30,6 @@ public class SudokuGame extends Game{
 
 	public void put(int n) {
 		player.put(n);
-		
 	}
 
 }

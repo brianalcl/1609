@@ -132,28 +132,6 @@ public abstract class ImageFactory {
 	public abstract Icon getKeyboard4();
 
 	public abstract Icon getMouse();
-	
-	public abstract Icon getEmptyNumber();
-	
-	public abstract Icon get0();
-	
-	public abstract Icon get1();
-	
-	public abstract Icon get2();
-	
-	public abstract Icon get3();
-	
-	public abstract Icon get4();
-	
-	public abstract Icon get5();
-	
-	public abstract Icon get6();
-	
-	public abstract Icon get7();
-	
-	public abstract Icon get8();
-	
-	public abstract Icon get9();
 
 	public abstract Icon getConfiguration();
 

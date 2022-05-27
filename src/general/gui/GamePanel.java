@@ -117,6 +117,9 @@ public abstract class GamePanel extends GeneralPanel{
 		for(int r = matrix.length-1; r >= 0; r--) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new JLabel();
+				matrix[r][c].setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+				matrix[r][c].setForeground(gui.getImageFactory().getColorForeground());
+				matrix[r][c].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 				matrix[r][c].setOpaque(true);
 				panel.add(matrix[r][c]);
 			}
@@ -195,6 +198,9 @@ public abstract class GamePanel extends GeneralPanel{
 		for(int r = matrix.length-1; r >= 0; r--) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new JLabel();
+				matrix[r][c].setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+				matrix[r][c].setForeground(gui.getImageFactory().getColorForeground());
+				matrix[r][c].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 				matrix[r][c].setOpaque(true);
 				panel.add(matrix[r][c]);
 			}
@@ -215,6 +221,7 @@ public abstract class GamePanel extends GeneralPanel{
 	public void changeCell(JLabel graphicCell, int row, int column) {
 		matrix[row][column].setIcon(graphicCell.getIcon());
 		matrix[row][column].setBackground(graphicCell.getBackground());
+		matrix[row][column].setText(graphicCell.getText());
 	}
 
 	public ImageFactory getImageFactory() {

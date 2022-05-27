@@ -204,41 +204,41 @@ public class SudokuMap extends Map{
 	}
 
 	private GraphicCell createGraphicCell(int n) {
-		GraphicCell gc = null;
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
 		switch (n) {
 		case 0:
-			gc = new GraphicCell(game.getImageFactory().getEmptyNumber(), game.getImageFactory().getColorDefault());
+			gc.setText("");
 			break;
 		case 1:
-			gc = new GraphicCell(game.getImageFactory().get1(), game.getImageFactory().getColorDefault());
+			gc.setText("1");
 			break;
 		case 2:
-			gc = new GraphicCell(game.getImageFactory().get2(), game.getImageFactory().getColorDefault());
+			gc.setText("2");
 			break;
 		case 3:
-			gc = new GraphicCell(game.getImageFactory().get3(), game.getImageFactory().getColorDefault());
+			gc.setText("3");
 			break;
 		case 4:
-			gc = new GraphicCell(game.getImageFactory().get4(), game.getImageFactory().getColorDefault());
+			gc.setText("4");
 			break;
 		case 5:
-			gc = new GraphicCell(game.getImageFactory().get5(), game.getImageFactory().getColorDefault());
+			gc.setText("5");
 			break;
 		case 6:
-			gc = new GraphicCell(game.getImageFactory().get6(), game.getImageFactory().getColorDefault());
+			gc.setText("6");
 			break;
 		case 7:
-			gc = new GraphicCell(game.getImageFactory().get7(), game.getImageFactory().getColorDefault());
+			gc.setText("7");
 			break;
 		case 8:
-			gc = new GraphicCell(game.getImageFactory().get8(), game.getImageFactory().getColorDefault());
+			gc.setText("8");
 			break;
 		case 9:
-			gc = new GraphicCell(game.getImageFactory().get9(), game.getImageFactory().getColorDefault());
+			gc.setText("9");
 			break;
 
 		default:
-			gc = new GraphicCell(game.getImageFactory().getEmptyNumber(), game.getImageFactory().getColorDefault());
+			gc.setText("E");
 			break;
 		}
 		return gc;

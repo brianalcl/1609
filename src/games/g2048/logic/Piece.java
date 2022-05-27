@@ -15,7 +15,6 @@ public class Piece{
 	protected Cell[][] cells;
 	protected Map map;
 	protected ImageFactory imageFactory;
-	protected java.util.Map<Integer, Icon> mapIcon;
 	protected java.util.Map<Integer, Color> mapColor;
 
 	public Piece(int row, int column, Map map, ImageFactory imageFactory) {
@@ -25,7 +24,6 @@ public class Piece{
 		this.map = map;
 		this.cells = new Cell[2][3];
 		this.imageFactory = imageFactory;
-		this.mapIcon = new HashMap<>();
 		this.mapColor = new HashMap<>();
 		
 		cells[0][0] = this.map.getCell(rowMap, columnMap - 1);	//top-left position
@@ -36,17 +34,6 @@ public class Piece{
 		cells[1][1] = this.map.getCell(rowMap - 1, columnMap);		//bottom-central position
 		cells[1][2] = this.map.getCell(rowMap - 1, columnMap + 1);	//bottom-right position
 		
-		mapIcon.put(-1, this.imageFactory.getEmptyNumber());
-		mapIcon.put(0, this.imageFactory.get0());
-		mapIcon.put(1, this.imageFactory.get1());
-		mapIcon.put(2, this.imageFactory.get2());
-		mapIcon.put(3, this.imageFactory.get3());
-		mapIcon.put(4, this.imageFactory.get4());
-		mapIcon.put(5, this.imageFactory.get5());
-		mapIcon.put(6, this.imageFactory.get6());
-		mapIcon.put(7, this.imageFactory.get7());
-		mapIcon.put(8, this.imageFactory.get8());
-		mapIcon.put(9, this.imageFactory.get9());
 		
 		mapColor.put(2, this.imageFactory.getColorPeru());
 		mapColor.put(4, this.imageFactory.getColorSienna());
@@ -93,55 +80,66 @@ public class Piece{
 	public void put(int num) {
 		
 		this.num = num;
-		
+		GraphicCell gc = new GraphicCell(null, mapColor.get(num));
+		GraphicCell gcEmpty = new GraphicCell(null, mapColor.get(num));
 		if(num > 0 && num < 10) {
-			cells[0][0].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//top-left position
-			cells[0][1].put(new GraphicCell(mapIcon.get(num), mapColor.get(num)));		//top-central position
-			cells[0][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//top-right position
-
-			cells[1][0].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-central position
-			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
+			gc.setText(num+"");
+			cells[0][0].put(gcEmpty);	//top-left position
+			cells[0][1].put(gc);		//top-central position
+			cells[0][2].put(gcEmpty);	//top-right position
+			cells[1][0].put(gcEmpty);	//bottom-left position
+			cells[1][1].put(gcEmpty);	//bottom-central position
+			cells[1][2].put(gcEmpty);	//bottom-right position
 		}
 
 		if(num > 10 && num < 100) {
-			cells[0][0].put(new GraphicCell(mapIcon.get(num / 10), mapColor.get(num)));	//top-left position
-			cells[0][1].put(new GraphicCell(mapIcon.get(num % 10), mapColor.get(num)));		//top-central position
-			cells[0][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//top-right position
-
-			cells[1][0].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));		//bottom-central position
-			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
+			gc.setText((num / 10)+"");
+			cells[0][0].put(gc);	//top-left position
+			gc.setText((num % 10)+"");
+			cells[0][1].put(gc);		//top-central position
+			cells[0][2].put(gcEmpty);	//top-right position
+			cells[1][0].put(gcEmpty);	//bottom-left position
+			cells[1][1].put(gcEmpty);		//bottom-central position
+			cells[1][2].put(gcEmpty);	//bottom-right position
 		}
 		
 		if(num > 100 && num < 1000) {
-			cells[0][0].put(new GraphicCell(mapIcon.get(num / 100), mapColor.get(num)));	//top-left position
-			cells[0][1].put(new GraphicCell(mapIcon.get((num / 10) % 10), mapColor.get(num)));		//top-central position
-			cells[0][2].put(new GraphicCell(mapIcon.get(num % 10), mapColor.get(num)));	//top-right position
-
-			cells[1][0].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));		//bottom-central position
-			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
+			gc.setText((num / 100)+"");
+			cells[0][0].put(gc);	//top-left position
+			gc.setText(((num / 10) % 10)+"");
+			cells[0][1].put(gc);		//top-central position
+			gc.setText((num % 10)+"");
+			cells[0][2].put(gc);	//top-right position
+			cells[1][0].put(gcEmpty);	//bottom-left position
+			cells[1][1].put(gcEmpty);		//bottom-central position
+			cells[1][2].put(gcEmpty);	//bottom-right position
 		}
 		
 		if(num > 1000 && num < 10000) {
-			cells[0][0].put(new GraphicCell(mapIcon.get(num / 1000), mapColor.get(num)));	//top-left position
-			cells[0][1].put(new GraphicCell(mapIcon.get((num / 100) % 10), mapColor.get(num)));		//top-central position
-			cells[0][2].put(new GraphicCell(mapIcon.get((num / 10) % 10), mapColor.get(num)));	//top-right position
-
-			cells[1][0].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(num % 10), mapColor.get(num)));		//bottom-central position
-			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
+			gc.setText((num / 1000)+"");
+			cells[0][0].put(gc);	//top-left position
+			gc.setText(((num / 100) % 10)+"");
+			cells[0][1].put(gc);		//top-central position
+			gc.setText(((num / 10) % 10)+"");
+			cells[0][2].put(gc);	//top-right position
+			cells[1][0].put(gcEmpty);	//bottom-left position
+			gc.setText((num % 10)+"");
+			cells[1][1].put(gc);		//bottom-central position
+			cells[1][2].put(gcEmpty);	//bottom-right position
 		}
 		
 		if(num > 10000 && num < 100000) {
-			cells[0][0].put(new GraphicCell(mapIcon.get(num / 10000), mapColor.get(num)));	//top-left position
-			cells[0][1].put(new GraphicCell(mapIcon.get((num / 1000) % 10), mapColor.get(num)));		//top-central position
-			cells[0][2].put(new GraphicCell(mapIcon.get((num / 100) % 10), mapColor.get(num)));	//top-right position
-
-			cells[1][0].put(new GraphicCell(mapIcon.get((num / 10) % 10), mapColor.get(num)));	//bottom-left position
-			cells[1][1].put(new GraphicCell(mapIcon.get(num % 10), mapColor.get(num)));		//bottom-central position
-			cells[1][2].put(new GraphicCell(mapIcon.get(-1), mapColor.get(num)));	//bottom-right position
+			gc.setText((num / 10000)+"");
+			cells[0][0].put(gc);	//top-left position
+			gc.setText(((num / 1000) % 10)+"");
+			cells[0][1].put(gc);		//top-central position
+			gc.setText(((num / 100) % 10)+"");
+			cells[0][2].put(gc);	//top-right position
+			gc.setText(((num / 10) % 10)+"");
+			cells[1][0].put(gc);	//bottom-left position
+			gc.setText((num % 10)+"");
+			cells[1][1].put(gc);		//bottom-central position
+			cells[1][2].put(gcEmpty);	//bottom-right position
 		}
 	}
 }
