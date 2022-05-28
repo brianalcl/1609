@@ -35,6 +35,50 @@ public class SudokuMap extends Map{
 			}
 		chargeMapNumber();
 		charge();
+		createCheck();
+	}
+	
+	private void createCheck() {
+		
+		matrix[0][0].put(createGraphicCell(0));
+		matrix[1][0].put(createGraphicCell(0));
+		matrix[2][0].put(createGraphicCell(0));
+		matrix[3][0].put(createGraphicCell(0));
+		matrix[4][0].put(createGraphicCell(0));
+		matrix[5][0].put(createGraphicCell(0));
+		
+		matrix[0][1].put(createGraphicCell(0));
+		matrix[1][1].put(createGraphicCell(0));
+		matrix[2][1].put(createGraphicCell(0));
+		matrix[3][1].put(createGraphicCell(0));
+		matrix[4][1].put(createGraphicCell(0));
+		matrix[5][1].put(createGraphicCell(0));
+		
+		matrix[0][7].put(createGraphicCell(0));
+		matrix[1][7].put(createGraphicCell(0));
+		matrix[2][7].put(createGraphicCell(0));
+		matrix[3][7].put(createGraphicCell(0));
+		matrix[4][7].put(createGraphicCell(0));
+		matrix[5][7].put(createGraphicCell(0));
+		
+		matrix[0][8].put(createGraphicCell(0));
+		matrix[1][8].put(createGraphicCell(0));
+		matrix[2][8].put(createGraphicCell(0));
+		matrix[3][8].put(createGraphicCell(0));
+		matrix[4][8].put(createGraphicCell(0));
+		matrix[5][8].put(createGraphicCell(0));
+		
+		matrix[0][2].put(createGraphicCell(0));
+		matrix[0][3].put(createGraphicCell(0));
+		matrix[0][4].put(createGraphicCell(0));
+		matrix[0][5].put(createGraphicCell(0));
+		matrix[0][6].put(createGraphicCell(0));
+		
+		matrix[5][2].put(createGraphicCell('C'));
+		matrix[5][3].put(createGraphicCell('H'));
+		matrix[5][4].put(createGraphicCell('E'));
+		matrix[5][5].put(createGraphicCell('C'));
+		matrix[5][6].put(createGraphicCell('K'));
 	}
 	
 	
@@ -56,7 +100,7 @@ public class SudokuMap extends Map{
 		
 	}
 
-	public void charge() {
+	private void charge() {
 		BufferedReader bf; 
 		FileReader fr;
 		String line;
@@ -92,7 +136,7 @@ public class SudokuMap extends Map{
 			matrix[r][c].put(createGraphicCell(0));
 			if(!matrix[r][c].isEditable()) {
 				hide++;
-				matrix[r][c].setUserNumber(0); //VER
+				matrix[r][c].setUserNumber(0);
 				matrix[r][c].setEditable();
 			}
 			
@@ -204,43 +248,17 @@ public class SudokuMap extends Map{
 	}
 
 	private GraphicCell createGraphicCell(int n) {
-		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
-		switch (n) {
-		case 0:
-			gc.setText("");
-			break;
-		case 1:
-			gc.setText("1");
-			break;
-		case 2:
-			gc.setText("2");
-			break;
-		case 3:
-			gc.setText("3");
-			break;
-		case 4:
-			gc.setText("4");
-			break;
-		case 5:
-			gc.setText("5");
-			break;
-		case 6:
-			gc.setText("6");
-			break;
-		case 7:
-			gc.setText("7");
-			break;
-		case 8:
-			gc.setText("8");
-			break;
-		case 9:
-			gc.setText("9");
-			break;
-
-		default:
-			gc.setText("E");
-			break;
-		}
+		if(n < 10)
+			n+=48;
+		char c = (char)n;
+		GraphicCell gc = null;
+		if(selected != null)
+			gc = new GraphicCell(null, selected.getGraphicCell().getBackground());
+		else
+			gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		if(c != '0')
+			gc.setText(c+"");
+		
 		return gc;
 	}
 
@@ -252,7 +270,7 @@ public class SudokuMap extends Map{
 			selected = matrix[row][column];
 			
 			for(int r = 7; r < 16; r++) 
-				for(int c = 0; c < 9; c++) 
+				for(int c = 0; c < 9; c++)
 					matrix[r][c].unmark();
 
 			for(int c = 0; c < 9; c++) 
@@ -284,6 +302,11 @@ public class SudokuMap extends Map{
 				}
 			}
 		}
+		else {
+			if(column >= 2 && column <= 6 && row == 5)
+				if(selected != null)
+					check();
+		}
 	}
 
 
@@ -299,20 +322,50 @@ public class SudokuMap extends Map{
 			}
 			selected.setUserNumber(n);
 			selected.put(createGraphicCell(n));
-			System.out.println(hide);
 		}
-		check(); //Despues se agregara un boton para el check TODO
+		
 	}
 	
-	public void check() {
+	private void check() {
 		boolean error = false;
 		
 		for(int r = 7; r < 16 && !error; r++)
 			for(int c = 0; c < 9 && !error; c++) {
 				error = matrix[r][c].error();
 			}
-		System.out.println(hide);
+		
 		if(!error && hide == 0)
-			System.out.println("WIN");
+			win();
+		
+		matrix[1][3].clear();
+		matrix[1][4].clear();
+		matrix[1][5].clear();
+		matrix[2][2].clear();
+		matrix[2][6].clear();
+		matrix[2][3].clear();
+		matrix[2][4].clear();
+		matrix[2][5].clear();
+		matrix[1][2].clear();
+		matrix[1][6].clear();
+		
+		if(!error) {
+			matrix[1][3].put(createGraphicCell(0));
+			matrix[1][4].put(createGraphicCell(0));
+			matrix[1][5].put(createGraphicCell(0));
+			matrix[2][2].put(createGraphicCell(0));
+			matrix[2][6].put(createGraphicCell(0));
+			matrix[4][3].put(createGraphicCell(0));
+			matrix[4][5].put(createGraphicCell(0));
+		}
+		else {
+			matrix[2][3].put(createGraphicCell(0));
+			matrix[2][4].put(createGraphicCell(0));
+			matrix[2][5].put(createGraphicCell(0));
+			matrix[1][2].put(createGraphicCell(0));
+			matrix[1][6].put(createGraphicCell(0));
+			matrix[4][3].put(createGraphicCell(0));
+			matrix[4][5].put(createGraphicCell(0));
+		}
+		
 	}
 }
