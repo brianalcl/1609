@@ -5,7 +5,7 @@ import java.util.Random;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.random.NRandom;
+import general.utilities.NRandom;
 
 public class SnakeMap extends Map{
 

@@ -222,6 +222,7 @@ public abstract class GamePanel extends GeneralPanel{
 		matrix[row][column].setIcon(graphicCell.getIcon());
 		matrix[row][column].setBackground(graphicCell.getBackground());
 		matrix[row][column].setText(graphicCell.getText());
+		matrix[row][column].setBorder(graphicCell.getBorder());
 	}
 
 	public ImageFactory getImageFactory() {

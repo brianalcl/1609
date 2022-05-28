@@ -4,6 +4,8 @@ import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+import general.utilities.LateralBorder;
+
 public class GraphicCell extends JLabel{
 	protected Icon icon;
 	protected Color color;

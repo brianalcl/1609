@@ -12,7 +12,7 @@ import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import general.random.NRandom;
+import general.utilities.NRandom;
 
 public abstract class ImageFactory {
 	protected int screenWidth;

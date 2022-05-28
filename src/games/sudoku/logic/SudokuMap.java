@@ -10,7 +10,7 @@ import java.util.Set;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.random.NRandom;
+import general.utilities.NRandom;
 
 public class SudokuMap extends Map{
 	

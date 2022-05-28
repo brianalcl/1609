@@ -6,7 +6,7 @@ import java.util.Random;
 
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import general.random.NRandom;
+import general.utilities.NRandom;
 import imageFactory.ImageFactory;
 
 public class Wall {
