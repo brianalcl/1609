@@ -1,5 +1,6 @@
 package games.sudoku.logic;
 
+import javax.swing.border.AbstractBorder;
 
 import general.logic.Cell;
 
@@ -16,13 +17,15 @@ public class SudokuCell extends Cell{
 		this.mark = false;
 		this.editable = false;
 	}
-
+	
 	public void mark() {
 		if(!mark) {
 			mark = true;
 			gc.setBackground(gc.getBackground().brighter());
 			map.changeCell(this);
+			
 		}
+		
 	}
 	
 	public void unmark() {
