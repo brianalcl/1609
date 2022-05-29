@@ -3,11 +3,10 @@ package games.g2048.logic;
 import java.awt.Color;
 import java.util.HashMap;
 
-import javax.swing.Icon;
-
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.utilities.LateralBorder;
 import imageFactory.ImageFactory;
 
 public class Piece{
@@ -51,6 +50,7 @@ public class Piece{
 		mapColor.put(16384, this.imageFactory.getColorDarkGoldenRod());
 		mapColor.put(32768, this.imageFactory.getColorDarkGoldenRod());
 		mapColor.put(65536, this.imageFactory.getColorDarkGoldenRod());
+		
 	}
 	
 	public void setNum(int num) {
@@ -80,66 +80,82 @@ public class Piece{
 	public void put(int num) {
 		
 		this.num = num;
-		GraphicCell gc = new GraphicCell(null, mapColor.get(num));
-		GraphicCell gcEmpty = new GraphicCell(null, mapColor.get(num));
+		Color gcColor = mapColor.get(num);
+		Color gcBorderColor = gcColor.brighter();
+		
+		GraphicCell gc1 = new GraphicCell(null, gcColor);
+		GraphicCell gc2 = new GraphicCell(null, gcColor);
+		GraphicCell gc3 = new GraphicCell(null, gcColor);
+		GraphicCell gc4 = new GraphicCell(null, gcColor);
+		GraphicCell gc5 = new GraphicCell(null, gcColor);
+		GraphicCell gc6 = new GraphicCell(null, gcColor);
+		
+		gc1.setBorder(new LateralBorder(3,0,0,3, gcBorderColor));
+		gc2.setBorder(new LateralBorder(3,0,0,0, gcBorderColor));
+		gc3.setBorder(new LateralBorder(3,3,0,0, gcBorderColor));
+		gc4.setBorder(new LateralBorder(0,0,3,3, gcBorderColor));
+		gc5.setBorder(new LateralBorder(0,0,3,0, gcBorderColor));
+		gc6.setBorder(new LateralBorder(0,3,3,0, gcBorderColor));
+		
 		if(num > 0 && num < 10) {
-			gc.setText(num+"");
-			cells[0][0].put(gcEmpty);	//top-left position
-			cells[0][1].put(gc);		//top-central position
-			cells[0][2].put(gcEmpty);	//top-right position
-			cells[1][0].put(gcEmpty);	//bottom-left position
-			cells[1][1].put(gcEmpty);	//bottom-central position
-			cells[1][2].put(gcEmpty);	//bottom-right position
+			
+			cells[0][0].put(gc1);	//top-left position
+			gc2.setText(num+"");
+			cells[0][1].put(gc2);		//top-central position
+			cells[0][2].put(gc3);	//top-right position
+			cells[1][0].put(gc4);	//bottom-left position
+			cells[1][1].put(gc5);	//bottom-central position
+			cells[1][2].put(gc6);	//bottom-right position
 		}
 
 		if(num > 10 && num < 100) {
-			gc.setText((num / 10)+"");
-			cells[0][0].put(gc);	//top-left position
-			gc.setText((num % 10)+"");
-			cells[0][1].put(gc);		//top-central position
-			cells[0][2].put(gcEmpty);	//top-right position
-			cells[1][0].put(gcEmpty);	//bottom-left position
-			cells[1][1].put(gcEmpty);		//bottom-central position
-			cells[1][2].put(gcEmpty);	//bottom-right position
+			gc1.setText((num / 10)+"");
+			cells[0][0].put(gc1);	//top-left position
+			gc2.setText((num % 10)+"");
+			cells[0][1].put(gc2);		//top-central position
+			cells[0][2].put(gc3);	//top-right position
+			cells[1][0].put(gc4);	//bottom-left position
+			cells[1][1].put(gc5);		//bottom-central position
+			cells[1][2].put(gc6);	//bottom-right position
 		}
 		
 		if(num > 100 && num < 1000) {
-			gc.setText((num / 100)+"");
-			cells[0][0].put(gc);	//top-left position
-			gc.setText(((num / 10) % 10)+"");
-			cells[0][1].put(gc);		//top-central position
-			gc.setText((num % 10)+"");
-			cells[0][2].put(gc);	//top-right position
-			cells[1][0].put(gcEmpty);	//bottom-left position
-			cells[1][1].put(gcEmpty);		//bottom-central position
-			cells[1][2].put(gcEmpty);	//bottom-right position
+			gc1.setText((num / 100)+"");
+			cells[0][0].put(gc1);	//top-left position
+			gc2.setText(((num / 10) % 10)+"");
+			cells[0][1].put(gc2);		//top-central position
+			gc3.setText((num % 10)+"");
+			cells[0][2].put(gc3);	//top-right position
+			cells[1][0].put(gc4);	//bottom-left position
+			cells[1][1].put(gc5);		//bottom-central position
+			cells[1][2].put(gc6);	//bottom-right position
 		}
 		
 		if(num > 1000 && num < 10000) {
-			gc.setText((num / 1000)+"");
-			cells[0][0].put(gc);	//top-left position
-			gc.setText(((num / 100) % 10)+"");
-			cells[0][1].put(gc);		//top-central position
-			gc.setText(((num / 10) % 10)+"");
-			cells[0][2].put(gc);	//top-right position
-			cells[1][0].put(gcEmpty);	//bottom-left position
-			gc.setText((num % 10)+"");
-			cells[1][1].put(gc);		//bottom-central position
-			cells[1][2].put(gcEmpty);	//bottom-right position
+			gc1.setText((num / 1000)+"");
+			cells[0][0].put(gc1);	//top-left position
+			gc2.setText(((num / 100) % 10)+"");
+			cells[0][1].put(gc2);		//top-central position
+			gc3.setText(((num / 10) % 10)+"");
+			cells[0][2].put(gc3);	//top-right position
+			cells[1][0].put(gc4);	//bottom-left position
+			gc5.setText((num % 10)+"");
+			cells[1][1].put(gc5);		//bottom-central position
+			cells[1][2].put(gc6);	//bottom-right position
 		}
 		
 		if(num > 10000 && num < 100000) {
-			gc.setText((num / 10000)+"");
-			cells[0][0].put(gc);	//top-left position
-			gc.setText(((num / 1000) % 10)+"");
-			cells[0][1].put(gc);		//top-central position
-			gc.setText(((num / 100) % 10)+"");
-			cells[0][2].put(gc);	//top-right position
-			gc.setText(((num / 10) % 10)+"");
-			cells[1][0].put(gc);	//bottom-left position
-			gc.setText((num % 10)+"");
-			cells[1][1].put(gc);		//bottom-central position
-			cells[1][2].put(gcEmpty);	//bottom-right position
+			gc1.setText((num / 10000)+"");
+			cells[0][0].put(gc1);	//top-left position
+			gc2.setText(((num / 1000) % 10)+"");
+			cells[0][1].put(gc2);		//top-central position
+			gc3.setText(((num / 100) % 10)+"");
+			cells[0][2].put(gc3);	//top-right position
+			gc4.setText(((num / 10) % 10)+"");
+			cells[1][0].put(gc4);	//bottom-left position
+			gc5.setText((num % 10)+"");
+			cells[1][1].put(gc5);		//bottom-central position
+			cells[1][2].put(gc6);	//bottom-right position
 		}
 	}
 }

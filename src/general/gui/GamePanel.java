@@ -117,7 +117,7 @@ public abstract class GamePanel extends GeneralPanel{
 		for(int r = matrix.length-1; r >= 0; r--) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new JLabel();
-				matrix[r][c].setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+				matrix[r][c].setFont(font.deriveFont(Math.round(70*widthScaleFactor)*1.0f));
 				matrix[r][c].setForeground(gui.getImageFactory().getColorForeground());
 				matrix[r][c].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 				matrix[r][c].setOpaque(true);
@@ -198,7 +198,7 @@ public abstract class GamePanel extends GeneralPanel{
 		for(int r = matrix.length-1; r >= 0; r--) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new JLabel();
-				matrix[r][c].setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+				matrix[r][c].setFont(font.deriveFont(Math.round(70*widthScaleFactor)*1.0f));
 				matrix[r][c].setForeground(gui.getImageFactory().getColorForeground());
 				matrix[r][c].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 				matrix[r][c].setOpaque(true);
