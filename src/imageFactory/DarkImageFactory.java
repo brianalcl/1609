@@ -241,4 +241,12 @@ public class DarkImageFactory extends ImageFactory{
 		return squircle;
 	}
 
+	@Override
+	public Icon getKeyboard5() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard5-1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard5-720.png");
+	}
+
 }

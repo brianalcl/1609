@@ -70,7 +70,7 @@ public abstract class GamePanel extends GeneralPanel{
 		h = (int) Math.round(100 * heightScaleFactor);
 		lblScore.setBounds(x,y,w,h);
 		
-		x = (int) Math.round((1920/2 - 775) * widthScaleFactor);
+		x = (int) Math.round((1920/2 - 625) * widthScaleFactor);
 		y = (int) Math.round((1080 - 180) * heightScaleFactor);
 		w = (int) Math.round(375 * widthScaleFactor);
 		h = (int) Math.round(150 * heightScaleFactor);

@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 
-import games.sudoku.logic.SudokuCell;
 import games.sudoku.logic.SudokuGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
@@ -23,7 +22,7 @@ public class SudokuPanel extends GamePanel{
 		super(gui, false);
 		game = new SudokuGame(this);
 		setBackground(this.gui.getImageFactory().getColorDefault());
-		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard5());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
 		addControls();

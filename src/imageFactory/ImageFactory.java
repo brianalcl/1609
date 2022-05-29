@@ -135,4 +135,6 @@ public abstract class ImageFactory {
 
 	public abstract Icon getConfiguration();
 
+	public abstract Icon getKeyboard5();
+
 }

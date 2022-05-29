@@ -1,7 +1,5 @@
 package games.sudoku.logic;
 
-import javax.swing.border.AbstractBorder;
-
 import general.logic.Cell;
 
 public class SudokuCell extends Cell{

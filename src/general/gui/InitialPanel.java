@@ -66,7 +66,9 @@ public class InitialPanel extends GeneralPanel{
 		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
 		matrix[1][0].setIcon(gui.getImageFactory().getIcon("shot"));
 		matrix[1][0].addActionListener(e -> gui.setPanel(new ShotPanel(this.gui)));
+		matrix[1][1].setIcon(gui.getImageFactory().getIcon("sudoku"));
 		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
+		
 	}
 	
 	private MouseAdapter getMouseAdapter(){
