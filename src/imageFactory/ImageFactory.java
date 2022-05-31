@@ -43,13 +43,8 @@ public abstract class ImageFactory {
 	}
 	
 	protected ImageIcon getOriginalIcon(String path) {
-		ImageIcon icon = new ImageIcon(ImageFactory.class.getResource(path));
+		ImageIcon icon = new ImageIcon(getClass().getResource(path));
 		return scale(icon, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-	}
-	
-	protected ImageIcon getScaledIcon(String path) {
-		ImageIcon icon = new ImageIcon(ImageFactory.class.getResource(path));
-		return scale(icon, screenWidth, screenHeight);
 	}
 	
 	protected ImageIcon scale(ImageIcon imageIcon, int screenWidth, int screenHeight) {

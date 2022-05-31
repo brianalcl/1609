@@ -213,9 +213,9 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getConfiguration() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/menuIcons/Configuration1080.png");
+			return getOriginalIcon("/assets/img/r1080/menuIcons/configuration1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/menuIcons/Configuration720.png");
+			return getOriginalIcon("/assets/img/r720/menuIcons/configuration720.png");
 	}
 	
 	public Icon getMapHorizontal() {
