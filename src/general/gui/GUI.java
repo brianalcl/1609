@@ -1,5 +1,10 @@
 package general.gui;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -9,21 +14,23 @@ public class GUI extends JFrame {
 	
 	protected ImageFactory factory;
 	protected JPanel panel;
+	protected Font font;
 	
 	public GUI(ImageFactory factory) {
 		this.factory = factory;
-		panel = new JPanel();
+		this.panel = new JPanel();
+		createFont();
 		initialize();
-		setLocationRelativeTo(null);
-		setVisible(true);
+		
 	}
 
 	private void initialize() {
-		
 		setSize((int)factory.getScreenResolution().getWidth() + 16, (int) factory.getScreenResolution().getHeight() + 39);
-		setResizable(false);
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
 		getContentPane().add(panel);
 		setPanel(new InitialPanel(this));
 	}
@@ -39,6 +46,21 @@ public class GUI extends JFrame {
 	
 	public ImageFactory getImageFactory() {
 		return factory;
+	}
+	
+	private void createFont() {
+		font = null;
+		try {
+			InputStream is =  getClass().getResourceAsStream("/assets/font/futurespore.ttf");
+			font = Font.createFont(Font.TRUETYPE_FONT, is);
+		} catch (IOException | FontFormatException ex) {
+			System.out.println("ERROR: FONT NOT FOUND");
+		}
+		
+	}
+	
+	public Font getFont() {
+		return font;
 	}
 	
 }

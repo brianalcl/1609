@@ -8,8 +8,6 @@ import javax.swing.Icon;
 public class DarkImageFactory extends ImageFactory{
 	private Icon squircle;
 	private Color colorEmptyColor;
-	
-	
 	private Color colorPurple;
 	private Color colorSienna;
 	private Color colorDarkCyan;
@@ -25,7 +23,6 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public DarkImageFactory(int screenWidth, int screenHeight) {
 		super(screenWidth, screenHeight);
-		
 		
 		colorDarkSlateGray = new Color(47, 79, 79);
 		colorDarkCyan = new Color(0, 139, 139);
@@ -46,7 +43,6 @@ public class DarkImageFactory extends ImageFactory{
 		createIcons();
 	}
 	
-	@Override
 	public void setScreenResolution(Dimension d) {
 		super.setScreenResolution(d);
 		createIcons();
@@ -59,19 +55,6 @@ public class DarkImageFactory extends ImageFactory{
 		else {
 			squircle = getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
 		}
-	}
-
-	public Color getColorRandom() {
-		int r = Math.abs(rnd.nextInt() % 255);
-		if (r - 100 < 0)
-			r += 100;
-		int g = Math.abs(rnd.nextInt() % 255);
-		if (g - 100 < 0)
-			g += 100;
-		int b = Math.abs(rnd.nextInt() % 255);
-		if (b - 100 < 0)
-			b += 100;
-		return new Color(r,g,b);
 	}
 	
 	public Color getColorEmpty() {
@@ -176,13 +159,20 @@ public class DarkImageFactory extends ImageFactory{
 			return getOriginalIcon("/assets/img/r720/gameImages/keyboard4-720.png");
 	}	
 	
+	public Icon getKeyboard5() {
+		if(screenHeight == DEFAULT_HEIGHT)
+			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard5-1080.png");
+		else
+			return getOriginalIcon("/assets/img/r720/gameImages/keyboard5-720.png");
+	}
+	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameImages/mouse1080.png");
 		else
 			return getOriginalIcon("/assets/img/r720/gameImages/mouse720.png");
 	}
-
+	
 	public Icon getGuiGameOver() {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameImages/guiGameOver1080.png");
@@ -236,17 +226,8 @@ public class DarkImageFactory extends ImageFactory{
 		return null;
 	}
 	
-	@Override
 	public Icon getSquircle() {
 		return squircle;
-	}
-
-	@Override
-	public Icon getKeyboard5() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard5-1080.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard5-720.png");
 	}
 
 }

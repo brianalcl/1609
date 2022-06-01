@@ -12,23 +12,10 @@ public abstract class Map {
 		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
 		
 		if(isHorizontal)
-			createHorizontal();
+			matrix = new Cell[ROW][COLUMN];
 		else
-			createVertical();
-	}
-	
-	private void createHorizontal() {
-		matrix = new Cell[ROW][COLUMN];
-		for(int r = 0; r < matrix.length; r++) 
-			for(int c = 0; c < matrix[0].length; c++) {
-				matrix[r][c] = new Cell(r, c, this);
-				matrix[r][c].clear();
-			}
+			matrix = new Cell[COLUMN][ROW];
 		
-	}
-	
-	private void createVertical() {
-		matrix = new Cell[COLUMN][ROW];
 		for(int r = 0; r < matrix.length; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new Cell(r, c, this);

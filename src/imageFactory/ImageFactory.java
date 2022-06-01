@@ -2,16 +2,10 @@ package imageFactory;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Image;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Random;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 import general.utilities.NRandom;
 
 public abstract class ImageFactory {
@@ -52,21 +46,6 @@ public abstract class ImageFactory {
 		int height = screenHeight * imageIcon.getIconHeight() / DEFAULT_HEIGHT;
 		return new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
 	}
-	
-	public Font getFont() {
-		Font font = null;
-		try {
-			InputStream is =  getClass().getResourceAsStream("/assets/font/futurespore.ttf");
-			font = Font.createFont(Font.TRUETYPE_FONT, is);
-		} catch (IOException | FontFormatException ex) {
-			System.out.println("ERROR: FONT NOT FOUND");
-		}
-		
-		return font;
-	}
-	
-	
-	public abstract Color getColorRandom();
 	
 	public abstract Color getColorDefault();
 	

@@ -30,27 +30,37 @@ public abstract class GamePanel extends GeneralPanel{
 		lblKeyboard = new JLabel("");
 		lblMouse = new JLabel("");
 		
+		lblBg.setSize(gui.getImageFactory().getScreenResolution());
+		lblBg.setLocation(0, 0);
+		
 		if(isHorizontal)
 			createHorizontal();
 		else
 			createVertical();
-	}
 		
-	private void createHorizontal() {
-		createCentralPanelHorizontal();
-		createLabelsHorizontal();
-	}
-	
-	private void createVertical() {
-		createCentralPanelVertical();
-		createLabelsVertical();
+		createCentralPanel();
+		
+		add(lblBg);
+		add(lblTime);
+		add(lblLevel);
+		add(lblScore);
+		add(lblKeyboard);
+		add(lblMouse);
+		
+		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblTime.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+		lblLevel.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+		lblScore.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
+		lblTime.setForeground(gui.getImageFactory().getColorForeground());
+		lblLevel.setForeground(gui.getImageFactory().getColorForeground());
+		lblScore.setForeground(gui.getImageFactory().getColorForeground());
 	}
 
-	private void createLabelsVertical() {
-		lblBg.setSize(gui.getImageFactory().getScreenResolution());
-		lblBg.setLocation(0, 0);
+	private void createVertical() {
+		matrix = new JLabel[Map.COLUMN][Map.ROW];
 		lblBg.setIcon(gui.getImageFactory().getMapVertical());
-		add(lblBg);
 		
 		int x = (int) Math.round(160 * widthScaleFactor);
 		int y = (int) Math.round(30 * heightScaleFactor);
@@ -81,57 +91,11 @@ public abstract class GamePanel extends GeneralPanel{
 		w = (int) Math.round(102 * widthScaleFactor);
 		h = (int) Math.round(150 * heightScaleFactor);
 		lblMouse.setBounds(x,y,w,h);
-		
-		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblTime.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblLevel.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblScore.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblTime.setForeground(gui.getImageFactory().getColorForeground());
-		lblLevel.setForeground(gui.getImageFactory().getColorForeground());
-		lblScore.setForeground(gui.getImageFactory().getColorForeground());
-		add(lblTime);
-		add(lblLevel);
-		add(lblScore);
-		add(lblKeyboard);
-		add(lblMouse);
 	}
-
-	private void createCentralPanelVertical() {
-		matrix = new JLabel[Map.COLUMN][Map.ROW];
-		int cellWidth = gui.getImageFactory().getSquircle().getIconWidth();
-		int cellHeight = gui.getImageFactory().getSquircle().getIconHeight();
-		
-		int x = (int) Math.round(((getWidth() - matrix[0].length * cellWidth) / 2));
-		int y = (int) Math.round(((getHeight() - matrix.length * cellHeight) / 2));
-		int w = (int) Math.round(matrix[0].length * cellWidth);
-		int h = (int) Math.round(matrix.length * cellHeight);
-		
-		panel.setLayout(new GridLayout(Map.COLUMN, Map.ROW));
-		panel.setBounds(x,y + cellHeight,w,h);
-		panel.setBackground(gui.getImageFactory().getColorEmpty());
-		
-		add(panel);
-		
-		for(int r = matrix.length-1; r >= 0; r--) 
-			for(int c = 0; c < matrix[0].length; c++) {
-				matrix[r][c] = new JLabel();
-				matrix[r][c].setFont(font.deriveFont(Math.round(70*widthScaleFactor)*1.0f));
-				matrix[r][c].setForeground(gui.getImageFactory().getColorForeground());
-				matrix[r][c].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-				matrix[r][c].setOpaque(true);
-				panel.add(matrix[r][c]);
-			}
-	}
-
-
 	
-	private void createLabelsHorizontal() {
-		lblBg.setSize(gui.getImageFactory().getScreenResolution());
-		lblBg.setLocation(0, 0);
+	private void createHorizontal() {
+		matrix = new JLabel[Map.ROW][Map.COLUMN];
 		lblBg.setIcon(gui.getImageFactory().getMapHorizontal());
-		add(lblBg);
 		
 		int x = (int) Math.round(160 * widthScaleFactor);
 		int y = (int) Math.round(30 * heightScaleFactor);
@@ -162,25 +126,9 @@ public abstract class GamePanel extends GeneralPanel{
 		w = (int) Math.round(102 * widthScaleFactor);
 		h = (int) Math.round(150 * heightScaleFactor);
 		lblMouse.setBounds(x,y,w,h);
-		
-		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		lblTime.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblLevel.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblScore.setFont(font.deriveFont(Math.round(80*widthScaleFactor)*1.0f));
-		lblTime.setForeground(gui.getImageFactory().getColorForeground());
-		lblLevel.setForeground(gui.getImageFactory().getColorForeground());
-		lblScore.setForeground(gui.getImageFactory().getColorForeground());
-		add(lblTime);
-		add(lblLevel);
-		add(lblScore);
-		add(lblKeyboard);
-		add(lblMouse);
 	}
-	
-	private void createCentralPanelHorizontal() {
-		matrix = new JLabel[Map.ROW][Map.COLUMN];
+
+	private void createCentralPanel() {
 		int cellWidth = gui.getImageFactory().getSquircle().getIconWidth();
 		int cellHeight = gui.getImageFactory().getSquircle().getIconHeight();
 		
@@ -189,8 +137,18 @@ public abstract class GamePanel extends GeneralPanel{
 		int w = (int) Math.round(matrix[0].length * cellWidth);
 		int h = (int) Math.round(matrix.length * cellHeight);
 		
-		panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
-		panel.setBounds(x,y,w,h);
+		panel.setLayout(new GridLayout(Map.COLUMN, Map.ROW));
+		
+		if(w < h) {
+			panel.setLayout(new GridLayout(Map.COLUMN, Map.ROW));
+			panel.setBounds(x,y + cellHeight,w,h);
+		}
+			
+		else {
+			panel.setBounds(x,y,w,h);
+			panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
+		}
+		
 		panel.setBackground(gui.getImageFactory().getColorEmpty());
 		
 		add(panel);
@@ -205,7 +163,7 @@ public abstract class GamePanel extends GeneralPanel{
 				panel.add(matrix[r][c]);
 			}
 	}
-
+	
 	public void setPoints(String score) {
 		lblScore.setText("Score: " + score);	
 	}
