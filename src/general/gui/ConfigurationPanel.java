@@ -48,11 +48,11 @@ public class ConfigurationPanel extends GeneralPanel{
 				panel.add(matrix[r][c]);
 			}
 		
-		matrix[0][0].setBackground(gui.getImageFactory().getColorDarkOliveGreen());
+		matrix[0][0].setBackground(gui.getImageFactory().getColorDarkSlateGray());
 		matrix[0][0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkOliveGreen());
+				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkSlateGray());
 				gui.setPanel(new InitialPanel(gui));
 			}
 		});
@@ -84,11 +84,11 @@ public class ConfigurationPanel extends GeneralPanel{
 			}
 		});
 		
-		matrix[1][1].setBackground(gui.getImageFactory().getColorDarkSlateGray());
+		matrix[1][1].setBackground(gui.getImageFactory().getColorDarkOliveGreen());
 		matrix[1][1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkSlateGray());
+				gui.getImageFactory().setColorDefault(gui.getImageFactory().getColorDarkOliveGreen());
 				gui.setPanel(new InitialPanel(gui));
 			}
 		});

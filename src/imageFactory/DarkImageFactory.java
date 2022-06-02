@@ -39,7 +39,7 @@ public class DarkImageFactory extends ImageFactory{
 
 		colorEmptyColor = new Color(0,0,0);
 		colorForeground = new Color(255, 255, 255, 200);
-		colorDefault = colorDarkSlateGray;
+		colorDefault = colorDarkOliveGreen;
 		createIcons();
 	}
 	
