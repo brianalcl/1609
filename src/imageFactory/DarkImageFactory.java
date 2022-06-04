@@ -50,10 +50,10 @@ public class DarkImageFactory extends ImageFactory{
 
 	private void createIcons() {
 		if(screenHeight == DEFAULT_HEIGHT) {
-			squircle = getOriginalIcon("/assets/img/r1080/gameImages/squircle1080.png");
+			squircle = getOriginalIcon("/assets/img/r1080/gameImages/common/squircle1080.png");
 		}
 		else {
-			squircle = getOriginalIcon("/assets/img/r720/gameImages/squircle720.png");
+			squircle = getOriginalIcon("/assets/img/r720/gameImages/common/squircle720.png");
 		}
 	}
 	
@@ -126,100 +126,100 @@ public class DarkImageFactory extends ImageFactory{
 
 	public Icon getKeyboard0() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard0-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard0-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard0-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard0-720.png");
 	}
 	
 	public Icon getKeyboard1() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard1-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard1-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard1-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard1-720.png");
 	}
 	
 	public Icon getKeyboard2() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard2-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard2-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard2-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard2-720.png");
 	}	
 	
 	public Icon getKeyboard3() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard3-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard3-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard3-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard3-720.png");
 	}	
 	
 	public Icon getKeyboard4() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard4-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard4-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard4-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard4-720.png");
 	}	
 	
 	public Icon getKeyboard5() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/keyboard5-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard5-1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/keyboard5-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard5-720.png");
 	}
 	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/mouse1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/mouse1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/mouse720.png");
+			return getOriginalIcon("/assets/img/r720/gui/mouse720.png");
 	}
 	
 	public Icon getGuiGameOver() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/guiGameOver1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/guiGameOver1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/guiGameOver720.png");
+			return getOriginalIcon("/assets/img/r720/gui/guiGameOver720.png");
 	}
 
 	public Icon getRestart() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/menuIcons/restart1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameIcons/restart1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/menuIcons/restart720.png");
+			return getOriginalIcon("/assets/img/r720/gameIcons/restart720.png");
 	}
 
 	public Icon getHome() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/menuIcons/home1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameIcons/home1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/menuIcons/home720.png");
+			return getOriginalIcon("/assets/img/r720/gameIcons/home720.png");
 	}
 
 	public Icon getExit() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/menuIcons/exit1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameIcons/exit1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/menuIcons/exit720.png");
+			return getOriginalIcon("/assets/img/r720/gameIcons/exit720.png");
 	}
 	
 	public Icon getConfiguration() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/menuIcons/configuration1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameIcons/configuration1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/menuIcons/configuration720.png");
+			return getOriginalIcon("/assets/img/r720/gameIcons/configuration720.png");
 	}
 	
 	public Icon getMapHorizontal() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/mapHorizontal1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/mapHorizontal1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/mapHorizontal720.png");
+			return getOriginalIcon("/assets/img/r720/gui/mapHorizontal720.png");
 	}
 	
 	public Icon getMapVertical() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameImages/mapVertical1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/mapVertical1080.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameImages/mapVertical720.png");
+			return getOriginalIcon("/assets/img/r720/gui/mapVertical720.png");
 	}	
 	
 	public Icon getEmpty() {
