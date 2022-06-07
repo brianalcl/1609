@@ -7,6 +7,8 @@ import javax.swing.Icon;
 
 public class DarkImageFactory extends ImageFactory{
 	private Icon squircle;
+	private Icon flag;
+	private Icon bomb;
 	private Color colorEmptyColor;
 	private Color colorPurple;
 	private Color colorSienna;
@@ -51,9 +53,13 @@ public class DarkImageFactory extends ImageFactory{
 	private void createIcons() {
 		if(screenHeight == DEFAULT_HEIGHT) {
 			squircle = getOriginalIcon("/assets/img/r1080/gameImages/common/squircle1080.png");
+			flag = getOriginalIcon("/assets/img/r1080/gameImages/common/flag1080.png");
+			bomb = getOriginalIcon("/assets/img/r1080/gameImages/common/bomb1080.png");
 		}
 		else {
 			squircle = getOriginalIcon("/assets/img/r720/gameImages/common/squircle720.png");
+			flag = getOriginalIcon("/assets/img/r720/gameImages/common/flag720.png");
+			bomb = getOriginalIcon("/assets/img/r720/gameImages/common/bomb720.png");
 		}
 	}
 	
@@ -228,6 +234,14 @@ public class DarkImageFactory extends ImageFactory{
 	
 	public Icon getSquircle() {
 		return squircle;
+	}
+	
+	public Icon getFlag() {
+		return flag;
+	}
+	
+	public Icon getBomb() {
+		return bomb;
 	}
 
 }

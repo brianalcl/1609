@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 
 import games.dodgeWall.gui.DodgeWallPanel;
 import games.g2048.gui.G2048Panel;
+import games.minesweeper.gui.MinesweeperPanel;
 import games.shot.gui.ShotPanel;
 import games.snake.gui.SnakePanel;
 import games.sudoku.gui.SudokuPanel;
@@ -68,6 +69,7 @@ public class InitialPanel extends GeneralPanel{
 		matrix[1][0].addActionListener(e -> gui.setPanel(new ShotPanel(this.gui)));
 		matrix[1][1].setIcon(gui.getImageFactory().getIcon("sudoku"));
 		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
+		matrix[1][2].addActionListener(e -> gui.setPanel(new MinesweeperPanel(this.gui)));
 		
 	}
 	

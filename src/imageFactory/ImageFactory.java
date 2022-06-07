@@ -111,4 +111,8 @@ public abstract class ImageFactory {
 
 	public abstract Icon getKeyboard5();
 
+	public abstract Icon getFlag();
+	
+	public abstract Icon getBomb();
+
 }
