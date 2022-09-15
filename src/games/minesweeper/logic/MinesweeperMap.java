@@ -1,11 +1,6 @@
 package games.minesweeper.logic;
 
-
-
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
-
 import general.logic.GraphicCell;
 import general.logic.Map;
 import general.utilities.NRandom;
@@ -49,18 +44,92 @@ public class MinesweeperMap extends Map{
 				if(!matrix[r][c].isBomb()) {
 					matrix[r][c].setBomb();
 					matrix[r][c].put(bomb);
+					setNumber(matrix[r][c]);
 					p++;
 				}
 		}
 	}
 	
+	private void setNumber(MinesweeperCell cell) {
+		int r = 0;
+		int c = 0;
+		int n = 0;
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		gc.setText("0");
+		
+		r = cell.getRow() - 1;
+		c = cell.getColumn();
+		if(r >= 7 && !matrix[r][c].isBomb()) {
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+			
+		r = cell.getRow() + 1;
+		c = cell.getColumn();
+		if(r <= 15 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow();
+		c = cell.getColumn() - 1;
+		if(c >= 0 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow();
+		c = cell.getColumn() + 1;
+		if(c <= 8 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow() - 1;
+		c = cell.getColumn() - 1;
+		if(r >= 7 && c >= 0 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow() + 1;
+		c = cell.getColumn() + 1;
+		if(r <= 15 && c <= 8 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow() - 1;
+		c = cell.getColumn() + 1;
+		if(c <= 8 && r >= 7 && c >= 0 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+		
+		r = cell.getRow() + 1;
+		c = cell.getColumn() - 1;
+		if(c >= 0 && r <= 15 && c <= 8 && !matrix[r][c].isBomb()){
+			matrix[r][c].setNumber(matrix[r][c].getNumber()+1);
+			gc.setText(matrix[r][c].getNumber()+"");
+			matrix[r][c].put(gc);
+		}
+	}
 	
 	public void changeCell(MinesweeperCell minesweeperCell) {
 		game.changeCell(minesweeperCell);
 	}
 
 	public void click(int row, int column) {
-		//TODO completar luego
+		if(matrix[row][column].isBomb())
+			lose();
+		
 	}
 
 	public void putFlag(int row, int column) {
