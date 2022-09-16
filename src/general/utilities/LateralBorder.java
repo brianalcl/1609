@@ -18,12 +18,12 @@ public class LateralBorder extends AbstractBorder{
 	private int left;
 	private Color color;
 	
-	public LateralBorder() {
+	public LateralBorder(Color color) {
 		this.top = 1;
 		this.right = 1;
 		this.bottom = 1;
 		this.left = 1;
-		this.color = Color.black;
+		this.color = color;
 	}
 	
 	public LateralBorder(int top, int right, int bottom, int left, Color color) {

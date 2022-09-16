@@ -22,7 +22,25 @@ public class MinesweeperPanel extends GamePanel{
 		game = new MinesweeperGame(this);
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
+		putBorder();
 		addControls();
+	}
+	
+	private void putBorder() {
+		Color colorBorder = getBackground().darker().darker();
+		
+		for(int r = 2; r < 16; r++) {
+			for(int c = 0; c < 9; c++) {
+				matrix[r][c].setBorder(new LateralBorder(colorBorder));
+			}
+		}
+	}
+	
+	@Override
+	public void changeCell(JLabel graphicCell, int row, int column) {
+		matrix[row][column].setIcon(graphicCell.getIcon());
+		matrix[row][column].setBackground(graphicCell.getBackground());
+		matrix[row][column].setText(graphicCell.getText());
 	}
 	
 	@Override
