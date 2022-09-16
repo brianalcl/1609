@@ -12,7 +12,7 @@ public class MinesweeperMap extends Map{
 	protected MinesweeperGame game;
 	protected GraphicCell flag;
 	protected GraphicCell bomb;
-	protected int hide;
+	protected GraphicCell empty;
 	
 	public MinesweeperMap(MinesweeperGame game) {
 		super(game, false);
@@ -21,6 +21,9 @@ public class MinesweeperMap extends Map{
 		this.matrix = new MinesweeperCell[COLUMN][ROW];
 		this.flag = new GraphicCell(this.game.getImageFactory().getFlag(), this.game.getImageFactory().getColorDefault());
 		this.bomb = new GraphicCell(this.game.getImageFactory().getBomb(), this.game.getImageFactory().getColorDefault());
+		freeCell = new GraphicCell(null, this.game.getImageFactory().getColorDefault());
+		this.empty = new GraphicCell(null, null);
+		
 		for(int r = 0; r < matrix.length; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c] = new MinesweeperCell(r, c,this);
@@ -29,6 +32,7 @@ public class MinesweeperMap extends Map{
 		for(int r = 0; r < 7; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c].setUneditable();
+				matrix[r][c].put(empty);
 			}
 		charge(10);
 	}
@@ -53,9 +57,8 @@ public class MinesweeperMap extends Map{
 	private void setNumber(MinesweeperCell cell) {
 		int r = 0;
 		int c = 0;
-		int n = 0;
+		
 		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
-		gc.setText("0");
 		
 		r = cell.getRow() - 1;
 		c = cell.getColumn();
@@ -122,6 +125,8 @@ public class MinesweeperMap extends Map{
 		}
 	}
 	
+	
+	
 	public void changeCell(MinesweeperCell minesweeperCell) {
 		game.changeCell(minesweeperCell);
 	}
@@ -129,17 +134,83 @@ public class MinesweeperMap extends Map{
 	public void click(int row, int column) {
 		if(matrix[row][column].isBomb())
 			lose();
+		else {
+			if(matrix[row][column].isEditable()) {
+				show(row, column);
+			}
+		}
+	}
+	
+	public void show(int row, int column) {
+		
+		GraphicCell gc = new GraphicCell(null, this.game.getImageFactory().getColorDefault().brighter());
+		mark(row, column, gc);
 		
 	}
 
-	public void putFlag(int row, int column) {
-		if(row >= 7 && !matrix[row][column].isFlag()) {
-			matrix[row][column].put(flag);
-			matrix[row][column].setFlag(true);
+	private void mark(int row, int column, GraphicCell gc) { //TODO I don't know if there is a more efficient way
+		gc.setText("");
+
+		if((row >= 7 && row <= 15 && column >= 0 && column <= 8) && matrix[row][column].isEditable()) {
+			if(matrix[row][column].getNumber() != 0) {
+				gc.setText(matrix[row][column].getNumber()+"");
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+			}
+			else {
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row - 1, column - 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row + 1, column + 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row - 1, column + 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row + 1, column - 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row, column + 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row + 1, column, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row, column - 1, gc);
+				gc.setText("");
+				
+				matrix[row][column].setUneditable();
+				matrix[row][column].put(gc);
+				mark(row - 1, column, gc);
+				gc.setText("");
+			}
 		}
-		else {
-			matrix[row][column].put(freeCell);
-			matrix[row][column].setFlag(false);
+	}
+
+	public void putFlag(int row, int column) {
+		if(matrix[row][column].isEditable()) {
+			if(!matrix[row][column].isFlag()) {
+				matrix[row][column].put(flag);
+				matrix[row][column].setFlag(true);
+			}
+			else {
+				matrix[row][column].put(freeCell);
+				matrix[row][column].setFlag(false);
+			}
 		}
 	}
 }
