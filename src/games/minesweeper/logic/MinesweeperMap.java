@@ -1,6 +1,7 @@
 package games.minesweeper.logic;
 
 import java.util.Random;
+
 import general.logic.GraphicCell;
 import general.logic.Map;
 import general.utilities.NRandom;
@@ -12,6 +13,7 @@ public class MinesweeperMap extends Map{
 	protected MinesweeperGame game;
 	protected GraphicCell flag;
 	protected GraphicCell empty;
+	protected GraphicCell bomb;
 	protected int size;
 	protected int bombs;
 	
@@ -21,8 +23,10 @@ public class MinesweeperMap extends Map{
 		this.rnd = NRandom.getInstance();
 		this.matrix = new MinesweeperCell[COLUMN][ROW];
 		this.flag = new GraphicCell(this.game.getImageFactory().getFlag(), this.game.getImageFactory().getColorDefault());
-		freeCell = new GraphicCell(null, this.game.getImageFactory().getColorDefault());
 		this.empty = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
+		this.bomb = new GraphicCell(game.getImageFactory().getBomb(), game.getImageFactory().getColorDefault());
+		freeCell = new GraphicCell(null, this.game.getImageFactory().getColorDefault());
+		
 		this.bombs = 15;
 		this.size = (matrix.length - 2) * matrix[0].length - bombs;
 		
@@ -38,6 +42,7 @@ public class MinesweeperMap extends Map{
 				matrix[r][c].put(empty);
 			}
 		charge(bombs);
+		createInfo();
 	}
 	
 	private void charge(int count) {
@@ -162,11 +167,43 @@ public class MinesweeperMap extends Map{
 			if(!matrix[row][column].isFlag()) {
 				matrix[row][column].put(flag);
 				matrix[row][column].setFlag(true);
+				bombs--;
 			}
 			else {
 				matrix[row][column].put(freeCell);
 				matrix[row][column].setFlag(false);
+				bombs++;
 			}
+			updateBombs();
 		}
+	}
+	
+	private void updateBombs() {
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		int n = bombs;
+		if(n < 0) {
+			gc.setText("-");
+			matrix[0][4].put(gc);
+			n*=-1;
+		}
+		else {
+			gc.setText("");
+			matrix[0][4].put(gc);
+		}
+		
+		gc.setText( (n/10) % 10 +"");
+		matrix[0][5].put(gc);
+		gc.setText(n % 10 +"");
+		matrix[0][6].put(gc);
+	}
+	
+	private void createInfo() {
+		matrix[0][2].put(bomb);
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		matrix[0][4].put(gc);
+		gc.setText( (bombs/10) % 10 +"");
+		matrix[0][5].put(gc);
+		gc.setText(bombs % 10 +"");
+		matrix[0][6].put(gc);
 	}
 }

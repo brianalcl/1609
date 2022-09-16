@@ -69,6 +69,7 @@ public class InitialPanel extends GeneralPanel{
 		matrix[1][0].addActionListener(e -> gui.setPanel(new ShotPanel(this.gui)));
 		matrix[1][1].setIcon(gui.getImageFactory().getIcon("sudoku"));
 		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
+		matrix[1][2].setIcon(gui.getImageFactory().getIcon("minesweeper"));
 		matrix[1][2].addActionListener(e -> gui.setPanel(new MinesweeperPanel(this.gui)));
 		
 	}
