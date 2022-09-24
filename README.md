@@ -12,7 +12,7 @@ The code is written in English (variables, methods, classes...) and is organized
 - The "assets" package contains images, fonts and any external content that is added to the project.
 - The "games" package contains the implementation of all the games.
 - The "general" package contains all the general or common implementations of the project.
-- The "imageFactory" package contains an abstract and a specific image factory
+- The "factory" package contains an abstract and a specific factory
 - The "main" package contains the class with the main method that allows executing the project.
 - There is a folder called "gamesData" which contains files that are read or written in some games.
 
