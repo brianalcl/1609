@@ -170,6 +170,13 @@ public abstract class Factory {
 	public abstract Color getColorDarkGoldenRod();
 	
 	/**
+	 * Returns a color slightly different from the color passed by parameter.
+	 * @param color
+	 * @return new Color
+	 */
+	public abstract Color getMarkColor(Color color);
+	
+	/**
 	 * Return the horizontal map icon.
 	 * @return the horizontal map icon.
 	 */

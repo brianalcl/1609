@@ -123,6 +123,29 @@ public class ColorfulFactory extends Factory{
 		return colorDarkSlateGray;
 	}
 	
+	public Color getMarkColor(Color color) {
+		Color res = color;
+		int r = res.getRed();
+		int g = res.getGreen();
+		int b = res.getBlue();
+		boolean editable = false;
+		if(r + 10 <= 255) {
+			r += 10;
+			editable = true;
+		}
+		if(g + 10 <= 255) {
+			g += 10;
+			editable = true;
+		}
+		if(b + 10 <= 255) {
+			b += 10;
+			editable = true;
+		}
+		if(editable)
+			res = new Color(r, g, b);
+		return res;
+	}
+	
 	public Icon getGameIcon(String name) {
 		if(screenHeight == DEFAULT_HEIGHT)
 			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+".png");

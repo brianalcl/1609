@@ -1,30 +1,26 @@
 package games.g2048.logic;
 
 import java.awt.Color;
-import java.util.HashMap;
 
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import general.logic.Map;
 import general.utilities.LateralBorder;
 
 public class Piece{
 	protected int num;
 	protected Cell[][] cells;
-	protected Map map;
+	protected G2048Map map;
 	protected Factory imageFactory;
-	protected java.util.Map<Integer, Color> mapColor;
 
-	public Piece(int row, int column, Map map, Factory imageFactory) {
+	public Piece(int row, int column, G2048Map map, Factory imageFactory) {
 		int rowMap = row * 2 + 2;
 		int columnMap = column * 3 + 3;
 		this.num = 0;
 		this.map = map;
 		this.cells = new Cell[2][3];
 		this.imageFactory = imageFactory;
-		this.mapColor = new HashMap<>();
-		
+
 		cells[0][0] = this.map.getCell(rowMap, columnMap - 1);	//top-left position
 		cells[0][1] = this.map.getCell(rowMap, columnMap);		//top-central position
 		cells[0][2] = this.map.getCell(rowMap, columnMap + 1);	//top-right position
@@ -32,24 +28,6 @@ public class Piece{
 		cells[1][0] = this.map.getCell(rowMap - 1, columnMap - 1);	//bottom-left position
 		cells[1][1] = this.map.getCell(rowMap - 1, columnMap);		//bottom-central position
 		cells[1][2] = this.map.getCell(rowMap - 1, columnMap + 1);	//bottom-right position
-		
-		
-		mapColor.put(2, this.imageFactory.getColorPeru());
-		mapColor.put(4, this.imageFactory.getColorSienna());
-		mapColor.put(8, this.imageFactory.getColorDarkCyan());
-		mapColor.put(16, this.imageFactory.getColorDarkSlateGray());
-		mapColor.put(32, this.imageFactory.getColorMediumOrchid());
-		mapColor.put(64, this.imageFactory.getColorPurple());
-		mapColor.put(128, this.imageFactory.getColorDarkOliveGreen());
-		mapColor.put(256, this.imageFactory.getColorDarkGreen());
-		mapColor.put(512, this.imageFactory.getColorCrimson());
-		mapColor.put(1024, this.imageFactory.getColorDarkRed());
-		mapColor.put(2048, this.imageFactory.getColorRoyalBlue());
-		mapColor.put(4096, this.imageFactory.getColorDarkGoldenRod());
-		mapColor.put(8192, this.imageFactory.getColorDarkGoldenRod());
-		mapColor.put(16384, this.imageFactory.getColorDarkGoldenRod());
-		mapColor.put(32768, this.imageFactory.getColorDarkGoldenRod());
-		mapColor.put(65536, this.imageFactory.getColorDarkGoldenRod());
 		
 	}
 	
@@ -80,8 +58,8 @@ public class Piece{
 	public void put(int num) {
 		
 		this.num = num;
-		Color gcColor = mapColor.get(num);
-		Color gcBorderColor = gcColor.brighter();
+		Color gcColor = map.getColorOfPiece(num);
+		Color gcBorderColor = imageFactory.getMarkColor(gcColor);
 		
 		GraphicCell gc1 = new GraphicCell(null, gcColor);
 		GraphicCell gc2 = new GraphicCell(null, gcColor);
@@ -97,65 +75,83 @@ public class Piece{
 		gc5.setBorder(new LateralBorder(0,0,3,0, gcBorderColor));
 		gc6.setBorder(new LateralBorder(0,3,3,0, gcBorderColor));
 		
+		if(num > 0 && num < 100) {
+			gc1.setForeground(imageFactory.getColorForeground());
+			gc2.setForeground(imageFactory.getColorForeground());
+			gc3.setForeground(imageFactory.getColorForeground());
+			gc4.setForeground(imageFactory.getColorForeground());
+			gc5.setForeground(imageFactory.getColorForeground());
+			gc6.setForeground(imageFactory.getColorForeground());
+		}
+		
 		if(num > 0 && num < 10) {
 			
-			cells[0][0].put(gc1);	//top-left position
+			cells[0][0].put(gc1);				//top-left position
 			gc2.setText(num+"");
-			cells[0][1].put(gc2);		//top-central position
-			cells[0][2].put(gc3);	//top-right position
-			cells[1][0].put(gc4);	//bottom-left position
-			cells[1][1].put(gc5);	//bottom-central position
-			cells[1][2].put(gc6);	//bottom-right position
+			cells[0][1].put(gc2);				//top-central position
+			cells[0][2].put(gc3);				//top-right position
+			cells[1][0].put(gc4);				//bottom-left position
+			cells[1][1].put(gc5);				//bottom-central position
+			cells[1][2].put(gc6);				//bottom-right position
 		}
 
 		if(num > 10 && num < 100) {
 			gc1.setText((num / 10)+"");
-			cells[0][0].put(gc1);	//top-left position
+			cells[0][0].put(gc1);				//top-left position
 			gc2.setText((num % 10)+"");
-			cells[0][1].put(gc2);		//top-central position
-			cells[0][2].put(gc3);	//top-right position
-			cells[1][0].put(gc4);	//bottom-left position
-			cells[1][1].put(gc5);		//bottom-central position
-			cells[1][2].put(gc6);	//bottom-right position
+			cells[0][1].put(gc2);				//top-central position
+			cells[0][2].put(gc3);				//top-right position
+			cells[1][0].put(gc4);				//bottom-left position
+			cells[1][1].put(gc5);				//bottom-central position
+			cells[1][2].put(gc6);				//bottom-right position
+		}
+		
+		if(num > 100 && num < 100000) {
+			gc1.setForeground(imageFactory.getColorDefault());
+			gc2.setForeground(imageFactory.getColorDefault());
+			gc3.setForeground(imageFactory.getColorDefault());
+			gc4.setForeground(imageFactory.getColorDefault());
+			gc5.setForeground(imageFactory.getColorDefault());
+			gc6.setForeground(imageFactory.getColorDefault());
 		}
 		
 		if(num > 100 && num < 1000) {
 			gc1.setText((num / 100)+"");
-			cells[0][0].put(gc1);	//top-left position
+			cells[0][0].put(gc1);				//top-left position
 			gc2.setText(((num / 10) % 10)+"");
-			cells[0][1].put(gc2);		//top-central position
+			cells[0][1].put(gc2);				//top-central position
 			gc3.setText((num % 10)+"");
-			cells[0][2].put(gc3);	//top-right position
-			cells[1][0].put(gc4);	//bottom-left position
-			cells[1][1].put(gc5);		//bottom-central position
-			cells[1][2].put(gc6);	//bottom-right position
+			cells[0][2].put(gc3);				//top-right position
+			cells[1][0].put(gc4);				//bottom-left position
+			cells[1][1].put(gc5);				//bottom-central position
+			cells[1][2].put(gc6);				//bottom-right position
 		}
 		
 		if(num > 1000 && num < 10000) {
 			gc1.setText((num / 1000)+"");
-			cells[0][0].put(gc1);	//top-left position
+			cells[0][0].put(gc1);				//top-left position
 			gc2.setText(((num / 100) % 10)+"");
-			cells[0][1].put(gc2);		//top-central position
+			cells[0][1].put(gc2);				//top-central position
 			gc3.setText(((num / 10) % 10)+"");
-			cells[0][2].put(gc3);	//top-right position
-			cells[1][0].put(gc4);	//bottom-left position
+			cells[0][2].put(gc3);				//top-right position
+			cells[1][0].put(gc4);				//bottom-left position
 			gc5.setText((num % 10)+"");
-			cells[1][1].put(gc5);		//bottom-central position
-			cells[1][2].put(gc6);	//bottom-right position
+			cells[1][1].put(gc5);				//bottom-central position
+			cells[1][2].put(gc6);				//bottom-right position
 		}
 		
 		if(num > 10000 && num < 100000) {
 			gc1.setText((num / 10000)+"");
-			cells[0][0].put(gc1);	//top-left position
+			cells[0][0].put(gc1);				//top-left position
 			gc2.setText(((num / 1000) % 10)+"");
-			cells[0][1].put(gc2);		//top-central position
+			cells[0][1].put(gc2);				//top-central position
 			gc3.setText(((num / 100) % 10)+"");
-			cells[0][2].put(gc3);	//top-right position
+			cells[0][2].put(gc3);				//top-right position
 			gc4.setText(((num / 10) % 10)+"");
-			cells[1][0].put(gc4);	//bottom-left position
+			cells[1][0].put(gc4);				//bottom-left position
 			gc5.setText((num % 10)+"");
-			cells[1][1].put(gc5);		//bottom-central position
-			cells[1][2].put(gc6);	//bottom-right position
+			cells[1][1].put(gc5);				//bottom-central position
+			cells[1][2].put(gc6);				//bottom-right position
 		}
 	}
 }

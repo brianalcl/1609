@@ -1,5 +1,7 @@
 package games.g2048.logic;
 
+import java.awt.Color;
+import java.util.HashMap;
 import java.util.Random;
 
 import general.logic.GraphicCell;
@@ -13,6 +15,7 @@ public class G2048Map extends Map{
 	protected int totalOccupiedCells;
 	protected Piece[][] piece;
 	protected boolean move;
+	protected java.util.Map<Integer, Color> mapColor;
 	
 	public G2048Map(G2048Game game) {
 		super(game, true);
@@ -20,8 +23,8 @@ public class G2048Map extends Map{
 		this.unusable = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorEmpty());
 		this.totalOccupiedCells = 0;
 		this.move = false;
-		
 		piece = new Piece[4][4];
+		this.mapColor = new HashMap<>();
 		for (int r = 0; r < 4; r++) {
 			for (int c = 0; c < 4; c++) {
 				piece[r][c] = new Piece(r, c, this, game.getImageFactory());
@@ -29,6 +32,7 @@ public class G2048Map extends Map{
 			}
 		}
 		
+		createColors();
 		charge();
 		putNumber();
 	}
@@ -212,6 +216,10 @@ public class G2048Map extends Map{
 		}
 	}
 	
+	public Color getColorOfPiece(int n) {
+		return mapColor.get(n);
+	}
+	
 	private void putCells(int r, int c, int i) {
 		
 		if(i == 0) {
@@ -222,4 +230,11 @@ public class G2048Map extends Map{
 		}
 	}
 	
+	private void createColors() {
+		Color baColor = game.getImageFactory().getColorDefault();
+		for(int i = 2; i <= 65536; i = i * 2) {
+			mapColor.put(i, baColor);
+			baColor = game.getImageFactory().getMarkColor(baColor);
+		}
+	}
 }

@@ -6,6 +6,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.KeyStroke;
 
 import games.g2048.logic.G2048Game;
@@ -27,6 +28,14 @@ public class G2048Panel extends GamePanel{
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
 		addControls();
+	}
+	
+	public void changeCell(JLabel graphicCell, int row, int column) {
+		matrix[row][column].setIcon(graphicCell.getIcon());
+		matrix[row][column].setBackground(graphicCell.getBackground());
+		matrix[row][column].setText(graphicCell.getText());
+		matrix[row][column].setBorder(graphicCell.getBorder());
+		matrix[row][column].setForeground(graphicCell.getForeground());
 	}
 
 	@Override
