@@ -15,6 +15,10 @@ import java.awt.event.MouseEvent;
 
 
 public class InitialPanel extends GeneralPanel{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JButton[][] matrix;
 	protected JButton btnConfiguration;
 	protected JPanel panel;
@@ -52,24 +56,24 @@ public class InitialPanel extends GeneralPanel{
 		
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
-				matrix[r][c] = new JButton(gui.getImageFactory().getIcon("empty"));
+				matrix[r][c] = new JButton(gui.getImageFactory().getGameIcon("empty"));
 				matrix[r][c].setBackground(gui.getImageFactory().getColorDefault());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorderPainted(false);
 				matrix[r][c].addMouseListener(getMouseAdapter());
 				panel.add(matrix[r][c]);
 			}
-		matrix[0][0].setIcon(gui.getImageFactory().getIcon("snake"));
+		matrix[0][0].setIcon(gui.getImageFactory().getGameIcon("snake"));
 		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
-		matrix[0][1].setIcon(gui.getImageFactory().getIcon("dodgeWall"));
+		matrix[0][1].setIcon(gui.getImageFactory().getGameIcon("dodgeWall"));
 		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
-		matrix[0][2].setIcon(gui.getImageFactory().getIcon("g2048"));
+		matrix[0][2].setIcon(gui.getImageFactory().getGameIcon("g2048"));
 		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
-		matrix[1][0].setIcon(gui.getImageFactory().getIcon("shot"));
+		matrix[1][0].setIcon(gui.getImageFactory().getGameIcon("shot"));
 		matrix[1][0].addActionListener(e -> gui.setPanel(new ShotPanel(this.gui)));
-		matrix[1][1].setIcon(gui.getImageFactory().getIcon("sudoku"));
+		matrix[1][1].setIcon(gui.getImageFactory().getGameIcon("sudoku"));
 		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
-		matrix[1][2].setIcon(gui.getImageFactory().getIcon("minesweeper"));
+		matrix[1][2].setIcon(gui.getImageFactory().getGameIcon("minesweeper"));
 		matrix[1][2].addActionListener(e -> gui.setPanel(new MinesweeperPanel(this.gui)));
 		
 	}

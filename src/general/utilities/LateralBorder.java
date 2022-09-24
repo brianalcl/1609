@@ -5,13 +5,16 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Shape;
-import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 
 import javax.swing.border.AbstractBorder;
 
 public class LateralBorder extends AbstractBorder{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	private int top;
 	private int right;
 	private int bottom;

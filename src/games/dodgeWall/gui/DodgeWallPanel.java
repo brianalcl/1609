@@ -10,6 +10,10 @@ import general.gui.GamePanel;
 
 public class DodgeWallPanel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected boolean stopKey;
 	protected DodgeWallGame game;
 	

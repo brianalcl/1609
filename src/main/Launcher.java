@@ -1,10 +1,12 @@
 package main;
 
+import java.awt.Dimension;
+
+import factory.ColorfulFactory;
 import general.gui.GUI;
-import imageFactory.DarkImageFactory;
 
 public class Launcher {
 	public static void main(String args[]) {
-		new GUI(new DarkImageFactory(1280, 720));
+		new GUI(new ColorfulFactory(new Dimension(1280, 720)));
 	}
 }

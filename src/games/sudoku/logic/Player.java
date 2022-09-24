@@ -1,13 +1,13 @@
 package games.sudoku.logic;
 
-import imageFactory.ImageFactory;
+import factory.Factory;
 
 public class Player {
 	
 	protected SudokuMap map;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	
-	public Player(SudokuMap map, ImageFactory imageFactory) {
+	public Player(SudokuMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 	}

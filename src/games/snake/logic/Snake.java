@@ -3,21 +3,21 @@ package games.snake.logic;
 import java.util.Deque;
 import java.util.LinkedList;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.Game;
 import general.logic.GraphicCell;
 import general.logic.Map;
-import imageFactory.ImageFactory;
 
 public class Snake {
 	protected Deque<Cell> snake;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected SnakeMap map;
 	protected GraphicCell representation;
 	protected int direction;
 	protected boolean isSetDirection;
 	
-	public Snake(SnakeMap map, ImageFactory imageFactory) {
+	public Snake(SnakeMap map, Factory imageFactory) {
 		this.snake = new LinkedList<>();
 		this.map = map;
 		this.imageFactory = imageFactory;

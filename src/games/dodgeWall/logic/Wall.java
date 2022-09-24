@@ -4,10 +4,10 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Random;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
-import imageFactory.ImageFactory;
 
 public class Wall {
 	
@@ -15,11 +15,11 @@ public class Wall {
 	protected Deque<Cell> wall_2;
 	protected GraphicCell representation;
 	protected DodgeWallMap map;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected int num;
 	protected Random rnd;
 	
-	public Wall(DodgeWallMap map, ImageFactory imageFactory) {
+	public Wall(DodgeWallMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());

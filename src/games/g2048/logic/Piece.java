@@ -3,20 +3,20 @@ package games.g2048.logic;
 import java.awt.Color;
 import java.util.HashMap;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
 import general.utilities.LateralBorder;
-import imageFactory.ImageFactory;
 
 public class Piece{
 	protected int num;
 	protected Cell[][] cells;
 	protected Map map;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected java.util.Map<Integer, Color> mapColor;
 
-	public Piece(int row, int column, Map map, ImageFactory imageFactory) {
+	public Piece(int row, int column, Map map, Factory imageFactory) {
 		int rowMap = row * 2 + 2;
 		int columnMap = column * 3 + 3;
 		this.num = 0;

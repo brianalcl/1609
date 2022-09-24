@@ -1,22 +1,25 @@
 package general.gui;
 
 import javax.swing.JLabel;
-import imageFactory.ImageFactory;
 import javax.swing.JPanel;
+
+import factory.Factory;
 import general.logic.Map;
-import java.awt.Font;
 import java.awt.GridLayout;
 
 
 public abstract class GamePanel extends GeneralPanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JLabel[][] matrix;
 	protected JPanel panel;
 	protected JLabel lblBg;
 	protected JLabel lblTime;
 	protected JLabel lblLevel;
 	protected JLabel lblScore;
-	protected Font fontLabels;
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
 	
@@ -60,7 +63,7 @@ public abstract class GamePanel extends GeneralPanel{
 
 	private void createVertical() {
 		matrix = new JLabel[Map.COLUMN][Map.ROW];
-		lblBg.setIcon(gui.getImageFactory().getMapVertical());
+		lblBg.setIcon(gui.getImageFactory().getVerticalMap());
 		
 		int x = (int) Math.round(160 * widthScaleFactor);
 		int y = (int) Math.round(30 * heightScaleFactor);
@@ -95,7 +98,7 @@ public abstract class GamePanel extends GeneralPanel{
 	
 	private void createHorizontal() {
 		matrix = new JLabel[Map.ROW][Map.COLUMN];
-		lblBg.setIcon(gui.getImageFactory().getMapHorizontal());
+		lblBg.setIcon(gui.getImageFactory().getHorizontalMap());
 		
 		int x = (int) Math.round(160 * widthScaleFactor);
 		int y = (int) Math.round(30 * heightScaleFactor);
@@ -183,7 +186,7 @@ public abstract class GamePanel extends GeneralPanel{
 		matrix[row][column].setBorder(graphicCell.getBorder());
 	}
 
-	public ImageFactory getImageFactory() {
+	public Factory getImageFactory() {
 		return gui.getImageFactory();
 	}
 	

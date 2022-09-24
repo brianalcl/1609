@@ -12,6 +12,10 @@ import javax.swing.JPanel;
 
 
 public class ConfigurationPanel extends GeneralPanel{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JButton[][] matrix;
 	protected JPanel panel;
 	

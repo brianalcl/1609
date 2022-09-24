@@ -1,8 +1,6 @@
 package games.minesweeper.gui;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
@@ -15,6 +13,10 @@ import general.utilities.LateralBorder;
 
 public class MinesweeperPanel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected MinesweeperGame game;
 	
 	public MinesweeperPanel(GUI gui) {
@@ -70,7 +72,6 @@ public class MinesweeperPanel extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new MinesweeperPanel(gui));
-		
 	}
 	
 }

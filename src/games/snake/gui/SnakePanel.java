@@ -17,6 +17,10 @@ import general.logic.Game;
 
 public class SnakePanel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected SnakeGame game;
 	
 	public SnakePanel(GUI gui) {
@@ -31,6 +35,11 @@ public class SnakePanel extends GamePanel{
 		Action moveUp = new AbstractAction() {
 			
 	
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveUp();
@@ -40,6 +49,11 @@ public class SnakePanel extends GamePanel{
 		Action moveDown = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveDown();
@@ -49,6 +63,11 @@ public class SnakePanel extends GamePanel{
 		Action moveRight = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveRight();
@@ -58,6 +77,11 @@ public class SnakePanel extends GamePanel{
 		Action moveLeft = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveLeft();

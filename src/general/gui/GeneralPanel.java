@@ -1,10 +1,16 @@
 package general.gui;
 
 import java.awt.Font;
+
 import javax.swing.JPanel;
-import imageFactory.ImageFactory;
+
+import factory.Factory;
 
 public abstract class GeneralPanel extends JPanel{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected GUI gui;
 	protected Font font;
 	protected double widthScaleFactor;
@@ -12,11 +18,11 @@ public abstract class GeneralPanel extends JPanel{
 	
 	public GeneralPanel(GUI gui) {
 		this.gui = gui;
-		setSize(gui.getImageFactory().getScreenResolution());
+		setSize(this.gui.getImageFactory().getScreenResolution());
 		setLocation(0, 0);
 		setLayout(null);
-		font = this.gui.getFont();
-		this.widthScaleFactor = this.gui.getImageFactory().getScreenResolution().getWidth() / ImageFactory.DEFAULT_WIDTH;
-		this.heightScaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / ImageFactory.DEFAULT_HEIGHT;
+		widthScaleFactor = this.gui.getImageFactory().getScreenResolution().getWidth() / Factory.DEFAULT_WIDTH;
+		heightScaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / Factory.DEFAULT_HEIGHT;
+		font = this.gui.getTheFont();
 	}
 }

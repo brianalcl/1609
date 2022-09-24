@@ -1,8 +1,8 @@
 package general.logic;
 
+import factory.Factory;
 import general.gui.GamePanel;
 import general.threads.Watch;
-import imageFactory.ImageFactory;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;
@@ -58,7 +58,7 @@ public abstract class Game {
 		return gameOver;
 	}
 	
-	public ImageFactory getImageFactory() {
+	public Factory getImageFactory() {
 		return panel.getImageFactory();
 	}
 	

@@ -6,6 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 public class GameOverPanel extends GeneralPanel{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JButton restart;
 	protected JButton exit;
 	protected JButton home;

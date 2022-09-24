@@ -11,6 +11,10 @@ import general.gui.GamePanel;
 
 public class ShotPanel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected ShotGame game;
 	
 	public ShotPanel(GUI gui) {

@@ -1,17 +1,17 @@
 package games.shot.logic;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import imageFactory.ImageFactory;
 
 public class Player {
 	protected Cell player;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected ShotMap map;
 	protected GraphicCell representation;
 	protected Shot shot;
 	
-	public Player(ShotMap map, ImageFactory imageFactory) {
+	public Player(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());

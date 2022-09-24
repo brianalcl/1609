@@ -1,17 +1,17 @@
 package games.dodgeWall.logic;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import imageFactory.ImageFactory;
 
 public class Player {
 	protected Cell[][] player;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected DodgeWallMap map;
 	protected GraphicCell representation_1;
 	protected GraphicCell representation_2;
 	
-	public Player(DodgeWallMap map, ImageFactory imageFactory) {
+	public Player(DodgeWallMap map, Factory imageFactory) {
 		this.player = new Cell[3][3];
 		this.map = map;
 		this.imageFactory = imageFactory;

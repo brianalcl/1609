@@ -2,18 +2,19 @@ package games.shot.logic;
 
 
 import java.util.Random;
+
+import factory.Factory;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
-import imageFactory.ImageFactory;
 
 public class Wall {
 	
 	protected GraphicCell representation;
 	protected ShotMap map;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	protected Random rnd;
 	
-	public Wall(ShotMap map, ImageFactory imageFactory) {
+	public Wall(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());

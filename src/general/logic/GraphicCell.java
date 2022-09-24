@@ -4,9 +4,11 @@ import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
-import general.utilities.LateralBorder;
-
 public class GraphicCell extends JLabel{
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected Icon icon;
 	protected Color color;
 	

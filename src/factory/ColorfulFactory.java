@@ -1,11 +1,11 @@
-package imageFactory;
+package factory;
 
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Icon;
 
-public class DarkImageFactory extends ImageFactory{
+public class ColorfulFactory extends Factory{
 	private Icon squircle;
 	private Icon flag;
 	private Icon bomb;
@@ -23,8 +23,8 @@ public class DarkImageFactory extends ImageFactory{
 	private Color colorDarkGoldenRod;
 	private Color colorDarkSlateGray;
 	
-	public DarkImageFactory(int screenWidth, int screenHeight) {
-		super(screenWidth, screenHeight);
+	public ColorfulFactory(Dimension resolution) {
+		super(resolution);
 		
 		colorDarkSlateGray = new Color(47, 79, 79);
 		colorDarkCyan = new Color(0, 139, 139);
@@ -45,21 +45,21 @@ public class DarkImageFactory extends ImageFactory{
 		createIcons();
 	}
 	
-	public void setScreenResolution(Dimension d) {
-		super.setScreenResolution(d);
+	public void setScreenResolution(Dimension resolution) {
+		super.setScreenResolution(resolution);
 		createIcons();
 	}
 
 	private void createIcons() {
 		if(screenHeight == DEFAULT_HEIGHT) {
-			squircle = getOriginalIcon("/assets/img/r1080/gameImages/common/squircle1080.png");
-			flag = getOriginalIcon("/assets/img/r1080/gameImages/common/flag1080.png");
-			bomb = getOriginalIcon("/assets/img/r1080/gameImages/common/bomb1080.png");
+			squircle = getOriginalIcon("/assets/img/r1080/gameImages/common/squircle.png");
+			flag = getOriginalIcon("/assets/img/r1080/gameImages/minesweeper/flag.png");
+			bomb = getOriginalIcon("/assets/img/r1080/gameImages/minesweeper/bomb.png");
 		}
 		else {
-			squircle = getOriginalIcon("/assets/img/r720/gameImages/common/squircle720.png");
-			flag = getOriginalIcon("/assets/img/r720/gameImages/common/flag720.png");
-			bomb = getOriginalIcon("/assets/img/r720/gameImages/common/bomb720.png");
+			squircle = getOriginalIcon("/assets/img/r720/gameImages/common/squircle.png");
+			flag = getOriginalIcon("/assets/img/r720/gameImages/minesweeper/flag.png");
+			bomb = getOriginalIcon("/assets/img/r720/gameImages/minesweeper/bomb.png");
 		}
 	}
 	
@@ -123,109 +123,109 @@ public class DarkImageFactory extends ImageFactory{
 		return colorDarkSlateGray;
 	}
 	
-	public Icon getIcon(String name) {
+	public Icon getGameIcon(String name) {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+"Icon1080.png");
+			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+".png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/"+name+"Icon720.png");
+			return getOriginalIcon("/assets/img/r720/gameIcons/"+name+".png");
 	}
 
 	public Icon getKeyboard0() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard0-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard0.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard0-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard0.png");
 	}
 	
 	public Icon getKeyboard1() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard1-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard1.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard1-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard1.png");
 	}
 	
 	public Icon getKeyboard2() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard2-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard2.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard2-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard2.png");
 	}	
 	
 	public Icon getKeyboard3() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard3-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard3.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard3-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard3.png");
 	}	
 	
 	public Icon getKeyboard4() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard4-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard4.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard4-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard4.png");
 	}	
 	
 	public Icon getKeyboard5() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard5-1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/keyboard5.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard5-720.png");
+			return getOriginalIcon("/assets/img/r720/gui/keyboard5.png");
 	}
 	
 	public Icon getMouse() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/mouse1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/mouse.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/mouse720.png");
+			return getOriginalIcon("/assets/img/r720/gui/mouse.png");
 	}
 	
 	public Icon getGuiGameOver() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/guiGameOver1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/guiGameOver.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/guiGameOver720.png");
+			return getOriginalIcon("/assets/img/r720/gui/guiGameOver.png");
 	}
 
 	public Icon getRestart() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/restart1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/restart.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/restart720.png");
+			return getOriginalIcon("/assets/img/r720/gui/restart.png");
 	}
 
 	public Icon getHome() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/home1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/home.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/home720.png");
+			return getOriginalIcon("/assets/img/r720/gui/home.png");
 	}
 
 	public Icon getExit() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/exit1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/exit.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/exit720.png");
+			return getOriginalIcon("/assets/img/r720/gui/exit.png");
 	}
 	
 	public Icon getConfiguration() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/configuration1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/configuration.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/configuration720.png");
+			return getOriginalIcon("/assets/img/r720/gui/configuration.png");
 	}
 	
-	public Icon getMapHorizontal() {
+	public Icon getHorizontalMap() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/mapHorizontal1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/horizontalMap.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/mapHorizontal720.png");
+			return getOriginalIcon("/assets/img/r720/gui/horizontalMap.png");
 	}
 	
-	public Icon getMapVertical() {
+	public Icon getVerticalMap() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/mapVertical1080.png");
+			return getOriginalIcon("/assets/img/r1080/gui/VerticalMap.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/mapVertical720.png");
+			return getOriginalIcon("/assets/img/r720/gui/VerticalMap.png");
 	}	
 	
 	public Icon getEmpty() {

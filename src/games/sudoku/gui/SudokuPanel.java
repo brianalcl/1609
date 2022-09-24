@@ -16,6 +16,10 @@ import general.utilities.LateralBorder;
 
 public class SudokuPanel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected SudokuGame game;
 	
 	public SudokuPanel(GUI gui) {

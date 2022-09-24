@@ -15,6 +15,10 @@ import general.gui.GamePanel;
 
 public class G2048Panel extends GamePanel{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	protected G2048Game game;
 	
 	public G2048Panel(GUI gui) {
@@ -30,6 +34,11 @@ public class G2048Panel extends GamePanel{
 		Action moveUp = new AbstractAction() {
 			
 	
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveUp();
@@ -39,6 +48,11 @@ public class G2048Panel extends GamePanel{
 		Action moveDown = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveDown();
@@ -48,6 +62,11 @@ public class G2048Panel extends GamePanel{
 		Action moveRight = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveRight();
@@ -57,6 +76,11 @@ public class G2048Panel extends GamePanel{
 		Action moveLeft = new AbstractAction() {
 			
 			
+			/**
+			 * SerialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveLeft();

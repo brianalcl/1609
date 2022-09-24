@@ -8,22 +8,32 @@ import java.io.InputStream;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import imageFactory.ImageFactory;
+import factory.Factory;
 
 public class GUI extends JFrame {
 	
-	protected ImageFactory factory;
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+	protected Factory factory;
 	protected JPanel panel;
 	protected Font font;
 	
-	public GUI(ImageFactory factory) {
+	/**
+	 * Create the frame. Receives by parameter a factory.
+	 * @param factory a factory.
+	 */
+	public GUI(Factory factory) {
 		this.factory = factory;
 		this.panel = new JPanel();
-		createFont();
 		initialize();
-		
+		createFont();
 	}
-
+	
+	/**
+	 * Initialize the GUI.
+	 */
 	private void initialize() {
 		setSize((int)factory.getScreenResolution().getWidth() + 16, (int) factory.getScreenResolution().getHeight() + 39);
 		getContentPane().setLayout(null);
@@ -31,10 +41,13 @@ public class GUI extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		getContentPane().add(panel);
 		setPanel(new InitialPanel(this));
 	}
 	
+	/**
+	 * Set a panel passed by parameter in the frame.
+	 * @param p the panel.
+	 */
 	public void setPanel(JPanel p) {
 		getContentPane().remove(panel);
 		panel = p;
@@ -44,11 +57,18 @@ public class GUI extends JFrame {
 		repaint();
 	}
 	
-	public ImageFactory getImageFactory() {
+	/**
+	 * Return the factory.
+	 * @return the factory.
+	 */
+	public Factory getImageFactory() {
 		return factory;
 	}
 	
-	private void createFont() {
+	/**
+	 * Create the font.
+	 */
+	private void createFont() { // Since the GUI is created only once, the font is also created only once.
 		font = null;
 		try {
 			InputStream is =  getClass().getResourceAsStream("/assets/font/futurespore.ttf");
@@ -56,10 +76,13 @@ public class GUI extends JFrame {
 		} catch (IOException | FontFormatException ex) {
 			System.out.println("ERROR: FONT NOT FOUND");
 		}
-		
 	}
 	
-	public Font getFont() {
+	/**
+	 * Return the font.
+	 * @return the font.
+	 */
+	public Font getTheFont() {
 		return font;
 	}
 	

@@ -3,17 +3,17 @@ package games.shot.logic;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import imageFactory.ImageFactory;
 
 public class Shot {
 	protected Queue<Cell> shot;
 	protected ShotMap map;
 	protected GraphicCell representation;
-	protected ImageFactory imageFactory;
+	protected Factory imageFactory;
 	
-	public Shot(ShotMap map, ImageFactory imageFactory) {
+	public Shot(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
