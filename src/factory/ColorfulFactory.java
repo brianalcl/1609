@@ -168,9 +168,9 @@ public class ColorfulFactory extends Factory{
 	
 	public Icon getVerticalMap() {
 		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/VerticalMap.png");
+			return getOriginalIcon("/assets/img/r1080/gui/verticalMap.png");
 		else
-			return getOriginalIcon("/assets/img/r720/gui/VerticalMap.png");
+			return getOriginalIcon("/assets/img/r720/gui/verticalMap.png");
 	}	
 	
 	public Icon getEmpty() {
