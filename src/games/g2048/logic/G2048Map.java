@@ -20,15 +20,15 @@ public class G2048Map extends Map{
 	public G2048Map(G2048Game game) {
 		super(game, true);
 		this.rnd = NRandom.getInstance();
-		this.unusable = new GraphicCell(game.getImageFactory().getSquircle(), game.getImageFactory().getColorEmpty());
+		this.unusable = new GraphicCell(this.game.getImageFactory().getSquircle(), freeCell.getBackground());
 		this.totalOccupiedCells = 0;
 		this.move = false;
-		piece = new Piece[4][4];
+		this.piece = new Piece[4][4];
 		this.mapColor = new HashMap<>();
 		for (int r = 0; r < 4; r++) {
 			for (int c = 0; c < 4; c++) {
-				piece[r][c] = new Piece(r, c, this, game.getImageFactory());
-				piece[r][c].clear();
+				this.piece[r][c] = new Piece(r, c, this, game.getImageFactory());
+				this.piece[r][c].clear();
 			}
 		}
 		
@@ -234,7 +234,7 @@ public class G2048Map extends Map{
 		Color baColor = game.getImageFactory().getColorDefault();
 		for(int i = 2; i <= 65536; i = i * 2) {
 			mapColor.put(i, baColor);
-			baColor = game.getImageFactory().getMarkColor(baColor);
+			baColor = game.getImageFactory().getMarkColor(baColor, 15);
 		}
 	}
 }

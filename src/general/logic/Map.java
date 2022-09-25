@@ -9,7 +9,7 @@ public abstract class Map {
 	
 	public Map(Game game, boolean isHorizontal) {
 		this.game = game;
-		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
+		freeCell = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), -20));
 		
 		if(isHorizontal)
 			matrix = new Cell[ROW][COLUMN];

@@ -5,7 +5,7 @@ import java.awt.Color;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import general.utilities.LateralBorder;
+import general.utilities.InternalBorder;
 
 public class Piece{
 	protected int num;
@@ -59,7 +59,7 @@ public class Piece{
 		
 		this.num = num;
 		Color gcColor = map.getColorOfPiece(num);
-		Color gcBorderColor = imageFactory.getMarkColor(gcColor);
+		Color gcBorderColor = imageFactory.getMarkColor(gcColor, 15);
 		
 		GraphicCell gc1 = new GraphicCell(null, gcColor);
 		GraphicCell gc2 = new GraphicCell(null, gcColor);
@@ -68,12 +68,12 @@ public class Piece{
 		GraphicCell gc5 = new GraphicCell(null, gcColor);
 		GraphicCell gc6 = new GraphicCell(null, gcColor);
 		
-		gc1.setBorder(new LateralBorder(3,0,0,3, gcBorderColor));
-		gc2.setBorder(new LateralBorder(3,0,0,0, gcBorderColor));
-		gc3.setBorder(new LateralBorder(3,3,0,0, gcBorderColor));
-		gc4.setBorder(new LateralBorder(0,0,3,3, gcBorderColor));
-		gc5.setBorder(new LateralBorder(0,0,3,0, gcBorderColor));
-		gc6.setBorder(new LateralBorder(0,3,3,0, gcBorderColor));
+		gc1.setBorder(new InternalBorder(3,0,0,3, gcBorderColor));
+		gc2.setBorder(new InternalBorder(3,0,0,0, gcBorderColor));
+		gc3.setBorder(new InternalBorder(3,3,0,0, gcBorderColor));
+		gc4.setBorder(new InternalBorder(0,0,3,3, gcBorderColor));
+		gc5.setBorder(new InternalBorder(0,0,3,0, gcBorderColor));
+		gc6.setBorder(new InternalBorder(0,3,3,0, gcBorderColor));
 		
 		if(num > 0 && num < 100) {
 			gc1.setForeground(imageFactory.getColorForeground());

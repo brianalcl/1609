@@ -9,7 +9,7 @@ import games.minesweeper.logic.MinesweeperGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
 import general.gui.GamePanel;
-import general.utilities.LateralBorder;
+import general.utilities.InternalBorderRound;
 
 public class MinesweeperPanel extends GamePanel{
 	
@@ -29,11 +29,11 @@ public class MinesweeperPanel extends GamePanel{
 	}
 	
 	private void putBorder() {
-		Color colorBorder = getBackground().darker().darker();
-		
+		Color colorBorder = gui.getImageFactory().getColorDefault();
+		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 30);
 		for(int r = 2; r < 16; r++) {
 			for(int c = 0; c < 9; c++) {
-				matrix[r][c].setBorder(new LateralBorder(colorBorder));
+				matrix[r][c].setBorder(new InternalBorderRound(2, 2, 2, 2, 16,colorBorder));
 			}
 		}
 	}

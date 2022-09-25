@@ -92,89 +92,12 @@ public abstract class Factory {
 	public abstract Color getColorForeground();	
 	
 	/**
-	 * Return purple color.
-	 * @return purple color.
-	 */
-	public abstract Color getColorPurple();
-	
-	/**
-	 * Return dark cyan color.
-	 * @return dark cyan color.
-	 */
-	public abstract Color getColorDarkCyan();
-	
-	/**
-	 * Return sienna color.
-	 * @return sienna color.
-	 */
-	public abstract Color getColorSienna();
-	
-	/**
-	 * Return empty color.
-	 * @return empty color.
-	 */
-	public abstract Color getColorEmpty();
-	
-	/**
-	 * Return peru color.
-	 * @return peru color.
-	 */
-	public abstract Color getColorPeru();
-	
-	/**
-	 * Return royal blue color.
-	 * @return royal blue color.
-	 */
-	public abstract Color getColorRoyalBlue();
-	
-	/**
-	 * Return medium orchid color.
-	 * @return medium orchid color.
-	 */
-	public abstract Color getColorMediumOrchid();
-	
-	/**
-	 * Return dark olive green color.
-	 * @return dark olive green color.
-	 */
-	public abstract Color getColorDarkOliveGreen();
-	
-	/**
-	 * Return crimson color.
-	 * @return crimson color.
-	 */
-	public abstract Color getColorCrimson();
-	
-	/**
-	 * Return dark red color.
-	 * @return dark red color.
-	 */
-	public abstract Color getColorDarkRed();
-	
-	/**
-	 * Return dark green color.
-	 * @return dark green color.
-	 */
-	public abstract Color getColorDarkGreen();
-	
-	/**
-	 * Return dark slate gray color.
-	 * @return dark slate gray color.
-	 */
-	public abstract Color getColorDarkSlateGray();
-	
-	/**
-	 * Return dark golden rod color.
-	 * @return purple color.
-	 */
-	public abstract Color getColorDarkGoldenRod();
-	
-	/**
-	 * Returns a color slightly different from the color passed by parameter.
+	 * Allows scaling a color with a factor passed by parameter.
 	 * @param color
-	 * @return new Color
+	 * @param f a factor.
+	 * @return new Color.
 	 */
-	public abstract Color getMarkColor(Color color);
+	public abstract Color getMarkColor(Color color, int f);
 	
 	/**
 	 * Return the horizontal map icon.

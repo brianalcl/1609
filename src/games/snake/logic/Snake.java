@@ -21,7 +21,7 @@ public class Snake {
 		this.snake = new LinkedList<>();
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(imageFactory.getSquircle(), imageFactory.getColorDefault());
+		this.representation = new GraphicCell(imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
 		this.direction = Game.MOVE_LEFT;
 		this.isSetDirection = false;
 		

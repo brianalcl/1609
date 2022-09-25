@@ -17,7 +17,7 @@ public class Wall {
 	public Wall(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.imageFactory.getColorDefault());
+		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
 		this.rnd = NRandom.getInstance();
 	}
 	
@@ -28,14 +28,14 @@ public class Wall {
 	}
 	
 	public void charge() {
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
-		map.getCell(15, Math.abs(rnd.nextInt()%9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
+		map.getCell(15, Math.abs(rnd.nextInt() % 9)).put(representation);
 	}
 }

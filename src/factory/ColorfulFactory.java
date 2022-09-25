@@ -9,39 +9,13 @@ public class ColorfulFactory extends Factory{
 	private Icon squircle;
 	private Icon flag;
 	private Icon bomb;
-	private Color colorEmptyColor;
-	private Color colorPurple;
-	private Color colorSienna;
-	private Color colorDarkCyan;
-	private Color colorPeru;
-	private Color colorRoyalBlue;
-	private Color colorMediumOrchid;
-	private Color colorDarkOliveGreen;
-	private Color colorCrimson;
-	private Color colorDarkRed;
-	private Color colorDarkGreen;
-	private Color colorDarkGoldenRod;
-	private Color colorDarkSlateGray;
 	
 	public ColorfulFactory(Dimension resolution) {
 		super(resolution);
 		
-		colorDarkSlateGray = new Color(47, 79, 79);
-		colorDarkCyan = new Color(0, 139, 139);
-		colorDarkGreen = new Color(0, 100, 0);
-		colorRoyalBlue = new Color(65, 105, 225);
-		colorPeru = new Color(205, 133, 63);		
-		colorDarkOliveGreen = new Color(85, 107, 47);
-		colorDarkGoldenRod = new Color(184, 134, 11);
-		colorMediumOrchid = new Color(186, 85, 211);
-		colorDarkRed = new Color(139, 0, 0);
-		colorSienna = new Color(160, 82, 45);
-		colorPurple = new Color(128, 0, 128);
-		colorCrimson = new Color(220, 20, 60);
-
-		colorEmptyColor = new Color(0,0,0);
+		colorDefault = new Color(85, 107, 47);
 		colorForeground = new Color(255, 255, 255, 200);
-		colorDefault = colorDarkOliveGreen;
+		
 		createIcons();
 	}
 	
@@ -63,82 +37,30 @@ public class ColorfulFactory extends Factory{
 		}
 	}
 	
-	public Color getColorEmpty() {
-		return colorEmptyColor;
+	public Color getColorDefault() {
+		return colorDefault;
 	}
 
-	public Color getColorDarkCyan() {
-		return colorDarkCyan;
-	}
-	
 	public Color getColorForeground() {
 		return colorForeground;
 	}
 	
-	public Color getColorSienna() {
-		return colorSienna;
-	}
-	
-	public Color getColorDefault() {
-		return colorDefault; 
-	}
-	
-	public Color getColorPurple() {
-		return colorPurple;
-	}
-	
-	public Color getColorPeru() {
-		return colorPeru;
-	}
-	
-	public Color getColorRoyalBlue() {
-		return colorRoyalBlue;
-	}
-	
-	public Color getColorMediumOrchid() {
-		return colorMediumOrchid;
-	}
-	
-	public Color getColorDarkOliveGreen() {
-		return colorDarkOliveGreen;
-	}
-	
-	public Color getColorCrimson() {
-		return colorCrimson;
-	}
-	
-	public Color getColorDarkRed() {
-		return colorDarkRed;
-	}
-	
-	public Color getColorDarkGreen() {
-		return colorDarkGreen;
-	}
-	
-	public Color getColorDarkGoldenRod() {
-		return colorDarkGoldenRod;
-	}
-	
-	public Color getColorDarkSlateGray() {
-		return colorDarkSlateGray;
-	}
-	
-	public Color getMarkColor(Color color) {
+	public Color getMarkColor(Color color, int f) {
 		Color res = color;
 		int r = res.getRed();
 		int g = res.getGreen();
 		int b = res.getBlue();
 		boolean editable = false;
-		if(r + 10 <= 255) {
-			r += 10;
+		if(r + f >= 0 && r + f <= 255) {
+			r += f;
 			editable = true;
 		}
-		if(g + 10 <= 255) {
-			g += 10;
+		if(g + f >= 0 && g + f <= 255) {
+			g += f;
 			editable = true;
 		}
-		if(b + 10 <= 255) {
-			b += 10;
+		if(b + f >= 0 && b + f <= 255) {
+			b += f;
 			editable = true;
 		}
 		if(editable)

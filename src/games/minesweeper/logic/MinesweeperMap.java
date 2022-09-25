@@ -12,7 +12,6 @@ public class MinesweeperMap extends Map{
 	protected MinesweeperCell[][]matrix;
 	protected MinesweeperGame game;
 	protected GraphicCell flag;
-	protected GraphicCell empty;
 	protected GraphicCell bomb;
 	protected int size;
 	protected int bombs;
@@ -22,10 +21,8 @@ public class MinesweeperMap extends Map{
 		this.game = game;
 		this.rnd = NRandom.getInstance();
 		this.matrix = new MinesweeperCell[COLUMN][ROW];
-		this.flag = new GraphicCell(this.game.getImageFactory().getFlag(), this.game.getImageFactory().getColorDefault());
-		this.empty = new GraphicCell(game.getImageFactory().getEmpty(), game.getImageFactory().getColorEmpty());
-		this.bomb = new GraphicCell(game.getImageFactory().getBomb(), game.getImageFactory().getColorDefault());
-		freeCell = new GraphicCell(null, this.game.getImageFactory().getColorDefault());
+		this.flag = new GraphicCell(this.game.getImageFactory().getFlag(), freeCell.getBackground());
+		this.bomb = new GraphicCell(this.game.getImageFactory().getBomb(), freeCell.getBackground());
 		
 		this.bombs = 15;
 		this.size = (matrix.length - 2) * matrix[0].length - bombs;
@@ -39,7 +36,7 @@ public class MinesweeperMap extends Map{
 		for(int r = 0; r < 2; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
 				matrix[r][c].setUneditable();
-				matrix[r][c].put(empty);
+				matrix[r][c].put(freeCell);
 			}
 		charge(bombs);
 		createInfo();

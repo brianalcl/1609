@@ -12,7 +12,7 @@ import games.sudoku.logic.SudokuGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
 import general.gui.GamePanel;
-import general.utilities.LateralBorder;
+import general.utilities.InternalBorder;
 
 public class SudokuPanel extends GamePanel{
 	
@@ -33,40 +33,41 @@ public class SudokuPanel extends GamePanel{
 	}
 	
 	private void putBorder() {
-		Color colorBorder = getBackground().darker().darker();
+		Color colorBorder = gui.getImageFactory().getColorDefault();
+		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 30);
 		
 		for(int r = 7; r < 16; r++) {
 			for(int c = 0; c < 9; c++) {
-				matrix[r][c].setBorder(new LateralBorder(1,1,1,1, colorBorder));
+				matrix[r][c].setBorder(new InternalBorder(1,1,1,1, colorBorder));
 				if(r == 9 || r == 12)
-					matrix[r][c].setBorder(new LateralBorder(2,1,1,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(2,1,1,1, colorBorder));
 				if(r == 10 || r == 13)
-					matrix[r][c].setBorder(new LateralBorder(1,1,2,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(1,1,2,1, colorBorder));
 				if(c == 2 || c == 5)
-					matrix[r][c].setBorder(new LateralBorder(1,2,1,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(1,2,1,1, colorBorder));
 				if(c == 3 || c == 6)
-					matrix[r][c].setBorder(new LateralBorder(1,1,1,2, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(1,1,1,2, colorBorder));
 			}
 		}
-		matrix[9][2].setBorder(new LateralBorder(2,2,1,1, colorBorder));
-		matrix[10][2].setBorder(new LateralBorder(1,2,2,1, colorBorder));
-		matrix[9][3].setBorder(new LateralBorder(2,1,1,2, colorBorder));
-		matrix[10][3].setBorder(new LateralBorder(1,1,2,2, colorBorder));
+		matrix[9][2].setBorder(new InternalBorder(2,2,1,1, colorBorder));
+		matrix[10][2].setBorder(new InternalBorder(1,2,2,1, colorBorder));
+		matrix[9][3].setBorder(new InternalBorder(2,1,1,2, colorBorder));
+		matrix[10][3].setBorder(new InternalBorder(1,1,2,2, colorBorder));
 		
-		matrix[9][5].setBorder(new LateralBorder(2,2,1,1, colorBorder));
-		matrix[10][5].setBorder(new LateralBorder(1,2,2,1, colorBorder));
-		matrix[9][6].setBorder(new LateralBorder(2,1,1,2, colorBorder));
-		matrix[10][6].setBorder(new LateralBorder(1,1,2,2, colorBorder));
+		matrix[9][5].setBorder(new InternalBorder(2,2,1,1, colorBorder));
+		matrix[10][5].setBorder(new InternalBorder(1,2,2,1, colorBorder));
+		matrix[9][6].setBorder(new InternalBorder(2,1,1,2, colorBorder));
+		matrix[10][6].setBorder(new InternalBorder(1,1,2,2, colorBorder));
 		
-		matrix[12][2].setBorder(new LateralBorder(2,2,1,1, colorBorder));
-		matrix[13][2].setBorder(new LateralBorder(1,2,2,1, colorBorder));
-		matrix[12][3].setBorder(new LateralBorder(2,1,1,2, colorBorder));
-		matrix[13][3].setBorder(new LateralBorder(1,1,2,2, colorBorder));
+		matrix[12][2].setBorder(new InternalBorder(2,2,1,1, colorBorder));
+		matrix[13][2].setBorder(new InternalBorder(1,2,2,1, colorBorder));
+		matrix[12][3].setBorder(new InternalBorder(2,1,1,2, colorBorder));
+		matrix[13][3].setBorder(new InternalBorder(1,1,2,2, colorBorder));
 		
-		matrix[12][5].setBorder(new LateralBorder(2,2,1,1, colorBorder));
-		matrix[13][5].setBorder(new LateralBorder(1,2,2,1, colorBorder));
-		matrix[12][6].setBorder(new LateralBorder(2,1,1,2, colorBorder));
-		matrix[13][6].setBorder(new LateralBorder(1,1,2,2, colorBorder));
+		matrix[12][5].setBorder(new InternalBorder(2,2,1,1, colorBorder));
+		matrix[13][5].setBorder(new InternalBorder(1,2,2,1, colorBorder));
+		matrix[12][6].setBorder(new InternalBorder(2,1,1,2, colorBorder));
+		matrix[13][6].setBorder(new InternalBorder(1,1,2,2, colorBorder));
 	}
 	
 	@Override

@@ -152,7 +152,7 @@ public abstract class GamePanel extends GeneralPanel{
 			panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
 		}
 		
-		panel.setBackground(gui.getImageFactory().getColorEmpty());
+		panel.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
 		
 		add(panel);
 		
