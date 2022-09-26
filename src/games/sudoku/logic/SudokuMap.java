@@ -10,6 +10,8 @@ import java.util.Set;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.utilities.InternalBorder;
+import general.utilities.InternalBorderRound;
 import general.utilities.NRandom;
 
 public class SudokuMap extends Map{
@@ -30,7 +32,7 @@ public class SudokuMap extends Map{
 		selected = null;
 		for(int r = 0; r < matrix.length; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
-				matrix[r][c] = new SudokuCell(r, c,this);
+				matrix[r][c] = new SudokuCell(r, c,this, this.game.getImageFactory());
 				matrix[r][c].clear();
 			}
 		chargeMapNumber();
@@ -39,46 +41,67 @@ public class SudokuMap extends Map{
 	}
 	
 	private void createCheck() {
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		gc.setBorder(new InternalBorderRound(5,5,5,5, 16, freeCell.getBackground()));
 		
-		matrix[0][0].put(createGraphicCell(0));
-		matrix[1][0].put(createGraphicCell(0));
-		matrix[2][0].put(createGraphicCell(0));
-		matrix[3][0].put(createGraphicCell(0));
-		matrix[4][0].put(createGraphicCell(0));
-		matrix[5][0].put(createGraphicCell(0));
+		matrix[0][0].put(gc);
+		matrix[1][0].put(gc);
+		matrix[2][0].put(gc);
+		matrix[3][0].put(gc);
+		matrix[4][0].put(gc);
+		matrix[5][0].put(gc);
+		matrix[6][0].put(gc);
 		
-		matrix[0][1].put(createGraphicCell(0));
-		matrix[1][1].put(createGraphicCell(0));
-		matrix[2][1].put(createGraphicCell(0));
-		matrix[3][1].put(createGraphicCell(0));
-		matrix[4][1].put(createGraphicCell(0));
-		matrix[5][1].put(createGraphicCell(0));
+		matrix[0][1].put(gc);
+		matrix[1][1].put(gc);
+		matrix[2][1].put(gc);
+		matrix[3][1].put(gc);
+		matrix[4][1].put(gc);
+		matrix[5][1].put(gc);
+		matrix[6][1].put(gc);
 		
-		matrix[0][7].put(createGraphicCell(0));
-		matrix[1][7].put(createGraphicCell(0));
-		matrix[2][7].put(createGraphicCell(0));
-		matrix[3][7].put(createGraphicCell(0));
-		matrix[4][7].put(createGraphicCell(0));
-		matrix[5][7].put(createGraphicCell(0));
+		matrix[0][7].put(gc);
+		matrix[1][7].put(gc);
+		matrix[2][7].put(gc);
+		matrix[3][7].put(gc);
+		matrix[4][7].put(gc);
+		matrix[5][7].put(gc);
+		matrix[6][7].put(gc);
 		
-		matrix[0][8].put(createGraphicCell(0));
-		matrix[1][8].put(createGraphicCell(0));
-		matrix[2][8].put(createGraphicCell(0));
-		matrix[3][8].put(createGraphicCell(0));
-		matrix[4][8].put(createGraphicCell(0));
-		matrix[5][8].put(createGraphicCell(0));
+		matrix[0][8].put(gc);
+		matrix[1][8].put(gc);
+		matrix[2][8].put(gc);
+		matrix[3][8].put(gc);
+		matrix[4][8].put(gc);
+		matrix[5][8].put(gc);
+		matrix[6][8].put(gc);
 		
-		matrix[0][2].put(createGraphicCell(0));
-		matrix[0][3].put(createGraphicCell(0));
-		matrix[0][4].put(createGraphicCell(0));
-		matrix[0][5].put(createGraphicCell(0));
-		matrix[0][6].put(createGraphicCell(0));
+		matrix[0][2].put(gc);
+		matrix[0][3].put(gc);
+		matrix[0][4].put(gc);
+		matrix[0][5].put(gc);
+		matrix[0][6].put(gc);
 		
-		matrix[5][2].put(createGraphicCell('C'));
-		matrix[5][3].put(createGraphicCell('H'));
-		matrix[5][4].put(createGraphicCell('E'));
-		matrix[5][5].put(createGraphicCell('C'));
-		matrix[5][6].put(createGraphicCell('K'));
+		matrix[6][2].put(gc);
+		matrix[6][3].put(gc);
+		matrix[6][4].put(gc);
+		matrix[6][5].put(gc);
+		matrix[6][6].put(gc);
+		
+		gc.setBackground(freeCell.getBackground());
+		gc.setBorder(new InternalBorder(3, 0, 3, 3, game.getImageFactory().getColorDefault()));
+		gc.setText("C");
+		matrix[5][2].put(gc);
+		gc.setBorder(new InternalBorder(3, 0, 3, 0, game.getImageFactory().getColorDefault()));
+		gc.setText("H");
+		matrix[5][3].put(gc);
+		gc.setText("E");
+		matrix[5][4].put(gc);
+		gc.setText("C");
+		matrix[5][5].put(gc);
+		gc.setText("K");
+		gc.setBorder(new InternalBorder(3, 3, 3, 0, game.getImageFactory().getColorDefault()));
+		matrix[5][6].put(gc);
 	}
 	
 	
@@ -163,6 +186,7 @@ public class SudokuMap extends Map{
 		if(n == 3)
 			swapRows(7,13);
 		
+		
 		n = Math.abs(rnd.nextInt() % 4);
 		if(n == 1)
 			swapColumns(0,3);
@@ -178,6 +202,7 @@ public class SudokuMap extends Map{
 		if(n == 3)
 			swapColumns(0,6);
 		
+		
 		n = Math.abs(rnd.nextInt() % 4);
 		if(n == 1)
 			swapRows(7,10);
@@ -192,6 +217,7 @@ public class SudokuMap extends Map{
 			swapRows(10,13);
 		if(n == 3)
 			swapRows(7,13);
+		
 		
 		n = Math.abs(rnd.nextInt() % 4);
 		if(n == 1)
@@ -255,7 +281,7 @@ public class SudokuMap extends Map{
 		if(selected != null)
 			gc = new GraphicCell(null, selected.getGraphicCell().getBackground());
 		else
-			gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+			gc = new GraphicCell(null, freeCell.getBackground());
 		if(c != '0')
 			gc.setText(c+"");
 		
@@ -348,23 +374,26 @@ public class SudokuMap extends Map{
 		matrix[1][2].clear();
 		matrix[1][6].clear();
 		
+		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50));
+		gc.setBorder(new InternalBorderRound(2, 2, 2, 2, 16, freeCell.getBackground()));
+		
 		if(!error) {
-			matrix[1][3].put(createGraphicCell(0));
-			matrix[1][4].put(createGraphicCell(0));
-			matrix[1][5].put(createGraphicCell(0));
-			matrix[2][2].put(createGraphicCell(0));
-			matrix[2][6].put(createGraphicCell(0));
-			matrix[4][3].put(createGraphicCell(0));
-			matrix[4][5].put(createGraphicCell(0));
+			matrix[1][3].put(gc);
+			matrix[1][4].put(gc);
+			matrix[1][5].put(gc);
+			matrix[2][2].put(gc);
+			matrix[2][6].put(gc);
+			matrix[4][3].put(gc);
+			matrix[4][5].put(gc);
 		}
 		else {
-			matrix[2][3].put(createGraphicCell(0));
-			matrix[2][4].put(createGraphicCell(0));
-			matrix[2][5].put(createGraphicCell(0));
-			matrix[1][2].put(createGraphicCell(0));
-			matrix[1][6].put(createGraphicCell(0));
-			matrix[4][3].put(createGraphicCell(0));
-			matrix[4][5].put(createGraphicCell(0));
+			matrix[2][3].put(gc);
+			matrix[2][4].put(gc);
+			matrix[2][5].put(gc);
+			matrix[1][2].put(gc);
+			matrix[1][6].put(gc);
+			matrix[4][3].put(gc);
+			matrix[4][5].put(gc);
 		}
 		
 	}

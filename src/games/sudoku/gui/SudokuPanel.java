@@ -34,7 +34,7 @@ public class SudokuPanel extends GamePanel{
 	
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
-		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 30);
+		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 20);
 		
 		for(int r = 7; r < 16; r++) {
 			for(int c = 0; c < 9; c++) {
@@ -75,6 +75,9 @@ public class SudokuPanel extends GamePanel{
 		matrix[row][column].setIcon(graphicCell.getIcon());
 		matrix[row][column].setBackground(graphicCell.getBackground());
 		matrix[row][column].setText(graphicCell.getText());
+		if(row < 7  && column < 9) {
+			matrix[row][column].setBorder(graphicCell.getBorder());
+		}
 	}
 	
 	@Override

@@ -30,7 +30,7 @@ public class MinesweeperPanel extends GamePanel{
 	
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
-		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 30);
+		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 20);
 		for(int r = 2; r < 16; r++) {
 			for(int c = 0; c < 9; c++) {
 				matrix[r][c].setBorder(new InternalBorderRound(2, 2, 2, 2, 16,colorBorder));

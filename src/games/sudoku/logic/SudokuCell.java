@@ -1,5 +1,6 @@
 package games.sudoku.logic;
 
+import factory.Factory;
 import general.logic.Cell;
 
 public class SudokuCell extends Cell{
@@ -7,19 +8,21 @@ public class SudokuCell extends Cell{
 	protected int userNumber;
 	protected boolean mark;
 	protected boolean editable;
+	protected Factory factory;
 	
-	public SudokuCell(int row, int column, SudokuMap map) {
+	public SudokuCell(int row, int column, SudokuMap map, Factory factory) {
 		super(row, column, map);
 		this.number = 0;
 		this.userNumber = 0;
 		this.mark = false;
 		this.editable = false;
+		this.factory = factory;
 	}
 	
 	public void mark() {
 		if(!mark) {
 			mark = true;
-			gc.setBackground(gc.getBackground().brighter());
+			gc.setBackground(factory.getMarkColor(gc.getBackground(), 20));
 			map.changeCell(this);
 			
 		}
@@ -29,7 +32,7 @@ public class SudokuCell extends Cell{
 	public void unmark() {
 		if(mark) {
 			mark = false;
-			gc.setBackground(gc.getBackground().darker());
+			gc.setBackground(factory.getMarkColor(gc.getBackground(), -20));
 			map.changeCell(this);
 		}
 	}
