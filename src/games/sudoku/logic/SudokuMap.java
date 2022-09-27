@@ -89,10 +89,10 @@ public class SudokuMap extends Map{
 		matrix[6][6].put(gc);
 		
 		gc.setBackground(freeCell.getBackground());
-		gc.setBorder(new InternalBorder(3, 0, 3, 3, game.getImageFactory().getColorDefault()));
+		gc.setBorder(new InternalBorder(3, 0, 3, 3, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		gc.setText("C");
 		matrix[5][2].put(gc);
-		gc.setBorder(new InternalBorder(3, 0, 3, 0, game.getImageFactory().getColorDefault()));
+		gc.setBorder(new InternalBorder(3, 0, 3, 0, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		gc.setText("H");
 		matrix[5][3].put(gc);
 		gc.setText("E");
@@ -100,7 +100,7 @@ public class SudokuMap extends Map{
 		gc.setText("C");
 		matrix[5][5].put(gc);
 		gc.setText("K");
-		gc.setBorder(new InternalBorder(3, 3, 3, 0, game.getImageFactory().getColorDefault()));
+		gc.setBorder(new InternalBorder(3, 3, 3, 0, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		matrix[5][6].put(gc);
 	}
 	

@@ -59,6 +59,7 @@ public abstract class GamePanel extends GeneralPanel{
 		lblTime.setForeground(gui.getImageFactory().getColorForeground());
 		lblLevel.setForeground(gui.getImageFactory().getColorForeground());
 		lblScore.setForeground(gui.getImageFactory().getColorForeground());
+		
 	}
 
 	private void createVertical() {
@@ -189,7 +190,7 @@ public abstract class GamePanel extends GeneralPanel{
 	public Factory getImageFactory() {
 		return gui.getImageFactory();
 	}
-	
+
 	protected abstract void addControls();
 
 	public abstract void lose();

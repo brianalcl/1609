@@ -6,12 +6,12 @@ import java.util.Random;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.utilities.InternalBorderRound;
 import general.utilities.NRandom;
 
 public class G2048Map extends Map{
 	
 	protected Random rnd;
-	protected GraphicCell unusable;
 	protected int totalOccupiedCells;
 	protected Piece[][] piece;
 	protected boolean move;
@@ -20,7 +20,6 @@ public class G2048Map extends Map{
 	public G2048Map(G2048Game game) {
 		super(game, true);
 		this.rnd = NRandom.getInstance();
-		this.unusable = new GraphicCell(this.game.getImageFactory().getSquircle(), freeCell.getBackground());
 		this.totalOccupiedCells = 0;
 		this.move = false;
 		this.piece = new Piece[4][4];
@@ -38,6 +37,8 @@ public class G2048Map extends Map{
 	}
 	
 	public void charge() {
+		GraphicCell unusable = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		unusable.setBorder(new InternalBorderRound(5,5,5,5, 16, freeCell.getBackground()));
 		for(int c = 0; c < 2; c++) 
 			for(int r = 1; r < ROW; r++) 
 				matrix[r][c].put(unusable);

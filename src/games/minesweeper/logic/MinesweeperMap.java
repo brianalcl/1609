@@ -29,7 +29,7 @@ public class MinesweeperMap extends Map{
 		
 		for(int r = 0; r < matrix.length; r++) 
 			for(int c = 0; c < matrix[0].length; c++) {
-				matrix[r][c] = new MinesweeperCell(r, c,this);
+				matrix[r][c] = new MinesweeperCell(r, c, this);
 				matrix[r][c].clear();
 			}
 		
@@ -132,7 +132,7 @@ public class MinesweeperMap extends Map{
 		mark(row, column, gc);
 	}
 
-	private void mark(int row, int column, GraphicCell gc) { //TODO I don't know if there is a more efficient way
+	private void mark(int row, int column, GraphicCell gc) { //I don't know if there is a more efficient way.
 		if((row >= 2 && row <= 15 && column >= 0 && column <= 8) && matrix[row][column].isEditable()) {
 			gc.setText("");
 			size--;
@@ -176,7 +176,7 @@ public class MinesweeperMap extends Map{
 	}
 	
 	private void updateBombs() {
-		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		GraphicCell gc = new GraphicCell(null, freeCell.getBackground());
 		int n = bombs;
 		if(n < 0) {
 			gc.setText("-");
@@ -196,8 +196,11 @@ public class MinesweeperMap extends Map{
 	
 	private void createInfo() {
 		matrix[0][2].put(bomb);
-		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
+		GraphicCell gc = new GraphicCell(null, freeCell.getBackground());
+		
 		matrix[0][4].put(gc);
+		gc.setText("=");
+		matrix[0][3].put(gc);
 		gc.setText( (bombs/10) % 10 +"");
 		matrix[0][5].put(gc);
 		gc.setText(bombs % 10 +"");

@@ -35,13 +35,13 @@ public class ConfigurationPanel extends GeneralPanel{
 		super(gui);		
 		
 		colorDarkSlateGray = new Color(47, 79, 79);
-		colorDarkCyan = new Color(0, 139, 139);
-		colorDarkGreen = new Color(0, 100, 0);	
+		colorDarkCyan = new Color(20, 139, 139);
+		colorDarkGreen = new Color(20, 100, 20);	
 		colorDarkOliveGreen = new Color(85, 107, 47);
-		colorDarkGoldenRod = new Color(184, 134, 11);
+		colorDarkGoldenRod = new Color(164, 134, 21);
 		colorMediumOrchid = new Color(186, 85, 211);
 		colorSienna = new Color(160, 82, 45);
-		colorPurple = new Color(128, 0, 128);
+		colorPurple = new Color(128, 20, 128);
 		colorCrimson = new Color(220, 20, 60);
 		
 		setBackground(this.gui.getImageFactory().getColorDefault());
@@ -158,11 +158,11 @@ public class ConfigurationPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(e.getComponent().getBackground().darker());
+				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), -10));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(e.getComponent().getBackground().brighter());
+				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), 10));
 			}
 
 		};
