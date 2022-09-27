@@ -11,52 +11,33 @@ import general.utilities.NRandom;
 
 public class Wall {
 	
-	protected Deque<Cell> wall_1;
-	protected Deque<Cell> wall_2;
+	protected Deque<Cell> wall;
 	protected GraphicCell representation;
 	protected DodgeWallMap map;
 	protected Factory imageFactory;
-	protected int num;
 	protected Random rnd;
 	
 	public Wall(DodgeWallMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
-		this.num = 0;
 		this.rnd = NRandom.getInstance();
-		this.wall_1 = new LinkedList<Cell>();
-		this.wall_2 = new LinkedList<Cell>();
+		this.wall = new LinkedList<Cell>();
 	}
 	
-	public void put() {
-		num++;		
-		move(wall_1);
-		move(wall_2);
-		if(num == 8) {
-			if(wall_1.isEmpty())
-				charge(wall_1);
-			else
-				if(wall_2.isEmpty())
-					charge(wall_2);
-			num = 0;
-		}
-
-	}
-	
-	public void move(Deque<Cell> wall) {
+	public void move() {
 		boolean posible = true;
 		
 		if(!wall.isEmpty()) {
 			if(wall.getFirst().getColumn() == 0) {
-				clearWall(wall, wall.removeFirst(), wall.removeLast());
+				clearWall(wall.removeFirst(), wall.removeLast());
 				map.addPoints(100);
 			}
 			else {
-				posible = map.getCell(wall.getFirst().getRow(), wall.getFirst().getColumn()-1).isFree();
-				posible = posible && map.getCell(wall.getLast().getRow(), wall.getLast().getColumn()-1).isFree();
+				posible = map.getCell(wall.getFirst().getRow(), wall.getFirst().getColumn() - 1).isFree();
+				posible = posible && map.getCell(wall.getLast().getRow(), wall.getLast().getColumn() - 1).isFree();
 				if(posible)
-					moveOne(wall, wall.removeFirst(), wall.removeLast());
+					moveOne(wall.removeFirst(), wall.removeLast());
 			}
 		}
 		if (!posible) {
@@ -64,27 +45,28 @@ public class Wall {
 		}
 	}
 	
-	private void clearWall(Deque<Cell> wall, Cell first, Cell last) {
-		if(!wall.isEmpty()) 
-			clearWall(wall, wall.removeFirst(), wall.removeLast());
-			first.clear();
-			last.clear();
-	}
-	
-	private void moveOne(Deque<Cell> wall, Cell first, Cell last) {
-		if(!wall.isEmpty()) 
-			moveOne(wall, wall.removeFirst(), wall.removeLast());	
+	private void clearWall(Cell first, Cell last) {
+		if(!wall.isEmpty())
+			clearWall(wall.removeFirst(), wall.removeLast());
 		first.clear();
 		last.clear();
-		wall.addFirst(map.getCell(first.getRow(), first.getColumn()-1));
-		wall.getFirst().put(representation);
-		wall.addLast(map.getCell(last.getRow(), last.getColumn()-1));
-		wall.getLast().put(representation);
 	}
 	
-	public void charge(Deque<Cell> wall) {
+	private void moveOne(Cell first, Cell last) {
+		if(!wall.isEmpty()) 
+			moveOne(wall.removeFirst(), wall.removeLast());	
+		first.clear();
+		last.clear();
+		wall.addFirst(map.getCell(first.getRow(), first.getColumn() - 1));
+		wall.getFirst().put(representation);
+		wall.addLast(map.getCell(last.getRow(), last.getColumn() - 1));
+		wall.getLast().put(representation);
+		
+	}
+	
+	public void charge() {
 		Cell act = null;
-		int x = Math.abs(rnd.nextInt()%3);
+		int x = Math.abs(rnd.nextInt() % 3);
 		switch (x) {
 		case 0:
 			act = map.getCell(0, 15);
@@ -150,4 +132,5 @@ public class Wall {
 			break;
 		}
 	}
+	
 }
