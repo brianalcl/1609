@@ -7,6 +7,7 @@ import games.minesweeper.gui.MinesweeperPanel;
 import games.shot.gui.ShotPanel;
 import games.snake.gui.SnakePanel;
 import games.sudoku.gui.SudokuPanel;
+import general.utilities.InternalBorderRound;
 
 import javax.swing.JButton;
 import java.awt.GridLayout;
@@ -40,6 +41,7 @@ public class InitialPanel extends GeneralPanel{
 		
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
 		panel.setBackground(gui.getImageFactory().getColorDefault());
+		panel.setBackground(gui.getImageFactory().getColorDefault());
 		add(panel);
 	}
 	
@@ -47,10 +49,10 @@ public class InitialPanel extends GeneralPanel{
 		btnConfiguration = new JButton(gui.getImageFactory().getConfiguration());
 		btnConfiguration.setBackground(gui.getImageFactory().getColorDefault());
 		btnConfiguration.setFocusable(false);
-		btnConfiguration.setBorderPainted(false);
 		btnConfiguration.addMouseListener(getMouseAdapter());
 		btnConfiguration.addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
 		btnConfiguration.setBounds(0, 0, (int) Math.round(200 * widthScaleFactor), (int) Math.round(200 * widthScaleFactor));
+		btnConfiguration.setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
 		add(btnConfiguration);
 		
 		
@@ -59,7 +61,7 @@ public class InitialPanel extends GeneralPanel{
 				matrix[r][c] = new JButton(gui.getImageFactory().getGameIcon("empty"));
 				matrix[r][c].setBackground(gui.getImageFactory().getColorDefault());
 				matrix[r][c].setFocusable(false);
-				matrix[r][c].setBorderPainted(false);
+				matrix[r][c].setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
 				matrix[r][c].addMouseListener(getMouseAdapter());
 				panel.add(matrix[r][c]);
 			}

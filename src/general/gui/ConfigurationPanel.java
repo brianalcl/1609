@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import general.utilities.InternalBorderRound;
 
 
@@ -58,7 +57,7 @@ public class ConfigurationPanel extends GeneralPanel{
 		int h = (int) Math.round(600 * heightScaleFactor);
 		panel.setBounds(x,y,w,h);
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
-		panel.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
+		panel.setBackground(gui.getImageFactory().getColorDefault());
 		add(panel);
 	}
 	
@@ -67,7 +66,7 @@ public class ConfigurationPanel extends GeneralPanel{
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton();
 				matrix[r][c].setFocusable(false);
-				matrix[r][c].setBorder(new InternalBorderRound(10, 10, 10, 10, 32, panel.getBackground()));
+				matrix[r][c].setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
 				matrix[r][c].addMouseListener(getMouseAdapter());
 				panel.add(matrix[r][c]);
 			}
