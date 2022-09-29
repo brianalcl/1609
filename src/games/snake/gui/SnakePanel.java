@@ -26,7 +26,6 @@ public class SnakePanel extends GamePanel{
 	public SnakePanel(GUI gui) {
 		super(gui, true);
 		game = new SnakeGame(this);
-		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 		addControls();
 	}
@@ -90,7 +89,7 @@ public class SnakePanel extends GamePanel{
 		
 		
 		final String up		= "up";
-		final String down		= "down";
+		final String down	= "down";
 		final String right	= "right";
 		final String left	= "left";
 		
@@ -106,8 +105,8 @@ public class SnakePanel extends GamePanel{
 		iMap.put(KeyStroke.getKeyStroke("A"),		left);
 		
 		getActionMap().put(up,		moveUp);
-		getActionMap().put(down,		moveDown);
-		getActionMap().put(right,		moveRight);
+		getActionMap().put(down,	moveDown);
+		getActionMap().put(right,	moveRight);
 		getActionMap().put(left,	moveLeft);
 	}
 	

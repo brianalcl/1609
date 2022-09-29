@@ -20,7 +20,6 @@ public class ShotPanel extends GamePanel{
 	public ShotPanel(GUI gui) {
 		super(gui, false);
 		game = new ShotGame(this);
-		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
 		addControls();
 	}

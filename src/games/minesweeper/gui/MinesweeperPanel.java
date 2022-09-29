@@ -23,7 +23,6 @@ public class MinesweeperPanel extends GamePanel{
 	public MinesweeperPanel(GUI gui) {
 		super(gui, false);
 		game = new MinesweeperGame(this);
-		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
 		addControls();

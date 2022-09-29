@@ -58,9 +58,9 @@ public abstract class Factory {
 	 * @param path the image path.
 	 * @return the image.
 	 */
-	protected ImageIcon getOriginalIcon(String path) {
+	protected ImageIcon getTheIcon(String path) {
 		ImageIcon icon = new ImageIcon(getClass().getResource(path));
-		return scale(icon, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		return scale(icon, screenWidth, screenHeight);
 	}
 	
 	/**
@@ -98,18 +98,6 @@ public abstract class Factory {
 	 * @return new Color.
 	 */
 	public abstract Color getMarkColor(Color color, int f);
-	
-	/**
-	 * Return the horizontal map icon.
-	 * @return the horizontal map icon.
-	 */
-	public abstract Icon getHorizontalMap();
-	
-	/**
-	 * Return the vertical map icon.
-	 * @return the vertical map icon.
-	 */
-	public abstract Icon getVerticalMap();
 	
 	/**
 	 * Return the configuration icon.

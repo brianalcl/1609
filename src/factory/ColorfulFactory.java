@@ -25,16 +25,10 @@ public class ColorfulFactory extends Factory{
 	}
 
 	private void createIcons() {
-		if(screenHeight == DEFAULT_HEIGHT) {
-			squircle = getOriginalIcon("/assets/img/r1080/gameImages/common/squircle.png");
-			flag = getOriginalIcon("/assets/img/r1080/gameImages/minesweeper/flag.png");
-			bomb = getOriginalIcon("/assets/img/r1080/gameImages/minesweeper/bomb.png");
-		}
-		else {
-			squircle = getOriginalIcon("/assets/img/r720/gameImages/common/squircle.png");
-			flag = getOriginalIcon("/assets/img/r720/gameImages/minesweeper/flag.png");
-			bomb = getOriginalIcon("/assets/img/r720/gameImages/minesweeper/bomb.png");
-		}
+		squircle = getTheIcon("/assets/img/r1080/gameImages/common/squircle.png");
+		flag = getTheIcon("/assets/img/r1080/gameImages/minesweeper/flag.png");
+		bomb = getTheIcon("/assets/img/r1080/gameImages/minesweeper/bomb.png");
+
 	}
 	
 	public Color getColorDefault() {
@@ -69,110 +63,65 @@ public class ColorfulFactory extends Factory{
 	}
 	
 	public Icon getGameIcon(String name) {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gameIcons/"+name+".png");
-		else
-			return getOriginalIcon("/assets/img/r720/gameIcons/"+name+".png");
+		return getTheIcon("/assets/img/r1080/gameIcons/"+name+".png");
 	}
 
 	public Icon getKeyboard0() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard0.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard0.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard0.png");
 	}
-	
+
 	public Icon getKeyboard1() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard1.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard1.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard1.png");
 	}
-	
+
 	public Icon getKeyboard2() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard2.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard2.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard2.png");
 	}	
-	
+
 	public Icon getKeyboard3() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard3.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard3.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard3.png");
 	}	
-	
+
 	public Icon getKeyboard4() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard4.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard4.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard4.png");
 	}	
-	
+
 	public Icon getKeyboard5() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/keyboard5.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/keyboard5.png");
+		return getTheIcon("/assets/img/r1080/gui/keyboard5.png");
 	}
-	
+
 	public Icon getMouse() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/mouse.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/mouse.png");
+		return getTheIcon("/assets/img/r1080/gui/mouse.png");
 	}
-	
+
 	public Icon getGuiGameOver() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/guiGameOver.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/guiGameOver.png");
+		return getTheIcon("/assets/img/r1080/gui/guiGameOver.png");
 	}
 
 	public Icon getRestart() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/restart.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/restart.png");
+		return getTheIcon("/assets/img/r1080/gui/restart.png");
 	}
 
 	public Icon getHome() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/home.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/home.png");
+		return getTheIcon("/assets/img/r1080/gui/home.png");
 	}
 
 	public Icon getExit() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/exit.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/exit.png");
+		return getTheIcon("/assets/img/r1080/gui/exit.png");
 	}
-	
+
 	public Icon getConfiguration() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/configuration.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/configuration.png");
+		return getTheIcon("/assets/img/r1080/gui/configuration.png");
 	}
-	
+
 	public Icon getHorizontalMap() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/horizontalMap.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/horizontalMap.png");
+		return getTheIcon("/assets/img/r1080/gui/horizontalMap.png");
 	}
-	
+
 	public Icon getVerticalMap() {
-		if(screenHeight == DEFAULT_HEIGHT)
-			return getOriginalIcon("/assets/img/r1080/gui/verticalMap.png");
-		else
-			return getOriginalIcon("/assets/img/r720/gui/verticalMap.png");
+		return getTheIcon("/assets/img/r1080/gui/verticalMap.png");
 	}	
-	
+
 	public Icon getEmpty() {
 		return null;
 	}

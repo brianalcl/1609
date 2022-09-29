@@ -25,7 +25,6 @@ public class SudokuPanel extends GamePanel{
 	public SudokuPanel(GUI gui) {
 		super(gui, false);
 		game = new SudokuGame(this);
-		setBackground(this.gui.getImageFactory().getColorDefault());
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard5());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
