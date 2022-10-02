@@ -18,7 +18,7 @@ public class SnakeMap extends Map{
 		super(snakeGame, true);
 		rnd = NRandom.getInstance();
 		totalOccupiedCells = 3;
-		foodRep = new GraphicCell(game.getImageFactory().getSquircle(), freeCell.getBackground());
+		foodRep = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
 	}
 	
 	public boolean isFood(Cell cell) {

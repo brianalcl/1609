@@ -9,6 +9,8 @@ public class ColorfulFactory extends Factory{
 	private Icon squircle;
 	private Icon flag;
 	private Icon bomb;
+	private Icon food;
+	private Icon body;
 	
 	public ColorfulFactory(Dimension resolution) {
 		super(resolution);
@@ -28,7 +30,8 @@ public class ColorfulFactory extends Factory{
 		squircle = getTheIcon("/assets/img/r1080/gameImages/common/squircle.png");
 		flag = getTheIcon("/assets/img/r1080/gameImages/minesweeper/flag.png");
 		bomb = getTheIcon("/assets/img/r1080/gameImages/minesweeper/bomb.png");
-
+		food = getTheIcon("/assets/img/r1080/gameImages/snake/food.png");
+		body = getTheIcon("/assets/img/r1080/gameImages/snake/body.png");
 	}
 	
 	public Color getColorDefault() {
@@ -136,6 +139,14 @@ public class ColorfulFactory extends Factory{
 	
 	public Icon getBomb() {
 		return bomb;
+	}
+	
+	public Icon getFood() { //TODO ver si se puede hacer una fabrica para cada juego para evitar estos problemas
+		return food;
+	}
+	
+	public Icon getBody() {
+		return body;
 	}
 
 }

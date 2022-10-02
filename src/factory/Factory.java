@@ -202,5 +202,16 @@ public abstract class Factory {
 	 */
 	public abstract Icon getBomb();
 	
+	/**
+	 * Return the food icon.
+	 * @return the food icon.
+	 */
+	public abstract Icon getFood();
+	
+	/**
+	 * Return the body icon.
+	 * @return the body icon.
+	 */
+	public abstract Icon getBody();
 
 }
