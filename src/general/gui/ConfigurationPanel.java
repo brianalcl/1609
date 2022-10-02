@@ -51,10 +51,10 @@ public class ConfigurationPanel extends GeneralPanel{
 	}
 	
 	private void createPanel() {
-		int x = (int) Math.round(((1920 - 600) / 2) * widthScaleFactor);
-		int y = (int) Math.round(((1080 - 600) / 2) * heightScaleFactor);
-		int w = (int) Math.round(600 * widthScaleFactor);
-		int h = (int) Math.round(600 * heightScaleFactor);
+		int x = (int) Math.round(((1920 - 600) / 2) * scaleFactor);
+		int y = (int) Math.round(((1080 - 600) / 2) * scaleFactor);
+		int w = (int) Math.round(600 * scaleFactor);
+		int h = (int) Math.round(600 * scaleFactor);
 		panel.setBounds(x,y,w,h);
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
 		panel.setBackground(gui.getImageFactory().getColorDefault());
@@ -62,11 +62,14 @@ public class ConfigurationPanel extends GeneralPanel{
 	}
 	
 	private void putBottons() {
+		int borderSize = (int) Math.round(10 * scaleFactor);
+		int borderRadius = (int) Math.round(96 * scaleFactor);
+		
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton();
 				matrix[r][c].setFocusable(false);
-				matrix[r][c].setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
+				matrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
 				matrix[r][c].addMouseListener(getMouseAdapter());
 				panel.add(matrix[r][c]);
 			}

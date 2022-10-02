@@ -13,16 +13,14 @@ public abstract class GeneralPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	protected GUI gui;
 	protected Font font;
-	protected double widthScaleFactor;
-	protected double heightScaleFactor;
+	protected double scaleFactor;
 	
 	public GeneralPanel(GUI gui) {
 		this.gui = gui;
 		setSize(this.gui.getImageFactory().getScreenResolution());
 		setLocation(0, 0);
 		setLayout(null);
-		widthScaleFactor = this.gui.getImageFactory().getScreenResolution().getWidth() / Factory.DEFAULT_WIDTH;
-		heightScaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / Factory.DEFAULT_HEIGHT;
+		scaleFactor = this.gui.getImageFactory().getScreenResolution().getWidth() / Factory.DEFAULT_WIDTH;
 		font = this.gui.getTheFont();
 	}
 }

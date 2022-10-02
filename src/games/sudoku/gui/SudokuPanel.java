@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
-
 import games.sudoku.logic.SudokuGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
@@ -34,49 +33,71 @@ public class SudokuPanel extends GamePanel{
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
 		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 20);
+		int borderSize_1 = (int) Math.round(2 * scaleFactor);
+		int borderSize_2 = (int) Math.round(3 * scaleFactor);
 		
 		for(int r = 7; r < 16; r++) {
 			for(int c = 0; c < 9; c++) {
-				matrix[r][c].setBorder(new InternalBorder(1,1,1,1, colorBorder));
+				matrix[r][c].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_1, borderSize_1, colorBorder));
 				if(r == 9 || r == 12)
-					matrix[r][c].setBorder(new InternalBorder(2,1,1,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(borderSize_2, borderSize_1 ,borderSize_1, borderSize_1, colorBorder));
 				if(r == 10 || r == 13)
-					matrix[r][c].setBorder(new InternalBorder(1,1,2,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_2, borderSize_1, colorBorder));
 				if(c == 2 || c == 5)
-					matrix[r][c].setBorder(new InternalBorder(1,2,1,1, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(borderSize_1, borderSize_2, borderSize_1, borderSize_1, colorBorder));
 				if(c == 3 || c == 6)
-					matrix[r][c].setBorder(new InternalBorder(1,1,1,2, colorBorder));
+					matrix[r][c].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_1, borderSize_2, colorBorder));
 			}
 		}
-		matrix[9][2].setBorder(new InternalBorder(2,2,1,1, colorBorder));
-		matrix[10][2].setBorder(new InternalBorder(1,2,2,1, colorBorder));
-		matrix[9][3].setBorder(new InternalBorder(2,1,1,2, colorBorder));
-		matrix[10][3].setBorder(new InternalBorder(1,1,2,2, colorBorder));
 		
-		matrix[9][5].setBorder(new InternalBorder(2,2,1,1, colorBorder));
-		matrix[10][5].setBorder(new InternalBorder(1,2,2,1, colorBorder));
-		matrix[9][6].setBorder(new InternalBorder(2,1,1,2, colorBorder));
-		matrix[10][6].setBorder(new InternalBorder(1,1,2,2, colorBorder));
+		matrix[9][2].setBorder(new InternalBorder(borderSize_2, borderSize_2, borderSize_1, borderSize_1, colorBorder));
+		matrix[10][2].setBorder(new InternalBorder(borderSize_1, borderSize_2, borderSize_2, borderSize_1, colorBorder));
+		matrix[9][3].setBorder(new InternalBorder(borderSize_2, borderSize_1, borderSize_1, borderSize_2, colorBorder));
+		matrix[10][3].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_2, borderSize_2, colorBorder));
 		
-		matrix[12][2].setBorder(new InternalBorder(2,2,1,1, colorBorder));
-		matrix[13][2].setBorder(new InternalBorder(1,2,2,1, colorBorder));
-		matrix[12][3].setBorder(new InternalBorder(2,1,1,2, colorBorder));
-		matrix[13][3].setBorder(new InternalBorder(1,1,2,2, colorBorder));
+		matrix[9][5].setBorder(new InternalBorder(borderSize_2, borderSize_2, borderSize_1, borderSize_1, colorBorder));
+		matrix[10][5].setBorder(new InternalBorder(borderSize_1, borderSize_2, borderSize_2, borderSize_1, colorBorder));
+		matrix[9][6].setBorder(new InternalBorder(borderSize_2, borderSize_1, borderSize_1, borderSize_2, colorBorder));
+		matrix[10][6].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_2, borderSize_2, colorBorder));
 		
-		matrix[12][5].setBorder(new InternalBorder(2,2,1,1, colorBorder));
-		matrix[13][5].setBorder(new InternalBorder(1,2,2,1, colorBorder));
-		matrix[12][6].setBorder(new InternalBorder(2,1,1,2, colorBorder));
-		matrix[13][6].setBorder(new InternalBorder(1,1,2,2, colorBorder));
+		matrix[12][2].setBorder(new InternalBorder(borderSize_2, borderSize_2, borderSize_1, borderSize_1, colorBorder));
+		matrix[13][2].setBorder(new InternalBorder(borderSize_1, borderSize_2, borderSize_2, borderSize_1, colorBorder));
+		matrix[12][3].setBorder(new InternalBorder(borderSize_2, borderSize_1, borderSize_1, borderSize_2, colorBorder));
+		matrix[13][3].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_2, borderSize_2, colorBorder));
+		
+		matrix[12][5].setBorder(new InternalBorder(borderSize_2, borderSize_2, borderSize_1, borderSize_1, colorBorder));
+		matrix[13][5].setBorder(new InternalBorder(borderSize_1, borderSize_2, borderSize_2, borderSize_1, colorBorder));
+		matrix[12][6].setBorder(new InternalBorder(borderSize_2, borderSize_1, borderSize_1, borderSize_2, colorBorder));
+		matrix[13][6].setBorder(new InternalBorder(borderSize_1, borderSize_1, borderSize_2, borderSize_2, colorBorder));
+		
+		matrix[5][2].setBorder(new InternalBorder(borderSize_2, 0, borderSize_2, borderSize_2, colorBorder));
+		matrix[5][3].setBorder(new InternalBorder(borderSize_2, 0, borderSize_2, 0, colorBorder));
+		matrix[5][4].setBorder(new InternalBorder(borderSize_2, 0, borderSize_2, 0, colorBorder));
+		matrix[5][5].setBorder(new InternalBorder(borderSize_2, 0, borderSize_2, 0, colorBorder));
+		matrix[5][6].setBorder(new InternalBorder(borderSize_2, borderSize_2, borderSize_2, 0, colorBorder));
 	}
+
 	
 	@Override
 	public void changeCell(JLabel graphicCell, int row, int column) {
-		matrix[row][column].setIcon(graphicCell.getIcon());
-		matrix[row][column].setBackground(graphicCell.getBackground());
+		super.changeCell(graphicCell, row, column);
 		matrix[row][column].setText(graphicCell.getText());
-		if(row < 7  && column < 9) {
-			matrix[row][column].setBorder(graphicCell.getBorder());
-		}
+	}
+	
+	@Override
+	public void lose() {
+		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
+	}
+
+	@Override
+	public void win() {
+		gui.setPanel(new GameOverPanel(gui, this, "WIN", lblScore.getText(), lblTime.getText()));
+	}
+
+	@Override
+	public void restart() {
+		gui.setPanel(new SudokuPanel(gui));
+		
 	}
 	
 	@Override
@@ -89,7 +110,6 @@ public class SudokuPanel extends GamePanel{
 		});
 		
 		addKeyListener(new KeyListener() {
-			
 			@Override
 			public void keyTyped(KeyEvent e) {
 				switch (e.getKeyChar()) {
@@ -128,36 +148,10 @@ public class SudokuPanel extends GamePanel{
 					break;
 				}
 			}
-			
 			@Override
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
+			public void keyReleased(KeyEvent e) {}
 			@Override
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void keyPressed(KeyEvent e) {}
 		});
 	}
-	
-	@Override
-	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
-	}
-
-	@Override
-	public void win() {
-		gui.setPanel(new GameOverPanel(gui, this, "WIN", lblScore.getText(), lblTime.getText()));
-	}
-
-	@Override
-	public void restart() {
-		gui.setPanel(new SudokuPanel(gui));
-		
-	}
-
-
 }

@@ -33,10 +33,10 @@ public class InitialPanel extends GeneralPanel{
 	}
 	
 	private void createPanel() {
-		int x = (int) Math.round(((1920 - 600) / 2) * widthScaleFactor);
-		int y = (int) Math.round(((1080 - 600) / 2) * heightScaleFactor);
-		int w = (int) Math.round(600 * widthScaleFactor);
-		int h = (int) Math.round(600 * heightScaleFactor);
+		int x = (int) Math.round(((1920 - 600) / 2) * scaleFactor);
+		int y = (int) Math.round(((1080 - 600) / 2) * scaleFactor);
+		int w = (int) Math.round(600 * scaleFactor);
+		int h = (int) Math.round(600 * scaleFactor);
 		panel.setBounds(x,y,w,h);
 		
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
@@ -46,25 +46,29 @@ public class InitialPanel extends GeneralPanel{
 	}
 	
 	private void putBottons() {
+		int borderSize = (int) Math.round(10 * scaleFactor);
+		int borderRadius = (int) Math.round(96 * scaleFactor);
+		
 		btnConfiguration = new JButton(gui.getImageFactory().getConfiguration());
 		btnConfiguration.setBackground(gui.getImageFactory().getColorDefault());
 		btnConfiguration.setFocusable(false);
 		btnConfiguration.addMouseListener(getMouseAdapter());
 		btnConfiguration.addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
-		btnConfiguration.setBounds(0, 0, (int) Math.round(200 * widthScaleFactor), (int) Math.round(200 * widthScaleFactor));
-		btnConfiguration.setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
+		btnConfiguration.setBounds(0, 0, (int) Math.round(200 * scaleFactor), (int) Math.round(200 * scaleFactor));
+		btnConfiguration.setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
 		add(btnConfiguration);
 		
 		
-		for(int r = 0; r < 3; r++) 
+		for(int r = 0; r < 3; r++) {
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton(gui.getImageFactory().getGameIcon("empty"));
 				matrix[r][c].setBackground(gui.getImageFactory().getColorDefault());
 				matrix[r][c].setFocusable(false);
-				matrix[r][c].setBorder(new InternalBorderRound(10, 10, 10, 10, 64, panel.getBackground()));
+				matrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
 				matrix[r][c].addMouseListener(getMouseAdapter());
 				panel.add(matrix[r][c]);
 			}
+		}
 		matrix[0][0].setIcon(gui.getImageFactory().getGameIcon("snake"));
 		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
 		matrix[0][1].setIcon(gui.getImageFactory().getGameIcon("dodgeWall"));

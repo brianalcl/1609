@@ -40,6 +40,10 @@ public class InternalBorderRound extends AbstractBorder{
 		this.radius = radius;
 	}
 	
+	public InternalBorderRound(int size, int radius, Color color) {
+		this(size, size, size, size, radius, color);
+	}
+	
 	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(color);

@@ -10,8 +10,6 @@ import java.util.Set;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.utilities.InternalBorder;
-import general.utilities.InternalBorderRound;
 import general.utilities.NRandom;
 
 public class SudokuMap extends Map{
@@ -41,8 +39,7 @@ public class SudokuMap extends Map{
 	}
 	
 	private void createCheck() {
-		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getColorDefault());
-		gc.setBorder(new InternalBorderRound(5,5,5,5, 16, freeCell.getBackground()));
+		GraphicCell gc = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
 		
 		matrix[0][0].put(gc);
 		matrix[1][0].put(gc);
@@ -88,11 +85,10 @@ public class SudokuMap extends Map{
 		matrix[6][5].put(gc);
 		matrix[6][6].put(gc);
 		
+		gc.setIcon(null);
 		gc.setBackground(freeCell.getBackground());
-		gc.setBorder(new InternalBorder(3, 0, 3, 3, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		gc.setText("C");
 		matrix[5][2].put(gc);
-		gc.setBorder(new InternalBorder(3, 0, 3, 0, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		gc.setText("H");
 		matrix[5][3].put(gc);
 		gc.setText("E");
@@ -100,7 +96,6 @@ public class SudokuMap extends Map{
 		gc.setText("C");
 		matrix[5][5].put(gc);
 		gc.setText("K");
-		gc.setBorder(new InternalBorder(3, 3, 3, 0, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50)));
 		matrix[5][6].put(gc);
 	}
 	
@@ -374,8 +369,7 @@ public class SudokuMap extends Map{
 		matrix[1][2].clear();
 		matrix[1][6].clear();
 		
-		GraphicCell gc = new GraphicCell(null, game.getImageFactory().getMarkColor(game.getImageFactory().getColorDefault(), 50));
-		gc.setBorder(new InternalBorderRound(2, 2, 2, 2, 16, freeCell.getBackground()));
+		GraphicCell gc = new GraphicCell(game.getImageFactory().getSquircle(), freeCell.getBackground());
 		
 		if(!error) {
 			matrix[1][3].put(gc);

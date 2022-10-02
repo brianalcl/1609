@@ -37,33 +37,33 @@ public class GameOverPanel extends GeneralPanel{
 	
 	private void createLabels() {
 		
-		int x = (int) Math.round(((1920-600)/2) * widthScaleFactor);
-		int y = (int) Math.round(((1080-720)/2) * heightScaleFactor);
-		int w = (int) Math.round(600 * widthScaleFactor);
-		int h = (int) Math.round(720 * heightScaleFactor);
+		int x = (int) Math.round(((1920-600)/2) * scaleFactor);
+		int y = (int) Math.round(((1080-720)/2) * scaleFactor);
+		int w = (int) Math.round(600 * scaleFactor);
+		int h = (int) Math.round(720 * scaleFactor);
 		lblBg.setBounds(x,y,w,h);
 		
-		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
-		y = (int) Math.round(((1080-720)/2 + 50) * heightScaleFactor);
-		w = (int) Math.round(500 * widthScaleFactor);
-		h = (int) Math.round(150 * heightScaleFactor);
+		x = (int) Math.round(((1920-600)/2 + 50) * scaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 50) * scaleFactor);
+		w = (int) Math.round(500 * scaleFactor);
+		h = (int) Math.round(150 * scaleFactor);
 		lblRes.setBounds(x,y,w,h);
 		
-		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
-		y = (int) Math.round(((1080-720)/2 + 250) * heightScaleFactor);
-		w = (int) Math.round(500 * widthScaleFactor);
-		h = (int) Math.round(100 * heightScaleFactor);
+		x = (int) Math.round(((1920-600)/2 + 50) * scaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 250) * scaleFactor);
+		w = (int) Math.round(500 * scaleFactor);
+		h = (int) Math.round(100 * scaleFactor);
 		lblScore.setBounds(x,y,w,h);
 		
-		x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
-		y = (int) Math.round(((1080-720)/2 + 400) * heightScaleFactor);
-		w = (int) Math.round(500 * widthScaleFactor);
-		h = (int) Math.round(100 * heightScaleFactor);
+		x = (int) Math.round(((1920-600)/2 + 50) * scaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 400) * scaleFactor);
+		w = (int) Math.round(500 * scaleFactor);
+		h = (int) Math.round(100 * scaleFactor);
 		lblTime.setBounds(x,y,w,h);
 
-		lblScore.setFont(font.deriveFont(Math.round(75*widthScaleFactor)*1.0f));
-		lblTime.setFont(font.deriveFont(Math.round(75*widthScaleFactor)*1.0f));
-		lblRes.setFont(font.deriveFont(Math.round(150*widthScaleFactor)*1.0f));
+		lblScore.setFont(font.deriveFont(Math.round(75*scaleFactor)*1.0f));
+		lblTime.setFont(font.deriveFont(Math.round(75*scaleFactor)*1.0f));
+		lblRes.setFont(font.deriveFont(Math.round(150*scaleFactor)*1.0f));
 		
 		
 		lblRes.setForeground(gui.getImageFactory().getColorForeground());
@@ -86,22 +86,22 @@ public class GameOverPanel extends GeneralPanel{
 	
 	private void createButtons() {
 		
-		int x = (int) Math.round(((1920-600)/2 + 50) * widthScaleFactor);
-		int y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
-		int w = (int) Math.round(150 * widthScaleFactor);
-		int h = (int) Math.round(150 * heightScaleFactor);
+		int x = (int) Math.round(((1920-600)/2 + 50) * scaleFactor);
+		int y = (int) Math.round(((1080-720)/2 + 525) * scaleFactor);
+		int w = (int) Math.round(150 * scaleFactor);
+		int h = (int) Math.round(150 * scaleFactor);
 		restart.setBounds(x,y,w,h);
 		
-		x = (int) Math.round(((1920-600)/2 + 225) * widthScaleFactor);
-		y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
-		w = (int) Math.round(150 * widthScaleFactor);
-		h = (int) Math.round(150 * heightScaleFactor);
+		x = (int) Math.round(((1920-600)/2 + 225) * scaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 525) * scaleFactor);
+		w = (int) Math.round(150 * scaleFactor);
+		h = (int) Math.round(150 * scaleFactor);
 		exit.setBounds(x,y,w,h);
 		
-		x = (int) Math.round(((1920-600)/2 + 400) * widthScaleFactor);
-		y = (int) Math.round(((1080-720)/2 + 525) * heightScaleFactor);
-		w = (int) Math.round(150 * widthScaleFactor);
-		h = (int) Math.round(150 * heightScaleFactor);
+		x = (int) Math.round(((1920-600)/2 + 400) * scaleFactor);
+		y = (int) Math.round(((1080-720)/2 + 525) * scaleFactor);
+		w = (int) Math.round(150 * scaleFactor);
+		h = (int) Math.round(150 * scaleFactor);
 		home.setBounds(x,y,w,h);		
 		
 		

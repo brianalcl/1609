@@ -1,18 +1,15 @@
 package games.g2048.gui;
 
-import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.KeyStroke;
-
 import games.g2048.logic.G2048Game;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
 import general.gui.GamePanel;
+import general.utilities.InternalBorder;
 
 public class G2048Panel extends GamePanel{
 	
@@ -26,127 +23,92 @@ public class G2048Panel extends GamePanel{
 		super(gui, true);
 		game = new G2048Game(this);
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
-		addControls();
+		putBorder();
 	}
 	
+	private void putBorder() {
+		Color colorBorder = gui.getImageFactory().getColorDefault();
+		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, -20);
+		int borderSize = (int) Math.round(3 * scaleFactor);
+		
+		for(int r = 2; r < 9; r += 2) {
+			for(int c = 3; c < 14; c += 3) {
+				matrix[r][c].setBorder(new InternalBorder(borderSize, 0, 0, 0, colorBorder));
+				matrix[r][c-1].setBorder(new InternalBorder(borderSize, 0, 0, borderSize, colorBorder));
+				matrix[r][c+1].setBorder(new InternalBorder(borderSize, borderSize, 0, 0, colorBorder));
+				
+				matrix[r-1][c].setBorder(new InternalBorder(0, 0, borderSize, 0, colorBorder));
+				matrix[r-1][c-1].setBorder(new InternalBorder(0, 0, borderSize, borderSize, colorBorder));
+				matrix[r-1][c+1].setBorder(new InternalBorder(0, borderSize, borderSize, 0, colorBorder));
+			}
+		}
+		
+	}
+	
+	@Override
 	public void changeCell(JLabel graphicCell, int row, int column) {
-		matrix[row][column].setIcon(graphicCell.getIcon());
-		matrix[row][column].setBackground(graphicCell.getBackground());
+		super.changeCell(graphicCell, row, column);
 		matrix[row][column].setText(graphicCell.getText());
-		matrix[row][column].setBorder(graphicCell.getBorder());
 		matrix[row][column].setForeground(graphicCell.getForeground());
 	}
-
-	@Override
-	protected void addControls() {
-		Action moveUp = new AbstractAction() {
-			
 	
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveUp();
-			}
-		};
-		
-		Action moveDown = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveDown();
-			}
-		};
-		
-		Action moveRight = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveRight();
-			}
-		};
-		
-		Action moveLeft = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveLeft();
-			}
-		};
-		
-		
-		final String up		= "up";
-		final String down		= "down";
-		final String right	= "right";
-		final String left	= "left";
-		
-		InputMap iMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		
-		iMap.put(KeyStroke.getKeyStroke("UP"),		up);
-		iMap.put(KeyStroke.getKeyStroke("W"),		up);
-		iMap.put(KeyStroke.getKeyStroke("DOWN"),	down);
-		iMap.put(KeyStroke.getKeyStroke("S"),		down);
-		iMap.put(KeyStroke.getKeyStroke("RIGHT"),	right);
-		iMap.put(KeyStroke.getKeyStroke("D"),		right);
-		iMap.put(KeyStroke.getKeyStroke("LEFT"),	left);
-		iMap.put(KeyStroke.getKeyStroke("A"),		left);
-		
-		getActionMap().put(up,		moveUp);
-		getActionMap().put(down,		moveDown);
-		getActionMap().put(right,		moveRight);
-		getActionMap().put(left,	moveLeft);
-	}
-	
-	private void moveUp() {
+	protected void keyUp() {
 		game.moveUp();
 	}
-	private void moveDown() {
+	
+	protected void keyDown() {
 		game.moveDown();
 	}
-	private void moveRight() {
+	
+	protected void keyRight() {
 		game.moveRight();
 	}
-	private void moveLeft() {
+	
+	protected void keyLeft() {
 		game.moveLeft();
 	}	
 	
 	@Override
 	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
-		
+		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
-
+	
 	@Override
 	public void win() {
-		//never win
-		
+		//No win.
 	}
-
+	
 	@Override
 	public void restart() {
 		gui.setPanel(new G2048Panel(gui));
 		
+	}
+	
+	@Override
+	protected void addControls() {
+		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+					keyUp();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+					keyDown();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
+					keyLeft();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					keyRight();
+				}
+			}
+		});
 	}
 
 }

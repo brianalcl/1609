@@ -21,59 +21,56 @@ public class ShotPanel extends GamePanel{
 		super(gui, false);
 		game = new ShotGame(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
-		addControls();
 	}
 	
+	protected void keyLeft() {
+		game.moveLeft();
+	}
+
+	protected void keyRight() {
+		game.moveRight();
+	}
+	
+	protected void keySpace() {
+		game.shot();
+	}
+	
+	@Override
+	public void lose() {
+		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
+	}
+	
+	@Override
+	public void win() {
+		//No win.
+	}
+	
+	@Override
+	public void restart() {
+		gui.setPanel(new ShotPanel(gui));
+	}
+	
+	@Override
 	protected void addControls() {
-		
 		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {}
 			
 			@Override
-			public void keyTyped(KeyEvent e) {
-				
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				
-			}
+			public void keyReleased(KeyEvent e) {}
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-					moveLeft();
+					keyLeft();
 				}
 				if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					moveRight();
+					keyRight();
 				}
 				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-					shot();
+					keySpace();
 				}
 			}
 		});
-	}
-	
-	private void moveLeft() {
-		game.moveLeft();
-	}
-
-	private void moveRight() {
-		game.moveRight();
-	}
-	
-	private void shot() {
-		game.shot();
-	}
-	
-	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
-	}
-	
-	public void win() {
-		//Never win
-	}
-	
-	public void restart() {
-		gui.setPanel(new ShotPanel(gui));
 	}
 }

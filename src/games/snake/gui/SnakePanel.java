@@ -1,12 +1,7 @@
 package games.snake.gui;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import games.snake.logic.SnakeGame;
 import general.gui.GUI;
@@ -27,114 +22,63 @@ public class SnakePanel extends GamePanel{
 		super(gui, true);
 		game = new SnakeGame(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
-		addControls();
 	}
 	
-	protected void addControls() {
-		Action moveUp = new AbstractAction() {
-			
-	
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveUp();
-			}
-		};
-		
-		Action moveDown = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveDown();
-			}
-		};
-		
-		Action moveRight = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveRight();
-			}
-		};
-		
-		Action moveLeft = new AbstractAction() {
-			
-			
-			/**
-			 * SerialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				moveLeft();
-			}
-		};
-		
-		
-		final String up		= "up";
-		final String down	= "down";
-		final String right	= "right";
-		final String left	= "left";
-		
-		InputMap iMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		
-		iMap.put(KeyStroke.getKeyStroke("UP"),		up);
-		iMap.put(KeyStroke.getKeyStroke("W"),		up);
-		iMap.put(KeyStroke.getKeyStroke("DOWN"),	down);
-		iMap.put(KeyStroke.getKeyStroke("S"),		down);
-		iMap.put(KeyStroke.getKeyStroke("RIGHT"),	right);
-		iMap.put(KeyStroke.getKeyStroke("D"),		right);
-		iMap.put(KeyStroke.getKeyStroke("LEFT"),	left);
-		iMap.put(KeyStroke.getKeyStroke("A"),		left);
-		
-		getActionMap().put(up,		moveUp);
-		getActionMap().put(down,	moveDown);
-		getActionMap().put(right,	moveRight);
-		getActionMap().put(left,	moveLeft);
-	}
-	
-	private void moveUp() {
+	protected void keyUp() {
 		game.setDirection(Game.MOVE_UP);
 	}
 
-	private void moveRight() {
+	protected void keyRight() {
 		game.setDirection(Game.MOVE_RIGHT);
 	}
 
-	private void moveDown() {
+	protected void keyDown() {
 		game.setDirection(Game.MOVE_DOWN);
 	}
 
-	private void moveLeft() {
+	protected void keyLeft() {
 		game.setDirection(Game.MOVE_LEFT);
 	}
 	
+	@Override
 	public void lose() {
 		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
 	}
 	
+	@Override
 	public void win() {
 		gui.setPanel(new GameOverPanel(gui, this,"WIN", lblScore.getText(), lblTime.getText()));
 	}
 	
+	@Override
 	public void restart() {
 		gui.setPanel(new SnakePanel(gui));
+	}
+	
+	@Override
+	protected void addControls() {
+		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+					keyUp();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+					keyDown();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
+					keyLeft();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					keyRight();
+				}
+			}
+		});
 	}
 }

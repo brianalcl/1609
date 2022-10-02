@@ -22,17 +22,42 @@ public class DodgeWallPanel extends GamePanel{
 		game = new DodgeWallGame(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
 		stopKey = false;
-		addControls();
+	}
+
+	
+	private void moveCenter() {
+		game.moveCenter();
 	}
 	
-	protected void addControls() {
+	protected void keyUp() {
 		
+		game.moveUp();
+	}
+
+	protected void keyDown() {
+		game.moveDown();
+	}
+	
+	@Override
+	public void lose() {
+		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
+	}
+	
+	@Override
+	public void win() {
+		//No win.
+	}
+	
+	@Override
+	public void restart() {
+		gui.setPanel(new DodgeWallPanel(gui));
+	}
+	
+	@Override
+	protected void addControls() {
 		addKeyListener(new KeyListener() {
-			
 			@Override
-			public void keyTyped(KeyEvent e) {
-				
-			}
+			public void keyTyped(KeyEvent e) {}
 			
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -45,39 +70,14 @@ public class DodgeWallPanel extends GamePanel{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(!stopKey && (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP)) {
-					moveUp();
+					keyUp();
 					stopKey = true;
 				}
 				if(!stopKey && (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN)) {
-					moveDown();
+					keyDown();
 					stopKey = true;
 				}
 			}
 		});
-	}
-	
-	private void moveCenter() {
-		game.moveCenter();
-	}
-	
-	private void moveUp() {
-		
-		game.moveUp();
-	}
-
-	private void moveDown() {
-		game.moveDown();
-	}
-	
-	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
-	}
-	
-	public void win() {
-		//Never win
-	}
-	
-	public void restart() {
-		gui.setPanel(new DodgeWallPanel(gui));
 	}
 }

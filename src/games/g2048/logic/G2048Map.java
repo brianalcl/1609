@@ -6,7 +6,6 @@ import java.util.Random;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.utilities.InternalBorderRound;
 import general.utilities.NRandom;
 
 public class G2048Map extends Map{
@@ -37,8 +36,7 @@ public class G2048Map extends Map{
 	}
 	
 	public void charge() {
-		GraphicCell unusable = new GraphicCell(null, game.getImageFactory().getColorDefault());
-		unusable.setBorder(new InternalBorderRound(5,5,5,5, 16, freeCell.getBackground()));
+		GraphicCell unusable = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
 		for(int c = 0; c < 2; c++) 
 			for(int r = 1; r < ROW; r++) 
 				matrix[r][c].put(unusable);

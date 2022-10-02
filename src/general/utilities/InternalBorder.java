@@ -39,6 +39,10 @@ public class InternalBorder extends AbstractBorder{
 		this.color = color;
 	}
 	
+	public InternalBorder(int size, Color color) {
+		this(size, size, size, size, color);
+	}
+	
 	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(color);
