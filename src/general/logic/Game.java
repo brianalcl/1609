@@ -10,6 +10,8 @@ public abstract class Game {
 	public static final int MOVE_DOWN = 2;
 	public static final int MOVE_LEFT = 4;
 	public static final int SPACE = 5;
+	public static final int ROTATE_LEFT = 7;
+	public static final int ROTATE_RIGHT = 9;
 	
 	protected GamePanel panel;
 	protected Watch watch;

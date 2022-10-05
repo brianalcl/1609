@@ -7,6 +7,7 @@ import games.minesweeper.gui.MinesweeperPanel;
 import games.shot.gui.ShotPanel;
 import games.snake.gui.SnakePanel;
 import games.sudoku.gui.SudokuPanel;
+import games.tetris.gui.TetrisPanel;
 import general.utilities.InternalBorderRound;
 
 import javax.swing.JButton;
@@ -81,7 +82,8 @@ public class InitialPanel extends GeneralPanel{
 		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
 		matrix[1][2].setIcon(gui.getImageFactory().getGameIcon("minesweeper"));
 		matrix[1][2].addActionListener(e -> gui.setPanel(new MinesweeperPanel(this.gui)));
-		
+		matrix[2][0].setIcon(gui.getImageFactory().getGameIcon("tetris"));;
+		matrix[2][0].addActionListener(e -> gui.setPanel(new TetrisPanel(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){

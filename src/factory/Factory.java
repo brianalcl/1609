@@ -74,8 +74,11 @@ public abstract class Factory {
 	 * @return the scaled image.
 	 */
 	protected ImageIcon scale(ImageIcon imageIcon, int screenWidth, int screenHeight) {
-		int width = screenWidth * imageIcon.getIconWidth() / DEFAULT_WIDTH;
-		int height = screenHeight * imageIcon.getIconHeight() / DEFAULT_HEIGHT;
+		double w = screenWidth;
+		double scaleFactor = w / DEFAULT_WIDTH;
+		
+		int width = (int) Math.round(imageIcon.getIconWidth() * scaleFactor);
+		int height = (int) Math.round(imageIcon.getIconHeight() * scaleFactor);
 		return new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
 	}
 	
