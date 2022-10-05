@@ -1,7 +1,5 @@
 package games.snake.logic;
 
-import java.util.Random;
-
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
@@ -10,15 +8,13 @@ import general.utilities.NRandom;
 public class SnakeMap extends Map{
 
 	protected Cell food;
-	protected Random rnd;
 	protected int totalOccupiedCells;
 	protected GraphicCell foodRep;
 	
 	public SnakeMap(SnakeGame snakeGame) {
 		super(snakeGame, true);
-		rnd = NRandom.getInstance();
 		totalOccupiedCells = 3;
-		foodRep = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
+		foodRep = new GraphicCell(game.getImageFactory().getSquare(), freeCell.getBackground());
 	}
 	
 	public boolean isFood(Cell cell) {
@@ -34,8 +30,8 @@ public class SnakeMap extends Map{
 			win();
 		else {
 			while(!stop) { 
-				r = Math.abs(rnd.nextInt()) % matrix.length;
-				c = Math.abs(rnd.nextInt()) % matrix[0].length;
+				r = Math.abs(NRandom.getInstance().nextInt()) % matrix.length;
+				c = Math.abs(NRandom.getInstance().nextInt()) % matrix[0].length;
 				if(matrix[r][c].isFree()) {
 					food = matrix[r][c];
 					food.put(foodRep);

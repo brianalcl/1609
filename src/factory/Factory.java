@@ -3,17 +3,14 @@ package factory;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
-import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import general.utilities.NRandom;
 
 public abstract class Factory {
 	protected int screenWidth;
 	protected int screenHeight;
 	public static final int DEFAULT_WIDTH = 1920;
 	public static final int DEFAULT_HEIGHT = 1080;
-	protected Random rnd;
 	protected Color colorDefault;
 	protected Color colorForeground;
 	
@@ -25,7 +22,6 @@ public abstract class Factory {
 	public Factory(Dimension resolution) {
 		screenWidth = (int) resolution.getWidth();
 		screenHeight = (int) resolution.getHeight();
-		rnd = NRandom.getInstance();
 	}
 	
 	/**
@@ -185,7 +181,7 @@ public abstract class Factory {
 	 * Return the squircle icon.
 	 * @return the squircle icon.
 	 */
-	public abstract Icon getSquircle();
+	public abstract Icon getCapsule();
 	
 	/**
 	 * Return the empty icon.
@@ -197,24 +193,18 @@ public abstract class Factory {
 	 * Return the flag icon.
 	 * @return the flag icon.
 	 */
-	public abstract Icon getFlag();
+	public abstract Icon getTriangle();
 	
 	/**
 	 * Return the bomb icon.
 	 * @return the bomb icon.
 	 */
-	public abstract Icon getBomb();
+	public abstract Icon getCircle();
 	
 	/**
-	 * Return the food icon.
-	 * @return the food icon.
+	 * Return the square icon.
+	 * @return the square icon.
 	 */
-	public abstract Icon getFood();
-	
-	/**
-	 * Return the body icon.
-	 * @return the body icon.
-	 */
-	public abstract Icon getBody();
+	public abstract Icon getSquare();
 
 }

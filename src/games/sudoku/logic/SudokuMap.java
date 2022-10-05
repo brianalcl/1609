@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import general.logic.GraphicCell;
@@ -14,7 +13,6 @@ import general.utilities.NRandom;
 
 public class SudokuMap extends Map{
 	
-	protected Random rnd;
 	protected SudokuCell[][]matrix;
 	protected SudokuCell selected;
 	protected SudokuGame game;
@@ -24,7 +22,6 @@ public class SudokuMap extends Map{
 	public SudokuMap(SudokuGame game) {
 		super(game, false);
 		this.game = game;
-		this.rnd = NRandom.getInstance();
 		matrix = new SudokuCell[COLUMN][ROW];
 		mapNumber = new HashMap<>();
 		selected = null;
@@ -39,7 +36,7 @@ public class SudokuMap extends Map{
 	}
 	
 	private void createCheck() {
-		GraphicCell gc = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
+		GraphicCell gc = new GraphicCell(game.getImageFactory().getCircle(), freeCell.getBackground());
 		
 		matrix[0][0].put(gc);
 		matrix[1][0].put(gc);
@@ -107,7 +104,7 @@ public class SudokuMap extends Map{
 		for(int i=1; i<=9; i++) {
 			stop = false;
 			while(!stop) {
-				n = Math.abs(rnd.nextInt() % 9) + 1;
+				n = Math.abs(NRandom.getInstance().nextInt() % 9) + 1;
 				if(!set.contains(n)) {
 					set.add(n);
 					stop = true;
@@ -149,8 +146,8 @@ public class SudokuMap extends Map{
 		int c = 0;
 		int visible = 81;
 		while(visible > 17) {
-			r = Math.abs(rnd.nextInt() % 9) + 7;
-			c = Math.abs(rnd.nextInt() % 9);
+			r = Math.abs(NRandom.getInstance().nextInt() % 9) + 7;
+			c = Math.abs(NRandom.getInstance().nextInt() % 9);
 			matrix[r][c].put(createGraphicCell(0));
 			if(!matrix[r][c].isEditable()) {
 				hide++;
@@ -166,14 +163,14 @@ public class SudokuMap extends Map{
 	private void move() { //swap rows and columns
 		int n = 0;
 		
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapRows(7,10);
 		if(n == 2)
 			swapRows(10,13);
 		if(n == 3)
 			swapRows(7,13);
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapRows(7,10);
 		if(n == 2)
@@ -182,14 +179,14 @@ public class SudokuMap extends Map{
 			swapRows(7,13);
 		
 		
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapColumns(0,3);
 		if(n == 2)
 			swapColumns(3,6);
 		if(n == 3)
 			swapColumns(0,6);
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapColumns(0,3);
 		if(n == 2)
@@ -198,14 +195,14 @@ public class SudokuMap extends Map{
 			swapColumns(0,6);
 		
 		
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapRows(7,10);
 		if(n == 2)
 			swapRows(10,13);
 		if(n == 3)
 			swapRows(7,13);
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapRows(7,10);
 		if(n == 2)
@@ -214,14 +211,14 @@ public class SudokuMap extends Map{
 			swapRows(7,13);
 		
 		
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapColumns(0,3);
 		if(n == 2)
 			swapColumns(3,6);
 		if(n == 3)
 			swapColumns(0,6);
-		n = Math.abs(rnd.nextInt() % 4);
+		n = Math.abs(NRandom.getInstance().nextInt() % 4);
 		if(n == 1)
 			swapColumns(0,3);
 		if(n == 2)
@@ -369,7 +366,7 @@ public class SudokuMap extends Map{
 		matrix[1][2].clear();
 		matrix[1][6].clear();
 		
-		GraphicCell gc = new GraphicCell(game.getImageFactory().getSquircle(), freeCell.getBackground());
+		GraphicCell gc = new GraphicCell(game.getImageFactory().getCapsule(), freeCell.getBackground());
 		
 		if(!error) {
 			matrix[1][3].put(gc);

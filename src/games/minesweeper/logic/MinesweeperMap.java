@@ -1,14 +1,10 @@
 package games.minesweeper.logic;
 
-import java.util.Random;
-
 import general.logic.GraphicCell;
 import general.logic.Map;
 import general.utilities.NRandom;
 
 public class MinesweeperMap extends Map{
-	
-	protected Random rnd;
 	protected MinesweeperCell[][]matrix;
 	protected MinesweeperGame game;
 	protected GraphicCell flag;
@@ -19,10 +15,9 @@ public class MinesweeperMap extends Map{
 	public MinesweeperMap(MinesweeperGame game) {
 		super(game, false);
 		this.game = game;
-		this.rnd = NRandom.getInstance();
 		this.matrix = new MinesweeperCell[COLUMN][ROW];
-		this.flag = new GraphicCell(this.game.getImageFactory().getFlag(), freeCell.getBackground());
-		this.bomb = new GraphicCell(this.game.getImageFactory().getBomb(), freeCell.getBackground());
+		this.flag = new GraphicCell(this.game.getImageFactory().getTriangle(), freeCell.getBackground());
+		this.bomb = new GraphicCell(this.game.getImageFactory().getCircle(), freeCell.getBackground());
 		
 		this.bombs = 15;
 		this.size = (matrix.length - 2) * matrix[0].length - bombs;
@@ -48,8 +43,8 @@ public class MinesweeperMap extends Map{
 		int p = 0;
 		
 		while(p < count) {
-			r = Math.abs(rnd.nextInt() % (matrix.length - 2)) + 2;
-			c = Math.abs(rnd.nextInt() % matrix[0].length);
+			r = Math.abs(NRandom.getInstance().nextInt() % (matrix.length - 2)) + 2;
+			c = Math.abs(NRandom.getInstance().nextInt() % matrix[0].length);
 			if(!matrix[r][c].isBomb()) {
 				matrix[r][c].setBomb();
 				setNumber(matrix[r][c]);

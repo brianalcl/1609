@@ -2,7 +2,6 @@ package games.dodgeWall.logic;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Random;
 
 import factory.Factory;
 import general.logic.Cell;
@@ -15,13 +14,11 @@ public class Wall {
 	protected GraphicCell representation;
 	protected DodgeWallMap map;
 	protected Factory imageFactory;
-	protected Random rnd;
 	
 	public Wall(DodgeWallMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
-		this.rnd = NRandom.getInstance();
+		this.representation = new GraphicCell(this.imageFactory.getSquare(), this.map.getFreeCell().getBackground());
 		this.wall = new LinkedList<Cell>();
 	}
 	
@@ -66,7 +63,7 @@ public class Wall {
 	
 	public void charge() {
 		Cell act = null;
-		int x = Math.abs(rnd.nextInt() % 3);
+		int x = Math.abs(NRandom.getInstance().nextInt() % 3);
 		switch (x) {
 		case 0:
 			act = map.getCell(0, 15);

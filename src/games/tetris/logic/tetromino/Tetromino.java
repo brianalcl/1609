@@ -28,7 +28,7 @@ public abstract class Tetromino {
 		this.rotation = 0;
 		this.tetromino = new Cell[4];
 		this.movements = new Pair[4]; //A common warning in Java.
-		this.representation = new GraphicCell(this.factory.getFood(), this.tetrisMap.getFreeCell().getBackground());
+		this.representation = new GraphicCell(this.factory.getSquare(), this.tetrisMap.getFreeCell().getBackground());
 		for(int i = 0; i < movements.length; i++) {
 			movements[i] = new Pair<Integer, Integer>();
 		}

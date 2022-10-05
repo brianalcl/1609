@@ -2,15 +2,12 @@ package games.g2048.logic;
 
 import java.awt.Color;
 import java.util.HashMap;
-import java.util.Random;
 
 import general.logic.GraphicCell;
 import general.logic.Map;
 import general.utilities.NRandom;
 
 public class G2048Map extends Map{
-	
-	protected Random rnd;
 	protected int totalOccupiedCells;
 	protected Piece[][] piece;
 	protected boolean move;
@@ -18,7 +15,6 @@ public class G2048Map extends Map{
 	
 	public G2048Map(G2048Game game) {
 		super(game, true);
-		this.rnd = NRandom.getInstance();
 		this.totalOccupiedCells = 0;
 		this.move = false;
 		this.piece = new Piece[4][4];
@@ -36,7 +32,7 @@ public class G2048Map extends Map{
 	}
 	
 	public void charge() {
-		GraphicCell unusable = new GraphicCell(game.getImageFactory().getFood(), freeCell.getBackground());
+		GraphicCell unusable = new GraphicCell(game.getImageFactory().getCircle(), freeCell.getBackground());
 		for(int c = 0; c < 2; c++) 
 			for(int r = 1; r < ROW; r++) 
 				matrix[r][c].put(unusable);
@@ -177,9 +173,9 @@ public class G2048Map extends Map{
 		boolean stop = false;
 		
 		while(!stop && totalOccupiedCells < 16) { 
-			r = (Math.abs(rnd.nextInt()) % 4);
-			c = (Math.abs(rnd.nextInt()) % 4);
-			num = (Math.abs(rnd.nextInt()) % 10);
+			r = (Math.abs(NRandom.getInstance().nextInt()) % 4);
+			c = (Math.abs(NRandom.getInstance().nextInt()) % 4);
+			num = (Math.abs(NRandom.getInstance().nextInt()) % 10);
 			if(piece[r][c].isFree()) {
 				putCells(r, c, num);
 				stop = true;

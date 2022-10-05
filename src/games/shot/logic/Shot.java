@@ -16,7 +16,7 @@ public class Shot {
 	public Shot(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
+		this.representation = new GraphicCell(this.imageFactory.getCircle(), this.map.getFreeCell().getBackground());
 		this.shot = new LinkedList<>();
 	}
 	

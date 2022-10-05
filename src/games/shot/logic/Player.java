@@ -14,7 +14,7 @@ public class Player {
 	public Player(ShotMap map, Factory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
-		this.representation = new GraphicCell(this.imageFactory.getSquircle(), this.map.getFreeCell().getBackground());
+		this.representation = new GraphicCell(this.imageFactory.getTriangle(), this.map.getFreeCell().getBackground());
 		this.shot = new Shot(this.map, this.imageFactory);
 		
 		player = this.map.getCell(0, 4);
