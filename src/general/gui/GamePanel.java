@@ -80,14 +80,13 @@ public abstract class GamePanel extends GeneralPanel{
 	}	
 	
 	private void createStats() {
+		int borderSize = (int) Math.round(2 * scaleFactor);
+		int borderRadius = (int) Math.round(64 * scaleFactor);
+		
 		int x = (int) Math.round(160 * scaleFactor);
 		int y = (int) Math.round(0 * scaleFactor);
 		int w = (int) Math.round(500 * scaleFactor);
 		int h = (int) Math.round(100 * scaleFactor);
-		int borderSize = (int) Math.round(2 * scaleFactor);
-		int borderRadius = (int) Math.round(64 * scaleFactor);
-		
-		
 		lblTime.setBounds(x, y, w, h);
 		
 		x = (int) Math.round(710 * scaleFactor);
@@ -107,7 +106,6 @@ public abstract class GamePanel extends GeneralPanel{
 		lblTime.setForeground(gui.getImageFactory().getColorForeground());
 		lblTime.setOpaque(true);
 		lblTime.setBackground(panel.getBackground());
-		
 		lblTime.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
 		
 		lblLevel.setFont(font.deriveFont(Math.round(80 * scaleFactor) * 1.0f));

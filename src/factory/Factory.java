@@ -123,12 +123,6 @@ public abstract class Factory {
 	public abstract Icon getExit();
 	
 	/**
-	 * Return the gui game over icon.
-	 * @return the gui game over icon.
-	 */
-	public abstract Icon getGuiGameOver();
-	
-	/**
 	 * Return a game icon associated to the name passed by parameter.
 	 * @param name a game name.
 	 * @return a game icon.

@@ -95,10 +95,6 @@ public class ColorfulFactory extends Factory{
 		return getTheIcon("/assets/img/r1080/gui/mouse.png");
 	}
 
-	public Icon getGuiGameOver() {
-		return getTheIcon("/assets/img/r1080/gui/guiGameOver.png");
-	}
-
 	public Icon getRestart() {
 		return getTheIcon("/assets/img/r1080/gui/restart.png");
 	}

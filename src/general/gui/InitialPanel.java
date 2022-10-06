@@ -42,7 +42,6 @@ public class InitialPanel extends GeneralPanel{
 		
 		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
 		panel.setBackground(gui.getImageFactory().getColorDefault());
-		panel.setBackground(gui.getImageFactory().getColorDefault());
 		add(panel);
 	}
 	
