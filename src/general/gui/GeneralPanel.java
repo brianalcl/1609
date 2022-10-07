@@ -20,7 +20,7 @@ public abstract class GeneralPanel extends JPanel{
 		setSize(this.gui.getImageFactory().getScreenResolution());
 		setLocation(0, 0);
 		setLayout(null);
-		scaleFactor = this.gui.getImageFactory().getScreenResolution().getWidth() / Factory.DEFAULT_WIDTH;
+		scaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / Factory.DEFAULT_HEIGHT;
 		font = this.gui.getTheFont();
 	}
 }

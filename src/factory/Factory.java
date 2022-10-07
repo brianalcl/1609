@@ -56,22 +56,21 @@ public abstract class Factory {
 	 */
 	protected ImageIcon getTheIcon(String path) {
 		ImageIcon icon = new ImageIcon(getClass().getResource(path));
-		return scale(icon, screenWidth, screenHeight);
+		return scale(icon);
 	}
 	
 	/**
 	 * It allows scaling an image based on the resolution passed by parameter. 
 	 * Scale taking into account the original size of the image for a resolution of 1920 x 1080.
 	 * for example if an image is for 1920 x 1080 in a resolution of 60 x 45 px, 
-	 * and we pass a resolution of 1280 x 720 as a parameter, the image is transformed into a 40 x 30 px.
+	 * and the actual resolution is 1280 x 720, the image is transformed into a 40 x 30 px.
+	 * scaling is done correctly if the 16 9 aspect ratio is maintained.
 	 * @param imageIcon the image to scale.
-	 * @param screenWidth the the width of the resolution to scale.
-	 * @param screenHeight the the height of the resolution to scale.
 	 * @return the scaled image.
 	 */
-	protected ImageIcon scale(ImageIcon imageIcon, int screenWidth, int screenHeight) {
-		double w = screenWidth;
-		double scaleFactor = w / DEFAULT_WIDTH;
+	protected ImageIcon scale(ImageIcon imageIcon) {
+		double h = screenHeight;
+		double scaleFactor = h / DEFAULT_HEIGHT;
 		
 		int width = (int) Math.round(imageIcon.getIconWidth() * scaleFactor);
 		int height = (int) Math.round(imageIcon.getIconHeight() * scaleFactor);
@@ -169,29 +168,29 @@ public abstract class Factory {
 	 * Return the mouse icon.
 	 * @return the mouse icon.
 	 */
-	public abstract Icon getMouse();
-	
-	/**
-	 * Return the squircle icon.
-	 * @return the squircle icon.
-	 */
-	public abstract Icon getCapsule();
+	public abstract Icon getMouse();	
 	
 	/**
 	 * Return the empty icon.
 	 * @return the empty icon.
 	 */
 	public abstract Icon getEmpty();
-
+	
 	/**
-	 * Return the flag icon.
-	 * @return the flag icon.
+	 * Return the capsule icon.
+	 * @return the capsule icon.
+	 */
+	public abstract Icon getCapsule();
+	
+	/**
+	 * Return the triangle icon.
+	 * @return the triangle icon.
 	 */
 	public abstract Icon getTriangle();
 	
 	/**
-	 * Return the bomb icon.
-	 * @return the bomb icon.
+	 * Return the circle icon.
+	 * @return the circle icon.
 	 */
 	public abstract Icon getCircle();
 	
