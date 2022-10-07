@@ -69,23 +69,28 @@ public class TetrisPanel extends GamePanel{
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
-					keyRotateLeft();
+				if(!game.isPause()) {
+					if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+						keyRotateLeft();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+						keyDown();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
+						keyLeft();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+						keyRight();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_X) {
+						keyRotateLeft();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_Z) {
+						keyRotateRight();
+					}
 				}
-				if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
-					keyDown();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-					keyLeft();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					keyRight();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_X) {
-					keyRotateLeft();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_Z) {
-					keyRotateRight();
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					game.pause();
 				}
 			}
 		});

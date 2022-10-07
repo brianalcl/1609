@@ -102,56 +102,62 @@ public class SudokuPanel extends GamePanel{
 	
 	@Override
 	protected void addControls() {
-		panel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				game.click(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
-			}
-		});
-		
 		addKeyListener(new KeyListener() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				switch (e.getKeyChar()) {
-				case KeyEvent.VK_1:
-					game.put(1);
-					break;
-				case KeyEvent.VK_2:
-					game.put(2);
-					break;
-				case KeyEvent.VK_3:
-					game.put(3);
-					break;
-				case KeyEvent.VK_4:
-					game.put(4);
-					break;
-				case KeyEvent.VK_5:
-					game.put(5);
-					break;
-				case KeyEvent.VK_6:
-					game.put(6);
-					break;
-				case KeyEvent.VK_7:
-					game.put(7);
-					break;
-				case KeyEvent.VK_8:
-					game.put(8);
-					break;
-				case KeyEvent.VK_9:
-					game.put(9);
-					break;
-				case KeyEvent.VK_0:
-					game.put(0);
-					break;
-
-				default:
-					break;
-				}
-			}
+			public void keyTyped(KeyEvent e) {}
 			@Override
 			public void keyReleased(KeyEvent e) {}
 			@Override
-			public void keyPressed(KeyEvent e) {}
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					game.pause();
+				}
+				if(!game.isPause()) {
+					switch (e.getKeyCode()) {
+					case KeyEvent.VK_1:
+						game.put(1);
+						break;
+					case KeyEvent.VK_2:
+						game.put(2);
+						break;
+					case KeyEvent.VK_3:
+						game.put(3);
+						break;
+					case KeyEvent.VK_4:
+						game.put(4);
+						break;
+					case KeyEvent.VK_5:
+						game.put(5);
+						break;
+					case KeyEvent.VK_6:
+						game.put(6);
+						break;
+					case KeyEvent.VK_7:
+						game.put(7);
+						break;
+					case KeyEvent.VK_8:
+						game.put(8);
+						break;
+					case KeyEvent.VK_9:
+						game.put(9);
+						break;
+					case KeyEvent.VK_0:
+						game.put(0);
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		});
+		
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!game.isPause()) {
+					game.click(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
+				}
+			}
 		});
 	}
 }

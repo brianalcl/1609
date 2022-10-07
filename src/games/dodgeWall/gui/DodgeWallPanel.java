@@ -61,21 +61,28 @@ public class DodgeWallPanel extends GamePanel{
 			
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(stopKey) {
-					moveCenter();
-					stopKey = false;
+				if(!game.isPause()) {
+					if(stopKey) {
+						moveCenter();
+						stopKey = false;
+					}
 				}
 			}
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if(!stopKey && (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP)) {
-					keyUp();
-					stopKey = true;
+				if(!game.isPause()) {
+					if(!stopKey && (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP)) {
+						keyUp();
+						stopKey = true;
+					}
+					if(!stopKey && (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN)) {
+						keyDown();
+						stopKey = true;
+					}
 				}
-				if(!stopKey && (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN)) {
-					keyDown();
-					stopKey = true;
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					game.pause();
 				}
 			}
 		});

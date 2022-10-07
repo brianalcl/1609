@@ -18,7 +18,8 @@ public class SnakeWatch extends Thread{
 		while(active) { 
 			try {	
 				Thread.sleep(step);
-				game.run();
+				if(!game.isPause())
+					game.run();
 				active = !game.isGameOver();
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();

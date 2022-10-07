@@ -18,7 +18,8 @@ public class Watch extends Thread{
 		while(active) { 
 			try {
 				Thread.sleep(step);
-				game.addSecond();
+				if(!game.isPause())
+					game.addSecond();
 				active = !game.isGameOver();
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();

@@ -1,6 +1,8 @@
 package games.minesweeper.gui;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
@@ -68,14 +70,33 @@ public class MinesweeperPanel extends GamePanel{
 	
 	@Override
 	protected void addControls() {
+		addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					game.pause();
+				}
+			}
+		});
+		
 		panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(e.getButton() == MouseEvent.BUTTON1)
-					game.click(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
-				else
-					if(e.getButton() == MouseEvent.BUTTON3)
-						game.putFlag(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
+				if(!game.isPause()) {
+					if(e.getButton() == MouseEvent.BUTTON1)
+						game.click(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
+					else
+						if(e.getButton() == MouseEvent.BUTTON3)
+							game.putFlag(e.getX()/(panel.getWidth()/9), e.getY()/(panel.getHeight()/16));
+				}
 			}
 		});
 	}

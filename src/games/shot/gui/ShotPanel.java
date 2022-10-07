@@ -61,14 +61,19 @@ public class ShotPanel extends GamePanel{
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-					keyLeft();
+				if(!game.isPause()) {
+					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
+						keyLeft();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+						keyRight();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+						keySpace();
+					}
 				}
-				if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					keyRight();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-					keySpace();
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					game.pause();
 				}
 			}
 		});

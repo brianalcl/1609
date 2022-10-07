@@ -6,11 +6,9 @@ import general.logic.Game;
 public class SudokuGame extends Game{
 	
 	protected Player player;
-	protected SudokuPanel panel;
 	
-	public SudokuGame(SudokuPanel panel) {
-		super(panel);
-		this.panel = panel;
+	public SudokuGame(SudokuPanel sudokuPanel) {
+		super(sudokuPanel);
 		this.player = new Player(new SudokuMap(this), this.panel.getImageFactory());
 	}
 	

@@ -19,12 +19,14 @@ public abstract class Game {
 	protected int level;
 	protected int points;
 	protected boolean gameOver;
+	protected boolean pause;
 	
 	public Game(GamePanel panel) {
 		this.seconds = 0;
 		this.level = 0;
 		this.points = 0;
 		this.gameOver = false;
+		this.pause = false;
 		this.panel = panel;
 		this.watch = new Watch(this);
 		this.watch.start();
@@ -72,6 +74,14 @@ public abstract class Game {
 	public void lose() {
 		gameOver = true;
 		panel.lose();
+	}
+	
+	public void pause() {
+		pause = !pause;
+	}
+	
+	public boolean isPause() {
+		return pause;
 	}
 	
 }

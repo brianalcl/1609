@@ -3,7 +3,7 @@ import games.tetris.logic.TetrisGame;
 import general.logic.Game;
 
 public class TetrisWatch extends Thread{
-	protected TetrisGame tetrisGame;
+	protected TetrisGame game;
 	protected boolean active;
 	protected int step;
 	
@@ -12,9 +12,9 @@ public class TetrisWatch extends Thread{
 	* @param tetrisGame The tetrisGame.
 	* @param step The step.
 	*/
-	public TetrisWatch(TetrisGame tetrisGame, int step) {
-		this.tetrisGame = tetrisGame;
-		this.active = !this.tetrisGame.isGameOver();
+	public TetrisWatch(TetrisGame game, int step) {
+		this.game = game;
+		this.active = !this.game.isGameOver();
 		this.step = step;
 	}
 	
@@ -42,8 +42,9 @@ public class TetrisWatch extends Thread{
 		while(active) {
 			try {
 				Thread.sleep(step);
-				tetrisGame.operate(Game.MOVE_DOWN);
-				active = !tetrisGame.isGameOver();
+				if(!game.isPause())
+					game.operate(Game.MOVE_DOWN);
+				active = !game.isGameOver();
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				e.printStackTrace();
