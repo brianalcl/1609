@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
+
 import games.sudoku.logic.SudokuGame;
 import general.gui.GUI;
 import general.gui.GameOverPanel;
@@ -27,7 +28,6 @@ public class SudokuPanel extends GamePanel{
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard5());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
-		addControls();
 	}
 	
 	private void putBorder() {
@@ -101,18 +101,22 @@ public class SudokuPanel extends GamePanel{
 	}
 	
 	@Override
-	protected void addControls() {
+	protected void addControls() {System.out.println("A");
 		addKeyListener(new KeyListener() {
 			@Override
-			public void keyTyped(KeyEvent e) {}
+			public void keyTyped(KeyEvent e) {
+
+			}
 			@Override
-			public void keyReleased(KeyEvent e) {}
+			public void keyReleased(KeyEvent e) {
+
+			}
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 					game.pause();
 				}
-				if(!game.isPause()) {
+				if(!game.isPause()) { 
 					switch (e.getKeyCode()) {
 					case KeyEvent.VK_1:
 						game.put(1);
