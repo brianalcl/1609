@@ -1,8 +1,9 @@
 package games.sudoku.logic;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -117,12 +118,11 @@ public class SudokuMap extends Map{
 
 	private void charge() {
 		BufferedReader bf; 
-		FileReader fr;
 		String line;
 		int num = 0;
 		try {
-			fr = new FileReader("./gamesData/sudoku/table.txt");
-			bf = new BufferedReader(fr);
+			InputStream inSt = getClass().getResourceAsStream("/gamesData/sudoku/table.txt");
+			bf = new BufferedReader(new InputStreamReader(inSt));
 			for(int r = 7; r < 16; r++) {
 				line = bf.readLine();
 				if(line != null) {
