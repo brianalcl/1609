@@ -101,7 +101,7 @@ public class SudokuPanel extends GamePanel{
 	}
 	
 	@Override
-	protected void addControls() {System.out.println("A");
+	protected void addControls() {
 		addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
