@@ -88,6 +88,7 @@ public class TetrisPanel extends GamePanel{
 					if(e.getKeyCode() == KeyEvent.VK_Z) {
 						keyRotateRight();
 					}
+
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 					game.pause();

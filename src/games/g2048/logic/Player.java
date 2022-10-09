@@ -1,6 +1,7 @@
 package games.g2048.logic;
 
 import factory.Factory;
+import general.sound.Sound;
 
 public class Player {
 	
@@ -13,19 +14,23 @@ public class Player {
 	}
 
 	public void moveUp() {
+		Sound.getInstance().moveSound();
 		map.moveUp();
 	}
 
 	public void moveDown() {
+		Sound.getInstance().moveSound();
 		map.moveDown();
 		
 	}
 
 	public void moveRight() {
+		Sound.getInstance().moveSound();
 		map.moveRight();
 	}
 
 	public void moveLeft() {
+		Sound.getInstance().moveSound();
 		map.moveLeft();
 	}
 

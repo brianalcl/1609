@@ -3,6 +3,7 @@ package games.shot.logic;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
+import general.sound.Sound;
 
 public class Player {
 	protected Cell player;
@@ -22,7 +23,9 @@ public class Player {
 	}
 	
 	public void moveLeft() {
+		
 		if(player.getColumn() - 1 >= 0) {
+			Sound.getInstance().moveSound();
 			if(checkLeft()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() - 1);
@@ -34,7 +37,9 @@ public class Player {
 	}
 	
 	public void moveRight() {
+		
 		if(player.getColumn() + 1 <= 8) {
+			Sound.getInstance().moveSound();
 			if(checkRight()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() + 1);

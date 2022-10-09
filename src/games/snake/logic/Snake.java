@@ -8,6 +8,7 @@ import general.logic.Cell;
 import general.logic.Game;
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.sound.Sound;
 
 public class Snake {
 	protected Deque<Cell> snake;
@@ -54,6 +55,7 @@ public class Snake {
 		}
 		
 		if(res) {
+			Sound.getInstance().moveSound();
 			this.direction = direction;
 		}
 		

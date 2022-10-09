@@ -72,6 +72,7 @@ public class DodgeWallPanel extends GamePanel{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
+					
 					if(!stopKey && (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP)) {
 						keyUp();
 						stopKey = true;

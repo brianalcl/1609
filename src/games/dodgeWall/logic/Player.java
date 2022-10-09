@@ -3,6 +3,7 @@ package games.dodgeWall.logic;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
+import general.sound.Sound;
 
 public class Player {
 	protected Cell[][] player;
@@ -41,6 +42,7 @@ public class Player {
 	}
 	
 	public void moveUp() {
+		Sound.getInstance().moveSound();
 		if(checkUp()) {
 			for(int r = 0; r < 3; r++)
 				for(int c = 0; c < 3; c++)
@@ -72,7 +74,7 @@ public class Player {
 	}
 	
 	public void moveDown() {
-		
+		Sound.getInstance().moveSound();
 		if(checkDown()) {
 			for(int r = 0; r < 3; r++)
 				for(int c = 0; c < 3; c++)
@@ -104,7 +106,7 @@ public class Player {
 	}
 	
 	public void moveCenter() {
-		
+		Sound.getInstance().moveSound();
 		if(checkCenter()) {
 			for(int r = 0; r < 3; r++)
 				for(int c = 0; c < 3; c++)

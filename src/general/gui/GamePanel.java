@@ -45,8 +45,8 @@ public abstract class GamePanel extends GeneralPanel{
 		else
 			createVertical();
 		
-		createStats();
 		createCentralPanel();
+		createStats();
 		addControls();
 	}
 	
@@ -83,20 +83,20 @@ public abstract class GamePanel extends GeneralPanel{
 		int borderSize = (int) Math.round(2 * scaleFactor);
 		int borderRadius = (int) Math.round(64 * scaleFactor);
 		
-		int x = (int) Math.round(160 * scaleFactor);
-		int y = (int) Math.round(0 * scaleFactor);
+		int x = (int) Math.round(150 * scaleFactor);
+		int y = (int) Math.round(25 * scaleFactor);
 		int w = (int) Math.round(500 * scaleFactor);
 		int h = (int) Math.round(100 * scaleFactor);
 		lblTime.setBounds(x, y, w, h);
 		
-		x = (int) Math.round(710 * scaleFactor);
-		y = (int) Math.round(0 * scaleFactor);
+		x = (int) Math.round(150 * scaleFactor);
+		y = (int) Math.round(150 * scaleFactor);
 		w = (int) Math.round(500 * scaleFactor);
 		h = (int) Math.round(100 * scaleFactor);
 		lblLevel.setBounds(x, y, w, h);
 		
-		x = (int) Math.round(1260 * scaleFactor);
-		y = (int) Math.round(0 * scaleFactor);
+		x = (int) Math.round((1920 - 150 - 500) * scaleFactor);
+		y = (int) Math.round(25 * scaleFactor);
 		w = (int) Math.round(500 * scaleFactor);
 		h = (int) Math.round(100 * scaleFactor);
 		lblScore.setBounds(x, y, w, h);		
@@ -171,31 +171,24 @@ public abstract class GamePanel extends GeneralPanel{
 		int borderSize = (int) Math.round(2 * scaleFactor);
 		int borderRadius = (int) Math.round(64 * scaleFactor);
 		
-		int x = (int) Math.round(((getWidth() - (matrix[0].length  * cellSize)) / 2));
-		int y = (int) Math.round(((getHeight() + lblLevel.getHeight() - (matrix.length * cellSize)) / 2));
-		int w = (int) Math.round(matrix[0].length * cellSize);
-		int h = (int) Math.round(matrix.length * cellSize);
+		int w = matrix[0].length * cellSize;
+		int h = matrix.length * cellSize;
+		int x = (getWidth() - w) / 2;
+		int y = (getHeight() - h) / 2;
 		
-		int lblBgX = (int) Math.round(((getWidth() - (matrix[0].length + 1) * cellSize) / 2));
-		int lblBgY = (int) Math.round(((getHeight()  + lblLevel.getHeight() - (matrix.length + 1) * cellSize) / 2));
-		int lblBgW = (int) Math.round((matrix[0].length + 1) * cellSize);
-		int lblBgH = (int) Math.round((matrix.length + 1) * cellSize);
+		int lblBgW = (matrix[0].length + 1) * cellSize;
+		int lblBgH = (matrix.length + 1) * cellSize;
+		int lblBgX = (getWidth() - lblBgW) / 2;
+		int lblBgY = (getHeight() - lblBgH) / 2;
 		
 		
-		
-		panel.setLayout(new GridLayout(Map.COLUMN, Map.ROW));
-		
-		if(w < h) {
+		panel.setBounds(x, y, w, h);
+		lblBg.setBounds(lblBgX, lblBgY, lblBgW, lblBgH);
+		if(w < h) 
 			panel.setLayout(new GridLayout(Map.COLUMN, Map.ROW));
-			panel.setBounds(x, y, w, h);
-			lblBg.setBounds(lblBgX, lblBgY, lblBgW, lblBgH);
-		}
-			
-		else {
+		else
 			panel.setLayout(new GridLayout(Map.ROW, Map.COLUMN));
-			panel.setBounds(x, y, w, h);
-			lblBg.setBounds(lblBgX, lblBgY, lblBgW, lblBgH);
-		}
+		
 		add(panel);
 		
 		lblBg.setOpaque(true);
@@ -213,4 +206,5 @@ public abstract class GamePanel extends GeneralPanel{
 			}
 		}
 	}
+
 }

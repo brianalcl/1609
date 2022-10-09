@@ -5,6 +5,7 @@ import games.tetris.logic.TetrisMap;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
+import general.sound.Sound;
 import general.utilities.Pair;
 
 public abstract class Tetromino {
@@ -58,6 +59,7 @@ public abstract class Tetromino {
 	 * Move the tetromino to the left.
 	 */
 	public void moveLeft() {
+		
 		boolean possible = true;
 		Pair<Integer, Integer> movement = new Pair<Integer, Integer>(0, -1);
 		
@@ -66,6 +68,7 @@ public abstract class Tetromino {
 		}
 		
 		if(possible) {
+			Sound.getInstance().moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);
@@ -77,6 +80,7 @@ public abstract class Tetromino {
 	 * Move the tetromino to the right.
 	 */
 	public void moveRight() {
+		
 		boolean possible = true;
 		Pair<Integer, Integer> movement = new Pair<Integer, Integer>(0, 1);
 		
@@ -85,6 +89,7 @@ public abstract class Tetromino {
 		}
 		
 		if(possible) {
+			Sound.getInstance().moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);
@@ -98,6 +103,7 @@ public abstract class Tetromino {
 	 * @return false if not hit, true if hit.
 	 */
 	public boolean moveDown() {
+		
 		boolean crash = false;
 		boolean possible = true;
 		Pair<Integer, Integer> movement = new Pair<Integer, Integer>(-1, 0);
@@ -107,6 +113,7 @@ public abstract class Tetromino {
 		}
 		
 		if(possible) {
+			Sound.getInstance().moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);

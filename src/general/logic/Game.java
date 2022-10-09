@@ -2,6 +2,7 @@ package general.logic;
 
 import factory.Factory;
 import general.gui.GamePanel;
+import general.sound.Sound;
 import general.threads.Watch;
 
 public abstract class Game {
@@ -37,6 +38,7 @@ public abstract class Game {
 	}
 	
 	public void addPoints(int points) {
+		Sound.getInstance().pointSound();
 		this.points += points;
 		panel.setPoints(String.format("%05d", this.points));
 	}
@@ -67,11 +69,13 @@ public abstract class Game {
 	}
 	
 	public void win() {
+		Sound.getInstance().finishSound();
 		gameOver = true;
 		panel.win();
 	}
 	
 	public void lose() {
+		Sound.getInstance().finishSound();
 		gameOver = true;
 		panel.lose();
 	}
