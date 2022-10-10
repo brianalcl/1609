@@ -14,7 +14,7 @@ public class SoundClip {
 
     public SoundClip(String path) {
         try {
-            audioStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(path));
+            audioStream = AudioSystem.getAudioInputStream(getClass().getResource(path));
             audioClip = AudioSystem.getClip();
             audioClip.open(audioStream);
         }
