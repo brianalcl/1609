@@ -171,6 +171,12 @@ public abstract class Factory {
 	public abstract Icon getKeyboard6();
 	
 	/**
+	 * Return the keyboard7 icon. this keyboard contains the keys: A, S, and D.
+	 * @return the keyboard6 icon.
+	 */
+	public abstract Icon getKeyboard7();
+	
+	/**
 	 * Return the mouse icon.
 	 * @return the mouse icon.
 	 */

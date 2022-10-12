@@ -19,6 +19,7 @@ public class DodgeWallGame extends Game{
 		this.wall_2 = new Wall(map, this.panel.getImageFactory());
 		this.dodgeWallWatch = new DodgeWallWatch(this, 200);
 		this.dodgeWallWatch.start();
+		this.tick = 0;
 	}
 	
 	public synchronized void run() {

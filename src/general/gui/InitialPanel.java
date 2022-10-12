@@ -5,6 +5,7 @@ import games.collect.gui.CollectPanel;
 import games.dodgeWall.gui.DodgeWallPanel;
 import games.g2048.gui.G2048Panel;
 import games.minesweeper.gui.MinesweeperPanel;
+import games.piano.gui.PianoPanel;
 import games.shot.gui.ShotPanel;
 import games.snake.gui.SnakePanel;
 import games.sudoku.gui.SudokuPanel;
@@ -62,7 +63,7 @@ public class InitialPanel extends GeneralPanel{
 		
 		for(int r = 0; r < 3; r++) {
 			for(int c = 0; c < 3; c++) {
-				matrix[r][c] = new JButton(gui.getImageFactory().getGameIcon("empty"));
+				matrix[r][c] = new JButton();
 				matrix[r][c].setBackground(gui.getImageFactory().getColorDefault());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
@@ -86,6 +87,8 @@ public class InitialPanel extends GeneralPanel{
 		matrix[2][0].addActionListener(e -> gui.setPanel(new TetrisPanel(this.gui)));
 		matrix[2][1].setIcon(gui.getImageFactory().getGameIcon("collect"));
 		matrix[2][1].addActionListener(e -> gui.setPanel(new CollectPanel(this.gui)));
+		matrix[2][2].setIcon(gui.getImageFactory().getGameIcon("piano"));
+		matrix[2][2].addActionListener(e -> gui.setPanel(new PianoPanel(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){

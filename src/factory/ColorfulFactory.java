@@ -94,6 +94,10 @@ public class ColorfulFactory extends Factory{
 	public Icon getKeyboard6() {
 		return getTheIcon("/assets/img/r1080/gui/keyboard6.png");
 	}
+	
+	public Icon getKeyboard7() {
+		return getTheIcon("/assets/img/r1080/gui/keyboard7.png");
+	}
 
 	public Icon getMouse() {
 		return getTheIcon("/assets/img/r1080/gui/mouse.png");
