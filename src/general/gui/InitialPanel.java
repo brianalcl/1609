@@ -1,15 +1,15 @@
 package general.gui;
 import javax.swing.JPanel;
 
-import games.collect.gui.CollectPanel;
-import games.dodgeWall.gui.DodgeWallPanel;
-import games.g2048.gui.G2048Panel;
-import games.minesweeper.gui.MinesweeperPanel;
-import games.piano.gui.PianoPanel;
-import games.shot.gui.ShotPanel;
-import games.snake.gui.SnakePanel;
-import games.sudoku.gui.SudokuPanel;
-import games.tetris.gui.TetrisPanel;
+import games.collect.gui.Panel_Collect;
+import games.dodgeWall.gui.Panel_DodgeWall;
+import games.g2048.gui.Panel_G2048;
+import games.minesweeper.gui.Panel_Minesweeper;
+import games.piano.gui.Panel_Piano;
+import games.shot.gui.Panel_Shoot;
+import games.snake.gui.Panel_Snake;
+import games.sudoku.gui.Panel_Sudoku;
+import games.tetris.gui.Panel_Tetris;
 import general.utilities.InternalBorderRound;
 
 import javax.swing.JButton;
@@ -72,23 +72,23 @@ public class InitialPanel extends GeneralPanel{
 			}
 		}
 		matrix[0][0].setIcon(gui.getImageFactory().getGameIcon("snake"));
-		matrix[0][0].addActionListener(e -> gui.setPanel(new SnakePanel(this.gui)));
+		matrix[0][0].addActionListener(e -> gui.setPanel(new Panel_Snake(this.gui)));
 		matrix[0][1].setIcon(gui.getImageFactory().getGameIcon("dodgeWall"));
-		matrix[0][1].addActionListener(e -> gui.setPanel(new DodgeWallPanel(this.gui)));
+		matrix[0][1].addActionListener(e -> gui.setPanel(new Panel_DodgeWall(this.gui)));
 		matrix[0][2].setIcon(gui.getImageFactory().getGameIcon("g2048"));
-		matrix[0][2].addActionListener(e -> gui.setPanel(new G2048Panel(this.gui)));
+		matrix[0][2].addActionListener(e -> gui.setPanel(new Panel_G2048(this.gui)));
 		matrix[1][0].setIcon(gui.getImageFactory().getGameIcon("shot"));
-		matrix[1][0].addActionListener(e -> gui.setPanel(new ShotPanel(this.gui)));
+		matrix[1][0].addActionListener(e -> gui.setPanel(new Panel_Shoot(this.gui)));
 		matrix[1][1].setIcon(gui.getImageFactory().getGameIcon("sudoku"));
-		matrix[1][1].addActionListener(e -> gui.setPanel(new SudokuPanel(this.gui)));
+		matrix[1][1].addActionListener(e -> gui.setPanel(new Panel_Sudoku(this.gui)));
 		matrix[1][2].setIcon(gui.getImageFactory().getGameIcon("minesweeper"));
-		matrix[1][2].addActionListener(e -> gui.setPanel(new MinesweeperPanel(this.gui)));
+		matrix[1][2].addActionListener(e -> gui.setPanel(new Panel_Minesweeper(this.gui)));
 		matrix[2][0].setIcon(gui.getImageFactory().getGameIcon("tetris"));
-		matrix[2][0].addActionListener(e -> gui.setPanel(new TetrisPanel(this.gui)));
+		matrix[2][0].addActionListener(e -> gui.setPanel(new Panel_Tetris(this.gui)));
 		matrix[2][1].setIcon(gui.getImageFactory().getGameIcon("collect"));
-		matrix[2][1].addActionListener(e -> gui.setPanel(new CollectPanel(this.gui)));
+		matrix[2][1].addActionListener(e -> gui.setPanel(new Panel_Collect(this.gui)));
 		matrix[2][2].setIcon(gui.getImageFactory().getGameIcon("piano"));
-		matrix[2][2].addActionListener(e -> gui.setPanel(new PianoPanel(this.gui)));
+		matrix[2][2].addActionListener(e -> gui.setPanel(new Panel_Piano(this.gui)));
 	}
 	
 	private MouseAdapter getMouseAdapter(){

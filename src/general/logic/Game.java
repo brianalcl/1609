@@ -3,7 +3,7 @@ package general.logic;
 import factory.Factory;
 import general.gui.GamePanel;
 import general.sound.Sound;
-import general.threads.Watch;
+import general.threads.Clock;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;
@@ -15,7 +15,7 @@ public abstract class Game {
 	public static final int ROTATE_RIGHT = 9;
 	
 	protected GamePanel panel;
-	protected Watch watch;
+	protected Clock clock;
 	protected int seconds;
 	protected int level;
 	protected int points;
@@ -29,8 +29,8 @@ public abstract class Game {
 		this.gameOver = false;
 		this.pause = false;
 		this.panel = panel;
-		this.watch = new Watch(this);
-		this.watch.start();
+		this.clock = new Clock(this);
+		this.clock.start();
 	}
 	
 	public void changeCell(Cell cell) {

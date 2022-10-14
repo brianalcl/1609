@@ -17,15 +17,15 @@ public class ColorfulFactory extends Factory{
 		colorDefault = new Color(85, 107, 47);
 		colorForeground = new Color(255, 255, 255, 200);
 		
-		createIcons();
+		createCommonIcons();
 	}
 	
 	public void setScreenResolution(Dimension resolution) {
 		super.setScreenResolution(resolution);
-		createIcons();
+		createCommonIcons();
 	}
 
-	private void createIcons() {
+	private void createCommonIcons() {
 		capsule = getTheIcon("/assets/img/r1080/gameImages/common/capsule.png");
 		square = getTheIcon("/assets/img/r1080/gameImages/common/square.png");
 		triangle = getTheIcon("/assets/img/r1080/gameImages/common/triangle.png");
