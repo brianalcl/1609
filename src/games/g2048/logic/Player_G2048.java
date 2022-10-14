@@ -1,7 +1,7 @@
 package games.g2048.logic;
 
 import factory.Factory;
-import general.sound.Sound;
+import sound.Sound;
 
 public class Player_G2048 {
 	

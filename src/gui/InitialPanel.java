@@ -1,4 +1,4 @@
-package general.gui;
+package gui;
 import javax.swing.JPanel;
 
 import games.collect.gui.Panel_Collect;
@@ -10,6 +10,7 @@ import games.shot.gui.Panel_Shoot;
 import games.snake.gui.Panel_Snake;
 import games.sudoku.gui.Panel_Sudoku;
 import games.tetris.gui.Panel_Tetris;
+import general.gui.GeneralPanel;
 import general.utilities.InternalBorderRound;
 
 import javax.swing.JButton;

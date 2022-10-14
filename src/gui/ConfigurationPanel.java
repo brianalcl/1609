@@ -1,4 +1,4 @@
-package general.gui;
+package gui;
 
 
 import java.awt.Color;
@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import general.gui.GeneralPanel;
 import general.utilities.InternalBorderRound;
 
 

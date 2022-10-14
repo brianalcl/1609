@@ -9,10 +9,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
 import games.sudoku.logic.Game_Sudoku;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 import general.utilities.InternalBorder;
+import gui.GUI;
+import gui.GameOverPanel;
 
 public class Panel_Sudoku extends GamePanel{
 	

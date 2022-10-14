@@ -6,10 +6,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JLabel;
 import games.g2048.logic.Game_G2048;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 import general.utilities.InternalBorder;
+import gui.GUI;
+import gui.GameOverPanel;
 
 public class Panel_G2048 extends GamePanel{
 	

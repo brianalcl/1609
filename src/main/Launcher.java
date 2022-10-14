@@ -3,7 +3,7 @@ package main;
 import java.awt.Dimension;
 
 import factory.ColorfulFactory;
-import general.gui.GUI;
+import gui.GUI;
 
 public class Launcher {
 	public static void main(String args[]) {

@@ -5,8 +5,8 @@ import games.tetris.logic.Map_Tetris;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.sound.Sound;
 import general.utilities.Pair;
+import sound.Sound;
 
 public abstract class Tetromino_Tetris {
 	

@@ -4,9 +4,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import games.shot.logic.Game_Shoot;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
+import gui.GUI;
+import gui.GameOverPanel;
 
 
 public class Panel_Shoot extends GamePanel{

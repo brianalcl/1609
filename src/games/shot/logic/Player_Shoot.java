@@ -3,7 +3,7 @@ package games.shot.logic;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import general.sound.Sound;
+import sound.Sound;
 
 public class Player_Shoot {
 	protected Cell player;

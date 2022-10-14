@@ -8,11 +8,11 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
 import games.minesweeper.logic.Game_Minesweeper;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 import general.utilities.InternalBorder;
 import general.utilities.InternalBorderRound;
+import gui.GUI;
+import gui.GameOverPanel;
 
 public class Panel_Minesweeper extends GamePanel{
 	

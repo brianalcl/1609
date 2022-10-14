@@ -2,8 +2,8 @@ package general.logic;
 
 import factory.Factory;
 import general.gui.GamePanel;
-import general.sound.Sound;
 import general.threads.Clock;
+import sound.Sound;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;

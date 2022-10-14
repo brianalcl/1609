@@ -8,7 +8,7 @@ import general.logic.Cell;
 import general.logic.Game;
 import general.logic.GraphicCell;
 import general.logic.Map;
-import general.sound.Sound;
+import sound.Sound;
 
 public class Snake_Snake {
 	protected Deque<Cell> snake;

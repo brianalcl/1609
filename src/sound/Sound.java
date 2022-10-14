@@ -1,4 +1,4 @@
-package general.sound;
+package sound;
 
 public class Sound {
 	private SoundClip move;

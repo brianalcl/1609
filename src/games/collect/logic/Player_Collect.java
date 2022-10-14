@@ -3,7 +3,7 @@ package games.collect.logic;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import general.sound.Sound;
+import sound.Sound;
 
 public class Player_Collect {
 	protected Cell[] player;

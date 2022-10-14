@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import games.piano.logic.Game_Piano;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 import general.utilities.InternalBorder;
+import gui.GUI;
+import gui.GameOverPanel;
 
 
 public class Panel_Piano extends GamePanel{

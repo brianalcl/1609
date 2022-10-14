@@ -5,6 +5,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 
 import factory.Factory;
+import gui.GUI;
 
 public abstract class GeneralPanel extends JPanel{
 	/**

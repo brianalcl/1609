@@ -1,4 +1,4 @@
-package general.gui;
+package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import general.gui.GamePanel;
+import general.gui.GeneralPanel;
 import general.utilities.InternalBorderRound;
 
 public class GameOverPanel extends GeneralPanel{

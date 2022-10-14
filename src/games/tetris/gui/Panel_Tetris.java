@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import games.tetris.logic.Game_Tetris;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
 import general.logic.Game;
+import gui.GUI;
+import gui.GameOverPanel;
 
 public class Panel_Tetris extends GamePanel{
 

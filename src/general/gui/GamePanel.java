@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import factory.Factory;
 import general.logic.Map;
 import general.utilities.InternalBorderRound;
+import gui.GUI;
 
 import java.awt.GridLayout;
 

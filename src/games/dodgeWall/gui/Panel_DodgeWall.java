@@ -3,9 +3,9 @@ package games.dodgeWall.gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import games.dodgeWall.logic.Game_DodgeWall;
-import general.gui.GUI;
-import general.gui.GameOverPanel;
 import general.gui.GamePanel;
+import gui.GUI;
+import gui.GameOverPanel;
 
 
 public class Panel_DodgeWall extends GamePanel{
