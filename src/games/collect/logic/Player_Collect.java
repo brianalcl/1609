@@ -8,12 +8,14 @@ import sound.Sound;
 public class Player_Collect {
 	protected Cell[] player;
 	protected Factory imageFactory;
+	protected Sound sound;
 	protected Map_Collect map;
 	protected GraphicCell representation;
 	
-	public Player_Collect(Map_Collect map, Factory imageFactory) {
+	public Player_Collect(Map_Collect map, Factory imageFactory, Sound sound) {
 		this.map = map;
 		this.imageFactory = imageFactory;
+		this.sound = sound;
 		this.representation = new GraphicCell(this.imageFactory.getTriangle(), this.map.getFreeCell().getBackground());
 		player = new Cell[3];
 		
@@ -28,7 +30,7 @@ public class Player_Collect {
 	public void moveLeft() {
 
 		if(player[0].getColumn() - 1 >= 0) {
-			Sound.getInstance().moveSound();
+			sound.moveSound();
 			player[0].clear();
 			player[1].clear();
 			player[2].clear();
@@ -45,7 +47,7 @@ public class Player_Collect {
 	
 	public void moveRight() {
 		if(player[2].getColumn() + 1 <= 8) {
-			Sound.getInstance().moveSound();
+			sound.moveSound();
 			player[0].clear();
 			player[1].clear();
 			player[2].clear();

@@ -8,13 +8,15 @@ import sound.Sound;
 public class Player_DodgeWall {
 	protected Cell[][] player;
 	protected Factory imageFactory;
+	protected Sound sound;
 	protected Map_DodgeWall map;
 	protected GraphicCell representation;
 	
-	public Player_DodgeWall(Map_DodgeWall map, Factory imageFactory) {
+	public Player_DodgeWall(Map_DodgeWall map, Factory imageFactory, Sound sound) {
 		this.player = new Cell[3][3];
 		this.map = map;
 		this.imageFactory = imageFactory;
+		this.sound = sound;
 		this.representation = new GraphicCell(this.imageFactory.getCapsule(), this.map.getFreeCell().getBackground());
 		
 		player[0][0] = this.map.getCell(3, 0);
@@ -103,7 +105,7 @@ public class Player_DodgeWall {
 	}
 	
 	private void clear() {
-		Sound.getInstance().moveSound();
+		sound.moveSound();
 		for(int r = 0; r < 3; r++) {
 			for(int c = 0; c < 3; c++) {
 				if(player[r][c] != null)

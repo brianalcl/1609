@@ -13,11 +13,28 @@ public class Game_Shoot extends Game{
 	public Game_Shoot(Panel_Shoot panel) {
 		super(panel);
 		Map_Shoot map = new Map_Shoot(this);
-		this.player = new Player_Shoot(map, this.panel.getImageFactory());
+		this.player = new Player_Shoot(map, this.panel.getImageFactory(), this.panel.getSound());
 		this.wall = new Wall_Shoot(map, this.panel.getImageFactory());
 		this.clock_shoot = new Clock_Shoot(this, 200);
 		this.tick = 20;
 		this.clock_shoot.start();
+	}
+	
+	@Override
+	public void operate(int operation) {
+		switch (operation) {
+		case MOVE_LEFT:
+			player.moveLeft();
+			break;
+		case MOVE_RIGHT:
+			player.moveRight();
+			break;
+		case SPACE:
+			player.shot();
+			break;
+		default:
+			break;
+		}
 	}
 	
 	public synchronized void run() {
@@ -34,18 +51,6 @@ public class Game_Shoot extends Game{
 		return player.isShot(r,c);
 	}
 	
-	public void moveLeft() {
-		player.moveLeft();
-	}
-
-	public void moveRight() {
-		player.moveRight();
-	}
-	
-	public void shot() {
-		player.shot();
-	}
-	
 	public void moveShot() {
 		player.moveShot();
 	}
@@ -58,11 +63,6 @@ public class Game_Shoot extends Game{
 			if(clock_shoot.getStep() > 40)
 				clock_shoot.setStep(clock_shoot.getStep()-20);
 		}
-	}
-	
-	@Override
-	public void lose() {
-		super.lose();
 	}
 
 

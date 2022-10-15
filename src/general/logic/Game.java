@@ -3,13 +3,13 @@ package general.logic;
 import factory.Factory;
 import general.gui.GamePanel;
 import general.threads.Clock;
-import sound.Sound;
 
 public abstract class Game {
 	public static final int MOVE_UP = 8;
 	public static final int MOVE_RIGHT = 6;
 	public static final int MOVE_DOWN = 2;
 	public static final int MOVE_LEFT = 4;
+	public static final int MOVE_CENTER = 0;
 	public static final int SPACE = 5;
 	public static final int ROTATE_LEFT = 7;
 	public static final int ROTATE_RIGHT = 9;
@@ -38,14 +38,15 @@ public abstract class Game {
 	}
 	
 	public void addPoints(int points) {
-		Sound.getInstance().pointSound();
 		this.points += points;
 		panel.setPoints(String.format("%05d", this.points));
+		panel.getSound().pointSound();
 	}
 	
 	public void addLevel() {
 		level++;
 		panel.setLevel(String.format("%02d", this.level));
+		panel.getSound().levelSound();
 	}
 	
 	public void addSecond() {
@@ -69,23 +70,26 @@ public abstract class Game {
 	}
 	
 	public void win() {
-		Sound.getInstance().finishSound();
 		gameOver = true;
 		panel.win();
+		panel.getSound().finishSound();
 	}
 	
 	public void lose() {
-		Sound.getInstance().finishSound();
 		gameOver = true;
 		panel.lose();
+		panel.getSound().finishSound();
 	}
 	
 	public void pause() {
 		pause = !pause;
+		panel.getSound().pauseSound();
 	}
 	
 	public boolean isPause() {
 		return pause;
 	}
+	
+	public abstract void operate(int operation);
 	
 }

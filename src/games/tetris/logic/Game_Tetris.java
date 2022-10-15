@@ -65,25 +65,25 @@ public class Game_Tetris extends Game{
 		int n = Math.abs(NRandom.getInstance().nextInt(7)); 
 		switch (n) {
 		case 0:	
-			tet = new TetrominoI_Tetris(tetrisMap, panel.getImageFactory());
+			tet = new TetrominoI_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());
 			break;
 		case 1:	
-			tet = new TetrominoL_Tetris(tetrisMap, panel.getImageFactory());	
+			tet = new TetrominoL_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());	
 			break;
 		case 2:	
-			tet = new TetrominoJ_Tetris(tetrisMap, panel.getImageFactory());
+			tet = new TetrominoJ_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());
 			break;
 		case 3:	
-			tet = new TetrominoO_Tetris(tetrisMap, panel.getImageFactory());	
+			tet = new TetrominoO_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());	
 			break;
 		case 4:	
-			tet = new TetrominoS_Tetris(tetrisMap, panel.getImageFactory());
+			tet = new TetrominoS_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());
 			break;
 		case 5:	
-			tet = new TetrominoT_Tetris(tetrisMap, panel.getImageFactory());
+			tet = new TetrominoT_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());
 			break;
 		case 6:	
-			tet = new TetrominoZ_Tetris(tetrisMap, panel.getImageFactory());
+			tet = new TetrominoZ_Tetris(tetrisMap, panel.getImageFactory(), panel.getSound());
 			break;
 		}
 		

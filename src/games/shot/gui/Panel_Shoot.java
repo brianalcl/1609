@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import games.shot.logic.Game_Shoot;
 import general.gui.GamePanel;
+import general.logic.Game;
 import gui.GUI;
 import gui.GameOverPanel;
 
@@ -21,18 +22,6 @@ public class Panel_Shoot extends GamePanel{
 		super(gui, false);
 		game = new Game_Shoot(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
-	}
-	
-	protected void keyLeft() {
-		game.moveLeft();
-	}
-
-	protected void keyRight() {
-		game.moveRight();
-	}
-	
-	protected void keySpace() {
-		game.shot();
 	}
 	
 	@Override
@@ -63,13 +52,13 @@ public class Panel_Shoot extends GamePanel{
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
 					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-						keyLeft();
+						game.operate(Game.MOVE_LEFT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-						keyRight();
+						game.operate(Game.MOVE_RIGHT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-						keySpace();
+						game.operate(Game.SPACE);
 					}
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {

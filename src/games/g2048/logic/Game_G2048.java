@@ -12,24 +12,24 @@ public class Game_G2048 extends Game{
 		this.player = new Player_G2048(new Map_G2048(this), this.panel.getImageFactory());
 	}
 
-	public void moveUp() {
-		player.moveUp();
-	}
-
-	public void moveDown() {
-		player.moveDown();
-		
-	}
-
-	public void moveRight() {
-		player.moveRight();
-	}
-
-	public void moveLeft() {
-		player.moveLeft();
+	@Override
+	public void operate(int operation) {
+		switch (operation) {
+		case MOVE_DOWN:
+			player.moveDown();
+			break;
+		case MOVE_UP:
+			player.moveUp();
+			break;
+		case MOVE_LEFT:
+			player.moveLeft();
+			break;
+		case MOVE_RIGHT:
+			player.moveRight();
+			break;
+		default:
+			break;
+		}
 	}
 	
-	public void lose() {
-		super.lose();
-	}
 }

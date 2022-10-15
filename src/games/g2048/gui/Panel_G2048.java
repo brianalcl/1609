@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JLabel;
 import games.g2048.logic.Game_G2048;
 import general.gui.GamePanel;
+import general.logic.Game;
 import general.utilities.InternalBorder;
 import gui.GUI;
 import gui.GameOverPanel;
@@ -52,22 +53,6 @@ public class Panel_G2048 extends GamePanel{
 		matrix[row][column].setForeground(graphicCell.getForeground());
 	}
 	
-	protected void keyUp() {
-		game.moveUp();
-	}
-	
-	protected void keyDown() {
-		game.moveDown();
-	}
-	
-	protected void keyRight() {
-		game.moveRight();
-	}
-	
-	protected void keyLeft() {
-		game.moveLeft();
-	}	
-	
 	@Override
 	public void lose() {
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
@@ -97,16 +82,16 @@ public class Panel_G2048 extends GamePanel{
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
 					if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
-						keyUp();
+						game.operate(Game.MOVE_UP);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
-						keyDown();
+						game.operate(Game.MOVE_DOWN);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-						keyLeft();
+						game.operate(Game.MOVE_LEFT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-						keyRight();
+						game.operate(Game.MOVE_RIGHT);
 					}
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {

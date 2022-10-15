@@ -24,22 +24,6 @@ public class Panel_Snake extends GamePanel{
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 	}
 	
-	protected void keyUp() {
-		game.setDirection(Game.MOVE_UP);
-	}
-
-	protected void keyRight() {
-		game.setDirection(Game.MOVE_RIGHT);
-	}
-
-	protected void keyDown() {
-		game.setDirection(Game.MOVE_DOWN);
-	}
-
-	protected void keyLeft() {
-		game.setDirection(Game.MOVE_LEFT);
-	}
-	
 	@Override
 	public void lose() {
 		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
@@ -68,16 +52,16 @@ public class Panel_Snake extends GamePanel{
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
 					if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
-						keyUp();
+						game.operate(Game.MOVE_UP);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
-						keyDown();
+						game.operate(Game.MOVE_DOWN);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-						keyLeft();
+						game.operate(Game.MOVE_LEFT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-						keyRight();
+						game.operate(Game.MOVE_RIGHT);
 					}
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {

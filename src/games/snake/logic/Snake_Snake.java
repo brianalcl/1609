@@ -13,15 +13,17 @@ import sound.Sound;
 public class Snake_Snake {
 	protected Deque<Cell> snake;
 	protected Factory imageFactory;
+	protected Sound sound;
 	protected Map_Snake map;
 	protected GraphicCell representation;
 	protected int direction;
 	protected boolean isSetDirection;
 	
-	public Snake_Snake(Map_Snake map, Factory imageFactory) {
+	public Snake_Snake(Map_Snake map, Factory imageFactory, Sound sound) {
 		this.snake = new LinkedList<>();
 		this.map = map;
 		this.imageFactory = imageFactory;
+		this.sound = sound;
 		this.representation = new GraphicCell(imageFactory.getCapsule(), this.map.getFreeCell().getBackground());
 		this.direction = Game.MOVE_LEFT;
 		this.isSetDirection = false;
@@ -55,7 +57,7 @@ public class Snake_Snake {
 		}
 		
 		if(res) {
-			Sound.getInstance().moveSound();
+			sound.moveSound();
 			this.direction = direction;
 		}
 		

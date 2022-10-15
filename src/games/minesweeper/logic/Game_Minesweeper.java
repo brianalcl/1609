@@ -14,12 +14,9 @@ public class Game_Minesweeper extends Game{
 		this.player = new Player_Minesweeper(new Map_Minesweeper(this), this.panel.getImageFactory());
 	}
 	
-	public void lose() {
-		super.lose();
-	}
-	
-	public void win() {
-		super.win();
+	@Override
+	public void operate(int operation) {
+		// Not used.
 	}
 
 	public void click(int x, int y) {

@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import games.piano.logic.Game_Piano;
 import general.gui.GamePanel;
+import general.logic.Game;
 import general.utilities.InternalBorder;
 import gui.GUI;
 import gui.GameOverPanel;
@@ -54,18 +55,6 @@ public class Panel_Piano extends GamePanel{
 		matrix[1][6].setBorder(new InternalBorder(0, 0, borderSize, borderSize, game.getImageFactory().getColorDefault()));
 	}
 	
-	protected void keyLeft() {
-		game.left();
-	}
-
-	protected void keyRight() {
-		game.right();
-	}
-	
-	protected void keyCenter() {
-		game.center();
-	}
-	
 	@Override
 	public void lose() {
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
@@ -94,13 +83,13 @@ public class Panel_Piano extends GamePanel{
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
 					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-						keyLeft();
+						game.operate(Game.MOVE_LEFT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-						keyRight();
+						game.operate(Game.MOVE_RIGHT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
-						keyCenter();
+						game.operate(Game.MOVE_CENTER);
 					}
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {

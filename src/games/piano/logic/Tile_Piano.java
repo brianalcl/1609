@@ -7,9 +7,11 @@ import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
+import sound.Sound;
 
 public class Tile_Piano {
 	protected Factory factory;
+	protected Sound sound;
 	protected GraphicCell representation;
 	protected Map_Piano map;
 	protected Deque<Cell> wall;
@@ -17,8 +19,9 @@ public class Tile_Piano {
 	protected int pos;
 	protected boolean click;
 	
-	public Tile_Piano(Map_Piano map, Factory factory) {
+	public Tile_Piano(Map_Piano map, Factory factory, Sound sound) {
 		this.factory = factory;
+		this.sound = sound;
 		this.map = map;
 		this.representation = new GraphicCell(this.factory.getCircle(), this.map.getFreeCell().getBackground());
 		this.count = 0;
@@ -35,6 +38,7 @@ public class Tile_Piano {
 		if(this.pos == pos && !click && !wall.isEmpty() && wall.getLast().getRow() - 4 < 0) {
 			map.addPoints(100);
 			click = true;
+			sound.moveSound();
 		}
 		return click;
 	}

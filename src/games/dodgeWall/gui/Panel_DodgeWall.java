@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import games.dodgeWall.logic.Game_DodgeWall;
 import general.gui.GamePanel;
+import general.logic.Game;
 import gui.GUI;
 import gui.GameOverPanel;
 
@@ -22,20 +23,6 @@ public class Panel_DodgeWall extends GamePanel{
 		game = new Game_DodgeWall(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
 		stopKey = false;
-	}
-
-	
-	private void moveCenter() {
-		game.moveCenter();
-	}
-	
-	protected void keyUp() {
-		
-		game.moveUp();
-	}
-
-	protected void keyDown() {
-		game.moveDown();
 	}
 	
 	@Override
@@ -63,7 +50,7 @@ public class Panel_DodgeWall extends GamePanel{
 			public void keyReleased(KeyEvent e) {
 				if(!game.isPause()) {
 					if(stopKey) {
-						moveCenter();
+						game.operate(Game.MOVE_CENTER);
 						stopKey = false;
 					}
 				}
@@ -74,11 +61,11 @@ public class Panel_DodgeWall extends GamePanel{
 				if(!game.isPause()) {
 					
 					if(!stopKey && (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP)) {
-						keyUp();
+						game.operate(Game.MOVE_UP);
 						stopKey = true;
 					}
 					if(!stopKey && (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN)) {
-						keyDown();
+						game.operate(Game.MOVE_DOWN);
 						stopKey = true;
 					}
 				}

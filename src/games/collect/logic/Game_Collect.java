@@ -16,7 +16,7 @@ public class Game_Collect extends Game{
 	public Game_Collect(Panel_Collect panel) {
 		super(panel);
 		Map_Collect map = new Map_Collect(this);
-		this.player = new Player_Collect(map, this.panel.getImageFactory());
+		this.player = new Player_Collect(map, this.panel.getImageFactory(), this.panel.getSound());
 		this.clock_collect = new Clock_Collect(this, 400);
 		this.point_1 = new Point_Collect(map, this.panel.getImageFactory());
 		this.point_2 = new Point_Collect(map, this.panel.getImageFactory());
@@ -47,12 +47,18 @@ public class Game_Collect extends Game{
 		}
 	}
 	
-	public void moveLeft() {
-		player.moveLeft();
-	}
-
-	public void moveRight() {
-		player.moveRight();
+	@Override
+	public void operate(int operation) {
+		switch (operation) {
+		case MOVE_LEFT:
+			player.moveLeft();
+			break;
+		case MOVE_RIGHT:
+			player.moveRight();
+			break;
+		default:
+			break;
+		}
 	}
 	
 	@Override
@@ -63,11 +69,6 @@ public class Game_Collect extends Game{
 			if(clock_collect.getStep() > 40)
 				clock_collect.setStep(clock_collect.getStep() - 20);
 		}
-	}
-	
-	@Override
-	public void lose() {
-		super.lose();
 	}
 	
 }

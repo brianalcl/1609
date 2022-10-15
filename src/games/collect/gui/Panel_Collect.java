@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import games.collect.logic.Game_Collect;
 import general.gui.GamePanel;
+import general.logic.Game;
 import gui.GUI;
 import gui.GameOverPanel;
 
@@ -21,14 +22,6 @@ public class Panel_Collect extends GamePanel{
 		super(gui, false);
 		game = new Game_Collect(this);
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard6());
-	}
-	
-	protected void keyLeft() {
-		game.moveLeft();
-	}
-
-	protected void keyRight() {
-		game.moveRight();
 	}
 	
 	@Override
@@ -59,10 +52,10 @@ public class Panel_Collect extends GamePanel{
 			public void keyPressed(KeyEvent e) {
 				if(!game.isPause()) {
 					if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
-						keyLeft();
+						game.operate(Game.MOVE_LEFT);
 					}
 					if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-						keyRight();
+						game.operate(Game.MOVE_RIGHT);
 					}
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {

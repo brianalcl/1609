@@ -3,21 +3,18 @@ package sound;
 public class Sound {
 	private SoundClip move;
 	private SoundClip point;
-	private SoundClip shot;
 	private SoundClip finish;
-	private static Sound instance;
+	private SoundClip shot;
+	private SoundClip level;
+	private SoundClip pause;
 	
-	private Sound() {
+	public Sound() {
 		move = new SoundClip("/assets/sound/move.wav");
 		point = new SoundClip("/assets/sound/point.wav");
-		shot = new SoundClip("/assets/sound/shot.wav");
 		finish = new SoundClip("/assets/sound/finish.wav");
-	}
-	
-	public static Sound getInstance() {
-		if(instance == null)
-			instance = new Sound();
-		return instance;
+		shot = new SoundClip("/assets/sound/shot.wav");
+		level = new SoundClip("/assets/sound/level.wav");
+		pause = new SoundClip("/assets/sound/pause.wav");
 	}
 	
 	public void moveSound() {
@@ -28,11 +25,19 @@ public class Sound {
 		point.play();
 	}
 	
+	public void finishSound() {
+		finish.play();
+	}
+	
 	public void shotSound() {
 		shot.play();
 	}
 	
-	public void finishSound() {
-		finish.play();
+	public void levelSound() {
+		level.play();
+	}
+	
+	public void pauseSound() {
+		pause.play();
 	}
 }

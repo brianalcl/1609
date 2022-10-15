@@ -8,13 +8,15 @@ import sound.Sound;
 public class Player_Shoot {
 	protected Cell player;
 	protected Factory imageFactory;
+	protected Sound sound;
 	protected Map_Shoot map;
 	protected GraphicCell representation;
 	protected Shot_Shoot shot;
 	
-	public Player_Shoot(Map_Shoot map, Factory imageFactory) {
+	public Player_Shoot(Map_Shoot map, Factory imageFactory, Sound sound) {
 		this.map = map;
 		this.imageFactory = imageFactory;
+		this.sound = sound;
 		this.representation = new GraphicCell(this.imageFactory.getTriangle(), this.map.getFreeCell().getBackground());
 		this.shot = new Shot_Shoot(this.map, this.imageFactory);
 		
@@ -25,11 +27,11 @@ public class Player_Shoot {
 	public void moveLeft() {
 		
 		if(player.getColumn() - 1 >= 0) {
-			Sound.getInstance().moveSound();
 			if(checkLeft()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() - 1);
 				player.put(representation);
+				sound.moveSound();
 			}
 			else
 				map.lose();
@@ -39,11 +41,11 @@ public class Player_Shoot {
 	public void moveRight() {
 		
 		if(player.getColumn() + 1 <= 8) {
-			Sound.getInstance().moveSound();
 			if(checkRight()) {
 				player.clear();
 				player = this.map.getCell(player.getRow(), player.getColumn() + 1);
 				player.put(representation);
+				sound.moveSound();
 			}
 			else
 				map.lose();
@@ -56,6 +58,7 @@ public class Player_Shoot {
 	
 	public void shot() {
 		shot.putShot(player.getRow() + 1, player.getColumn());
+		sound.shotSound();
 	}
 	
 	public void moveShot() {

@@ -18,12 +18,30 @@ public class Game_Piano extends Game{
 		Map_Piano map = new Map_Piano(this);
 		this.player = new Player_Piano(map, this.panel.getImageFactory());
 		this.clock_piano = new Clock_Piano(this, 400);
-		this.tile_1 = new Tile_Piano(map, this.panel.getImageFactory());
-		this.tile_2 = new Tile_Piano(map, this.panel.getImageFactory());
-		this.tile_3 = new Tile_Piano(map, this.panel.getImageFactory());
-		this.tile_4 = new Tile_Piano(map, this.panel.getImageFactory());
+		this.tile_1 = new Tile_Piano(map, this.panel.getImageFactory(), this.panel.getSound());
+		this.tile_2 = new Tile_Piano(map, this.panel.getImageFactory(), this.panel.getSound());
+		this.tile_3 = new Tile_Piano(map, this.panel.getImageFactory(), this.panel.getSound());
+		this.tile_4 = new Tile_Piano(map, this.panel.getImageFactory(), this.panel.getSound());
 		this.tick = 0;
 		this.clock_piano.start();
+	}
+	
+	@Override
+	public void operate(int operation) {
+		switch (operation) {
+		case MOVE_LEFT:
+			click(0);
+			break;
+		case MOVE_CENTER:
+			click(1);
+			break;
+		case MOVE_RIGHT:
+			click(2);
+			break;
+
+		default:
+			break;
+		}
 	}
 	
 	public synchronized void run() {
@@ -40,18 +58,6 @@ public class Game_Piano extends Game{
 			tick++;
 		}
 		
-	}
-	
-	public void left() {
-		click(0);
-	}
-	
-	public void center() {
-		click(1);
-	}
-	
-	public void right() {
-		click(2);
 	}
 	
 	public void click(int pos) {
@@ -74,11 +80,6 @@ public class Game_Piano extends Game{
 			if(clock_piano.getStep() > 40)
 				clock_piano.setStep(clock_piano.getStep() - 20);
 		}
-	}
-	
-	@Override
-	public void lose() {
-		super.lose();
 	}
 	
 }

@@ -6,7 +6,6 @@ import java.util.Queue;
 import factory.Factory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
-import sound.Sound;
 
 public class Shot_Shoot {
 	protected Queue<Cell> shot;
@@ -22,7 +21,6 @@ public class Shot_Shoot {
 	}
 	
 	public void putShot(int r, int c) {
-		Sound.getInstance().shotSound();
 		Cell cell = map.getCell(r, c);
 		if(cell.isFree()) {
 			cell.put(representation);

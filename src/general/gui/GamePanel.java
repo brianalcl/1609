@@ -8,6 +8,7 @@ import factory.Factory;
 import general.logic.Map;
 import general.utilities.InternalBorderRound;
 import gui.GUI;
+import sound.Sound;
 
 import java.awt.GridLayout;
 
@@ -79,6 +80,10 @@ public abstract class GamePanel extends GeneralPanel{
 	public Factory getImageFactory() {
 		return gui.getImageFactory();
 	}	
+	
+	public Sound getSound() {
+		return gui.getSound();
+	}
 	
 	private void createStats() {
 		int borderSize = (int) Math.round(2 * scaleFactor);

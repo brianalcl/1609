@@ -14,7 +14,7 @@ public class Game_DodgeWall extends Game{
 	public Game_DodgeWall(Panel_DodgeWall panel) {
 		super(panel);
 		Map_DodgeWall map = new Map_DodgeWall(this);
-		this.player = new Player_DodgeWall(map, this.panel.getImageFactory());
+		this.player = new Player_DodgeWall(map, this.panel.getImageFactory(), this.panel.getSound());
 		this.wall_1 = new Wall_DodgeWall(map, this.panel.getImageFactory());
 		this.wall_2 = new Wall_DodgeWall(map, this.panel.getImageFactory());
 		this.clock_dodgeWall = new Clock_DodgeWall(this, 200);
@@ -37,15 +37,21 @@ public class Game_DodgeWall extends Game{
 		}
 	}
 	
-	public void moveUp() {
-		player.moveUp();
-	}
-	public void moveDown() {
-		player.moveDown();
-	}
-
-	public void moveCenter() {
-		player.moveCenter();
+	@Override
+	public void operate(int operation) {
+		switch (operation) {
+		case MOVE_UP:
+			player.moveUp();
+			break;
+		case MOVE_DOWN:
+			player.moveDown();
+			break;
+		case MOVE_CENTER:
+			player.moveCenter();
+			break;
+		default:
+			break;
+		}
 	}
 	
 	@Override
@@ -56,11 +62,6 @@ public class Game_DodgeWall extends Game{
 			if(clock_dodgeWall.getStep() > 60)
 				clock_dodgeWall.setStep(clock_dodgeWall.getStep() - 20);
 		}
-	}
-	
-	@Override
-	public void lose() {
-		super.lose();
 	}
 
 }

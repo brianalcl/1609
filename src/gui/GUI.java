@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import factory.Factory;
+import sound.Sound;
 
 public class GUI extends JFrame {
 	
@@ -17,15 +18,18 @@ public class GUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected Factory factory;
+	protected Sound sound;
 	protected JPanel panel;
 	protected Font font;
 	
 	/**
 	 * Create the frame. Receives by parameter a factory.
 	 * @param factory a factory.
+	 * @param sound a sound object.
 	 */
-	public GUI(Factory factory) {
+	public GUI(Factory factory, Sound sound) {
 		this.factory = factory;
+		this.sound = sound;
 		this.panel = new JPanel();
 		initialize();
 		createFont();
@@ -63,6 +67,14 @@ public class GUI extends JFrame {
 	 */
 	public Factory getImageFactory() {
 		return factory;
+	}
+	
+	/**
+	 * Return the object.
+	 * @return the object.
+	 */
+	public Sound getSound() {
+		return sound;
 	}
 	
 	/**

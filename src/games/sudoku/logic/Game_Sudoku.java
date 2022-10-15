@@ -11,15 +11,12 @@ public class Game_Sudoku extends Game{
 		super(sudokuPanel);
 		this.player = new Player_Sudoku(new Map_Sudoku(this), this.panel.getImageFactory());
 	}
-	
-	public void lose() {
-		super.lose();
-	}
-	
-	public void win() {
-		super.win();
-	}
 
+	@Override
+	public void operate(int operation) {
+		// Not used.
+	}
+	
 	public void click(int x, int y) {
 		int row = Math.abs((y - 15)%16);
 		int column = x;

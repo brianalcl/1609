@@ -16,6 +16,7 @@ public abstract class Tetromino_Tetris {
 	protected Pair<Integer, Integer>[] movements;
 	protected GraphicCell representation;
 	protected Factory factory;
+	protected Sound sound;
 	
 	/**
 	 * Create a new tetromino.
@@ -23,9 +24,10 @@ public abstract class Tetromino_Tetris {
 	 * @param factory A Factory.
 	 */
 	@SuppressWarnings("unchecked")
-	protected Tetromino_Tetris(Map_Tetris tetrisMap, Factory factory) {
+	protected Tetromino_Tetris(Map_Tetris tetrisMap, Factory factory, Sound sound) {
 		this.tetrisMap = tetrisMap;
 		this.factory = factory;
+		this.sound = sound;
 		this.rotation = 0;
 		this.tetromino = new Cell[4];
 		this.movements = new Pair[4]; //A common warning in Java.
@@ -68,7 +70,7 @@ public abstract class Tetromino_Tetris {
 		}
 		
 		if(possible) {
-			Sound.getInstance().moveSound();
+			sound.moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);
@@ -89,7 +91,7 @@ public abstract class Tetromino_Tetris {
 		}
 		
 		if(possible) {
-			Sound.getInstance().moveSound();
+			sound.moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);
@@ -113,7 +115,6 @@ public abstract class Tetromino_Tetris {
 		}
 		
 		if(possible) {
-			Sound.getInstance().moveSound();
 			clearTetromino();
 			for(int i = 0; i < tetromino.length; i++) {
 				move(tetromino[i], movement, i);
@@ -135,8 +136,12 @@ public abstract class Tetromino_Tetris {
 		
 		rotation = (rotation + 2) % 4;
 		
-		if(!rotated)
+		if(!rotated) {
 			rotation = (rotation + 1) % 4;
+		}
+		else {
+			sound.moveSound();
+		}
 	}
 	
 	/**
@@ -147,8 +152,12 @@ public abstract class Tetromino_Tetris {
 		
 		rotation = (rotation + 1) % 4;
 		
-		if(!rotated) 
+		if(!rotated) {
 			rotation = (rotation + 3) % 4;
+		}
+		else {
+			sound.moveSound();
+		}
 	}
 	
 	/**
