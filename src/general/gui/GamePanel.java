@@ -40,7 +40,7 @@ public abstract class GamePanel extends GeneralPanel{
 		
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		panel.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
-		lblBg.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), 20));
+		lblBg.setBackground(panel.getBackground());
 		
 		if(isHorizontal)
 			createHorizontal();
@@ -174,7 +174,6 @@ public abstract class GamePanel extends GeneralPanel{
 	private void createCentralPanel() {
 		int cellSize = Math.round(Math.round(54 * scaleFactor));
 		
-		int borderSize = (int) Math.round(2 * scaleFactor);
 		int borderRadius = (int) Math.round(64 * scaleFactor);
 		
 		int w = matrix[0].length * cellSize;
@@ -182,8 +181,8 @@ public abstract class GamePanel extends GeneralPanel{
 		int x = (getWidth() - w) / 2;
 		int y = (getHeight() - h) / 2;
 		
-		int lblBgW = (matrix[0].length + 1) * cellSize;
-		int lblBgH = (matrix.length + 1) * cellSize;
+		int lblBgW = (matrix[0].length + 1) * cellSize - cellSize/2;
+		int lblBgH = (matrix.length + 1) * cellSize - cellSize/2;
 		int lblBgX = (getWidth() - lblBgW) / 2;
 		int lblBgY = (getHeight() - lblBgH) / 2;
 		
@@ -198,7 +197,7 @@ public abstract class GamePanel extends GeneralPanel{
 		add(panel);
 		
 		lblBg.setOpaque(true);
-		lblBg.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
+		lblBg.setBorder(new InternalBorderRound(0, borderRadius, getBackground()));
 		add(lblBg);
 		
 		for(int r = matrix.length-1; r >= 0; r--) {
