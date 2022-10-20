@@ -10,7 +10,7 @@ public class Clock extends Thread{
 	
 	public Clock(Game game) {
 		this.game = game;
-		this.active = true;
+		this.active = !game.isGameOver();
 		this.currentTime = System.nanoTime();
 		this.FPS = 60;
 	}
