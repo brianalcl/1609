@@ -90,6 +90,10 @@ public abstract class Game {
 		return pause;
 	}
 	
+	public void repaint() {
+		panel.repaint();
+	}
+	
 	public abstract void operate(int operation);
 	
 }
