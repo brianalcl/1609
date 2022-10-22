@@ -24,7 +24,9 @@ public class Panel_Sudoku extends GamePanel{
 	
 	public Panel_Sudoku(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "8_save";
 		game = new Game_Sudoku(this);
+		load();
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard5());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
@@ -86,11 +88,12 @@ public class Panel_Sudoku extends GamePanel{
 	
 	@Override
 	public void lose() {
-		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
+		//No lose.
 	}
 
 	@Override
 	public void win() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "WIN", lblScore.getText(), lblTime.getText()));
 	}
 
@@ -98,6 +101,11 @@ public class Panel_Sudoku extends GamePanel{
 	public void restart() {
 		gui.setPanel(new Panel_Sudoku(gui));
 		
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

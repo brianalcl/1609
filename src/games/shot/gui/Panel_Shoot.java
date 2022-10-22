@@ -20,12 +20,15 @@ public class Panel_Shoot extends GamePanel{
 	
 	public Panel_Shoot(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "6_save";
 		game = new Game_Shoot(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
 	}
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -37,6 +40,11 @@ public class Panel_Shoot extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Shoot(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

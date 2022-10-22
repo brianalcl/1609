@@ -20,12 +20,15 @@ public class Panel_Collect extends GamePanel{
 	
 	public Panel_Collect(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "1_save";
 		game = new Game_Collect(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard6());
 	}
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -37,6 +40,11 @@ public class Panel_Collect extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Collect(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

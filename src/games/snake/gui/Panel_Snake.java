@@ -20,23 +20,32 @@ public class Panel_Snake extends GamePanel{
 	
 	public Panel_Snake(GUI gui) {
 		super(gui, true);
+		fileToSavePath = "7_save";
 		game = new Game_Snake(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 	}
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
 	}
 	
 	@Override
 	public void win() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this,"WIN", lblScore.getText(), lblTime.getText()));
 	}
 	
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Snake(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

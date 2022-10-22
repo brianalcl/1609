@@ -21,7 +21,9 @@ public class Panel_Piano extends GamePanel{
 	
 	public Panel_Piano(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "5_save";
 		game = new Game_Piano(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard7());
 		putBorder();
 	}
@@ -57,6 +59,7 @@ public class Panel_Piano extends GamePanel{
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -68,6 +71,11 @@ public class Panel_Piano extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Piano(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

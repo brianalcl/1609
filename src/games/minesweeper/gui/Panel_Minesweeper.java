@@ -24,7 +24,9 @@ public class Panel_Minesweeper extends GamePanel{
 	
 	public Panel_Minesweeper(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "4_save";
 		game = new Game_Minesweeper(this);
+		load();
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
 		putBorder();
 	}
@@ -55,17 +57,24 @@ public class Panel_Minesweeper extends GamePanel{
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "LOSE", lblScore.getText(), lblTime.getText()));
 	}
 
 	@Override
 	public void win() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "WIN", lblScore.getText(), lblTime.getText()));
 	}
 
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Minesweeper(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

@@ -22,7 +22,9 @@ public class Panel_G2048 extends GamePanel{
 	
 	public Panel_G2048(GUI gui) {
 		super(gui, true);
+		fileToSavePath = "3_save";
 		game = new Game_G2048(this);
+		load();
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
 		putBorder();
 	}
@@ -55,6 +57,7 @@ public class Panel_G2048 extends GamePanel{
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -67,6 +70,11 @@ public class Panel_G2048 extends GamePanel{
 	public void restart() {
 		gui.setPanel(new Panel_G2048(gui));
 		
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

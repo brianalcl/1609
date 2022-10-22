@@ -20,13 +20,16 @@ public class Panel_DodgeWall extends GamePanel{
 	
 	public Panel_DodgeWall(GUI gui) {
 		super(gui, true);
+		fileToSavePath = "2_save";
 		game = new Game_DodgeWall(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
 		stopKey = false;
 	}
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -38,6 +41,11 @@ public class Panel_DodgeWall extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_DodgeWall(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override

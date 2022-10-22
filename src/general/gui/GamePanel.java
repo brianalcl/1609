@@ -5,12 +5,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import factory.Factory;
+import general.data.PlayerScore;
+import general.data.StatsData;
+import general.data.PlayersRegistry;
 import general.logic.Map;
 import general.utilities.InternalBorderRound;
 import gui.GUI;
 import sound.Sound;
 
 import java.awt.GridLayout;
+import java.io.IOException;
 
 
 public abstract class GamePanel extends GeneralPanel{
@@ -24,9 +28,12 @@ public abstract class GamePanel extends GeneralPanel{
 	protected JLabel lblTime;
 	protected JLabel lblLevel;
 	protected JLabel lblScore;
+	protected JLabel lblHighScore;
 	protected JLabel lblKeyboard;
 	protected JLabel lblMouse;
 	protected JLabel lblBg;
+	protected int score;
+	protected String fileToSavePath;
 	
 	public GamePanel(GUI gui, boolean isHorizontal) {
 		super(gui);
@@ -34,9 +41,11 @@ public abstract class GamePanel extends GeneralPanel{
 		lblTime = new JLabel("Time: 00:00");
 		lblLevel = new JLabel("Level: 00");
 		lblScore = new JLabel("Score: 00000");
+		lblHighScore = new JLabel("High: 00000");
 		lblKeyboard = new JLabel("");
 		lblMouse = new JLabel("");
 		lblBg = new JLabel("");
+		score = 0;
 		
 		setBackground(this.gui.getImageFactory().getColorDefault());
 		panel.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
@@ -52,6 +61,34 @@ public abstract class GamePanel extends GeneralPanel{
 		addControls();
 	}
 	
+	protected void load() {
+		PlayersRegistry register;
+		
+		try {
+			register = (new StatsData(this)).load();
+			lblHighScore.setText("High: " + register.getScores().getScore());
+		} catch (ClassNotFoundException | IOException e) {
+			System.out.println("Error to save.");
+		}
+	}
+	
+	protected void save() {
+		
+		PlayersRegistry register;
+		StatsData sd;
+		
+		try {
+			sd = new StatsData(this);
+			register = sd.load();
+			register.addPlayer(new PlayerScore(score));
+			sd.save(register);
+		} catch (ClassNotFoundException | IOException e) {
+			System.out.println("Error to save.");
+		}
+	}
+	
+	public abstract String getFileToSavePath();
+	
 	public abstract void lose();
 	
 	public abstract void win();
@@ -61,7 +98,8 @@ public abstract class GamePanel extends GeneralPanel{
 	protected abstract void addControls();
 	
 	public void setPoints(String score) {
-		lblScore.setText("Score: " + score);	
+		this.score = Integer.parseInt(score);
+		lblScore.setText("Score: " + score);
 	}
 
 	public void setTime(String time) {
@@ -107,6 +145,12 @@ public abstract class GamePanel extends GeneralPanel{
 		h = (int) Math.round(100 * scaleFactor);
 		lblScore.setBounds(x, y, w, h);		
 		
+		x = (int) Math.round((1920 - 150 - 500) * scaleFactor);
+		y = (int) Math.round(150 * scaleFactor);
+		w = (int) Math.round(500 * scaleFactor);
+		h = (int) Math.round(100 * scaleFactor);
+		lblHighScore.setBounds(x, y, w, h);		
+		
 		lblTime.setFont(font.deriveFont(Math.round(80 * scaleFactor) * 1.0f));
 		lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		lblTime.setForeground(gui.getImageFactory().getColorForeground());
@@ -128,9 +172,17 @@ public abstract class GamePanel extends GeneralPanel{
 		lblScore.setBackground(panel.getBackground());
 		lblScore.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
 		
+		lblHighScore.setFont(font.deriveFont(Math.round(80 * scaleFactor) * 1.0f));
+		lblHighScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		lblHighScore.setForeground(gui.getImageFactory().getColorForeground());
+		lblHighScore.setOpaque(true);
+		lblHighScore.setBackground(panel.getBackground());
+		lblHighScore.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
+		
 		add(lblTime);
 		add(lblLevel);
 		add(lblScore);
+		add(lblHighScore);
 	}
 
 	private void createVertical() {

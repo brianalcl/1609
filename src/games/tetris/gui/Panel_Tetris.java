@@ -19,7 +19,9 @@ public class Panel_Tetris extends GamePanel{
 
 	public Panel_Tetris(GUI gui) {
 		super(gui, false);
+		fileToSavePath = "9_save";
 		game = new Game_Tetris(this);
+		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
 	}
 
@@ -45,6 +47,7 @@ public class Panel_Tetris extends GamePanel{
 	
 	@Override
 	public void lose() {
+		save();
 		gui.setPanel(new GameOverPanel(gui, this, "FINISH", lblScore.getText(), lblTime.getText()));
 	}
 	
@@ -56,6 +59,11 @@ public class Panel_Tetris extends GamePanel{
 	@Override
 	public void restart() {
 		gui.setPanel(new Panel_Tetris(gui));
+	}
+	
+	@Override
+	public String getFileToSavePath() {
+		return fileToSavePath;
 	}
 	
 	@Override
