@@ -119,14 +119,6 @@ public class ColorfulFactory extends Factory{
 		return getTheIcon("/assets/img/r1080/gui/configuration.png");
 	}
 
-	public Icon getHorizontalMap() {
-		return getTheIcon("/assets/img/r1080/gui/horizontalMap.png");
-	}
-
-	public Icon getVerticalMap() {
-		return getTheIcon("/assets/img/r1080/gui/verticalMap.png");
-	}	
-
 	public Icon getEmpty() {
 		return null;
 	}
