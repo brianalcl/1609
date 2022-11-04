@@ -44,7 +44,7 @@ public class GameOverPanel extends GeneralPanel{
 		lblTime = new JLabel(time);
 		btnPanel = new JPanel();
 		color_1 = gui.getImageFactory().getColorDefault();
-		color_2 = gui.getImageFactory().getMarkColor(color_1, -20);
+		color_2 = gui.getImageFactory().getDefaultMarkColor();
 		
 		createButtons();
 		createLabels();
@@ -159,11 +159,11 @@ public class GameOverPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), 10));
+				e.getComponent().setBackground(gui.getImageFactory().getDefaultMarkColor().brighter());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), -10));
+				e.getComponent().setBackground(gui.getImageFactory().getDefaultMarkColor());
 			}
 
 		};

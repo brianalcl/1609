@@ -53,7 +53,7 @@ public class InitialPanel extends GeneralPanel{
 		int borderRadius = (int) Math.round(96 * scaleFactor);
 		
 		btnConfiguration = new JButton(gui.getImageFactory().getConfiguration());
-		btnConfiguration.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
+		btnConfiguration.setBackground(gui.getImageFactory().getDefaultMarkColor());
 		btnConfiguration.setFocusable(false);
 		btnConfiguration.addMouseListener(getMouseAdapter());
 		btnConfiguration.addActionListener(e -> gui.setPanel(new ConfigurationPanel(this.gui)));
@@ -64,7 +64,7 @@ public class InitialPanel extends GeneralPanel{
 		for(int r = 0; r < 3; r++) {
 			for(int c = 0; c < 3; c++) {
 				matrix[r][c] = new JButton();
-				matrix[r][c].setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
+				matrix[r][c].setBackground(gui.getImageFactory().getDefaultMarkColor());
 				matrix[r][c].setFocusable(false);
 				matrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
 				matrix[r][c].addMouseListener(getMouseAdapter());
@@ -95,11 +95,11 @@ public class InitialPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), 10));
+				e.getComponent().setBackground(gui.getImageFactory().getDefaultMarkColor().brighter());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), -10));
+				e.getComponent().setBackground(gui.getImageFactory().getDefaultMarkColor());
 			}
 
 		};

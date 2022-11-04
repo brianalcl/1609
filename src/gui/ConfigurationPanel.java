@@ -162,11 +162,11 @@ public class ConfigurationPanel extends GeneralPanel{
 		return new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), -10));
+				e.getComponent().setBackground(e.getComponent().getBackground().brighter());
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				e.getComponent().setBackground(gui.getImageFactory().getMarkColor(e.getComponent().getBackground(), 10));
+				e.getComponent().setBackground(e.getComponent().getBackground().darker());
 			}
 
 		};

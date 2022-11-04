@@ -48,7 +48,7 @@ public abstract class GamePanel extends GeneralPanel{
 		score = 0;
 		
 		setBackground(this.gui.getImageFactory().getColorDefault());
-		panel.setBackground(gui.getImageFactory().getMarkColor(gui.getImageFactory().getColorDefault(), -20));
+		panel.setBackground(gui.getImageFactory().getDefaultMarkColor());
 		lblBg.setBackground(panel.getBackground());
 		
 		if(isHorizontal)

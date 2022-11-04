@@ -22,7 +22,7 @@ public class Cell_Sudoku extends Cell{
 	public void mark() {
 		if(!mark) {
 			mark = true;
-			gc.setBackground(factory.getMarkColor(gc.getBackground(), 20));
+			gc.setBackground(factory.getColorDefault());
 			map.changeCell(this);
 			
 		}
@@ -32,7 +32,7 @@ public class Cell_Sudoku extends Cell{
 	public void unmark() {
 		if(mark) {
 			mark = false;
-			gc.setBackground(factory.getMarkColor(gc.getBackground(), -20));
+			gc.setBackground(factory.getDefaultMarkColor());
 			map.changeCell(this);
 		}
 	}

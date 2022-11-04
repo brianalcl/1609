@@ -227,9 +227,16 @@ public class Map_G2048 extends Map{
 	
 	private void createColors() {
 		Color baColor = game.getImageFactory().getColorDefault();
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		
 		for(int i = 2; i <= 65536; i = i * 2) {
 			mapColor.put(i, baColor);
-			baColor = game.getImageFactory().getMarkColor(baColor, 15);
+			r = Math.abs((baColor.getRed() - 12) % 255);
+			g = Math.abs((baColor.getGreen() - 12) % 255);
+			b = Math.abs((baColor.getBlue() - 12) % 255);
+			baColor = new Color(r, g, b);
 		}
 	}
 }

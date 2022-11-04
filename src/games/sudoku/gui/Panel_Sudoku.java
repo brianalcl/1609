@@ -34,7 +34,6 @@ public class Panel_Sudoku extends GamePanel{
 	
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
-		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 20);
 		int borderSize_1 = (int) Math.round(2 * scaleFactor);
 		int borderSize_2 = (int) Math.round(3 * scaleFactor);
 		

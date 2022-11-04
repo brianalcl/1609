@@ -33,7 +33,7 @@ public class Panel_Minesweeper extends GamePanel{
 	
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
-		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, 20);
+		colorBorder = gui.getImageFactory().getColorDefault();
 		int borderSize = (int) Math.round(3 * scaleFactor);
 		int borderRadius = (int) Math.round(32 * scaleFactor);
 		

@@ -40,22 +40,22 @@ public class ColorfulFactory extends Factory{
 		return colorForeground;
 	}
 	
-	public Color getMarkColor(Color color, int f) {
-		Color res = color;
-		int r = res.getRed();
-		int g = res.getGreen();
-		int b = res.getBlue();
+	public Color getDefaultMarkColor() {
+		Color res = colorDefault;
+		int r = colorDefault.getRed();
+		int g = colorDefault.getGreen();
+		int b = colorDefault.getBlue();
 		boolean editable = false;
-		if(r + f >= 0 && r + f <= 255) {
-			r += f;
+		if(r - 20 >= 0) {
+			r -= 20;
 			editable = true;
 		}
-		if(g + f >= 0 && g + f <= 255) {
-			g += f;
+		if(g - 20 >= 0) {
+			g -= 20;
 			editable = true;
 		}
-		if(b + f >= 0 && b + f <= 255) {
-			b += f;
+		if(b - 20 >= 0) {
+			b -= 20;
 			editable = true;
 		}
 		if(editable)

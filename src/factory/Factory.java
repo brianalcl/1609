@@ -90,12 +90,10 @@ public abstract class Factory {
 	public abstract Color getColorForeground();	
 	
 	/**
-	 * Allows scaling a color with a factor passed by parameter.
-	 * @param color
-	 * @param f a factor.
+	 * Returns a color similar to the default color.
 	 * @return new Color.
 	 */
-	public abstract Color getMarkColor(Color color, int f);
+	public abstract Color getDefaultMarkColor();
 	
 	/**
 	 * Return the configuration icon.

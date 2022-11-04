@@ -31,7 +31,7 @@ public class Panel_G2048 extends GamePanel{
 	
 	private void putBorder() {
 		Color colorBorder = gui.getImageFactory().getColorDefault();
-		colorBorder = gui.getImageFactory().getMarkColor(colorBorder, -20);
+		colorBorder = gui.getImageFactory().getDefaultMarkColor();
 		int borderSize = (int) Math.round(3 * scaleFactor);
 		
 		for(int r = 2; r < 9; r += 2) {
