@@ -24,6 +24,7 @@ public class Panel_DodgeWall extends GamePanel{
 		game = new Game_DodgeWall(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard3());
+		lblKeyboard.setVisible(true);
 		stopKey = false;
 	}
 	

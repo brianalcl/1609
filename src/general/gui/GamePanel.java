@@ -183,6 +183,18 @@ public abstract class GamePanel extends GeneralPanel{
 		add(lblLevel);
 		add(lblScore);
 		add(lblHighScore);
+		
+		lblKeyboard.setForeground(gui.getImageFactory().getColorForeground());
+		lblKeyboard.setOpaque(true);
+		lblKeyboard.setBackground(panel.getBackground());
+		lblKeyboard.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
+		lblKeyboard.setVisible(false);
+		
+		lblMouse.setForeground(gui.getImageFactory().getColorForeground());
+		lblMouse.setOpaque(true);
+		lblMouse.setBackground(panel.getBackground());
+		lblMouse.setBorder(new InternalBorderRound(borderSize, borderRadius, getBackground()));
+		lblMouse.setVisible(false);
 	}
 
 	private void createVertical() {

@@ -24,6 +24,7 @@ public class Panel_Shoot extends GamePanel{
 		game = new Game_Shoot(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard4());
+		lblKeyboard.setVisible(true);
 	}
 	
 	@Override

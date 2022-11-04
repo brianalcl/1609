@@ -28,6 +28,7 @@ public class Panel_Minesweeper extends GamePanel{
 		game = new Game_Minesweeper(this);
 		load();
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
+		lblMouse.setVisible(true);
 		putBorder();
 	}
 	

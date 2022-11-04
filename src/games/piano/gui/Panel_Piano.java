@@ -25,6 +25,7 @@ public class Panel_Piano extends GamePanel{
 		game = new Game_Piano(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard7());
+		lblKeyboard.setVisible(true);
 		putBorder();
 	}
 	

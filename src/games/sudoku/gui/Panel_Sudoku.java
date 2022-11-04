@@ -29,6 +29,8 @@ public class Panel_Sudoku extends GamePanel{
 		load();
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard5());
 		lblMouse.setIcon(gui.getImageFactory().getMouse());
+		lblKeyboard.setVisible(true);
+		lblMouse.setVisible(true);
 		putBorder();
 	}
 	

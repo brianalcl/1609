@@ -24,6 +24,7 @@ public class Panel_Snake extends GamePanel{
 		game = new Game_Snake(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setVisible(true);
 	}
 	
 	@Override

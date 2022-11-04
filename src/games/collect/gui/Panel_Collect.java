@@ -24,6 +24,7 @@ public class Panel_Collect extends GamePanel{
 		game = new Game_Collect(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard6());
+		lblKeyboard.setVisible(true);
 	}
 	
 	@Override

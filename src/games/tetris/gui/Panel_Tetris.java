@@ -23,6 +23,7 @@ public class Panel_Tetris extends GamePanel{
 		game = new Game_Tetris(this);
 		load();
 		lblKeyboard.setIcon(gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setVisible(true);
 	}
 
 	protected void keyRight() {

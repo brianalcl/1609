@@ -26,6 +26,7 @@ public class Panel_G2048 extends GamePanel{
 		game = new Game_G2048(this);
 		load();
 		lblKeyboard.setIcon(this.gui.getImageFactory().getKeyboard1());
+		lblKeyboard.setVisible(true);
 		putBorder();
 	}
 	
