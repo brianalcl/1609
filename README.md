@@ -9,8 +9,8 @@ All games share a set of logical and visual functions.
 A focus was put on inheritance to avoid repeating code between different games, the use of design patterns was also contemplated.
 The code is written in English (variables, methods, classes...) and is organized as follows:
 - Inside the "src" folder are the different packages with code. Now let's look at each root package.
+- The "abstractFactory" package contains an abstract factory and two specific factories.
 - The "assets" package contains images, fonts and any external content that is added to the project.
-- The "factory" package contains an abstract and a specific factory.
 - The "games" package contains the implementation of all the games.
 - The "gamesData" package contains files that are read in some games.
 - The "general" package contains all the general or common implementations of the project.
