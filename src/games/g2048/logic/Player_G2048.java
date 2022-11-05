@@ -1,13 +1,13 @@
 package games.g2048.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 
 public class Player_G2048 {
 	
 	protected Map_G2048 map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Player_G2048(Map_G2048 map, Factory imageFactory) {
+	public Player_G2048(Map_G2048 map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 	}

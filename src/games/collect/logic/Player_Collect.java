@@ -1,18 +1,18 @@
 package games.collect.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import sound.Sound;
 
 public class Player_Collect {
 	protected Cell[] player;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	protected Sound sound;
 	protected Map_Collect map;
 	protected GraphicCell representation;
 	
-	public Player_Collect(Map_Collect map, Factory imageFactory, Sound sound) {
+	public Player_Collect(Map_Collect map, AbstractFactory imageFactory, Sound sound) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.sound = sound;

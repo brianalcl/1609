@@ -9,8 +9,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import abstractFactory.DarkFactory;
+import abstractFactory.LightFactory;
 import general.gui.GeneralPanel;
 import general.utilities.InternalBorderRound;
 
@@ -20,140 +23,295 @@ public class ConfigurationPanel extends GeneralPanel{
 	 * SerialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
-	protected JButton[][] matrix;
-	protected JPanel panel;
-	protected Color colorDarkSlateGray;
-	protected Color colorDarkCyan;
-	protected Color colorDarkGreen;
-	protected Color colorDarkOliveGreen;
-	protected Color colorDarkGoldenRod;
-	protected Color colorMediumOrchid;
-	protected Color colorSienna;
-	protected Color colorPurple;
-	protected Color colorCrimson;
+	protected JButton[][] lightMatrix;
+	protected JPanel lightPanel;
+	protected Color light_1;
+	protected Color light_2;
+	protected Color light_3;
+	protected Color light_4;
+	protected Color light_5;
+	protected Color light_6;
+	protected Color light_7;
+	protected Color light_8;
+	protected Color light_9;
+	
+	protected JButton[][] darkMatrix;
+	protected JPanel darkPanel;
+	protected Color dark_1;
+	protected Color dark_2;
+	protected Color dark_3;
+	protected Color dark_4;
+	protected Color dark_5;
+	protected Color dark_6;
+	protected Color dark_7;
+	protected Color dark_8;
+	protected Color dark_9;
+	
+	protected JLabel lblBg;
 	
 	public ConfigurationPanel(GUI gui) {
 		super(gui);		
 		
-		colorDarkSlateGray = new Color(47, 79, 79);
-		colorDarkCyan = new Color(20, 139, 139);
-		colorDarkGreen = new Color(20, 100, 20);	
-		colorDarkOliveGreen = new Color(85, 107, 47);
-		colorDarkGoldenRod = new Color(164, 134, 21);
-		colorMediumOrchid = new Color(186, 85, 211);
-		colorSienna = new Color(160, 82, 45);
-		colorPurple = new Color(128, 20, 128);
-		colorCrimson = new Color(220, 20, 60);
+		light_1 = new Color(205, 97, 85);
+		light_2 = new Color(165, 105, 189);
+		light_3 = new Color(84, 153, 199);	
+		light_4 = new Color(69, 179, 157);
+		light_5 = new Color(82, 190, 128);
+		light_6 = new Color(245, 176, 65);
+		light_7 = new Color(220, 118, 51);
+		light_8 = new Color(153, 163, 164);
+		light_9 = new Color(93, 109, 126);
+		
+		dark_1 = new Color(100, 30, 22);
+		dark_2 = new Color(74, 35, 90);
+		dark_3 = new Color(21, 67, 96);	
+		dark_4 = new Color(11, 83, 69);
+		dark_5 = new Color(24, 106, 59);
+		dark_6 = new Color(126, 81, 9);
+		dark_7 = new Color(110, 44, 0);
+		dark_8 = new Color(66, 73, 73);
+		dark_9 = new Color(23, 32, 42);
 		
 		setBackground(this.gui.getImageFactory().getColorDefault());
-		matrix = new JButton[3][3];
-		panel = new JPanel();
-		createPanel();
-		putBottons();
+		darkMatrix = new JButton[3][3];
+		darkPanel = new JPanel();
+		
+		lightMatrix = new JButton[3][3];
+		lightPanel = new JPanel();
+		createPanelLight();
+		putBottonsLight();
+		
+		createPanelDark();
+		putBottonsDark();
+		
+		lblBg = new JLabel();
+		createLblBg();
 	}
 	
-	private void createPanel() {
-		int x = (int) Math.round(((1920 - 600) / 2) * scaleFactor);
-		int y = (int) Math.round(((1080 - 600) / 2) * scaleFactor);
+	private void createPanelLight() {
+		int x = (int) Math.round(360 * scaleFactor);
+		int y = (int) Math.round((1080 - 1000) * scaleFactor);
 		int w = (int) Math.round(600 * scaleFactor);
 		int h = (int) Math.round(600 * scaleFactor);
-		panel.setBounds(x,y,w,h);
-		panel.setLayout(new GridLayout(matrix.length, matrix[0].length));
-		panel.setBackground(gui.getImageFactory().getColorDefault());
-		add(panel);
+		lightPanel.setBounds(x,y,w,h);
+		lightPanel.setLayout(new GridLayout(lightMatrix.length, lightMatrix[0].length));
+		lightPanel.setBackground(gui.getImageFactory().getDefaultMarkColor());
+		add(lightPanel);
 	}
 	
-	private void putBottons() {
+	private void createPanelDark() {
+		int x = (int) Math.round((1920 - 960) * scaleFactor);
+		int y = (int) Math.round((1080 - 1000) * scaleFactor);
+		int w = (int) Math.round(600 * scaleFactor);
+		int h = (int) Math.round(600 * scaleFactor);
+		darkPanel.setBounds(x,y,w,h);
+		darkPanel.setLayout(new GridLayout(darkMatrix.length, darkMatrix[0].length));
+		darkPanel.setBackground(gui.getImageFactory().getDefaultMarkColor());
+		add(darkPanel);
+	}
+	
+	private void createLblBg() {
+		int borderSize = (int) Math.round(2 * scaleFactor);
+		int borderRadius = (int) Math.round(64 * scaleFactor);
+		int x = (int) Math.round(340 * scaleFactor);
+		int y = (int) Math.round((1080 - 1020) * scaleFactor);
+		int w = (int) Math.round(1240 * scaleFactor);
+		int h = (int) Math.round(640 * scaleFactor);
+		
+		lblBg.setBounds(x,y,w,h);
+		lblBg.setOpaque(true);
+		lblBg.setBackground(gui.getImageFactory().getDefaultMarkColor());
+		lblBg.setBorder(new InternalBorderRound(borderSize, borderRadius, gui.getImageFactory().getColorDefault()));
+		
+		add(lblBg);
+	}
+	
+	private void putBottonsLight() {
 		int borderSize = (int) Math.round(10 * scaleFactor);
 		int borderRadius = (int) Math.round(96 * scaleFactor);
 		
 		for(int r = 0; r < 3; r++) 
 			for(int c = 0; c < 3; c++) {
-				matrix[r][c] = new JButton();
-				matrix[r][c].setFocusable(false);
-				matrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, panel.getBackground()));
-				matrix[r][c].addMouseListener(getMouseAdapter());
-				panel.add(matrix[r][c]);
+				lightMatrix[r][c] = new JButton();
+				lightMatrix[r][c].setFocusable(false);
+				lightMatrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, lightPanel.getBackground()));
+				lightMatrix[r][c].addMouseListener(getMouseAdapter());
+				lightPanel.add(lightMatrix[r][c]);
 			}
 		
-		matrix[0][0].setBackground(colorDarkSlateGray);
-		matrix[0][0].addActionListener(new ActionListener() {
+		lightMatrix[0][0].setBackground(light_1);
+		lightMatrix[0][0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorDarkSlateGray);
-				gui.setPanel(new InitialPanel(gui));
-			}
-		});
-		
-		matrix[0][1].setBackground(colorDarkGoldenRod);
-		matrix[0][1].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorDarkGoldenRod);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_1));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[0][2].setBackground(colorSienna);
-		matrix[0][2].addActionListener(new ActionListener() {
+		lightMatrix[0][1].setBackground(light_2);
+		lightMatrix[0][1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorSienna);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_2));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[1][0].setBackground(colorMediumOrchid);
-		matrix[1][0].addActionListener(new ActionListener() {
+		lightMatrix[0][2].setBackground(light_3);
+		lightMatrix[0][2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorMediumOrchid);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_3));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[1][1].setBackground(colorDarkOliveGreen);
-		matrix[1][1].addActionListener(new ActionListener() {
+		lightMatrix[1][0].setBackground(light_4);
+		lightMatrix[1][0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorDarkOliveGreen);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_4));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[1][2].setBackground(colorCrimson);
-		matrix[1][2].addActionListener(new ActionListener() {
+		lightMatrix[1][1].setBackground(light_5);
+		lightMatrix[1][1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorCrimson);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_5));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[2][0].setBackground(colorDarkCyan);
-		matrix[2][0].addActionListener(new ActionListener() {
+		lightMatrix[1][2].setBackground(light_6);
+		lightMatrix[1][2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorDarkCyan);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_6));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[2][1].setBackground(colorDarkGreen);
-		matrix[2][1].addActionListener(new ActionListener() {
+		lightMatrix[2][0].setBackground(light_7);
+		lightMatrix[2][0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorDarkGreen);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_7));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 		
-		matrix[2][2].setBackground(colorPurple);
-		matrix[2][2].addActionListener(new ActionListener() {
+		lightMatrix[2][1].setBackground(light_8);
+		lightMatrix[2][1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gui.getImageFactory().setColorDefault(colorPurple);
-				gui.setPanel(new InitialPanel(gui));
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_8));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		lightMatrix[2][2].setBackground(light_9);
+		lightMatrix[2][2].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new LightFactory(gui.getImageFactory().getScreenResolution(), light_9));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+	}
+	
+	private void putBottonsDark() {
+		int borderSize = (int) Math.round(10 * scaleFactor);
+		int borderRadius = (int) Math.round(96 * scaleFactor);
+		
+		for(int r = 0; r < 3; r++) 
+			for(int c = 0; c < 3; c++) {
+				darkMatrix[r][c] = new JButton();
+				darkMatrix[r][c].setFocusable(false);
+				darkMatrix[r][c].setBorder(new InternalBorderRound(borderSize, borderRadius, darkPanel.getBackground()));
+				darkMatrix[r][c].addMouseListener(getMouseAdapter());
+				darkPanel.add(darkMatrix[r][c]);
+			}
+		
+		darkMatrix[0][0].setBackground(dark_1);
+		darkMatrix[0][0].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_1));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[0][1].setBackground(dark_2);
+		darkMatrix[0][1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_2));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[0][2].setBackground(dark_3);
+		darkMatrix[0][2].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_3));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[1][0].setBackground(dark_4);
+		darkMatrix[1][0].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_4));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[1][1].setBackground(dark_5);
+		darkMatrix[1][1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_5));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[1][2].setBackground(dark_6);
+		darkMatrix[1][2].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_6));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[2][0].setBackground(dark_7);
+		darkMatrix[2][0].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_7));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[2][1].setBackground(dark_8);
+		darkMatrix[2][1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_8));
+				gui.setPanel(new InitialPanel(gui)); 
+			}
+		});
+		
+		darkMatrix[2][2].setBackground(dark_9);
+		darkMatrix[2][2].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gui.setImageFactory(new DarkFactory(gui.getImageFactory().getScreenResolution(), dark_9));
+				gui.setPanel(new InitialPanel(gui)); 
 			}
 		});
 	}

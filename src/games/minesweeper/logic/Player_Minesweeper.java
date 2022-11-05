@@ -1,13 +1,13 @@
 package games.minesweeper.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 
 public class Player_Minesweeper {
 	
 	protected Map_Minesweeper map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Player_Minesweeper(Map_Minesweeper map, Factory imageFactory) {
+	public Player_Minesweeper(Map_Minesweeper map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 	}

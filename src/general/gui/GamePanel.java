@@ -4,7 +4,7 @@ package general.gui;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.data.PlayerScore;
 import general.data.StatsData;
 import general.data.PlayersRegistry;
@@ -115,7 +115,7 @@ public abstract class GamePanel extends GeneralPanel{
 		matrix[row][column].setBackground(graphicCell.getBackground());
 	}
 
-	public Factory getImageFactory() {
+	public AbstractFactory getImageFactory() {
 		return gui.getImageFactory();
 	}	
 	

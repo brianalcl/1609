@@ -3,7 +3,7 @@ package games.shot.logic;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 
@@ -11,9 +11,9 @@ public class Shot_Shoot {
 	protected Queue<Cell> shot;
 	protected Map_Shoot map;
 	protected GraphicCell representation;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Shot_Shoot(Map_Shoot map, Factory imageFactory) {
+	public Shot_Shoot(Map_Shoot map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getCircle(), this.map.getFreeCell().getBackground());

@@ -1,19 +1,19 @@
 package games.shot.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import sound.Sound;
 
 public class Player_Shoot {
 	protected Cell player;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	protected Sound sound;
 	protected Map_Shoot map;
 	protected GraphicCell representation;
 	protected Shot_Shoot shot;
 	
-	public Player_Shoot(Map_Shoot map, Factory imageFactory, Sound sound) {
+	public Player_Shoot(Map_Shoot map, AbstractFactory imageFactory, Sound sound) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.sound = sound;

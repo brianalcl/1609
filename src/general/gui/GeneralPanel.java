@@ -4,7 +4,7 @@ import java.awt.Font;
 
 import javax.swing.JPanel;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import gui.GUI;
 
 public abstract class GeneralPanel extends JPanel{
@@ -21,7 +21,7 @@ public abstract class GeneralPanel extends JPanel{
 		setSize(this.gui.getImageFactory().getScreenResolution());
 		setLocation(0, 0);
 		setLayout(null);
-		scaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / Factory.DEFAULT_HEIGHT;
+		scaleFactor = this.gui.getImageFactory().getScreenResolution().getHeight() / AbstractFactory.DEFAULT_HEIGHT;
 		font = this.gui.getTheFont();
 	}
 }

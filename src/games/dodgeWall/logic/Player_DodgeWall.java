@@ -1,18 +1,18 @@
 package games.dodgeWall.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import sound.Sound;
 
 public class Player_DodgeWall {
 	protected Cell[][] player;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	protected Sound sound;
 	protected Map_DodgeWall map;
 	protected GraphicCell representation;
 	
-	public Player_DodgeWall(Map_DodgeWall map, Factory imageFactory, Sound sound) {
+	public Player_DodgeWall(Map_DodgeWall map, AbstractFactory imageFactory, Sound sound) {
 		this.player = new Cell[3][3];
 		this.map = map;
 		this.imageFactory = imageFactory;

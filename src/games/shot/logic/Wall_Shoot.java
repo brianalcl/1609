@@ -1,6 +1,6 @@
 package games.shot.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
 
@@ -8,9 +8,9 @@ public class Wall_Shoot {
 	
 	protected GraphicCell representation;
 	protected Map_Shoot map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Wall_Shoot(Map_Shoot map, Factory imageFactory) {
+	public Wall_Shoot(Map_Shoot map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getCapsule(), this.map.getFreeCell().getBackground());

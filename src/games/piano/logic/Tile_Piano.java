@@ -3,14 +3,14 @@ package games.piano.logic;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
 import sound.Sound;
 
 public class Tile_Piano {
-	protected Factory factory;
+	protected AbstractFactory factory;
 	protected Sound sound;
 	protected GraphicCell representation;
 	protected Map_Piano map;
@@ -19,7 +19,7 @@ public class Tile_Piano {
 	protected int pos;
 	protected boolean click;
 	
-	public Tile_Piano(Map_Piano map, Factory factory, Sound sound) {
+	public Tile_Piano(Map_Piano map, AbstractFactory factory, Sound sound) {
 		this.factory = factory;
 		this.sound = sound;
 		this.map = map;

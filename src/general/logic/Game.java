@@ -1,6 +1,6 @@
 package general.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.gui.GamePanel;
 import general.threads.Clock;
 
@@ -65,7 +65,7 @@ public abstract class Game {
 		return gameOver;
 	}
 	
-	public Factory getImageFactory() {
+	public AbstractFactory getImageFactory() {
 		return panel.getImageFactory();
 	}
 	

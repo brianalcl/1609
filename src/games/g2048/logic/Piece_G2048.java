@@ -2,7 +2,7 @@ package games.g2048.logic;
 
 import java.awt.Color;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 
@@ -10,9 +10,9 @@ public class Piece_G2048{
 	protected int num;
 	protected Cell[][] cells;
 	protected Map_G2048 map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 
-	public Piece_G2048(int row, int column, Map_G2048 map, Factory imageFactory) {
+	public Piece_G2048(int row, int column, Map_G2048 map, AbstractFactory imageFactory) {
 		int rowMap = row * 2 + 2;
 		int columnMap = column * 3 + 3;
 		this.num = 0;

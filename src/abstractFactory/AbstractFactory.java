@@ -1,4 +1,4 @@
-package factory;
+package abstractFactory;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -6,7 +6,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public abstract class Factory {
+public abstract class AbstractFactory {
 	protected int screenWidth;
 	protected int screenHeight;
 	public static final int DEFAULT_WIDTH = 1920;
@@ -19,7 +19,7 @@ public abstract class Factory {
 	 * @param screenWidth
 	 * @param screenHeight
 	 */
-	public Factory(Dimension resolution) {
+	public AbstractFactory(Dimension resolution) {
 		screenWidth = (int) resolution.getWidth();
 		screenHeight = (int) resolution.getHeight();
 	}

@@ -1,6 +1,6 @@
 package games.collect.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
@@ -9,9 +9,9 @@ public class Point_Collect {
 	protected Cell point;
 	protected GraphicCell representation;
 	protected Map_Collect map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Point_Collect(Map_Collect map, Factory imageFactory) {
+	public Point_Collect(Map_Collect map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getCircle(), this.map.getFreeCell().getBackground());

@@ -8,7 +8,7 @@ import java.io.InputStream;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import sound.Sound;
 
 public class GUI extends JFrame {
@@ -17,7 +17,7 @@ public class GUI extends JFrame {
 	 * SerialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
-	protected Factory factory;
+	protected AbstractFactory factory;
 	protected Sound sound;
 	protected JPanel panel;
 	protected Font font;
@@ -27,7 +27,7 @@ public class GUI extends JFrame {
 	 * @param factory a factory.
 	 * @param sound a sound object.
 	 */
-	public GUI(Factory factory, Sound sound) {
+	public GUI(AbstractFactory factory, Sound sound) {
 		this.factory = factory;
 		this.sound = sound;
 		this.panel = new JPanel();
@@ -65,8 +65,16 @@ public class GUI extends JFrame {
 	 * Return the factory.
 	 * @return the factory.
 	 */
-	public Factory getImageFactory() {
+	public AbstractFactory getImageFactory() {
 		return factory;
+	}
+	
+	/**
+	 * Set a factory.
+	 * @param factory
+	 */
+	public void setImageFactory(AbstractFactory factory) {
+		this.factory = factory;
 	}
 	
 	/**

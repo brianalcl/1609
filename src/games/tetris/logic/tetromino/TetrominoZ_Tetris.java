@@ -1,6 +1,6 @@
 package games.tetris.logic.tetromino;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import games.tetris.logic.Map_Tetris;
 import general.logic.Map;
 import sound.Sound;
@@ -10,7 +10,7 @@ public class TetrominoZ_Tetris extends Tetromino_Tetris{
 	/**
 	* Create a new tetromino in the shape of an "Z" with the TetrisMap and a factory.
 	*/
-	public TetrominoZ_Tetris(Map_Tetris tetrisMap, Factory factory, Sound sound) {
+	public TetrominoZ_Tetris(Map_Tetris tetrisMap, AbstractFactory factory, Sound sound) {
 		super(tetrisMap, factory,sound);
 		tetromino[0] = tetrisMap.getCell(Map.COLUMN -2, 4);
 		tetromino[1] = tetrisMap.getCell(Map.COLUMN -1, 3);

@@ -3,7 +3,7 @@ package games.dodgeWall.logic;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.GraphicCell;
 import general.utilities.NRandom;
@@ -13,9 +13,9 @@ public class Wall_DodgeWall {
 	protected Deque<Cell> wall;
 	protected GraphicCell representation;
 	protected Map_DodgeWall map;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	
-	public Wall_DodgeWall(Map_DodgeWall map, Factory imageFactory) {
+	public Wall_DodgeWall(Map_DodgeWall map, AbstractFactory imageFactory) {
 		this.map = map;
 		this.imageFactory = imageFactory;
 		this.representation = new GraphicCell(this.imageFactory.getSquare(), this.map.getFreeCell().getBackground());

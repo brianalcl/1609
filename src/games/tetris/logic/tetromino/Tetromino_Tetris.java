@@ -1,6 +1,6 @@
 package games.tetris.logic.tetromino;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import games.tetris.logic.Map_Tetris;
 import general.logic.Cell;
 import general.logic.GraphicCell;
@@ -15,7 +15,7 @@ public abstract class Tetromino_Tetris {
 	protected Map_Tetris tetrisMap;
 	protected Pair<Integer, Integer>[] movements;
 	protected GraphicCell representation;
-	protected Factory factory;
+	protected AbstractFactory factory;
 	protected Sound sound;
 	
 	/**
@@ -24,7 +24,7 @@ public abstract class Tetromino_Tetris {
 	 * @param factory A Factory.
 	 */
 	@SuppressWarnings("unchecked")
-	protected Tetromino_Tetris(Map_Tetris tetrisMap, Factory factory, Sound sound) {
+	protected Tetromino_Tetris(Map_Tetris tetrisMap, AbstractFactory factory, Sound sound) {
 		this.tetrisMap = tetrisMap;
 		this.factory = factory;
 		this.sound = sound;

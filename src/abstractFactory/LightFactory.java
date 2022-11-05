@@ -1,21 +1,30 @@
-package factory;
+package abstractFactory;
 
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Icon;
 
-public class ColorfulFactory extends Factory{
+public class LightFactory extends AbstractFactory{
 	private Icon capsule;
 	private Icon square;
 	private Icon triangle;
 	private Icon circle;
 	
-	public ColorfulFactory(Dimension resolution) {
+	public LightFactory(Dimension resolution) {
 		super(resolution);
 		
-		colorDefault = new Color(85, 107, 47);
-		colorForeground = new Color(255, 255, 255, 200);
+		colorDefault = new Color(82, 190, 128);
+		colorForeground = new Color(0, 0, 0, 150);
+		
+		createCommonIcons();
+	}
+	
+	public LightFactory(Dimension resolution, Color colorDefault) {
+		super(resolution);
+		
+		this.colorDefault = colorDefault;
+		colorForeground = new Color(0, 0, 0, 150);
 		
 		createCommonIcons();
 	}
@@ -26,10 +35,10 @@ public class ColorfulFactory extends Factory{
 	}
 
 	private void createCommonIcons() {
-		capsule = getTheIcon("/assets/img/r1080/gameImages/common/capsule.png");
-		square = getTheIcon("/assets/img/r1080/gameImages/common/square.png");
-		triangle = getTheIcon("/assets/img/r1080/gameImages/common/triangle.png");
-		circle = getTheIcon("/assets/img/r1080/gameImages/common/circle.png");
+		capsule = getTheIcon("/assets/img/dark/gameImages/common/capsule.png");
+		square = getTheIcon("/assets/img/dark/gameImages/common/square.png");
+		triangle = getTheIcon("/assets/img/dark/gameImages/common/triangle.png");
+		circle = getTheIcon("/assets/img/dark/gameImages/common/circle.png");
 	}
 	
 	public Color getColorDefault() {
@@ -64,59 +73,59 @@ public class ColorfulFactory extends Factory{
 	}
 	
 	public Icon getGameIcon(String name) {
-		return getTheIcon("/assets/img/r1080/gameIcons/"+name+".png");
+		return getTheIcon("/assets/img/dark/gameIcons/"+name+".png");
 	}
 
 	public Icon getKeyboard0() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard0.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard0.png");
 	}
 
 	public Icon getKeyboard1() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard1.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard1.png");
 	}
 
 	public Icon getKeyboard2() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard2.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard2.png");
 	}	
 
 	public Icon getKeyboard3() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard3.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard3.png");
 	}	
 
 	public Icon getKeyboard4() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard4.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard4.png");
 	}	
 
 	public Icon getKeyboard5() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard5.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard5.png");
 	}
 	
 	public Icon getKeyboard6() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard6.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard6.png");
 	}
 	
 	public Icon getKeyboard7() {
-		return getTheIcon("/assets/img/r1080/gui/keyboard7.png");
+		return getTheIcon("/assets/img/dark/gui/keyboard7.png");
 	}
 
 	public Icon getMouse() {
-		return getTheIcon("/assets/img/r1080/gui/mouse.png");
+		return getTheIcon("/assets/img/dark/gui/mouse.png");
 	}
 
 	public Icon getRestart() {
-		return getTheIcon("/assets/img/r1080/gui/restart.png");
+		return getTheIcon("/assets/img/dark/gui/restart.png");
 	}
 
 	public Icon getHome() {
-		return getTheIcon("/assets/img/r1080/gui/home.png");
+		return getTheIcon("/assets/img/dark/gui/home.png");
 	}
 
 	public Icon getExit() {
-		return getTheIcon("/assets/img/r1080/gui/exit.png");
+		return getTheIcon("/assets/img/dark/gui/exit.png");
 	}
 
 	public Icon getConfiguration() {
-		return getTheIcon("/assets/img/r1080/gui/configuration.png");
+		return getTheIcon("/assets/img/dark/gui/configuration.png");
 	}
 
 	public Icon getEmpty() {

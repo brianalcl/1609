@@ -3,7 +3,7 @@ package games.snake.logic;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 import general.logic.Game;
 import general.logic.GraphicCell;
@@ -12,14 +12,14 @@ import sound.Sound;
 
 public class Snake_Snake {
 	protected Deque<Cell> snake;
-	protected Factory imageFactory;
+	protected AbstractFactory imageFactory;
 	protected Sound sound;
 	protected Map_Snake map;
 	protected GraphicCell representation;
 	protected int direction;
 	protected boolean isSetDirection;
 	
-	public Snake_Snake(Map_Snake map, Factory imageFactory, Sound sound) {
+	public Snake_Snake(Map_Snake map, AbstractFactory imageFactory, Sound sound) {
 		this.snake = new LinkedList<>();
 		this.map = map;
 		this.imageFactory = imageFactory;

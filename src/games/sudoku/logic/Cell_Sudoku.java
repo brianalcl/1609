@@ -1,6 +1,6 @@
 package games.sudoku.logic;
 
-import factory.Factory;
+import abstractFactory.AbstractFactory;
 import general.logic.Cell;
 
 public class Cell_Sudoku extends Cell{
@@ -8,9 +8,9 @@ public class Cell_Sudoku extends Cell{
 	protected int userNumber;
 	protected boolean mark;
 	protected boolean editable;
-	protected Factory factory;
+	protected AbstractFactory factory;
 	
-	public Cell_Sudoku(int row, int column, Map_Sudoku map, Factory factory) {
+	public Cell_Sudoku(int row, int column, Map_Sudoku map, AbstractFactory factory) {
 		super(row, column, map);
 		this.number = 0;
 		this.userNumber = 0;
