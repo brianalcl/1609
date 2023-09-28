@@ -22,5 +22,4 @@ The code is written in English (variables, methods, classes...) and is organized
 
 The project runs in a resolution of 1280x720 in windowed mode, it can be set to 1920x1080 in windowed mode by changing two parameters in the "Launcher" class.
 
-The project is not finished yet. Changes and improvements will be added over time.
 At the time of updating this information, 1609 has 9 games, among which stand out: Snake, Tetris, Minesweeper, Sudoku and 2048.
